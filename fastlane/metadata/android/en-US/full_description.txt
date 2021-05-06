@@ -9,5 +9,5 @@ See when you’re free.
 <b>Night owls, rejoice.</b> Because Vacation Days has a beautiful Dark Mode for late-night viewing. Toggle it automatically or have it follow the system appearance.
 
 Webpage: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
-Translate To Don’t: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a> 
+Translate Vacation Days: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a> 
 Source on GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
