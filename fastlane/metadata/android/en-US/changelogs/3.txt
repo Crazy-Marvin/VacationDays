@@ -1,2 +1,2 @@
 Little improvements under the hood
-Fix fastlane setup
+Fixed Fastlane setup
