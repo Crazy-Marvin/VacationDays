@@ -7,7 +7,7 @@
 [![Pull requests](https://img.shields.io/github/issues-pr/Crazy-Marvin/VacationDays.svg?style=flat)](https://github.com/Crazy-Marvin/VacationDays/pulls)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/7dadc506c2df42a38c2ef733948f9492)](https://www.codacy.com/gh/Crazy-Marvin/VacationDays/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Crazy-Marvin/VacationDays&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/Crazy-Marvin/VacationDays/branch/development/graph/badge.svg?token=ECQID61KGH)](https://codecov.io/gh/Crazy-Marvin/ToDont)
-[![Hosted Weblate](https://hosted.weblate.org/widgets/VacationDays/-/svg-badge.svg)](https://hosted.weblate.org/engage/todont/)
+[![Hosted Weblate](https://hosted.weblate.org/widgets/vacation-days/-/svg-badge.svg)](https://hosted.weblate.org/engage/vacation-days/)
 [![Known Vulnerabilities](https://snyk.io/test/github/Crazy-Marvin/VacationDays/badge.svg?targetFile=app%2Fbuild.gradle)](https://snyk.io/test/github/Crazy-Marvin/VacationDays?targetFile=app%2Fbuild.gradle)
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19)
 [![F-Droid](https://img.shields.io/f-droid/v/rocks.poopjournal.VacationDays.svg)](https://f-droid.org/en/packages/rocks.poopjournal.vacationdays/)
