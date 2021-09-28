@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <!-- change this color value -->
+            <solid android:color="@color/calendar_selected_day_bg" />
+            <stroke android:width="16dp"
+                android:color="@android:color/transparent"/>
+
+        </shape>
+    </item>
+</layer-list>

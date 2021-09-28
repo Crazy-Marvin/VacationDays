@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/backgroundcolor"
+
+    >
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:gravity="left"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:textColor="@color/textcolorblack"
+        android:text="Appearance"/>
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        >
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:text="  Follow System"
+            android:id="@+id/followsys"
+            android:checked="false"
+            android:textSize="16sp"
+            android:buttonTint="@color/apptheme"
+            android:onClick="onRadioButtonClicked"
+            android:layout_weight="0.13"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  Light"
+            android:id="@+id/light"
+            android:checked="false"
+            android:textSize="16sp"
+            android:onClick="onRadioButtonClicked"
+            android:buttonTint="@color/apptheme"
+            android:layout_weight="0.13" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  Dark"
+            android:id="@+id/dark"
+            android:checked="false"
+            android:textSize="16sp"
+            android:onClick="onRadioButtonClicked"
+            android:buttonTint="@color/apptheme"
+            android:layout_weight="0.13" />
+    </RadioGroup>
+    <Button
+        android:id="@+id/btndone"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Done"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/textcolorwhite"
+        android:layout_gravity="end"
+        android:layout_marginRight="25dp"
+        />
+</LinearLayout>

@@ -1,0 +1,49 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MyVacationDays" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/apptheme</item>
+        <item name="colorPrimaryVariant">@color/apptheme</item>
+        <!--        <item name="colorOnPrimary">@color/white</item>-->
+        <!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+        <!--        <item name="colorSecondary">@color/teal_200</item>-->
+        <!--        <item name="colorSecondaryVariant">@color/teal_700</item>-->
+        <!--        <item name="colorOnSecondary">@color/black</item>-->
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="BottomNavigationView" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#DF26272C</item>
+
+    </style>
+    <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+        <!--        <item name="android:textColor">#FFAF01</item>-->
+    </style>
+    <style name="CustomCalendarTitle">
+        <item name="android:textSize">@dimen/calendar_text_medium</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingBottom">@dimen/calendar_month_title_bottommargin</item>
+        <item name="android:paddingTop">@dimen/calendar_month_topmargin</item>
+        <!--            <item name="android:color">@android:color/holo_purple</item>-->
+        <item name="android:textColor">@color/textcolorblack</item>
+    </style>
+
+    <style name="customHeaderLayout" parent="@style/Widget.MaterialComponents.MaterialCalendar.HeaderLayout">
+        <item name="android:background">@color/apptheme</item>
+    </style>
+    <style name="MyMaterialCalendar"  parent="Widget.MaterialComponents.MaterialCalendar">
+        <item name="rangeFillColor">@color/apptheme</item>
+    </style>
+
+    <!--    //////////////////////////////////////////////////-->
+    <style name="CustomMaterialCalendarFullscreenTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@color/apptheme</item>
+        <item name="materialCalendarHeaderLayout">@style/customHeaderLayout</item>
+        <!--        <item name="materialCalendarStyle">@style/MyMaterialCalendar</item>-->
+    </style>
+
+</resources>
