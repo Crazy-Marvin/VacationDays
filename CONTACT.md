@@ -1,4 +1,4 @@
-Welcome to the VacationDays community
+Welcome to the Vacation Days community
 
 Give and take constructive critique, observing desired privacy.
 Finding yourselves unable, contact marvin@poopjournal.rocks
