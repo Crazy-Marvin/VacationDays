@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="calendar">Kalender</string>
+    <string name="timeline">Zeitstrahl</string>
+    <string name="settings">Einstellungen</string>
+    <string name="about">Über</string>
+    <string name="app_name">Vacation Days</string>
+</resources>
