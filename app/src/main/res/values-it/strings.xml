@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_blank_fragment">Ciao frammento vuoto</string>
+    <string name="calendar">Calendario</string>
+    <string name="timeline">Cronologia</string>
+    <string name="settings">Impostazioni</string>
+    <string name="about">Informazioni</string>
+    <string name="app_name">Giorni di vacanza</string>
+</resources>

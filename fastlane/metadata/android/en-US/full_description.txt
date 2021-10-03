@@ -1,12 +1,13 @@
-<b>A good look at bad habits.</b> Jot down your vices in a tap, right from the home page. Use Notes to add details — like a healthy alternative to that chocolate bar you cannot resist. And organise your input with Labels.
+See when you’re free.
 
+<b>It only takes a glance.</b> View your vacation days in one of two layouts: a timeline or a calendar. And with counters in the top bar, see how many vacation days you have this year — and how many are left.
 
-<b>Faster than you can grab a pen.</b> Find your bad habits on the home page, and cross out the ones you give into. These will move to Done for the day. The next morning, start off fresh with a full list of things to avoid.
+<b>Sorted in seconds.</b> Tap the floating button to add new vacation days. Enter a name, swipe to select a date range, and you’re done.
 
+<b>Switching phones?</b> With Vacation Days, back up all your data in an instant and restore it on your next device. You can also make periodic backups to keep your data safe.
 
-<b>Stay on top of your progress.</b> The Log gives you insight into your overall success rates and pinpoints what bad habit you have been most attached to — over a week, a month, or a year. So you can easily work toward a better you.
+<b>Night owls, rejoice.</b> Because Vacation Days has a beautiful Dark Mode for late-night viewing. Toggle it automatically or have it follow the system appearance.
 
-
-Webpage: <a href="https://www.crazymarvin.com/todont">https://www.crazymarvin.com/todont</a>
-Translate To Don’t: <a href="https://hosted.weblate.org/engage/todont/">https://hosted.weblate.org/engage/todont/</a> 
-Source on GitHub: <a href="https://github.com/Crazy-Marvin/ToDont">https://github.com/Crazy-Marvin/ToDont</a>
+Webpage: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
+Translate Vacation Days: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a> 
+Source on GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
