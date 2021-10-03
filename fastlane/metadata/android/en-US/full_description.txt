@@ -1,6 +1,6 @@
 See when you’re free and plan holidays.
 
-<b>At a glance.</b> View your vacation days in one of two layouts; a timeline or a calendar. Counters in the top bar show your vacation days for the current year — and how many are left.
+<b>At a glance.</b> View your vacation days in one of two layouts: a timeline or a calendar. Counters in the top bar show your vacation days for the current year — and how many are left.
 
 <b>Sorted in seconds.</b> Tap the floating button to add new vacation days. Enter a name, swipe to select a date range, and you’re done.
 
@@ -10,4 +10,4 @@ See when you’re free and plan holidays.
 
 Webpage: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
 Translate it on Hosted Weblate: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
-Libre source-code on GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
+Libre software on GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
