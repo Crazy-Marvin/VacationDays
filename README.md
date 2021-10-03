@@ -1,5 +1,5 @@
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Crazy-Marvin/VacationDays/CI/development)](https://github.com/Crazy-Marvin/VacationDays/actions)
-[![License](https://img.shields.io/github/license/Crazy-Marvin/VacationDays.svg)](https://github.com/Crazy-Marvin/VacationDays/blob/development/LICENSE)
+[![License](https://img.shields.io/github/license/Crazy-Marvin/VacationDays.svg)](https://github.com/Crazy-Marvin/VacationDays/blob/trunk/LICENSE)
 [![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/ToDont.svg?style=flat)](https://github.com/Crazy-Marvin/VacationDays/commits)
 [![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/VacationDays/total.svg?style=flat)](https://github.com/Crazy-Marvin/ToDont/releases)
 [![Latest tag](https://img.shields.io/github/tag/Crazy-Marvin/VacationDays.svg?style=flat)](https://github.com/Crazy-Marvin/VacationDays/tags)
