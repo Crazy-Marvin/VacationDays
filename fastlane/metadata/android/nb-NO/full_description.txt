@@ -1,0 +1,13 @@
+Sjekk når du har ledig tid og planlegg ferier.
+
+<b>Få overblikk.</b> Sjekk hvor mange feriedager du har i to forskjellige visninger; tidslinje eller kalender. I telleren i toppfeltet kan du se hvor mange feriedager du har og har igjen i inneværende år.
+
+<b>Sortert på sekunder.</b> Trykk på den flytende knappen for å legge til feriedager. Skriv inn et navn, dra for å velge et antall sammenhengende dager, og du er ferdig
+
+<b>Bytte enhet?</b> Sikkerhetskopier all din data øyeblikkelig og gjenopprette den på neste enhet. Du kan også ta periodiske sikkerhetskopier for å trygge dataen din.
+
+<b>Nattuglestøtte.</b> En stilig mørk drakt tilgjengelig for visning sent på natt. Veksle det på automatisk eller følg systemforvalget.
+
+Nettside: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
+Bistå oversettelsen på Hosted Weblate: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
+Fri kildekode på GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>

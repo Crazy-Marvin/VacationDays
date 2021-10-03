@@ -1,0 +1,13 @@
+Voyez quand vous êtes libre et planifiez vos vacances.
+
+<b>D'un seul coup d'œil</b> Visualisez vos jours de vacances dans l'une des deux présentations suivantes : une chronologie ou un calendrier. Les compteurs dans la barre supérieure indiquent vos jours de vacances pour l'année en cours – et combien il en reste.
+
+<b>Organisez en quelques secondes...</b> Appuyez sur le bouton flottant pour ajouter de nouveaux jours de congés. Saisissez un nom, faites glisser pour sélectionner une plage de dates, et c'est tout.
+
+<b>Vous changez de téléphone ?</b> Sauvegardez toutes vos données sur un appareil et restaurez-les sur un autre. Effectuez des sauvegardes périodiques pour préserver la sécurité de vos données.
+
+<b>Réjouissez-vous, les couche-tards</b> Un magnifique mode sombre pour un affichage nocturne. Vous pouvez le faire basculer automatiquement ou lui faire suivre l'apparence du système.
+
+Site web : <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
+Traduisez l'appli sur Hosted Weblate : <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
+Code source ouvert et libre sur GitHub : <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
