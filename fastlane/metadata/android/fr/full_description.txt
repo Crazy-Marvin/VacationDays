@@ -10,4 +10,4 @@ Voyez quand vous êtes libre et planifiez vos vacances.
 
 Site web : <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
 Traduisez l'appli sur Hosted Weblate : <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
-Code source ouvert et libre sur GitHub : <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
+Logiciel libre sur GitHub : <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
