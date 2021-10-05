@@ -81,7 +81,7 @@
             android:layout_height="130dp"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:src="@color/apptheme"
+            android:src="@drawable/logo"
             android:onClick="logoclicked"/>
 
         <TextView
