@@ -63,7 +63,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:textColor="@color/apptheme"
+        android:textColor="@color/monthname"
         android:text="General"
         android:textSize="16sp"
         android:layout_marginLeft="10dp"/>
@@ -89,7 +89,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/apptheme"
+        android:textColor="@color/monthname"
         android:text="Data"
         android:textSize="16sp"
         android:layout_marginLeft="10dp"/>

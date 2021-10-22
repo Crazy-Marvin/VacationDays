@@ -27,7 +27,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="2dp"
                 android:background="@android:color/transparent"
-                android:textColor="@android:color/black"
+                android:textColor="@color/subitem_text"
                 android:textSize="14sp" />
 
             <TextView
@@ -36,7 +36,7 @@
                 android:layout_height="15dp"
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
-                android:textColor="@color/textcolorblack" />
+                android:textColor="@color/subitem_text" />
 
             <TextView
                 android:id="@+id/enddate"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@android:color/transparent"
-                android:textColor="@color/textcolorblack"
+                android:textColor="@color/subitem_text"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -52,7 +52,8 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp">
+            android:layout_margin="12dp"
+            android:background="@color/subitem_text_background">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -63,7 +64,7 @@
                     android:layout_height="60dp"
                     android:orientation="horizontal"
                     android:padding="12dp"
-                    android:background="#f3f3f3">
+                    android:background="@color/subitem_text_background">
 
                     <TextView
                         android:id="@+id/tv_sub_item_title"
@@ -71,9 +72,10 @@
                         android:layout_height="wrap_content"
                         android:text="Sub item title"
                         android:textStyle="bold"
-                        android:textColor="@android:color/black"
+                        android:textColor="@color/subitem_text"
                         android:layout_gravity="center_vertical"
                         android:maxLength="30"
+                        android:background="@android:color/transparent"
                         />
                     <ImageView
                         android:layout_width="20dp"

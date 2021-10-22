@@ -34,8 +34,8 @@
 
                 <ImageView
                     android:id="@+id/btnback"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="0.01"
                     android:src="@drawable/ic_back"
@@ -123,7 +123,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+
+            >
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -133,6 +135,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 app:cardCornerRadius="10dp"
+                android:background="@color/whiteTogray"
 
                 >
 
@@ -140,21 +143,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
                     android:orientation="vertical"
+                    android:background="@color/whiteTogray"
                     >
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/whiteTogray">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:background="@color/whiteTogray"
+                            >
 
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:layout_width="40dp"
@@ -171,6 +178,7 @@
                             android:layout_gravity="center"
                             android:layout_marginLeft="10dp"
                             android:orientation="vertical"
+                            android:background="@color/whiteTogray"
 
                             >
 
@@ -179,12 +187,17 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:textColor="@color/textcolorblack"
-                                android:text="Crazy Marvin"/>
+                                android:text="Crazy Marvin"
+                                android:background="@color/whiteTogray"
+                                />
 
                             <TextView
                                 android:layout_width="230dp"
                                 android:layout_height="wrap_content"
-                                android:text="Developer" />
+                                android:text="Developer"
+                                android:textColor="#776F6F"
+                                android:background="@color/whiteTogray"
+                                />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -193,7 +206,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:layout_marginRight="10dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:background="@color/whiteTogray"
+                        >
 
                         <ImageView
                             android:id="@+id/btnmail_crazymarvin"
@@ -236,27 +251,33 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="15dp"
                 app:cardCornerRadius="10dp"
+                android:background="@color/whiteTogray"
                 >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
                     android:orientation="vertical"
+                    android:background="@color/whiteTogray"
                     >
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:background="@color/whiteTogray"
+                        >
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:background="@color/whiteTogray"
+                            >
 
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:layout_width="40dp"
@@ -272,20 +293,24 @@
                             android:layout_gravity="center"
                             android:layout_marginLeft="10dp"
                             android:orientation="vertical"
-
+                            android:background="@color/whiteTogray"
                             >
 
                             <TextView
-                                android:layout_width="230dp"
+                                android:layout_width="235dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:textColor="@color/textcolorblack"
-                                android:text="Code Acquaria" />
+                                android:background="@color/whiteTogray"
+                                android:text="Code Acquaria"
+                                android:textColor="@color/textcolorblack" />
 
                             <TextView
                                 android:layout_width="230dp"
                                 android:layout_height="wrap_content"
-                                android:text="Developer" />
+                                android:text="Developer"
+                                android:textColor="#776F6F"
+                                android:background="@color/whiteTogray"
+                                />
                         </LinearLayout>
                     </LinearLayout>
 

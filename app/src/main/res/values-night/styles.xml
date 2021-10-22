@@ -32,17 +32,21 @@
     </style>
 
     <style name="customHeaderLayout" parent="@style/Widget.MaterialComponents.MaterialCalendar.HeaderLayout">
-        <item name="android:background">@color/apptheme</item>
+        <item name="android:background">@color/dateTimeRangePickerStateToday</item>
     </style>
     <style name="MyMaterialCalendar"  parent="Widget.MaterialComponents.MaterialCalendar">
         <item name="rangeFillColor">#FFC107</item>
     </style>
-
+    <style name="MyDatePickerBk" parent="@android:style/Widget.Material.Light.DatePicker">
+        <item name="android:headerBackground">@android:color/white</item>
+    </style>
     <!--    //////////////////////////////////////////////////-->
     <style name="CustomMaterialCalendarFullscreenTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen">
         <item name="android:windowIsFloating">false</item>
         <item name="android:statusBarColor">@color/apptheme</item>
         <item name="materialCalendarHeaderLayout">@style/customHeaderLayout</item>
+        <item name="colorSurface">@color/edtextcolor</item>
+
         <!--        <item name="materialCalendarStyle">@style/MyMaterialCalendar</item>-->
     </style>
 
