@@ -1,0 +1,13 @@
+Ne zaman boş olduğunuzu görün ve tatil planı yapın.
+
+<b>Bir bakışta.</b> Tatil günlerinizi iki düzenden birinde görüntüleyin: zaman çizelgesi veya takvim. Üst çubuktaki sayaçlar, geçerli yıl için tatil günlerinizi ve kaç tane kaldığını gösterir.
+
+<b>Saniyeler içinde.</b> Yeni tatil günleri eklemek için kayan düğmeye dokunun. Bir ad girin, bir tarih aralığı seçmek için kaydırın ve bu kadar, işiniz bitti.
+
+<b>Telefon mu değiştiriyorsunuz?</b> Tüm verilerinizi bir aygıtta yedekleyin ve başka bir aygıtta geri yükleyin. Verilerinizi güvende tutmak için düzenli yedeklemeler yapın.
+
+<b>Gece baykuşları, sevinin.</b> Gece geç saatlerde görüntülemek için güzel bir Karanlık Mod. Otomatik olarak değiştirin veya sistem görünümünü takip etmesini sağlayın.
+
+Web sayfası: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
+Barındırılan Weblate'te çevirin: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
+GitHub'da özgür yazılım: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
