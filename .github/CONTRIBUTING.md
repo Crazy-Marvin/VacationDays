@@ -8,7 +8,7 @@ Thank you for choosing to contribute to our project! We appreciate your input an
 - Proposing new features
 - Becoming a maintainer
 
-Check out the [README](https://github.com/Crazy-Marvin/VacationDays/blob/development/README.md) file for an overview of the project.
+Check out the [README](https://github.com/Crazy-Marvin/VacationDays/blob/trunk/README.md) file for an overview of the project.
 
 ## Any contributions you make will be under the Apache License 2.0
 
@@ -24,4 +24,4 @@ These are the steps you should take to contribute to this project;
 
 Following a successful PR review, the project maintainer will merge your contribution into the project.
 
-Hooray! You have successfully contributed to To Don't!
+Hooray! You have successfully contributed to Vacation Days!
