@@ -1,4 +1,4 @@
-package rocks.poopjournal.vacationdays;
+package rocks.poopjournal.myvacationdays;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,11 +23,11 @@ import java.util.List;
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
 
     private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
-    private List<Item> itemList;
-    DB_Controller db;
+    private List<rocks.poopjournal.myvacationdays.Item> itemList;
+    rocks.poopjournal.myvacationdays.DB_Controller db;
     Context con;
 
-    ItemAdapter(List<Item> itemList, DB_Controller db, Context con) {
+    ItemAdapter(List<rocks.poopjournal.myvacationdays.Item> itemList, rocks.poopjournal.myvacationdays.DB_Controller db, Context con) {
         this.itemList = itemList;
         this.db = db;
         this.con = con;
@@ -43,7 +43,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder itemViewHolder, int i) {
-        Item item = itemList.get(i);
+        rocks.poopjournal.myvacationdays.Item item = itemList.get(i);
         itemViewHolder.tvItemTitle.setText(item.getItemTitle());
         itemViewHolder.tvItemTitle.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -99,7 +99,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                                         break;
                                 }
                                 db.delete_mainItem(date);
-                                Helper.senddate=date;
+                                rocks.poopjournal.myvacationdays.Helper.senddate=date;
                                 Log.d("deleted", "deleted : " + date);
                                 Intent intent = new Intent(con, MainActivity.class);
                                 con.startActivity(intent);
@@ -132,7 +132,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         );
         layoutManager.setInitialPrefetchItemCount(item.getSubItemList().size());
         // Create sub item view adapter
-        Log.d("senddateitem","ye lo : "+Helper.senddate);
+        Log.d("senddateitem","ye lo : "+ rocks.poopjournal.myvacationdays.Helper.senddate);
 
         SubItemAdapter subItemAdapter = new SubItemAdapter(item.getSubItemList(),db,con);
         itemViewHolder.rvSubItem.setLayoutManager(layoutManager);

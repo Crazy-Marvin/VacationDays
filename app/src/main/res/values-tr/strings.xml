@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Tatil Günleri</string>
-    <string name="about">Hakkında</string>
-    <string name="settings">Ayarlar</string>
-    <string name="timeline">Zaman çizelgesi</string>
-    <string name="calendar">Takvim</string>
-    <string name="hello_blank_fragment">Merhaba boş parça</string>
-</resources>

@@ -6,4 +6,12 @@
     <string name="calendar">Calendar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="apache"> Beta - Apache License 2.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">GNU General Public License CE</string>
+    <string name="apachelicense">Apache License 2.0</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="backup">Note!\nIf your phone contains pre-existing backup file, Delete it first</string>
 </resources>
