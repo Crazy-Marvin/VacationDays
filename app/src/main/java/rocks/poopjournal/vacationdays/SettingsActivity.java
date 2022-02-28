@@ -1,11 +1,13 @@
-package rocks.poopjournal.myvacationdays;
+package rocks.poopjournal.vacationdays;
 
-import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -28,8 +30,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
-public class Settings extends AppCompatActivity {
-    rocks.poopjournal.myvacationdays.DB_Controller db;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
+public class SettingsActivity extends AppCompatActivity {
+    rocks.poopjournal.vacationdays.DB_Controller db;
     TextView modetitle;
     //*******STORAGE PERMISSION**********
     private static final int STORAGE_REQUEST_CODE_EXPORT = 1;
@@ -43,10 +48,10 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         db = new DB_Controller(getApplicationContext(), "", null, 2);
-        storagepermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        storagepermission = new String[]{WRITE_EXTERNAL_STORAGE};
         modetitle = findViewById(R.id.modetitle);
 //        Log.d("heyyyymode",""+AppCompatDelegate.getDefaultNightMode()+"  Night :"+AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-        switch (rocks.poopjournal.myvacationdays.Helper.isnightmodeon) {
+        switch (rocks.poopjournal.vacationdays.Helper.isnightmodeon) {
             case "followsys":
                 modetitle.setText("Follow System");
                 break;
@@ -61,10 +66,21 @@ public class Settings extends AppCompatActivity {
     }
 
     private boolean checkStoragePermission() {
+        if(Build.VERSION.SDK_INT==Build.VERSION_CODES.R){
+                return Environment.isExternalStorageManager();
+        }
+        else{
+            int result = ContextCompat.checkSelfPermission(SettingsActivity.this, READ_EXTERNAL_STORAGE);
+            int result1 = ContextCompat.checkSelfPermission(SettingsActivity.this, WRITE_EXTERNAL_STORAGE);
+            return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED;
+
+//            int result = ContextCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE);
+//            return result==PackageManager.PERMISSION_GRANTED;
+        }
         //check if storage permission is availbale or not, return true/false
-        boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
-                (PackageManager.PERMISSION_GRANTED);
-        return result;
+//        boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+//                (PackageManager.PERMISSION_GRANTED);
+//        return result;
 
     }
 
@@ -85,27 +101,34 @@ public class Settings extends AppCompatActivity {
                 CSVReader csvReader=new  CSVReader(new FileReader(csvfile.getAbsoluteFile()));
                 ArrayList<String[]> restoreData=new ArrayList<>();
 
-                int k=0;
-                for(int i=0;i<Helper.data.size();i++){
+                int k=Helper.data.size();
+                int counter;
+                if(k==0){
+                    counter=1;
+                }
+                else{
+                    counter=Helper.data.size();
+                }
+                for(int i=0;i<counter;i++){
+                    Log.d("bakwaasinloop","i am in"+counter);
                     String[] nextline;
                     while((nextline=csvReader.readNext())!=null){
-                        Log.d("readingcsvlength","Length"+nextline.length);
-                        Log.d("readingcsv[0]",""+ nextline[0]);
-                        Log.d("readingcsv[1]",""+ nextline[1]);
-                        Log.d("readingcsv[2]",""+ nextline[2]);
-                        Log.d("readingcsv[3]",""+ nextline[3]);
                         String id=nextline[0];
                         String title=nextline[1];
                         String monthyear=nextline[2];
                         String dates=nextline[3];
-                        db.insert_data(id, title,monthyear,dates);
+                        String newdates=dates.replaceAll("geodholaz",",");
+                        db.insert_data(id, title,monthyear,newdates);
+                        db.show_data();
+
+                        Helper.holidayTitle="";
                         k++;
                     }
                 }
-                db.show_data();
+               
                 Helper.whichTabSelected=0;
-                Toast.makeText(this, Helper.whichTabSelected+"Restored...."+Helper.data.size(), Toast.LENGTH_SHORT).show();
-                Intent in=new Intent(Settings.this,MainActivity.class);
+//                Toast.makeText(this, Helper.whichTabSelected+"Restored...."+Helper.data.size(), Toast.LENGTH_SHORT).show();
+                Intent in=new Intent(SettingsActivity.this,MainActivity.class);
                 startActivity(in);
                 finish();
             }catch (Exception e){
@@ -140,7 +163,10 @@ public class Settings extends AppCompatActivity {
                 fw.append(",");
                 fw.append(Helper.data.get(i)[2]);
                 fw.append(",");
-                fw.append(Helper.data.get(i)[3]);
+                String newdate= Helper.data.get(i)[3];
+                String new1=newdate.replaceAll(",","geodholaz");
+                Log.d("formatingdate",""+new1);
+                fw.append(new1);
                 fw.append(",");
                 fw.append("\n");
                 //Toast.makeText(this, "Backup Exported "+FileandPathname, Toast.LENGTH_LONG ).show();
@@ -189,30 +215,30 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 db.getMode();
-                Log.d("modeisbuttondone:", "" + rocks.poopjournal.myvacationdays.Helper.isnightmodeon);
-                if (rocks.poopjournal.myvacationdays.Helper.isnightmodeon.equals("followsys")) {
+                Log.d("modeisbuttondone:", "" + rocks.poopjournal.vacationdays.Helper.isnightmodeon);
+                if (rocks.poopjournal.vacationdays.Helper.isnightmodeon.equals("followsys")) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
                     modetitle.setText("Follow System");
                     d.dismiss();
-//                    Intent intennt = new Intent(Settings.this,Settings.class);
+//                    Intent intennt = new Intent(SettingsActivity.this,SettingsActivity.class);
 //                    startActivity(intennt);
 //                    overridePendingTransition(0, 0);
 //                    finish();
                 }
-                if (rocks.poopjournal.myvacationdays.Helper.isnightmodeon.equals("light")) {
+                if (rocks.poopjournal.vacationdays.Helper.isnightmodeon.equals("light")) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     modetitle.setText("Light");
                     d.dismiss();
-//                    Intent intennt = new Intent(Settings.this,Settings.class);
+//                    Intent intennt = new Intent(SettingsActivity.this,SettingsActivity.class);
 //                    startActivity(intennt);
 //                    overridePendingTransition(0, 0);
 //                    finish();
                 }
-                if (rocks.poopjournal.myvacationdays.Helper.isnightmodeon.equals("dark")) {
+                if (rocks.poopjournal.vacationdays.Helper.isnightmodeon.equals("dark")) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     modetitle.setText("Dark");
                     d.dismiss();
-//                    Intent intennt = new Intent(Settings.this,Settings.class);
+//                    Intent intennt = new Intent(SettingsActivity.this,SettingsActivity.class);
 //                    startActivity(intennt);
 //                    overridePendingTransition(0, 0);
 //                    finish();
@@ -232,21 +258,21 @@ public class Settings extends AppCompatActivity {
                 if (checked) {
                     modetitle.setText("Follow System");
                     db.update_mode("followsys");
-                    Log.d("modeisf:", "" + rocks.poopjournal.myvacationdays.Helper.isnightmodeon);
+                    Log.d("modeisf:", "" + rocks.poopjournal.vacationdays.Helper.isnightmodeon);
                     break;
                 }
             case R.id.light:
                 if (checked) {
                     modetitle.setText("Light");
                     db.update_mode("light");
-                    Log.d("modeisl:", "" + rocks.poopjournal.myvacationdays.Helper.isnightmodeon);
+                    Log.d("modeisl:", "" + rocks.poopjournal.vacationdays.Helper.isnightmodeon);
                     break;
                 }
             case R.id.dark:
                 if (checked) {
                     modetitle.setText("Dark");
                     db.update_mode("dark");
-                    Log.d("modeisd:", "" + rocks.poopjournal.myvacationdays.Helper.isnightmodeon);
+                    Log.d("modeisd:", "" + rocks.poopjournal.vacationdays.Helper.isnightmodeon);
                     break;
                 }
         }
@@ -266,11 +292,11 @@ public class Settings extends AppCompatActivity {
 //        String text="Bismillah di barkat";
 //        savefile(file_name,text);
         if(checkStoragePermission()){
-            importCSV();
+            //importCSV();
 
         }
         else{
-            requestStoragePermissionImport();
+           // requestStoragePermissionImport();
         }
 
 
@@ -288,6 +314,7 @@ public class Settings extends AppCompatActivity {
                     exportCSV();
                 } else {
                     //permission denied
+                    takePermission();
                     Toast.makeText(this, "Storage permission required...", Toast.LENGTH_LONG).show();
                 }
                 break;
@@ -303,6 +330,27 @@ public class Settings extends AppCompatActivity {
                 break;
             }
 
+        }
+    }
+
+    private void takePermission() {
+        if(Build.VERSION.SDK_INT==Build.VERSION_CODES.R){
+            try{
+                Intent intent=new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                intent.addCategory("android.intent.category.DEFAULT");
+                intent.setData(Uri.parse(String.format("package:%s",getApplicationContext().getPackageName())));
+                startActivityForResult(intent,2000);
+            } catch (Exception e) {
+                Intent obj=new Intent();
+                obj.setAction(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+                startActivityForResult(obj,2000);
+
+//                e.printStackTrace();
+            }
+        }
+        else{
+            ActivityCompat.requestPermissions(SettingsActivity.this,new String[]{
+                    WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE},101);
         }
     }
 

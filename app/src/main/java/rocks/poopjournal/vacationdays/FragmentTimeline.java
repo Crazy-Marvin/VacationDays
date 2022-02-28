@@ -1,4 +1,4 @@
-package rocks.poopjournal.myvacationdays;
+package rocks.poopjournal.vacationdays;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -29,7 +29,6 @@ public class FragmentTimeline extends Fragment {
         rv = v.findViewById(R.id.rv);
         db = new DB_Controller(getActivity(), "", null, 2);
         db.show_data();
-        Log.d("bakwaasDatafragmentTime",""+Helper.data.size());
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         ItemAdapter itemAdapter = new ItemAdapter(buildItemList(),db,getContext());

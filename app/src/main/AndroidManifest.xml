@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="rocks.poopjournal.myvacationdays"
+    package="rocks.poopjournal.vacationdays"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"  android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
         tools:replace="android:allowBackup"
@@ -13,10 +15,10 @@
         android:supportsRtl="true"
         android:requestLegacyExternalStorage="true"
         android:theme="@style/Theme.MyVacationDays2">
-        <activity android:name="rocks.poopjournal.myvacationdays.Settings"></activity>
-        <activity android:name="rocks.poopjournal.myvacationdays.DatePicker" />
-        <activity android:name="rocks.poopjournal.myvacationdays.About" />
-        <activity android:name="rocks.poopjournal.myvacationdays.MainActivity">
+        <activity android:name="rocks.poopjournal.vacationdays.SettingsActivity"></activity>
+        <activity android:name="rocks.poopjournal.vacationdays.DatePicker" />
+        <activity android:name="rocks.poopjournal.vacationdays.About" />
+        <activity android:name="rocks.poopjournal.vacationdays.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

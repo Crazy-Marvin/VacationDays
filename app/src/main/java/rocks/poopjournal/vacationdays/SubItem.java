@@ -1,4 +1,4 @@
-package rocks.poopjournal.myvacationdays;
+package rocks.poopjournal.vacationdays;
 
 public class SubItem {
     private String subItemTitle;

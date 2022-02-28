@@ -1,4 +1,4 @@
-package rocks.poopjournal.myvacationdays;
+package rocks.poopjournal.vacationdays;
 
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;

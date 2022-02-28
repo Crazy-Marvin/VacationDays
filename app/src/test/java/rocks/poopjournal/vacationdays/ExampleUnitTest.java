@@ -1,4 +1,4 @@
-package rocks.poopjournal.myvacationdays;
+package rocks.poopjournal.vacationdays;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package rocks.poopjournal.myvacationdays;
+package rocks.poopjournal.vacationdays;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -20,7 +20,7 @@ public class About extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         version=findViewById(R.id.versiontext);
-        version.setText(BuildConfig.VERSION_NAME+this.getString(R.string.apache) );
+        version.setText(BuildConfig.VERSION_NAME+" "+this.getString(R.string.apache) );
 }
 
     public void contact_codeaquaria(View view) {

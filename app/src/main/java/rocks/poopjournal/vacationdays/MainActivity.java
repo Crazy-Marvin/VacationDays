@@ -1,4 +1,4 @@
-package rocks.poopjournal.myvacationdays;
+package rocks.poopjournal.vacationdays;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
-                Intent i = new Intent(MainActivity.this, Settings.class);
+                Intent i = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(i);
                 return  true;
             case R.id.about:
