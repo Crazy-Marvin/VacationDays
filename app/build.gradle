@@ -7,7 +7,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "rocks.poopjournal.myvacationdays2"
+        applicationId "rocks.poopjournal.vacationdays"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
