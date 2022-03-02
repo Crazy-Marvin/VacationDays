@@ -28,6 +28,7 @@ public class FragmentTimeline extends Fragment {
         View v = inflater.inflate(R.layout.fragment_timeline, container, false);
         rv = v.findViewById(R.id.rv);
         db = new DB_Controller(getActivity(), "", null, 2);
+        db.show_data();
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         ItemAdapter itemAdapter = new ItemAdapter(buildItemList(),db,getContext());

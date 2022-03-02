@@ -51,7 +51,7 @@ public class DatePicker extends AppCompatActivity {
                 DateTimeFormatter df = null;
                 SimpleDateFormat simpleFormat = new SimpleDateFormat("dd-MMM-yyyy");
                 //Long datediff=null;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     df = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
                     LocalDate d1 = LocalDate.parse(simpleFormat.format(startDate), df);
                     LocalDate d2 = LocalDate.parse(simpleFormat.format(endDate), df);
@@ -68,7 +68,7 @@ public class DatePicker extends AppCompatActivity {
                     allDates=allDates.concat(date.get(i).toString()).concat(",");
                 }
                 String monthyear=(date.get(0).toString()).substring(0,7);
-                db.insert_data((Helper.data.size()+""),Helper.holidayTitle,monthyear,allDates);
+                db.insert_data((Helper.data.size()+""), Helper.holidayTitle,monthyear,allDates);
                 db.show_data();
                 Helper.holidayTitle="";
                 Intent i=new Intent(DatePicker.this,MainActivity.class);

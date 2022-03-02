@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Jours de vacances</string>
-    <string name="hello_blank_fragment">Bonjour fragment vide</string>
-    <string name="calendar">Calendrier</string>
-    <string name="timeline">Chronologie</string>
-    <string name="settings">Paramètres</string>
-    <string name="about">À propos</string>
-</resources>

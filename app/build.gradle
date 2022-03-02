@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "code.aquaria.myvacationdays"
+        applicationId "rocks.poopjournal.vacationdays"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -30,21 +30,19 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.squareup:android-times-square:1.6.5@aar'
     implementation 'com.google.android.material:material:1.1.0'
-    compile 'com.github.sundeepk:compact-calendar-view:3.0.0'
+    implementation 'com.github.sundeepk:compact-calendar-view:3.0.0'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
-    compile 'com.ornach.nobobutton:nobobutton:1.6'
-    compile 'com.savvi.datepicker:rangepicker:1.3.0'
+    implementation 'com.ornach.nobobutton:nobobutton:1.6'
+    implementation 'com.savvi.datepicker:rangepicker:1.3.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    compile 'com.wdullaer:materialdatetimepicker:3.5.1'
-    implementation 'com.android.support:cardview-v7:28.0.0'
-
+    implementation 'com.wdullaer:materialdatetimepicker:3.5.1'
+    implementation 'com.opencsv:opencsv:4.6'
 }

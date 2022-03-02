@@ -5,22 +5,24 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentCalendar"
-    android:background="@color/backgroundcolor"
+    android:background="@color/whiteTogray"
     >
 
     <com.savvi.rangedatepicker.CalendarPickerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/calendar_view"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:scrollbarStyle="outsideOverlay"
         android:clipToPadding="false"
         app:tsquare_orientation_horizontal="false"
-        app:tsquare_dividerColor="@color/dividerColor"
+        app:tsquare_dividerColor="@android:color/transparent"
         app:tsquare_headerTextColor="#000000"
+        app:tsquare_dayBackground="@color/calendar_unavailable_bg"
 
-        />
+    />
 </FrameLayout>
+
 <!--tsquare_dividerColor: divider color,
 tsquare_headerTextColo: days of the week-->

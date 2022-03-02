@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import rocks.poopjournal.vacationdays.R;
-
 
 public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerView.RecyclerViewHolder> {
 
@@ -23,7 +21,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     Context con;
     DB_Controller db;
 
-    public AdapterRecyclerView(Context con, List<String> titles, DB_Controller db) {
+    public AdapterRecyclerView(Context con, List<String> titles,DB_Controller db) {
         this.titles = titles;
         this.con = con;
         this.db = db;

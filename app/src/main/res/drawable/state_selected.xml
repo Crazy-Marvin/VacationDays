@@ -3,7 +3,7 @@
     <item>
         <shape android:shape="oval">
             <!-- change this color value -->
-            <solid android:color="@color/calendar_selected_day_bg" />
+            <solid android:color="#FFEB3B" />
             <stroke android:width="16dp"
                 android:color="@android:color/transparent"/>
 

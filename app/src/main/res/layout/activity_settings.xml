@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settings"
+    tools:context=".SettingsActivity"
     android:orientation="vertical"
     android:background="@color/backgroundcolor">
 
@@ -63,7 +63,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:textColor="@color/apptheme"
+        android:textColor="@color/monthname"
         android:text="General"
         android:textSize="16sp"
         android:layout_marginLeft="10dp"/>
@@ -78,18 +78,18 @@
         android:textSize="16sp"
         android:layout_marginLeft="10dp"/>
     <TextView
+        android:id="@+id/modetitle"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:textColor="@android:color/darker_gray"
-        android:text="Follow System"
         android:textSize="12sp"
+        android:textColor="#776F6F"
         android:layout_marginLeft="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/apptheme"
+        android:textColor="@color/monthname"
         android:text="Data"
         android:textSize="16sp"
         android:layout_marginLeft="10dp"/>
@@ -102,12 +102,13 @@
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/ic_backup"/>
+        android:src="@drawable/backup"/>
     <TextView
         android:layout_marginLeft="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
+        android:onClick="backup"
         android:textColor="@color/textcolorblack"
         android:text="Backup"/>
 
@@ -122,12 +123,13 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/ic_restore"/>
+            android:src="@drawable/restore"/>
         <TextView
             android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
+            android:onClick="restore"
             android:textColor="@color/textcolorblack"
             android:text="Restore"/>
 

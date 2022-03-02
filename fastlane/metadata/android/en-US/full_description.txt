@@ -1,13 +1,13 @@
-See when you’re free.
+See when you’re free and plan holidays.
 
-<b>It only takes a glance.</b> View your vacation days in one of two layouts: a timeline or a calendar. And with counters in the top bar, see how many vacation days you have this year — and how many are left.
+<b>At a glance.</b> View your vacation days in one of two layouts: a timeline or a calendar. Counters in the top bar show your vacation days for the current year — and how many are left.
 
 <b>Sorted in seconds.</b> Tap the floating button to add new vacation days. Enter a name, swipe to select a date range, and you’re done.
 
-<b>Switching phones?</b> With Vacation Days, back up all your data in an instant and restore it on your next device. You can also make periodic backups to keep your data safe.
+<b>Switching phones?</b> Back up all your data on one device and restore it on another. Make periodic backups to keep your data safe.
 
-<b>Night owls, rejoice.</b> Because Vacation Days has a beautiful Dark Mode for late-night viewing. Toggle it automatically or have it follow the system appearance.
+<b>Night owls, rejoice.</b> A beautiful Dark Mode for late-night viewing. Toggle it automatically or have it follow the system appearance.
 
 Webpage: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
-Translate Vacation Days: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a> 
-Source on GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
+Translate it on Hosted Weblate: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
+Libre software on GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>

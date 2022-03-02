@@ -15,5 +15,5 @@ public class Helper {
 
     public  static String senddate="";
 
-    public static String isnightmodeon;
+    public static String isnightmodeon="light";
 }

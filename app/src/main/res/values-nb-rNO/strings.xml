@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="hello_blank_fragment">Hei blanke fragment</string>
-    <string name="calendar">Kalender</string>
-    <string name="timeline">Tidslinje</string>
-    <string name="settings">Innstillinger</string>
-    <string name="about">Om</string>
-    <string name="app_name">Feriedager</string>
-</resources>

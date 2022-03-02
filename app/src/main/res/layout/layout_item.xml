@@ -16,7 +16,8 @@
         android:paddingLeft="12sp"
         android:layout_marginLeft="10dp"
         android:textSize="18sp"
-        android:textColor="@color/apptheme"/>
+        android:textStyle="bold"
+        android:textColor="@color/monthname"/>
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
@@ -30,7 +31,7 @@
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardBackgroundColor="@color/tabs"
         app:cardElevation="8dp"
         android:layout_margin="12dp">
         <LinearLayout

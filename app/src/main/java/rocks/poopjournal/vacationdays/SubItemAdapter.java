@@ -19,10 +19,10 @@ import java.util.List;
 
 public class SubItemAdapter extends RecyclerView.Adapter<SubItemAdapter.SubItemViewHolder> {
 
-    private List<SubItem> subItemList;
-    DB_Controller db;
+    private List<rocks.poopjournal.vacationdays.SubItem> subItemList;
+    rocks.poopjournal.vacationdays.DB_Controller db;
     Context con;
-    SubItemAdapter(List<SubItem> subItemList, DB_Controller db, Context con) {
+    SubItemAdapter(List<rocks.poopjournal.vacationdays.SubItem> subItemList, rocks.poopjournal.vacationdays.DB_Controller db, Context con) {
         this.subItemList = subItemList;
         this.db=db;
         this.con=con;
@@ -39,7 +39,7 @@ public class SubItemAdapter extends RecyclerView.Adapter<SubItemAdapter.SubItemV
 
     @Override
     public void onBindViewHolder(@NonNull SubItemViewHolder subItemViewHolder, int i) {
-        SubItem subItem = subItemList.get(i);
+        rocks.poopjournal.vacationdays.SubItem subItem = subItemList.get(i);
         Log.d("shaistacheck","position : "+i+" title : "+ subItem.getSubItemTitle() + " monthyear : "+subItem.getMonthyear());
         String updatedid= i+subItem.getSubItemTitle()+subItem.getMonthyear();
         db.show_data();
@@ -57,6 +57,7 @@ public class SubItemAdapter extends RecyclerView.Adapter<SubItemAdapter.SubItemV
             subItemViewHolder.to.setBackgroundResource(R.drawable.arrow_down);
             subItemViewHolder.enddate.setText(subItem.getEnd());
         }
+
         subItemViewHolder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

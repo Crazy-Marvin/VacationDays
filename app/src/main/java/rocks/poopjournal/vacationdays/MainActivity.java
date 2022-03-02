@@ -1,5 +1,11 @@
 package rocks.poopjournal.vacationdays;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,20 +20,14 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.FragmentTransaction;
-
 import com.ornach.nobobutton.NoboButton;
 
 public class MainActivity extends AppCompatActivity {
     NoboButton timeline, calendar;
     Toolbar toolbar;
     DB_Controller db;
-
     @RequiresApi(api = Build.VERSION_CODES.N)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     public void floatingbuttonclicked(View view) {
         final Dialog d = new Dialog(this);
 
@@ -130,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
-                Intent i = new Intent(MainActivity.this, Settings.class);
+                Intent i = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(i);
                 return  true;
             case R.id.about:

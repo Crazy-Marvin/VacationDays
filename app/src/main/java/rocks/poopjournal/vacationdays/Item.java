@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Item {
     private String itemTitle;
-    private List<SubItem> subItemList;
+    private List<rocks.poopjournal.vacationdays.SubItem> subItemList;
 
-    public Item(String itemTitle, List<SubItem> subItemList) {
+    public Item(String itemTitle, List<rocks.poopjournal.vacationdays.SubItem> subItemList) {
         this.itemTitle = itemTitle;
         this.subItemList = subItemList;
     }
@@ -19,11 +19,11 @@ public class Item {
         this.itemTitle = itemTitle;
     }
 
-    public List<SubItem> getSubItemList() {
+    public List<rocks.poopjournal.vacationdays.SubItem> getSubItemList() {
         return subItemList;
     }
 
-    public void setSubItemList(List<SubItem> subItemList) {
+    public void setSubItemList(List<rocks.poopjournal.vacationdays.SubItem> subItemList) {
         this.subItemList = subItemList;
     }
 }
