@@ -18,7 +18,8 @@
         <activity android:name="rocks.poopjournal.vacationdays.SettingsActivity"></activity>
         <activity android:name="rocks.poopjournal.vacationdays.DatePicker" />
         <activity android:name="rocks.poopjournal.vacationdays.About" />
-        <activity android:name="rocks.poopjournal.vacationdays.MainActivity">
+        <activity android:name="rocks.poopjournal.vacationdays.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
