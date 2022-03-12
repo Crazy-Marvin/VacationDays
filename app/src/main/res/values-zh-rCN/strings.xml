@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about">软件简介</string>
+    <string name="settings">设置</string>
+    <string name="calendar">日历</string>
+    <string name="hello_blank_fragment">我是占位符 ~</string>
+    <string name="apachelicense">Apache License 2.0 开源协议</string>
+    <string name="backup">注意！
+\n原先有备份的话，先把原来的备份文件删掉</string>
+    <string name="apache">公测 | Apache License 2.0 开源协议</string>
+    <string name="app_name">何时放假？</string>
+    <string name="timeline">假期时间表</string>
+</resources>

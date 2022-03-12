@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Feriedager</string>
+    <string name="about">Om</string>
+    <string name="settings">Innstillinger</string>
+    <string name="timeline">Tildslinje</string>
+    <string name="calendar">Kalender</string>
+    <string name="hello_blank_fragment">Hei blanke fragment</string>
+    <string name="apache">Beta — Apache 2.0-lisens</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="apachelicense">Apache 2.0-lisens</string>
+    <string name="backup">Slett alle sikkerhetskopifilene som måtte befinne seg på enheten din først.</string>
+    <string name="gnu">GNU GPL-lisens</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="circleimg">Sirkel</string>
+</resources>
