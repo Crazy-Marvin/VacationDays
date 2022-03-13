@@ -21,19 +21,25 @@ jobs:
       - name: "🏗 Build"
         run: ./gradlew assembleDebug
       - name: "🧪 Code coverage"
-        run: ./gradlew testCoverage
+        run: ./gradlew clean jacocoTestReport
       - name:  "🧪 Generate report"
         uses: actions/upload-artifact@v3
         with:
           name: report 
-          path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+          path: ${{ github.workspace }}/app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
       - name: "🧪 Download Test Reports Folder"
         uses: actions/download-artifact@v3
         with:
           name: report
-          path: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
-      - name: "📤 Upload Test Report"
-        run:  bash <(curl -s https://codecov.io/bash) -f "${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml"
+          path: ${{ github.workspace }}/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
+      - name: Submit Coverage
+        # This can fail on timeouts etc, wrap with retry
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 10
+          retry_wait_seconds: 60
+          max_attempts: 3
+          command: curl https://codecov.io/bash -o codecov.sh && bash ./codecov.sh  -f "${{ github.workspace }}/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
       - name: "🧪 Android LINT"
         run: ./gradlew lint
       - name: "🧪 Unit test"
