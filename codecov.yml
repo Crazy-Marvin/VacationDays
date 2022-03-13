@@ -1,0 +1,8 @@
+{
+    "fixes": [
+         - "debugAndroidTest/::app/src/test/java/"
+    ],
+    "codecov": {
+        "disable_default_path_fixes": true
+    }
+}
