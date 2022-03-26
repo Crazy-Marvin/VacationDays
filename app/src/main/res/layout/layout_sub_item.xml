@@ -70,7 +70,7 @@
                         android:id="@+id/tv_sub_item_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sub item title"
+                        android:text="@string/subItemTitle"
                         android:textStyle="bold"
                         android:textColor="@color/subitem_text"
                         android:layout_gravity="center_vertical"

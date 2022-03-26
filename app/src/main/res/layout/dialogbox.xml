@@ -22,7 +22,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="8dp"
             android:gravity="left"
-            android:text="Appearance"
+            android:text="@string/appearance"
             android:textColor="@color/textcolorblack"
             android:textSize="20sp" />
 
@@ -40,7 +40,7 @@
                 android:buttonTint="@color/apptheme"
                 android:checked="false"
                 android:onClick="onRadioButtonClicked"
-                android:text="  Follow System"
+                android:text="@string/followsys"
                 android:textColor="@color/textcolorblack"
                 android:textSize="16sp" />
 
@@ -52,7 +52,7 @@
                 android:buttonTint="@color/apptheme"
                 android:checked="false"
                 android:onClick="onRadioButtonClicked"
-                android:text="  Light"
+                android:text="@string/light"
                 android:textColor="@color/textcolorblack"
                 android:textSize="16sp" />
 
@@ -64,7 +64,7 @@
                 android:buttonTint="@color/apptheme"
                 android:checked="false"
                 android:onClick="onRadioButtonClicked"
-                android:text="  Dark"
+                android:text="@string/dark"
                 android:textColor="@color/textcolorblack"
                 android:textSize="16sp" />
         </RadioGroup>

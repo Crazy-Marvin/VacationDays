@@ -190,14 +190,14 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:textColor="@color/textcolorblack"
-                                android:text="Crazy Marvin"
+                                android:text="@string/marvin"
                                 android:background="@color/whiteTogray"
                                 />
 
                             <TextView
                                 android:layout_width="230dp"
                                 android:layout_height="wrap_content"
-                                android:text="Developer"
+                                android:text="@string/developer"
                                 android:textColor="#776F6F"
                                 android:background="@color/whiteTogray"
                                 />
@@ -304,13 +304,13 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:background="@color/whiteTogray"
-                                android:text="Code Acquaria"
+                                android:text="@string/codeaquaria"
                                 android:textColor="@color/textcolorblack" />
 
                             <TextView
                                 android:layout_width="230dp"
                                 android:layout_height="wrap_content"
-                                android:text="Developer"
+                                android:text="@string/developer"
                                 android:textColor="#776F6F"
                                 android:background="@color/whiteTogray"
                                 />
@@ -357,112 +357,12 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-<!--            <androidx.cardview.widget.CardView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="80dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:layout_marginTop="15dp"-->
-<!--                app:cardBackgroundColor="@color/a"-->
-<!--                app:cardCornerRadius="10dp"-->
-<!--                android:layout_marginLeft="20dp"-->
-<!--                android:layout_marginRight="20dp"-->
-<!--                >-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="80dp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:background="@color/a"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="center"-->
-<!--                        android:orientation="horizontal">-->
-
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:orientation="horizontal">-->
-
-<!--                            <de.hdodenhof.circleimageview.CircleImageView-->
-<!--                                android:layout_width="40dp"-->
-<!--                                android:layout_height="40dp"-->
-<!--                                android:layout_centerInParent="true"-->
-<!--                                android:layout_marginLeft="10dp"-->
-<!--                                android:src="@drawable/designerlogo" />-->
-<!--                        </LinearLayout>-->
-
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_gravity="center"-->
-<!--                            android:layout_marginLeft="10dp"-->
-<!--                            android:orientation="vertical"-->
-
-<!--                            >-->
-
-<!--                            <TextView-->
-<!--                                android:layout_width="230dp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_gravity="center"-->
-<!--                                android:text="Patryk Michalik"-->
-<!--                                android:textColor="@color/textcolor" />-->
-
-<!--                            <TextView-->
-<!--                                android:layout_width="230dp"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:text="Designer"-->
-<!--                                android:textColor="@color/spinr" />-->
-<!--                        </LinearLayout>-->
-<!--                    </LinearLayout>-->
-
-<!--                    <LinearLayout-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_gravity="right"-->
-<!--                        android:layout_marginRight="10dp"-->
-<!--                        android:orientation="horizontal">-->
-
-<!--                        <Button-->
-<!--                            android:id="@+id/btnweb_patriyk"-->
-<!--                            android:layout_width="20dp"-->
-<!--                            android:layout_height="20dp"-->
-<!--                            android:layout_marginRight="10dp"-->
-<!--                            android:layout_weight="0.01"-->
-<!--                            android:background="@drawable/web"-->
-<!--                            android:onClick="contact_patriyk" />-->
-
-<!--                        <Button-->
-<!--                            android:id="@+id/btngit_patriyk"-->
-<!--                            android:layout_width="20dp"-->
-<!--                            android:layout_height="20dp"-->
-<!--                            android:layout_marginRight="10dp"-->
-<!--                            android:layout_weight="0.01"-->
-<!--                            android:background="@drawable/git"-->
-<!--                            android:onClick="contact_patriyk" />-->
-
-<!--                        <Button-->
-<!--                            android:id="@+id/btntwitter_patriyk"-->
-<!--                            android:layout_width="20dp"-->
-<!--                            android:layout_height="20dp"-->
-<!--                            android:layout_marginRight="10dp"-->
-<!--                            android:layout_weight="0.01"-->
-<!--                            android:background="@drawable/twitter"-->
-<!--                            android:onClick="contact_patriyk" />-->
-<!--                    </LinearLayout>-->
-<!--                </LinearLayout>-->
-<!--            </androidx.cardview.widget.CardView>-->
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
-                android:text="Contribute"
+                android:text="@string/contribute"
                 android:textColor="@color/apptheme"
                 android:textSize="18sp" />
 
@@ -492,7 +392,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
-                    android:text="Translate"
+                    android:text="@string/translate"
                     android:textColor="@color/textcolorblack"
                     android:onClick="translate"
                     android:gravity = "center_vertical" />
@@ -525,7 +425,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
-                    android:text="Report a problem"
+                    android:text="@string/reportaproblem"
                     android:gravity = "center_vertical"
                     android:textColor="@color/textcolorblack"
                     android:onClick="report"
@@ -559,7 +459,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
-                    android:text="View source"
+                    android:text="@string/viewSource"
                     android:gravity = "center_vertical"
                     android:textColor="@color/textcolorblack"
                     android:onClick="viewsource"/>
@@ -570,7 +470,7 @@
                 android:layout_height="30dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
-                android:text="Open-source licences"
+                android:text="@string/openSourceLicences"
                 android:textColor="@color/apptheme"
                 android:textSize="18sp" />
 
@@ -593,14 +493,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="Feather Icons"
+                        android:text="@string/featherIcons"
                         android:textColor="@color/textcolorblack"
                         android:onClick="feather"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="MIT License"
+                        android:text="@string/mitLicence"
                         android:textColor="#776F6F"
                         android:onClick="feather" />
                 </LinearLayout>
@@ -625,7 +525,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:textColor="@color/textcolorblack"
-                    android:text="Material Design Icons"
+                    android:text="@string/materialdesignicons"
                     android:onClick="feather"/>
                 <TextView
                     android:id="@+id/designiconsApacheLicense"
@@ -633,7 +533,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:textColor="#776F6F"
-                    android:text="Apache License 2.0"/>
+                    android:text="@string/apacheLicense"/>
             </LinearLayout>
 
             <View
@@ -655,14 +555,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="Android Jetpack"
+                        android:text="@string/androidJetpack"
                         android:onClick="jetpack"/>
                     <TextView
                         android:id="@+id/textjetpack1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:text="Apache License 2.0"
+                        android:text="@string/apacheLicense"
                         android:textColor="#776F6F"
                         android:onClick="jetpack"/>
                 </LinearLayout>
@@ -685,14 +585,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="DateRangePicker"
+                    android:text="@string/dateRangePicker"
                     android:onClick="daterangepicker"/>
                 <TextView
                     android:id="@+id/daterangepicker1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Apache License 2.0"
+                    android:text="@string/apacheLicense"
                     android:textColor="#776F6F"
                     android:onClick="daterangepicker"/>
             </LinearLayout>
