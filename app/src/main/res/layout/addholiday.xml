@@ -19,7 +19,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="8dp"
             android:gravity="left"
-            android:text="Add Holiday Title"
+            android:text="@string/addHoliday"
             android:textColor="@color/subitem_text"
             android:textSize="20sp" />
 
@@ -49,7 +49,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
             android:background="@color/dateTimeRangePickerStateToday"
-            android:text="Save"
+            android:text="@string/save"
             android:textColor="@color/secondwhiteTogray"
             android:textAllCaps="false" />
 

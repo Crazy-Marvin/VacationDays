@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tatil Günleri</string>
+    <string name="timeline">Zaman çizelgesi</string>
+    <string name="calendar">Takvim</string>
+    <string name="backup">Not!
+\nTelefonunuz önceden var olan bir yedekleme dosyası içeriyorsa, önce onu silin</string>
+    <string name="apache">Beta - Apache Lisansı 2.0</string>
+    <string name="about">Hakkında</string>
+    <string name="hello_blank_fragment">Merhaba boş parça</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">GNU Genel Kamu Lisansı</string>
+    <string name="apachelicense">Apache Lisansı 2.0</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="settings">Ayarlar</string>
+</resources>

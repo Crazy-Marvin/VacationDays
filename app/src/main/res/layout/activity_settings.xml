@@ -64,7 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:textColor="@color/monthname"
-        android:text="General"
+        android:text="@string/general"
         android:textSize="16sp"
         android:layout_marginLeft="10dp"/>
 
@@ -73,7 +73,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/textcolorblack"
-        android:text="Appearance"
+        android:text="@string/appearance"
         android:onClick="appearance"
         android:textSize="16sp"
         android:layout_marginLeft="10dp"/>
@@ -90,7 +90,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/monthname"
-        android:text="Data"
+        android:text="@string/data"
         android:textSize="16sp"
         android:layout_marginLeft="10dp"/>
 <LinearLayout
@@ -110,7 +110,7 @@
         android:textSize="16sp"
         android:onClick="backup"
         android:textColor="@color/textcolorblack"
-        android:text="Backup"/>
+        android:text="@string/backupheading"/>
 
 </LinearLayout>
     <LinearLayout
@@ -131,7 +131,7 @@
             android:textSize="16sp"
             android:onClick="restore"
             android:textColor="@color/textcolorblack"
-            android:text="Restore"/>
+            android:text="@string/restore"/>
 
     </LinearLayout>
 

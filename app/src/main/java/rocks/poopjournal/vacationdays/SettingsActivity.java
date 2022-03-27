@@ -67,11 +67,16 @@ public class SettingsActivity extends AppCompatActivity {
 
     private boolean checkStoragePermission() {
         if(Build.VERSION.SDK_INT==Build.VERSION_CODES.R){
-                return Environment.isExternalStorageManager();
+            Log.d("IncheckStorIf","hello"+Environment.isExternalStorageManager());
+            return Environment.isExternalStorageManager();
+
         }
         else{
+
             int result = ContextCompat.checkSelfPermission(SettingsActivity.this, READ_EXTERNAL_STORAGE);
             int result1 = ContextCompat.checkSelfPermission(SettingsActivity.this, WRITE_EXTERNAL_STORAGE);
+            Log.d("IncheckStorElse","hello"+result);
+
             return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED;
 
 //            int result = ContextCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE);
@@ -281,22 +286,26 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void backup(View view) {
         if(checkStoragePermission()){
+            Log.d("IntakePerExport","hello");
+
             exportCSV();
         }
         else{
+            Log.d("IntakePerRequest","hello");
+
             requestStoragePermissionExport();
         }
     }
 
     public void restore(View view) {
-//        String text="Bismillah di barkat";
+        String text="Bismillah di barkat";
 //        savefile(file_name,text);
         if(checkStoragePermission()){
-            //importCSV();
+            importCSV();
 
         }
         else{
-           // requestStoragePermissionImport();
+            requestStoragePermissionImport();
         }
 
 
@@ -335,6 +344,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void takePermission() {
         if(Build.VERSION.SDK_INT==Build.VERSION_CODES.R){
+            Log.d("IntakePer","hello");
             try{
                 Intent intent=new Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
                 intent.addCategory("android.intent.category.DEFAULT");
@@ -349,6 +359,8 @@ public class SettingsActivity extends AppCompatActivity {
             }
         }
         else{
+            Log.d("IntakePerelse","hello");
+
             ActivityCompat.requestPermissions(SettingsActivity.this,new String[]{
                     WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE},101);
         }
