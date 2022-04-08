@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="settings">Einstellungen</string>
+    <string name="timeline">Zeitstrahl</string>
+    <string name="app_name">Vacation Days</string>
+    <string name="about">Über</string>
+</resources>
