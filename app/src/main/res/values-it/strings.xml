@@ -40,4 +40,5 @@
     <string name="light">Chiaro</string>
     <string name="dark">Scuro</string>
     <string name="subItemTitle">Titolo dell\'elemento secondario</string>
+    <string name="hello_blank_fragment">Ciao frammento vuoto</string>
 </resources>
