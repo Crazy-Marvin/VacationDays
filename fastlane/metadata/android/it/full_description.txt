@@ -9,5 +9,5 @@ Scopri quando sei libero e pianifica le vacanze.
 <b>Nottambuli, gioite.</b> Una bellissima Modalità Scura per la visione a tarda notte. Attivala automaticamente o segui l'aspetto del sistema.
 
 Pagina web: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
-Traducilo su Hosted Weblate: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
+Traducila su Hosted Weblate: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
 Software libero su GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
