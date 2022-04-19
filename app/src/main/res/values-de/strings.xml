@@ -39,4 +39,6 @@
     <string name="translate">Übersetzen</string>
     <string name="viewSource">Quelltext anschauen</string>
     <string name="light">Hell</string>
+    <string name="hello_blank_fragment">Hallo, leeres Fragment</string>
+    <string name="subItemTitle">Unterelement-Titel</string>
 </resources>
