@@ -7,7 +7,6 @@
 \nTelefonunuz önceden var olan bir yedekleme dosyası içeriyorsa, önce onu silin</string>
     <string name="apache">Beta - Apache Lisansı 2.0</string>
     <string name="about">Hakkında</string>
-    <string name="hello_blank_fragment">Merhaba boş parça</string>
     <string name="kotlin">Kotlin</string>
     <string name="java">Java</string>
     <string name="gnu">GNU Genel Kamu Lisansı</string>
