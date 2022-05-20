@@ -1,0 +1,4 @@
+- 🐛 Correction de l'enregistrement des paramètres d'apparences
+- 🎵 L'application montre maintenant un message qui indique que la sauvgarde des données ne fonctionne pas encore
+- 🤮 Meilleure gestiondes mauvais jours
+- 🆕 Dépendances mises à jour
