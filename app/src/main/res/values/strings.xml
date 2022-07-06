@@ -34,9 +34,8 @@
     <string name="addHoliday">Add Holiday Title</string>
     <string name="save">Save</string>
     <string name="ok">OK</string>
-    <string name="followsys">  Follow System</string>
-    <string name="light">  Light</string>
-    <string name="dark">  Dark</string>
+    <string name="followsys">Follow System</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
     <string name="subItemTitle">Sub item title</string>
-
 </resources>
