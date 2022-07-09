@@ -18,7 +18,7 @@
     <string name="restore">Ripristino</string>
     <string name="addHoliday">Aggiungi titolo della vacanza</string>
     <string name="ok">OK</string>
-    <string name="gnu">GNU General Public License CE</string>
+    <string name="gnu">GNU General Public License, versione 2, con Classpath Exception</string>
     <string name="apachelicense">Licenza Apache 2.0</string>
     <string name="nobobutton">NoboButton</string>
     <string name="circleimg">CircleImageView</string>

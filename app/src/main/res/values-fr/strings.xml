@@ -35,7 +35,7 @@
     <string name="light">Clair</string>
     <string name="dark">Sombre</string>
     <string name="app_name">Jours de congé</string>
-    <string name="gnu">Licence Publique Générale GNU CE</string>
+    <string name="gnu">Licence Publique Générale GNU, avec l\'exception Classpath</string>
     <string name="codeaquaria">Code Acquaria</string>
     <string name="androidJetpack">Android Jetpack</string>
     <string name="addHoliday">Ajouter un titre de jour ferié</string>

@@ -9,7 +9,7 @@
     <string name="about">Hakkında</string>
     <string name="kotlin">Kotlin</string>
     <string name="java">Java</string>
-    <string name="gnu">GNU Genel Kamu Lisansı</string>
+    <string name="gnu">GNU Genel Kamu Lisansı, sürüm 2, Classpath İstisnası ile</string>
     <string name="apachelicense">Apache Lisansı 2.0</string>
     <string name="nobobutton">NoboButton</string>
     <string name="circleimg">CircleImageView</string>
