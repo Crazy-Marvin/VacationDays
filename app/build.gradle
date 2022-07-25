@@ -24,7 +24,6 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
 
 android {
     compileSdkVersion 31
-    buildToolsVersion "29.0.3"
     lintOptions {
         checkReleaseBuilds false
     }
