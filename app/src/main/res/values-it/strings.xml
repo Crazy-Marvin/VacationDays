@@ -39,5 +39,4 @@
     <string name="save">Salva</string>
     <string name="light">Chiaro</string>
     <string name="dark">Scuro</string>
-    <string name="subItemTitle">Titolo dell\'elemento secondario</string>
 </resources>
