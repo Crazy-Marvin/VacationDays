@@ -1,4 +1,4 @@
-[9:59 PM, 7/29/2022] Shaista (HOME): package rocks.poopjournal.vacationdays;
+package rocks.poopjournal.vacationdays;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
