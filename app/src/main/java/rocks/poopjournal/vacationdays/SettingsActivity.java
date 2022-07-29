@@ -365,5 +365,4 @@ public class SettingsActivity extends AppCompatActivity {
 //                    WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE},101);
 //        }
 //    }
-
 }
