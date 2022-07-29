@@ -36,7 +36,7 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 public class SettingsActivity extends AppCompatActivity {
     rocks.poopjournal.vacationdays.DB_Controller db;
     TextView modetitle;
-    //*******STORAGE PERMISSION**********
+    //**STORAGE PERMISSION***
     private static final int STORAGE_REQUEST_CODE_EXPORT = 1;
     private static final int STORAGE_REQUEST_CODE_IMPORT = 2;
     private String[] storagepermission;
@@ -59,6 +59,9 @@ public class SettingsActivity extends AppCompatActivity {
             case "dark":
                 modetitle.setText("Dark");
                 break;
+            default:
+                modetitle.setText("Follow System");
+
         }
 
     }
@@ -253,6 +256,7 @@ public class SettingsActivity extends AppCompatActivity {
                 if (checked) {
                     modetitle.setText("Follow System");
                     db.update_mode("followsys");
+                    db.setMode("followsys");
                     Log.d("modeisf:", "" + rocks.poopjournal.vacationdays.Helper.isnightmodeon);
                     break;
                 }
@@ -260,6 +264,7 @@ public class SettingsActivity extends AppCompatActivity {
                 if (checked) {
                     modetitle.setText("Light");
                     db.update_mode("light");
+                    db.setMode("light");
                     Log.d("modeisl:", "" + rocks.poopjournal.vacationdays.Helper.isnightmodeon);
                     break;
                 }
@@ -267,6 +272,7 @@ public class SettingsActivity extends AppCompatActivity {
                 if (checked) {
                     modetitle.setText("Dark");
                     db.update_mode("dark");
+                    db.setMode("dark");
                     Log.d("modeisd:", "" + rocks.poopjournal.vacationdays.Helper.isnightmodeon);
                     break;
                 }
