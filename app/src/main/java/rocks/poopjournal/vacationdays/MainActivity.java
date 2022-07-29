@@ -1,8 +1,9 @@
-package rocks.poopjournal.vacationdays;
+[9:59 PM, 7/29/2022] Shaista (HOME): package rocks.poopjournal.vacationdays;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -11,6 +12,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -34,6 +36,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         db = new DB_Controller(this, "", null, 2);
         db.show_data();
+        db.getMode();
+        switch (rocks.poopjournal.vacationdays.Helper.isnightmodeon) {
+            case "followsys":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                break;
+            case "light":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                break;
+            case "dark":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                break;
+        }
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         timeline = findViewById(R.id.timeline);
@@ -139,4 +153,24 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+}
+[9:59 PM, 7/29/2022] Shaista (HOME): Helper:
+[9:59 PM, 7/29/2022] Shaista (HOME): package rocks.poopjournal.vacationdays;
+
+import java.util.ArrayList;
+
+public class Helper {
+    public static int whichTabSelected=0;
+
+    public static ArrayList<String[]> data=new ArrayList<>();
+
+    public static ArrayList<String[]> dataformonthyear=new ArrayList<>();
+
+    public  static String holidayTitle="";
+
+    public  static String monthyear="";
+
+    public  static String senddate="";
+
+    public static String isnightmodeon="";
 }
