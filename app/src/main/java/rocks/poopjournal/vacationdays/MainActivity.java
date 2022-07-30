@@ -154,23 +154,3 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
-[9:59 PM, 7/29/2022] Shaista (HOME): Helper:
-[9:59 PM, 7/29/2022] Shaista (HOME): package rocks.poopjournal.vacationdays;
-
-import java.util.ArrayList;
-
-public class Helper {
-    public static int whichTabSelected=0;
-
-    public static ArrayList<String[]> data=new ArrayList<>();
-
-    public static ArrayList<String[]> dataformonthyear=new ArrayList<>();
-
-    public  static String holidayTitle="";
-
-    public  static String monthyear="";
-
-    public  static String senddate="";
-
-    public static String isnightmodeon="";
-}
