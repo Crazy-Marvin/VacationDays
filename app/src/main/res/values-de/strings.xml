@@ -1,2 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="settings">Einstellungen</string>
+    <string name="timeline">Zeitstrahl</string>
+    <string name="app_name">Vacation Days</string>
+    <string name="about">Über</string>
+    <string name="backup">Achtung!
+\nFalls bereits eine Backup-Datei besteht, muss diese vor einem neuen Backup gelöscht oder verschoben werden.</string>
+    <string name="featherIcons">Feather Icons</string>
+    <string name="mitLicence">MIT Lizenz</string>
+    <string name="materialdesignicons">Material Design Icons</string>
+    <string name="apacheLicense">Apache Lizenz 2.0</string>
+    <string name="androidJetpack">Android Jetpack</string>
+    <string name="dateRangePicker">DateRangePicker</string>
+    <string name="general">Allgemein</string>
+    <string name="appearance">Erscheinungsbild</string>
+    <string name="data">Daten</string>
+    <string name="backupheading">Backup</string>
+    <string name="restore">Rücksicherung</string>
+    <string name="addHoliday">Urlaubstag(e) benennen</string>
+    <string name="save">Speichern</string>
+    <string name="ok">OK</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="calendar">Kalender</string>
+    <string name="apache">Beta - Apache Lizenz 2.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="apachelicense">Apache Lizenz 2.0</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="reportaproblem">Ein Problem melden</string>
+    <string name="openSourceLicences">Open Source Lizenzen</string>
+    <string name="followsys">Dem System folgen</string>
+    <string name="gnu">GNU General Public Lizenz CE</string>
+    <string name="codeaquaria">Code Acquaria</string>
+    <string name="dark">Dunkel</string>
+    <string name="marvin">Crazy Marvin</string>
+    <string name="developer">Entwickler</string>
+    <string name="contribute">Mitmachen</string>
+    <string name="translate">Übersetzen</string>
+    <string name="viewSource">Quelltext anschauen</string>
+    <string name="light">Hell</string>
+</resources>
