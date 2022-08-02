@@ -4,16 +4,14 @@
     <string name="settings">Settings</string>
     <string name="timeline">Timeline</string>
     <string name="calendar">Calendar</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="apache"> Beta - Apache License 2.0</string>
+    <string name="apache"> Beta — Apache 2.0</string>
     <string name="kotlin">Kotlin</string>
     <string name="java">Java</string>
-    <string name="gnu">GNU General Public License CE</string>
-    <string name="apachelicense">Apache License 2.0</string>
+    <string name="gnu">GPLv2+, with the Classpath Exception</string>
+    <string name="apachelicense">Apache 2.0</string>
     <string name="nobobutton">NoboButton</string>
     <string name="circleimg">CircleImageView</string>
-    <string name="backup">Note!\nIf your phone contains pre-existing backup file, Delete it first</string>
+    <string name="backup">Delete any prior backup files first</string>
     <string name="marvin">Crazy Marvin</string>
     <string name="developer">Developer</string>
     <string name="codeaquaria">Code Acquaria</string>
@@ -21,11 +19,11 @@
     <string name="translate">Translate</string>
     <string name="reportaproblem">Report a problem</string>
     <string name="viewSource">View source</string>
-    <string name="openSourceLicences">Open-source licenses</string>
+    <string name="openSourceLicences">Libre licenses</string>
     <string name="featherIcons">Feather Icons</string>
-    <string name="mitLicence">MIT License</string>
+    <string name="mitLicence">MIT</string>
     <string name="materialdesignicons">Material Design Icons</string>
-    <string name="apacheLicense">Apache License 2.0</string>
+    <string name="apacheLicense">Apache 2.0</string>
     <string name="androidJetpack">Android Jetpack</string>
     <string name="dateRangePicker">DateRangePicker</string>
     <string name="general">General</string>
@@ -36,9 +34,7 @@
     <string name="addHoliday">Add Holiday Title</string>
     <string name="save">Save</string>
     <string name="ok">OK</string>
-    <string name="followsys">  Follow System</string>
-    <string name="light">  Light</string>
-    <string name="dark">  Dark</string>
-    <string name="subItemTitle">Sub item title</string>
-
+    <string name="followsys">Follow system</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
 </resources>

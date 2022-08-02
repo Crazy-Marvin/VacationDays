@@ -102,7 +102,7 @@
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/backup"/>
+        android:src="@drawable/ic_save"/>
     <TextView
         android:layout_marginLeft="20dp"
         android:layout_width="wrap_content"
@@ -123,7 +123,7 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/restore"/>
+            android:src="@drawable/ic_restore"/>
         <TextView
             android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"

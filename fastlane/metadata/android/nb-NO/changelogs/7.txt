@@ -1,0 +1,4 @@
+- 🐛 Lagring av utseendeinnstillinger fikset
+- 🎵 Programmet viser nå en melding om at sikkerhetskopifunksjonen ikke er implementert enda
+- 🤮 Bedre håndtering av sykedager
+- 🆕 Avhengigheter oppdater

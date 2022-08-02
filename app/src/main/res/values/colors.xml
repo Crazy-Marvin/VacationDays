@@ -17,6 +17,7 @@
     <color name="monthname">#ff3b14</color>
     <color name="secondwhiteTogray">#ffffff</color>
     <color name="orangeTowhite">#ff3b14</color>
+    <color name="gray">#B3717684</color>
 
     <!-- dateTimeRangePickerStateToday : current date color
  custom_header_text:day of the week coloru

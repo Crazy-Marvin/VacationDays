@@ -3,11 +3,27 @@
     <string name="about">软件简介</string>
     <string name="settings">设置</string>
     <string name="calendar">日历</string>
-    <string name="hello_blank_fragment">我是占位符 ~</string>
     <string name="apachelicense">Apache License 2.0 开源协议</string>
     <string name="backup">注意！
 \n原先有备份的话，先把原来的备份文件删掉</string>
     <string name="apache">公测 | Apache License 2.0 开源协议</string>
     <string name="app_name">何时放假？</string>
     <string name="timeline">假期时间表</string>
+    <string name="developer">开发者</string>
+    <string name="contribute">帮助软件发展</string>
+    <string name="translate">翻译</string>
+    <string name="reportaproblem">上报软件问题</string>
+    <string name="viewSource">浏览源代码</string>
+    <string name="openSourceLicences">开源许可协议</string>
+    <string name="general">总体</string>
+    <string name="restore">恢复</string>
+    <string name="addHoliday">新增假期标题</string>
+    <string name="save">保存</string>
+    <string name="followsys">依据系统设置</string>
+    <string name="light">亮</string>
+    <string name="dark">暗</string>
+    <string name="appearance">外观</string>
+    <string name="data">数据</string>
+    <string name="ok">好的</string>
+    <string name="backupheading">备份</string>
 </resources>

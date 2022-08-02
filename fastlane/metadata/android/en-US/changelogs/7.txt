@@ -1,0 +1,4 @@
+- 🐛 Saving of the appearance settings fixed
+- 🎵 App now shows a message that the backup feature is not implemented yet
+- 🤮 Better handlig of ill days
+- 🆕 Dependenices updated

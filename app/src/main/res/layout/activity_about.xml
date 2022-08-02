@@ -219,7 +219,7 @@
                             android:layout_height="20dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="0.01"
-                            android:src="@drawable/email"
+                            android:src="@drawable/ic_mail"
                             android:onClick="contact_marvin"
                             />
 
@@ -229,7 +229,7 @@
                             android:layout_height="20dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="0.01"
-                            android:src="@drawable/git"
+                            android:src="@drawable/ic_github"
                             android:onClick="contact_marvin"
                             />
 
@@ -239,7 +239,7 @@
                             android:layout_height="20dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="0.01"
-                            android:src="@drawable/twitter"
+                            android:src="@drawable/ic_twitter"
                             android:onClick="contact_marvin"
                             />
                     </LinearLayout>
@@ -330,7 +330,7 @@
                             android:layout_height="20dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="0.01"
-                            android:src="@drawable/email"
+                            android:src="@drawable/ic_mail"
                             android:onClick="contact_codeaquaria"
                             />
 
@@ -340,19 +340,18 @@
                             android:layout_height="20dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="0.01"
-                            android:src="@drawable/git"
+                            android:src="@drawable/ic_github"
                             android:onClick="contact_codeaquaria"
                             />
 
                         <ImageView
                             android:id="@+id/btntwitter_codeaquaria"
-                            android:layout_width="20dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="18dp"
                             android:layout_marginRight="10dp"
                             android:layout_weight="0.01"
-                            android:src="@drawable/ic_facebook"
                             android:onClick="contact_codeaquaria"
-                            />
+                            android:src="@drawable/ic_facebook" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -384,7 +383,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/translate"
+                    android:src="@drawable/ic_globe"
                     android:onClick="translate"/>
 
                 <TextView
@@ -417,7 +416,7 @@
                     android:layout_height="20dp"
                     android:layout_marginLeft="10dp"
                     android:onClick="report"
-                    android:src="@drawable/reportproblem"
+                    android:src="@drawable/ic_error"
                     />
 
                 <TextView
@@ -450,7 +449,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="10dp"
-                    android:src="@drawable/viewsrc"
+                    android:src="@drawable/ic_source"
                     android:onClick="viewsource"
                     />
 

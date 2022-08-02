@@ -40,8 +40,8 @@
 
         <Button
             android:id="@+id/saveHolidayTitle"
-            android:layout_width="70dp"
-            android:layout_height="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:gravity="center"
             android:textAlignment="center"
@@ -52,7 +52,6 @@
             android:text="@string/save"
             android:textColor="@color/secondwhiteTogray"
             android:textAllCaps="false" />
-
 
     </LinearLayout>
 </LinearLayout>

@@ -1,0 +1,4 @@
+- 🐛 Görünüm ayarlarının kaydedilmesi düzeltildi
+- 🎵 Uygulama artık yedekleme özelliğinin henüz uygulanmadığına dair bir mesaj gösteriyor
+- 🤮 Hasta günlerinin daha iyi ele alınması
+- 🆕 Bağımlılıklar güncellendi
