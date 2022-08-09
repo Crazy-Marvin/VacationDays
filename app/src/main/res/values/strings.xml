@@ -37,4 +37,5 @@
     <string name="followsys">Follow system</string>
     <string name="light">Light</string>
     <string name="dark">Dark</string>
+    <string name="subItemTitle">Sub item title</string> <!--Needed for the design-->
 </resources>
