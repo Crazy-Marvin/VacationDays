@@ -5,12 +5,11 @@
     <string name="settings">Paramètres</string>
     <string name="timeline">Chronologie</string>
     <string name="calendar">Calendrier</string>
-    <string name="backup">Remarque
-\nSi votre téléphone contient déjà des sauvegardes, commencez par les supprimer</string>
+    <string name="backup">Commencez par supprimer toutes les anciennes sauvegardes</string>
     <string name="marvin">Crazy Marvin</string>
-    <string name="apache">Bêta - Licence Apache 2.0</string>
+    <string name="apache">Bêta — Apache 2.0</string>
     <string name="java">Java</string>
-    <string name="apachelicense">Licence Apache 2.0</string>
+    <string name="apachelicense">Apache 2.0</string>
     <string name="nobobutton">NoboButton</string>
     <string name="circleimg">CircleImageView</string>
     <string name="developer">Développeur</string>
@@ -18,11 +17,11 @@
     <string name="translate">Traduire</string>
     <string name="reportaproblem">Signaler un problème</string>
     <string name="viewSource">Voir la source</string>
-    <string name="openSourceLicences">Licences open-source</string>
+    <string name="openSourceLicences">Licences libres</string>
     <string name="featherIcons">Icônes Feather</string>
-    <string name="mitLicence">Licence MIT</string>
+    <string name="mitLicence">MIT</string>
     <string name="materialdesignicons">Icônes Material Design</string>
-    <string name="apacheLicense">Licence Apache 2.0</string>
+    <string name="apacheLicense">Apache 2.0</string>
     <string name="dateRangePicker">DateRangePicker</string>
     <string name="general">Général</string>
     <string name="appearance">Apparence</string>
@@ -35,8 +34,9 @@
     <string name="light">Clair</string>
     <string name="dark">Sombre</string>
     <string name="app_name">Jours de congé</string>
-    <string name="gnu">Licence Publique Générale GNU, avec l\'exception Classpath</string>
+    <string name="gnu">GPLv2+, avec l\'exception Classpath</string>
     <string name="codeaquaria">Code Acquaria</string>
     <string name="androidJetpack">Android Jetpack</string>
     <string name="addHoliday">Ajouter un titre de jour ferié</string>
+    <string name="subItemTitle">Titre du sous-élément</string>
 </resources>
