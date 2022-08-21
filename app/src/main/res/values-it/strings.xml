@@ -7,23 +7,22 @@
     <string name="featherIcons">Feather Icons</string>
     <string name="timeline">Sequenza temporale</string>
     <string name="calendar">Calendario</string>
-    <string name="apache">Beta - Licenza Apache 2.0</string>
-    <string name="mitLicence">Licenza MIT</string>
+    <string name="apache">Beta — Apache 2.0</string>
+    <string name="mitLicence">MIT</string>
     <string name="kotlin">Kotlin</string>
     <string name="viewSource">Vedi sorgente</string>
-    <string name="openSourceLicences">Licenze open-source</string>
+    <string name="openSourceLicences">Licenze libere</string>
     <string name="java">Java</string>
     <string name="general">Generali</string>
     <string name="backupheading">Backup</string>
     <string name="restore">Ripristino</string>
     <string name="addHoliday">Aggiungi titolo della vacanza</string>
     <string name="ok">OK</string>
-    <string name="gnu">GNU General Public License, versione 2, con Classpath Exception</string>
-    <string name="apachelicense">Licenza Apache 2.0</string>
+    <string name="gnu">GPLv2+, con Classpath Exception</string>
+    <string name="apachelicense">Apache 2.0</string>
     <string name="nobobutton">NoboButton</string>
     <string name="circleimg">CircleImageView</string>
-    <string name="backup">Nota!
-\nSe il telefono contiene un file di backup preesistente, eliminalo prima</string>
+    <string name="backup">Elimina prima tutti i file di backup precedenti</string>
     <string name="marvin">Crazy Marvin</string>
     <string name="developer">Sviluppatore</string>
     <string name="contribute">Contribuisci</string>
@@ -31,12 +30,13 @@
     <string name="codeaquaria">Code Acquaria</string>
     <string name="reportaproblem">Segnala un problema</string>
     <string name="materialdesignicons">Material Design Icons</string>
-    <string name="apacheLicense">Licenza Apache 2.0</string>
+    <string name="apacheLicense">Apache 2.0</string>
     <string name="androidJetpack">Android Jetpack</string>
     <string name="dateRangePicker">DateRangePicker</string>
-    <string name="followsys">Segui il Sistema</string>
+    <string name="followsys">Segui il sistema</string>
     <string name="appearance">Aspetto</string>
     <string name="save">Salva</string>
     <string name="light">Chiaro</string>
     <string name="dark">Scuro</string>
+    <string name="subItemTitle">Titolo dell\'elemento secondario</string>
 </resources>
