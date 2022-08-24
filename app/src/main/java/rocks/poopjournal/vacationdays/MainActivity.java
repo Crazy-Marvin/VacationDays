@@ -21,6 +21,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.ornach.nobobutton.NoboButton;
 
@@ -28,14 +29,26 @@ public class MainActivity extends AppCompatActivity {
     NoboButton timeline, calendar;
     Toolbar toolbar;
     DB_Controller db;
+    int count=0;
+    int remaining=0;
+    TextView holidayscount;
+
     @RequiresApi(api = Build.VERSION_CODES.N)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        holidayscount=findViewById(R.id.holidayscount);
         db = new DB_Controller(this, "", null, 2);
         db.show_data();
+        db.getnoofholidays();
+        for(int i=0;i<Helper.data.size();i++){
+            count+=Integer.parseInt(Helper.data.get(i)[4]);
+        }
+        remaining=Helper.totalHolidays-count;
+        holidayscount.setText("Total Vacations:"+Helper.totalHolidays+"Remaining Vacations:"+remaining);
+
         db.getMode();
         switch (rocks.poopjournal.vacationdays.Helper.isnightmodeon) {
             case "followsys":

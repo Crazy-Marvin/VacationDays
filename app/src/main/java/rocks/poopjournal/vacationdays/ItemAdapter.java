@@ -132,8 +132,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         );
         layoutManager.setInitialPrefetchItemCount(item.getSubItemList().size());
         // Create sub item view adapter
-        Log.d("senddateitem","ye lo : "+ rocks.poopjournal.vacationdays.Helper.senddate);
-
         SubItemAdapter subItemAdapter = new SubItemAdapter(item.getSubItemList(),db,con);
         itemViewHolder.rvSubItem.setLayoutManager(layoutManager);
         itemViewHolder.rvSubItem.setAdapter(subItemAdapter);

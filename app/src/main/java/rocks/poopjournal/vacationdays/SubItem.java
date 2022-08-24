@@ -1,5 +1,7 @@
 package rocks.poopjournal.vacationdays;
 
+import android.util.Log;
+
 public class SubItem {
     private String subItemTitle;
     private String start;
@@ -16,6 +18,9 @@ public class SubItem {
 
 
     public String getSubItemTitle() {
+        if(subItemTitle.contains("'")){
+            subItemTitle=subItemTitle.replace("'","geodhola");
+        }
         return subItemTitle;
     }
     public String getStart() {

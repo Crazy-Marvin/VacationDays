@@ -89,6 +89,23 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="20dp"
+        android:textColor="@color/textcolorblack"
+        android:text="@string/noofvacations"
+        android:onClick="setnoofvacations"
+        android:textSize="16sp"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:id="@+id/noOfvacations"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textSize="12sp"
+        android:textColor="#776F6F"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/monthname"
         android:text="@string/data"
         android:textSize="16sp"

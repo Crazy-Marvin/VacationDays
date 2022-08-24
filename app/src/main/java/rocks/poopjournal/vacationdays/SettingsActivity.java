@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,8 +36,8 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class SettingsActivity extends AppCompatActivity {
     rocks.poopjournal.vacationdays.DB_Controller db;
-    TextView modetitle;
-    //**STORAGE PERMISSION***
+    TextView modetitle, noofvacations;
+    //*******STORAGE PERMISSION**********
     private static final int STORAGE_REQUEST_CODE_EXPORT = 1;
     private static final int STORAGE_REQUEST_CODE_IMPORT = 2;
     private String[] storagepermission;
@@ -49,6 +50,8 @@ public class SettingsActivity extends AppCompatActivity {
         db = new DB_Controller(getApplicationContext(), "", null, 2);
         storagepermission = new String[]{WRITE_EXTERNAL_STORAGE};
         modetitle = findViewById(R.id.modetitle);
+        noofvacations = findViewById(R.id.noOfvacations);
+        noofvacations.setText(""+Helper.totalHolidays);
         switch (rocks.poopjournal.vacationdays.Helper.isnightmodeon) {
             case "followsys":
                 modetitle.setText("Follow System");
@@ -199,6 +202,38 @@ public class SettingsActivity extends AppCompatActivity {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
+    public void setnoofvacations(View view) {
+        final Dialog d = new Dialog(this);
+        d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        d.setContentView(R.layout.noofvacationsdialogbox);
+        Button btnsave = d.findViewById(R.id.savenoofvacations);
+        EditText noofvacations=d.findViewById(R.id.enterednoofvacations);
+        WindowManager.LayoutParams lp = d.getWindow().getAttributes();
+        lp.dimAmount = 0.9f;
+        d.getWindow().setAttributes(lp);
+        d.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+        btnsave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int setnoofvacations= Integer.parseInt(noofvacations.getText().toString());
+                db.setnoofholidays(setnoofvacations);
+                noofvacations.setText(""+Helper.totalHolidays);
+                d.dismiss();
+                Intent intennt = new Intent(SettingsActivity.this,SettingsActivity.class);
+                    startActivity(intennt);
+                    overridePendingTransition(0, 0);
+                    finish();
+            }
+        });
+        d.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+    }
 
     public void appearance(View view) {
         final Dialog d = new Dialog(this);
@@ -310,6 +345,8 @@ public class SettingsActivity extends AppCompatActivity {
 //
 //
     }
+
+
 //
 //
 //    @Override
@@ -365,4 +402,5 @@ public class SettingsActivity extends AppCompatActivity {
 //                    WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE},101);
 //        }
 //    }
+
 }

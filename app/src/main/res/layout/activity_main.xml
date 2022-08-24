@@ -21,13 +21,17 @@
     </FrameLayout>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+    <LinearLayout
         android:id="@+id/linearlayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="65dp"
         android:layout_below="@+id/appbar"
         android:gravity="center"
         android:background="@color/apptheme"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -64,7 +68,17 @@
                 app:nb_text="@string/calendar"
                 app:nb_textSize="12sp" />
         </LinearLayout>
+        <TextView
+            android:id="@+id/holidayscount"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            />
+
     </LinearLayout>
+
+
 
 
     <com.google.android.material.appbar.AppBarLayout
