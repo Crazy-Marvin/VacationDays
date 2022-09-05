@@ -3,13 +3,14 @@
     <string name="app_name">Tatil Günleri</string>
     <string name="timeline">Zaman çizelgesi</string>
     <string name="calendar">Takvim</string>
-    <string name="backup">Önce önceki yedekleme dosyalarını silin</string>
-    <string name="apache">Beta — Apache 2.0</string>
+    <string name="backup">Not!
+\nTelefonunuz önceden var olan bir yedekleme dosyası içeriyorsa, önce onu silin</string>
+    <string name="apache">Beta - Apache Lisansı 2.0</string>
     <string name="about">Hakkında</string>
     <string name="kotlin">Kotlin</string>
     <string name="java">Java</string>
-    <string name="gnu">GPLv2+, Classpath İstisnası ile</string>
-    <string name="apachelicense">Apache 2.0</string>
+    <string name="gnu">GNU Genel Kamu Lisansı, sürüm 2, Classpath İstisnası ile</string>
+    <string name="apachelicense">Apache Lisansı 2.0</string>
     <string name="nobobutton">NoboButton</string>
     <string name="circleimg">CircleImageView</string>
     <string name="settings">Ayarlar</string>
@@ -25,17 +26,17 @@
     <string name="contribute">Katkıda bulun</string>
     <string name="translate">Çevir</string>
     <string name="reportaproblem">Sorun bildir</string>
-    <string name="openSourceLicences">Özgür lisanslar</string>
-    <string name="mitLicence">MIT</string>
+    <string name="openSourceLicences">Açık kaynak lisansları</string>
+    <string name="mitLicence">MIT Lisansı</string>
     <string name="materialdesignicons">Material Tasarım Simgeleri</string>
-    <string name="apacheLicense">Apache 2.0</string>
+    <string name="apacheLicense">Apache Lisansı 2.0</string>
     <string name="androidJetpack">Android Jetpack</string>
     <string name="dateRangePicker">DateRangePicker</string>
     <string name="data">Veri</string>
     <string name="backupheading">Yedekle</string>
     <string name="restore">Geri yükle</string>
     <string name="addHoliday">Tatil Başlığı Ekle</string>
-    <string name="followsys">Sistemi takip et</string>
+    <string name="followsys">Sistemi Takip Et</string>
     <string name="light">Açık</string>
     <string name="dark">Koyu</string>
 </resources>
