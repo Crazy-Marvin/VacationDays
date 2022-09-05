@@ -9,12 +9,12 @@
         <menu>
             <item
                 android:id="@+id/settings"
-                android:title="Settings"
+                android:title="@string/settings"
                 android:icon="@drawable/ic_settings"
                 app:showAsAction="never"/>
             <item
                 android:id="@+id/about"
-                android:title="About"
+                android:title="@string/about"
                 android:icon="@drawable/ic_info"
                 app:showAsAction="never"/>
         </menu>
