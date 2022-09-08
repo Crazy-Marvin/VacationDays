@@ -8,12 +8,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-night/ic_launcher_background.xml" value="0.177" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.177" />
         <entry key="app/src/main/res/drawable/ic_about.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_error.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/ic_facebook.xml" value="0.1105" />
         <entry key="app/src/main/res/drawable/ic_github.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_globe.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/ic_info.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher.xml" value="0.177" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.177" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.177" />
         <entry key="app/src/main/res/drawable/ic_mail.xml" value="0.1105" />
         <entry key="app/src/main/res/drawable/ic_restore.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_save.xml" value="0.1" />
@@ -23,8 +28,13 @@
         <entry key="app/src/main/res/layout/activity_about.xml" value="0.3064066852367688" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialogbox.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/layout_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/layout_sub_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/recyclerview_layout.xml" value="0.1" />
         <entry key="app/src/main/res/menu/side_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.177" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.177" />
       </map>
     </option>
   </component>
