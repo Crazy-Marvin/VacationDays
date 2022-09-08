@@ -39,16 +39,12 @@ public class FragmentTimeline extends Fragment {
     }
 
     private List<Item> buildItemList() {
-        Log.d("iiitem", "method");
-
         db.show_data();
         ArrayList<String> monthyear = new ArrayList<>();
         //getting titles
         for (int i = 0; i < Helper.data.size(); i++) {
             monthyear.add(Helper.data.get(i)[2]);
-            Log.d("checkmon", "" + monthyear.get(i));
         }
-        Log.d("checkmont", "" + monthyear.size());
 
         List<String> newList = new ArrayList<>();
         for (String name : monthyear) {
@@ -82,7 +78,6 @@ public class FragmentTimeline extends Fragment {
         List<Item> itemList = new ArrayList<>();
         for (int i=0; i<newList.size(); i++) {
             String monthname=getMonthName(newList.get(i));
-            Log.d("loopofmonthsname",""+monthname);
                 Item item = new Item(""+monthname, buildSubItemList(newList.get(i)));
                 itemList.add(item);
         }
@@ -92,7 +87,6 @@ public class FragmentTimeline extends Fragment {
 
     private List<SubItem> buildSubItemList(String s) {
         db.showMonthYear(s);
-        Log.d("checkvalofmonthyear",""+Helper.monthyear);
         ArrayList<String> tareekhen = new ArrayList<>();
         for (int j = 0; j < Helper.dataformonthyear.size(); j++) {
             tareekhen.add(Helper.dataformonthyear.get(j)[3]);
@@ -100,7 +94,6 @@ public class FragmentTimeline extends Fragment {
         List<SubItem> subItemList = new ArrayList<>();
         for (int i = 0; i < Helper.dataformonthyear.size(); i++) {
             String monthyear=Helper.data.get(i)[2];
-            Log.d("trackingmonthyear",""+monthyear);
             String[] strt = Helper.dataformonthyear.get(i)[3].split(",");
             String start_date = strt[0];
             String end_date = strt[strt.length - 1];

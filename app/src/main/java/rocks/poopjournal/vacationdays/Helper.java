@@ -16,4 +16,6 @@ public class Helper {
     public  static String senddate="";
 
     public static String isnightmodeon="";
+
+    public static int totalHolidays=30;
 }

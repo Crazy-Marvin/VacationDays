@@ -62,28 +62,28 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
+                    android:background="@color/subitem_text_background"
                     android:orientation="horizontal"
-                    android:padding="12dp"
-                    android:background="@color/subitem_text_background">
+                    android:padding="12dp">
 
                     <TextView
                         android:id="@+id/tv_sub_item_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/subItemTitle"
-                        android:textStyle="bold"
-                        android:textColor="@color/subitem_text"
                         android:layout_gravity="center_vertical"
-                        android:maxLength="30"
                         android:background="@android:color/transparent"
-                        />
+                        android:maxLength="30"
+                        android:text=" "
+                        android:textColor="@color/subitem_text"
+                        android:textStyle="bold" />
+
                     <ImageView
+                        android:id="@+id/btndel"
                         android:layout_width="20dp"
                         android:layout_height="30dp"
-                        android:id="@+id/btndel"
-                        android:src="@drawable/ic_del"
                         android:layout_alignParentRight="true"
-                        android:layout_gravity="right"/>
+                        android:layout_gravity="right"
+                        android:src="@drawable/ic_del" />
                 </RelativeLayout>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
