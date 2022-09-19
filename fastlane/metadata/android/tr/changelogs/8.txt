@@ -1,0 +1,1 @@
+Uygulama artık tatil günlerinin sayısını gösteriyor. Daha fazla geliştirme yolda. 🚀
