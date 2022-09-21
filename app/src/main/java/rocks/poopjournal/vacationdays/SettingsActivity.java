@@ -18,6 +18,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -25,11 +27,17 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -41,6 +49,89 @@ public class SettingsActivity extends AppCompatActivity {
     private static final int STORAGE_REQUEST_CODE_EXPORT = 1;
     private static final int STORAGE_REQUEST_CODE_IMPORT = 2;
     private String[] storagepermission;
+    private final ActivityResultLauncher<String> importCSV = registerForActivityResult(new ActivityResultContracts.GetContent(), result -> {
+        if (result != null) {
+            try (CSVReader csvReader = new CSVReader(new InputStreamReader(getContentResolver().openInputStream(result)))) {
+              //  List<String[]> restoreData = new ArrayList<>();
+
+                int k = Helper.data.size();
+                int counter;
+                if (k == 0) {
+                    counter = 1;
+                } else {
+                    counter = Helper.data.size();
+                }
+                for (int i = 0; i < counter; i++) {
+                    Log.d("bakwaasinloop", "i am in" + counter);
+                    String[] nextline;
+                    while ((nextline = csvReader.readNext()) != null) {
+                        String id = nextline[0];
+                        String title = nextline[1];
+                        String monthyear = nextline[2];
+                        String dates = nextline[3];
+                        String newdates = dates.replaceAll("geodholaz", ",");
+                        int noOfHolidays = Integer.parseInt(nextline[4]);
+                        db.insert_data(id, title, monthyear, newdates, noOfHolidays);
+                        db.show_data();
+
+                        Helper.holidayTitle = "";
+                        k++;
+                    }
+                }
+                Helper.whichTabSelected = 0;
+                Toast.makeText(this, Helper.whichTabSelected + "Restored...." + Helper.data.size(), Toast.LENGTH_SHORT).show();
+                Intent in = new Intent(SettingsActivity.this, MainActivity.class);
+                startActivity(in);
+                finish();
+            } catch (IOException | CsvValidationException e) {
+                e.printStackTrace();
+            }
+        }
+    });
+    private final ActivityResultLauncher<String> exportCSV = registerForActivityResult(new ActivityResultContracts.CreateDocument("text/plain"), result -> {
+        if (result != null) {
+            try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(getContentResolver().openOutputStream(result)))) {
+                for (int i = 0; i < Helper.data.size(); i++) {
+                    bw.append(Helper.data.get(i)[0]);
+                    bw.append(",");
+                    bw.append(Helper.data.get(i)[1]);
+                    bw.append(",");
+                    bw.append(Helper.data.get(i)[2]);
+                    bw.append(",");
+                    String newdate = Helper.data.get(i)[3];
+                    String new1 = newdate.replaceAll(",", "geodholaz");
+                    Log.d("formatingdate", "" + new1);
+                    bw.append(new1);
+                    bw.append(",");
+                    String noOfHolidays = Helper.data.get(i)[4];
+                    bw.append(noOfHolidays);
+                    bw.append(",");
+                    bw.append("\n");
+                    //Toast.makeText(this, "Backup Exported "+FileandPathname, Toast.LENGTH_LONG ).show();
+                }
+                Toast.makeText(this, "Backup Exported", Toast.LENGTH_LONG ).show();
+                /*final Dialog d = new Dialog(this);
+                d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                d.setContentView(R.layout.backup_dialogbox);
+                Button btnok = d.findViewById(R.id.btnok);
+                TextView path = d.findViewById(R.id.path);
+                path.setText("Backup Exported");
+                WindowManager.LayoutParams lp = d.getWindow().getAttributes();
+                lp.dimAmount = 0.9f;
+                d.getWindow().setAttributes(lp);
+                d.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+                btnok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        d.dismiss();
+                    }
+                });
+                d.show();*/
+            } catch (IOException e) {
+
+            }
+        }
+    });
 
 
     @Override
@@ -51,7 +142,7 @@ public class SettingsActivity extends AppCompatActivity {
         storagepermission = new String[]{WRITE_EXTERNAL_STORAGE};
         modetitle = findViewById(R.id.modetitle);
         noofvacations = findViewById(R.id.noOfvacations);
-        noofvacations.setText(""+Helper.totalHolidays);
+        noofvacations.setText("" + Helper.totalHolidays);
         switch (rocks.poopjournal.vacationdays.Helper.isnightmodeon) {
             case "followsys":
                 modetitle.setText("Follow System");
@@ -202,12 +293,13 @@ public class SettingsActivity extends AppCompatActivity {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
+
     public void setnoofvacations(View view) {
         final Dialog d = new Dialog(this);
         d.requestWindowFeature(Window.FEATURE_NO_TITLE);
         d.setContentView(R.layout.noofvacationsdialogbox);
         Button btnsave = d.findViewById(R.id.savenoofvacations);
-        EditText noofvacations=d.findViewById(R.id.enterednoofvacations);
+        EditText noofvacations = d.findViewById(R.id.enterednoofvacations);
         WindowManager.LayoutParams lp = d.getWindow().getAttributes();
         lp.dimAmount = 0.9f;
         d.getWindow().setAttributes(lp);
@@ -215,14 +307,14 @@ public class SettingsActivity extends AppCompatActivity {
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int setnoofvacations= Integer.parseInt(noofvacations.getText().toString());
+                int setnoofvacations = Integer.parseInt(noofvacations.getText().toString());
                 db.setnoofholidays(setnoofvacations);
-                noofvacations.setText(""+Helper.totalHolidays);
+                noofvacations.setText("" + Helper.totalHolidays);
                 d.dismiss();
-                Intent intennt = new Intent(SettingsActivity.this,SettingsActivity.class);
-                    startActivity(intennt);
-                    overridePendingTransition(0, 0);
-                    finish();
+                Intent intennt = new Intent(SettingsActivity.this, SettingsActivity.class);
+                startActivity(intennt);
+                overridePendingTransition(0, 0);
+                finish();
             }
         });
         d.show();
@@ -316,7 +408,8 @@ public class SettingsActivity extends AppCompatActivity {
 
 
     public void backup(View view) {
-        Toast.makeText(this, "This functionality will be available in next version", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "This functionality will be available in next version", Toast.LENGTH_SHORT).show();
+        exportCSV.launch("holidays_" + System.currentTimeMillis());
 
 //        if(checkStoragePermission()){
 //            Log.d("IntakePerExport","hello");
@@ -329,9 +422,11 @@ public class SettingsActivity extends AppCompatActivity {
 //            requestStoragePermissionExport();
 //        }
     }
-//
+
+    //
     public void restore(View view) {
-        Toast.makeText(this, "This functionality will be available in next version", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "This functionality will be available in next version", Toast.LENGTH_SHORT).show();
+        importCSV.launch("text/plain");
 
 //        String text="Bismillah di barkat";
 ////        savefile(file_name,text);
