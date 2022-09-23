@@ -100,17 +100,12 @@
             android:onClick="apacheee">
 
             <TextView
-                android:id="@+id/versiontext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="#776F6F"/>
-
-            <TextView
                 android:id="@+id/version"
+                android:text="@string/version"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="#776F6F"
                 />
         </LinearLayout>
     </LinearLayout>

@@ -23,7 +23,8 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
+
     defaultConfig {
         applicationId "rocks.poopjournal.vacationdays"
         minSdkVersion 21
