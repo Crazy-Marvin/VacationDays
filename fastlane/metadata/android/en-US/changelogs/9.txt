@@ -1,0 +1,6 @@
+- ⚙️ Fix backup (#94)
+- 🎨 Support Themed Icon which was introduced for Android 13+ (#83)
+- 🐛 Fix version name shown in the About screen (#97)
+- 👍 Update dependencies and translations
+
+Thank you so much to @unbiaseduser, @amarradi and all translators! 😘
