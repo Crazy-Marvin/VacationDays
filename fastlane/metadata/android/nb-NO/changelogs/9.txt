@@ -1,0 +1,6 @@
+- ⚙️ Fikset sikkerhetskopiering (#94)
+- 🎨 Støtte for draktsøm i ikon, introdusert i Android 13+ (#83)
+- 🐛 Fikset navn vist i «Om» (#97)
+- 👍 Oppdaterte avhengigheter og oversettelser
+
+Mange takk til @unbiaseduser, @amarradi og alle oversettere! 😘
