@@ -40,12 +40,14 @@ public class SubItemAdapter extends RecyclerView.Adapter<SubItemAdapter.SubItemV
     @Override
     public void onBindViewHolder(@NonNull SubItemViewHolder subItemViewHolder, int i) {
         rocks.poopjournal.vacationdays.SubItem subItem = subItemList.get(i);
-        Log.d("shaistacheck","position : "+i+" title : "+ subItem.getSubItemTitle() + " monthyear : "+subItem.getMonthyear());
         String updatedid= i+subItem.getSubItemTitle()+subItem.getMonthyear();
         db.show_data();
-        subItemViewHolder.tvSubItemTitle.setText(subItem.getSubItemTitle());
+        String str=subItem.getSubItemTitle();
+        if(str.contains("geodhola")){
+            str=str.replace("geodhola","'");
+        }
+        subItemViewHolder.tvSubItemTitle.setText(""+str);
         db.updateHabitsIdsForDeletion(subItem.getSubItemTitle(),subItem.getMonthyear(),updatedid);
-        Log.d("showbreak","...............................................................");
         db.show_data();
         if(subItem.getStart().equals(subItem.getEnd())){
             subItemViewHolder.startdate.setVisibility(View.INVISIBLE);
@@ -68,7 +70,6 @@ public class SubItemAdapter extends RecyclerView.Adapter<SubItemAdapter.SubItemV
                         "Yes",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Log.d("muhbandkr",""+updatedid);
                                 db.delete_subItem(updatedid);
                                 Intent intent = new Intent(con, MainActivity.class);
                                 con.startActivity(intent);

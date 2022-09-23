@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@color/secondwhiteTogray"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundcolor"
+        android:orientation="vertical"
+        android:layout_margin="2dp">
+
+        <TextView
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:gravity="left"
+            android:text="@string/enternoofvacations"
+            android:textColor="@color/subitem_text"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/enterednoofvacations"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:textColor="@color/subitem_text"
+            android:textCursorDrawable="@drawable/cursor_styling"
+            android:backgroundTint="#776F6F"
+            android:textSize="14sp" />
+
+
+        <Button
+            android:id="@+id/savenoofvacations"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/dateTimeRangePickerStateToday"
+            android:text="@string/save"
+            android:textColor="@color/secondwhiteTogray"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</LinearLayout>

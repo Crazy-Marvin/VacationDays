@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.RequiresApi;
@@ -64,11 +65,13 @@ public class DatePicker extends AppCompatActivity {
                 }
                 //adding dates to db
                 String allDates="";
+                Log.d("pleasedatebta",""+date.size());
                 for(int i=0;i<date.size();i++){
                     allDates=allDates.concat(date.get(i).toString()).concat(",");
                 }
                 String monthyear=(date.get(0).toString()).substring(0,7);
-                db.insert_data((Helper.data.size()+""), Helper.holidayTitle,monthyear,allDates);
+
+                db.insert_data((Helper.data.size()+""), Helper.holidayTitle,monthyear,allDates,date.size());
                 db.show_data();
                 Helper.holidayTitle="";
                 Intent i=new Intent(DatePicker.this,MainActivity.class);

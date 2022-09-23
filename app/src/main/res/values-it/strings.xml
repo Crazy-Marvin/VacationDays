@@ -39,4 +39,6 @@
     <string name="save">Salva</string>
     <string name="light">Chiaro</string>
     <string name="dark">Scuro</string>
+    <string name="noofvacations">Numero di vacanze</string>
+    <string name="enternoofvacations">Inserisci il numero di vacanze</string>
 </resources>

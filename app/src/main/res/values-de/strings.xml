@@ -15,7 +15,7 @@
     <string name="general">Allgemein</string>
     <string name="appearance">Erscheinungsbild</string>
     <string name="data">Daten</string>
-    <string name="backupheading">Backup</string>
+    <string name="backupheading">Datensicherung</string>
     <string name="restore">Rücksicherung</string>
     <string name="addHoliday">Urlaubstag(e) benennen</string>
     <string name="save">Speichern</string>
@@ -28,7 +28,7 @@
     <string name="apachelicense">Apache Lizenz 2.0</string>
     <string name="circleimg">CircleImageView</string>
     <string name="reportaproblem">Ein Problem melden</string>
-    <string name="openSourceLicences">Open Source Lizenzen</string>
+    <string name="openSourceLicences">Quelloffene Lizenzen</string>
     <string name="followsys">Dem System folgen</string>
     <string name="gnu">GNU General Public Lizenz CE</string>
     <string name="codeaquaria">Code Acquaria</string>
@@ -39,4 +39,6 @@
     <string name="translate">Übersetzen</string>
     <string name="viewSource">Quelltext anschauen</string>
     <string name="light">Hell</string>
+    <string name="noofvacations">Anzahl der Urlaube</string>
+    <string name="enternoofvacations">Anzahl der Urlaube eingeben</string>
 </resources>

@@ -16,8 +16,9 @@ public class DB_Controller extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE RECORD(ID TEXT,TITLE TEXT, MONTHYEAR TEXT,DATES TEXT);");
+        db.execSQL("CREATE TABLE RECORD(ID TEXT,TITLE TEXT, MONTHYEAR TEXT,DATES TEXT,NOOFHOLIDAYS INT);");
         db.execSQL("CREATE TABLE CHECKMODE(MODE TEXT);");
+        db.execSQL("CREATE TABLE NOOFVACATIONS(VACATIONS TEXT);");
 
     }
 
@@ -25,6 +26,7 @@ public class DB_Controller extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS RECORD;");
         db.execSQL("DROP TABLE IF EXISTS CHECKMODE;");
+        db.execSQL("DROP TABLE IF EXISTS NOOFVACATIONS;");
     }
 
     public void setMode(String a) {
@@ -45,18 +47,35 @@ public class DB_Controller extends SQLiteOpenHelper {
         Helper.isnightmodeon = a;
     }
 
+    public void setnoofholidays(int noofvac){
+        ContentValues con = new ContentValues();
+        con.put("VACATIONS", noofvac);
+        this.getWritableDatabase().insertOrThrow("NOOFVACATIONS", "", con);
+        Helper.totalHolidays=noofvac;
+        Log.d("hahahuhu",""+noofvac);
+    }
+    public void getnoofholidays() {
+        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM NOOFVACATIONS", null);
+        while (cursor.moveToNext()) {
+            Helper.totalHolidays = Integer.parseInt(String.valueOf(cursor.getInt(0)));
 
-    public void insert_data(String id, String title, String monthyear, String dates) {
+        }
+    }
+    public void update_mode(int a) {
+        this.getWritableDatabase().execSQL("UPDATE NOOFVACATIONS SET MODE='" + a + "'");
+        Helper.totalHolidays = a;
+    }
 
+    public void insert_data(String id, String title, String monthyear, String dates, int noofholidays) {
         ContentValues con = new ContentValues();
         con.put("ID", id);
         con.put("TITLE", title);
         con.put("MONTHYEAR", monthyear);
         con.put("DATES", dates);
+        con.put("NOOFHOLIDAYS", noofholidays);
         this.getWritableDatabase().insertOrThrow("RECORD", "", con);
 //                Log.d("bakwaasDatCon",""+con);
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM RECORD", null);
-        Log.d("bakwaasDatINLOGCOUNT", "" + cursor.getCount());
     }
 
     public void show_data() {
@@ -64,16 +83,20 @@ public class DB_Controller extends SQLiteOpenHelper {
         Helper.data = new ArrayList<>();
         ArrayList<String[]> dataTEMP=new ArrayList<>();
         while (cursor.moveToNext()) {
-            String[] temp = new String[4];
+            String[] temp = new String[5];
             temp[0] = (cursor.getString(0));
-            temp[1] = (cursor.getString(1));
+            String str=(cursor.getString(1));
+            if(str.contains("geodhola")){
+                str=str.replace("geodhola","'");
+            }
+            temp[1] = str;
             temp[2] = (cursor.getString(2));
             temp[3] = (cursor.getString(3));
+            temp[4] = String.valueOf((cursor.getInt(4)));
             dataTEMP.add(temp);
             Helper.data.add(temp);
         }
         if(dataTEMP.size()>0){
-            Log.d("yelemar",""+dataTEMP.get(0));
 
         }
 //        for(int i=0;i<Helper.data.size();i++){
@@ -109,7 +132,6 @@ public class DB_Controller extends SQLiteOpenHelper {
     }
 
     public void delete_subItem(String s) {
-        Log.d("muhbandkrle", "" + s);
         this.getWritableDatabase().delete("RECORD", "ID='" + s + "'", null);
     }
 

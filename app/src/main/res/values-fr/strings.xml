@@ -18,7 +18,7 @@
     <string name="translate">Traduire</string>
     <string name="reportaproblem">Signaler un problème</string>
     <string name="viewSource">Voir la source</string>
-    <string name="openSourceLicences">Licences open-source</string>
+    <string name="openSourceLicences">Licences à code source ouvert</string>
     <string name="featherIcons">Icônes Feather</string>
     <string name="mitLicence">Licence MIT</string>
     <string name="materialdesignicons">Icônes Material Design</string>
@@ -39,4 +39,6 @@
     <string name="codeaquaria">Code Acquaria</string>
     <string name="androidJetpack">Android Jetpack</string>
     <string name="addHoliday">Ajouter un titre de jour ferié</string>
+    <string name="noofvacations">Nombre de vacances</string>
+    <string name="enternoofvacations">Entrez le nombre de vacances</string>
 </resources>
