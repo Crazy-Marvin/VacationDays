@@ -14,6 +14,7 @@
     <string name="backup">Note!\nIf your phone contains pre-existing backup file, Delete it first</string>
     <string name="marvin">Crazy Marvin</string>
     <string name="developer">Developer</string>
+    <string name="version" translatable="false">%1$s</string>
     <string name="codeaquaria">Code Acquaria</string>
     <string name="contribute">Contribute</string>
     <string name="translate">Translate</string>

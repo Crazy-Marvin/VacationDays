@@ -1,5 +1,6 @@
 package rocks.poopjournal.vacationdays;
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,20 +12,27 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.github.sundeepk.compactcalendarview.BuildConfig;
+//import com.github.sundeepk.compactcalendarview.BuildConfig;
 
 public class About extends AppCompatActivity {
-    TextView version;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        version=findViewById(R.id.versiontext);
-        version.setText(BuildConfig.VERSION_NAME+" "+this.getString(R.string.apache) );
-}
+        TextView appVersion = findViewById(R.id.version);
+        //version.setText(BuildConfig.VERSION_NAME+" "+this.getString(R.string.apache) );
+
+        //@SuppressLint({"StringFormatInvalid", "LocalSuppress"}) String version =
+        @SuppressLint({"StringFormatInvalid", "LocalSuppress"}) String version =
+                String.format(getResources().getString(R.string.version),
+                BuildConfig.VERSION_NAME);
+        appVersion.setText(version);
+    }
 
     public void contact_codeaquaria(View view) {
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.btnmail_codeaquaria:
                 String mailto = "mailto:codeaquaria20@gmail.com";
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
@@ -54,7 +62,7 @@ public class About extends AppCompatActivity {
     }
 
     public void contact_marvin(View view) {
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.btnmail_crazymarvin:
                 String mailto = "mailto:marvin@poopjournal.rocks";
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
@@ -145,19 +153,22 @@ public class About extends AppCompatActivity {
         Intent i = new Intent(Intent.ACTION_VIEW, u);
         startActivity(i);
     }
+
     public void Java(View view) {
         Uri u = Uri.parse("http://openjdk.java.net/legal/gplv2+ce.html");
         Intent i = new Intent(Intent.ACTION_VIEW, u);
         startActivity(i);
     }
-        public void nobobutton(View view) {
-            Uri u = Uri.parse("https://github.com/alex31n/NoboButton/blob/master/LICENSE");
-            Intent i = new Intent(Intent.ACTION_VIEW, u);
-            startActivity(i);
-        }
-        public void cImgButton(View view) {
-            Uri u = Uri.parse("https://github.com/hdodenhof/CircleImageView/blob/master/LICENSE.txt");
-            Intent i = new Intent(Intent.ACTION_VIEW, u);
-            startActivity(i);
-        }
+
+    public void nobobutton(View view) {
+        Uri u = Uri.parse("https://github.com/alex31n/NoboButton/blob/master/LICENSE");
+        Intent i = new Intent(Intent.ACTION_VIEW, u);
+        startActivity(i);
+    }
+
+    public void cImgButton(View view) {
+        Uri u = Uri.parse("https://github.com/hdodenhof/CircleImageView/blob/master/LICENSE.txt");
+        Intent i = new Intent(Intent.ACTION_VIEW, u);
+        startActivity(i);
+    }
 }
