@@ -38,4 +38,6 @@
     <string name="dateRangePicker">DateRangePicker</string>
     <string name="marvin">Crazy Marvin</string>
     <string name="codeaquaria">Code Acquaria</string>
+    <string name="noofvacations">Antall ferier</string>
+    <string name="enternoofvacations">Skriv inn antall ferier</string>
 </resources>
