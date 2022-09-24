@@ -50,14 +50,10 @@ public class SubItemAdapter extends RecyclerView.Adapter<SubItemAdapter.SubItemV
         db.updateHabitsIdsForDeletion(subItem.getSubItemTitle(),subItem.getMonthyear(),updatedid);
         db.show_data();
         if(subItem.getStart().equals(subItem.getEnd())){
-            subItemViewHolder.startdate.setVisibility(View.INVISIBLE);
-            subItemViewHolder.to.setText(subItem.getStart());
-            subItemViewHolder.enddate.setVisibility(View.INVISIBLE);
+            subItemViewHolder.dateRange.setText(subItem.getStart());
         }
         else{
-            subItemViewHolder.startdate.setText(subItem.getStart());
-            subItemViewHolder.to.setBackgroundResource(R.drawable.arrow_down);
-            subItemViewHolder.enddate.setText(subItem.getEnd());
+            subItemViewHolder.dateRange.setText(con.getString(R.string.date_range, subItem.getStart(), subItem.getEnd()));
         }
 
         subItemViewHolder.img.setOnClickListener(new View.OnClickListener() {
@@ -98,16 +94,14 @@ public class SubItemAdapter extends RecyclerView.Adapter<SubItemAdapter.SubItemV
         return subItemList.size();
     }
 
-    class SubItemViewHolder extends RecyclerView.ViewHolder {
-        TextView tvSubItemTitle, startdate, to, enddate;
+    static class SubItemViewHolder extends RecyclerView.ViewHolder {
+        TextView tvSubItemTitle, dateRange;
         ImageView img;
 
         SubItemViewHolder(View itemView) {
             super(itemView);
             tvSubItemTitle = itemView.findViewById(R.id.tv_sub_item_title);
-            startdate = itemView.findViewById(R.id.startdate);
-            to = itemView.findViewById(R.id.to);
-            enddate = itemView.findViewById(R.id.enddate);
+            dateRange = itemView.findViewById(R.id.date_range);
             img=itemView.findViewById(R.id.btndel);
         }
     }
