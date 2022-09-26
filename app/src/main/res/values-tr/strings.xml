@@ -41,4 +41,7 @@
     <string name="dark">Koyu</string>
     <string name="noofvacations">Tatil Sayısı</string>
     <string name="enternoofvacations">Tatil Sayısını Girin</string>
+    <string name="date_range">%s
+\n↓
+\n%s</string>
 </resources>
