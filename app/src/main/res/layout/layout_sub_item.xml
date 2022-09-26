@@ -13,40 +13,13 @@
         android:layout_marginRight="5dp"
         >
 
-        <LinearLayout
-            android:id="@+id/lin"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/date_range"
+            android:layout_width="30dp"
             android:layout_height="60dp"
-            android:orientation="vertical"
-            android:layout_marginTop="12dp">
-
-            <TextView
-                android:id="@+id/startdate"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="2dp"
-                android:background="@android:color/transparent"
-                android:textColor="@color/subitem_text"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/to"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_gravity="center"
-                android:background="@android:color/transparent"
-                android:textColor="@color/subitem_text" />
-
-            <TextView
-                android:id="@+id/enddate"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@android:color/transparent"
-                android:textColor="@color/subitem_text"
-                android:textSize="14sp" />
-        </LinearLayout>
+            android:textColor="@color/subitem_text"
+            android:gravity="center"
+            android:layout_gravity="center"/>
 
 
         <androidx.cardview.widget.CardView
