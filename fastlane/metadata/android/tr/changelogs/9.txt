@@ -1,0 +1,6 @@
+- ⚙️ Yedekleme düzeltildi (#94)
+- 🎨 Android 13 ve sonrası için sunulan Temalı Simge Desteği (#83)
+- 🐛 Hakkında ekranında gösterilen sürüm adı düzeltildi (#97)
+- 👍 Bağımlılıklar ve çeviriler güncellendi
+
+@unbiaseduser, @amarradi ve tüm çevirmenlere teşekkürler! 😘
