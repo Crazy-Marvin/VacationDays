@@ -1,0 +1,1 @@
+La aplicación ahora muestra el número de día de vacaciones. Más mejoras vienen en camino. 🚀
