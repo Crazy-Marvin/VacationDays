@@ -41,4 +41,7 @@
     <string name="addHoliday">Ajouter un titre de jour ferié</string>
     <string name="noofvacations">Nombre de vacances</string>
     <string name="enternoofvacations">Entrez le nombre de vacances</string>
+    <string name="date_range">%s
+\n↓
+\n%s</string>
 </resources>
