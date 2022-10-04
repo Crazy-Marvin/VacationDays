@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Vacation Days</string>
     <string name="about">About</string>
@@ -11,7 +12,7 @@
     <string name="apachelicense">Apache License 2.0</string>
     <string name="nobobutton">NoboButton</string>
     <string name="circleimg">CircleImageView</string>
-    <string name="backup">Note!\nIf your phone contains pre-existing backup file, Delete it first</string>
+    <string name="backup">Delete any pre-existing backup files from your device first.</string>
     <string name="marvin">Crazy Marvin</string>
     <string name="developer">Developer</string>
     <string name="version" translatable="false">%1$s</string>
