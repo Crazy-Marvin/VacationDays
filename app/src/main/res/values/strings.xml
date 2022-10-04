@@ -12,7 +12,7 @@
     <string name="apachelicense">Apache License 2.0</string>
     <string name="nobobutton">NoboButton</string>
     <string name="circleimg">CircleImageView</string>
-    <string name="backup">Delete any pre-existing backup file from your device first.</string>
+    <string name="backup">Delete any pre-existing backup files from your device first.</string>
     <string name="marvin">Crazy Marvin</string>
     <string name="developer">Developer</string>
     <string name="version" translatable="false">%1$s</string>
