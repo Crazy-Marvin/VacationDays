@@ -1,0 +1,4 @@
+- 🐛 Corregido el guardado de apariencia
+- 🎵 La app ahora muestra un mensaje indicando que el respaldo aún no ha sido implementado
+- 🤮 Mejor manejo de días de enfermedad
+- 🆕 Dependencias actualizadas
