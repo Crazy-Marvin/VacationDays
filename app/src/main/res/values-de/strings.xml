@@ -4,8 +4,7 @@
     <string name="timeline">Zeitstrahl</string>
     <string name="app_name">Vacation Days</string>
     <string name="about">Über</string>
-    <string name="backup">Achtung!
-\nFalls bereits eine Backup-Datei besteht, muss diese vor einem neuen Backup gelöscht oder verschoben werden.</string>
+    <string name="backup">Löschen Sie zunächst alle bereits vorhandenen Sicherungsdateien von Ihrem Gerät.</string>
     <string name="featherIcons">Feather Icons</string>
     <string name="mitLicence">MIT Lizenz</string>
     <string name="materialdesignicons">Material Design Icons</string>
@@ -16,7 +15,7 @@
     <string name="appearance">Erscheinungsbild</string>
     <string name="data">Daten</string>
     <string name="backupheading">Datensicherung</string>
-    <string name="restore">Rücksicherung</string>
+    <string name="restore">Wiederherstellen</string>
     <string name="addHoliday">Urlaubstag(e) benennen</string>
     <string name="save">Speichern</string>
     <string name="ok">OK</string>
@@ -41,4 +40,7 @@
     <string name="light">Hell</string>
     <string name="noofvacations">Anzahl der Urlaubstage</string>
     <string name="enternoofvacations">Anzahl der Urlaubstage eingeben</string>
+    <string name="date_range">%s
+\n↓
+\n%s</string>
 </resources>
