@@ -39,6 +39,6 @@
     <string name="translate">Übersetzen</string>
     <string name="viewSource">Quelltext anschauen</string>
     <string name="light">Hell</string>
-    <string name="noofvacations">Anzahl der Urlaube</string>
-    <string name="enternoofvacations">Anzahl der Urlaube eingeben</string>
+    <string name="noofvacations">Anzahl der Urlaubstage</string>
+    <string name="enternoofvacations">Anzahl der Urlaubstage eingeben</string>
 </resources>
