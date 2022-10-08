@@ -41,4 +41,7 @@
     <string name="dark">Scuro</string>
     <string name="noofvacations">Numero di vacanze</string>
     <string name="enternoofvacations">Inserisci il numero di vacanze</string>
+    <string name="date_range">%s
+\n↓
+\n%s</string>
 </resources>
