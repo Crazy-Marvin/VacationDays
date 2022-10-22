@@ -113,7 +113,8 @@ public class FragmentCalendar extends Fragment {
             e.printStackTrace();
         }
         calendar.init(lastYear.getTime(), nextYear.getTime(), new java.text.SimpleDateFormat("MMMM yyyy"))
-                .withHighlightedDates(arrayList);
+                .withHighlightedDates(arrayList)
+                .displayOnly();
         calendar.scrollToDate(new Date());
 
 

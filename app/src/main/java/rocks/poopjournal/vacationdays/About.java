@@ -22,13 +22,7 @@ public class About extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         TextView appVersion = findViewById(R.id.version);
-        //version.setText(BuildConfig.VERSION_NAME+" "+this.getString(R.string.apache) );
-
-        //@SuppressLint({"StringFormatInvalid", "LocalSuppress"}) String version =
-        @SuppressLint({"StringFormatInvalid", "LocalSuppress"}) String version =
-                String.format(getResources().getString(R.string.version),
-                BuildConfig.VERSION_NAME);
-        appVersion.setText(version);
+        appVersion.setText(BuildConfig.VERSION_NAME+" "+getString(R.string.apache));
     }
 
     public void contact_codeaquaria(View view) {
