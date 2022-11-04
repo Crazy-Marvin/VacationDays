@@ -1,0 +1,4 @@
+- Muchos errores corregidos gracias a subeep 🐛
+- Presionar Atrás Ahora No Cierra La Aplicación Automáticamente 🐛
+- Cambio a iconos vectoriales para una vista más nítida Gracias a karthikayya 🎨
+- Actualizaciones de traducción 🗺️
