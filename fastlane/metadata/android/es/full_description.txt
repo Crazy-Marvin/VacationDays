@@ -1,0 +1,13 @@
+Mira cuando estarás libre y planea tus vacaciones.
+
+<b>Con un vistazo.</b> Mira tus días de vacaciones de 2 formas, en una línea de tiempo o un calendario. Los contadores en la barra superior muestran tus vacaciones del año en curso — y cuántas te quedan.
+
+<b>Ordenado en segundos.</b> Toca el botón flotante para agregar nuevos días de vacaciones. Ingresa un nombre, desliza para seleccionar un rango de fechas y listo.
+
+<b>¿Cambiando de equipo?</b> Respalda toda tu información en un dispositivo y restáurala en otro. Haz respaldos periódicos para mantener tu información segura.
+
+<b>Personas noctunas, regocíjense.</b> Un hermoso modo oscuro para verlo de madrugada. Actívalo manualmente o haz que mantenga la apariencia del sistema.
+
+Página we b: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
+Traducido en Hosted Weblate: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
+Libre software on GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>

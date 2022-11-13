@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Días de vacaciones</string>
+    <string name="viewSource">Ver fuente</string>
+    <string name="followsys">Seguir sistema</string>
+    <string name="about">Acerca de</string>
+    <string name="settings">Configuración</string>
+    <string name="timeline">Línea de tiempo</string>
+    <string name="gnu">GNU Licencia General Pública, versión 2 con excepción de ruta de clases</string>
+    <string name="contribute">Contribuir</string>
+    <string name="apacheLicense">Licencia Apache 2.0</string>
+    <string name="androidJetpack">Android Jetpack</string>
+    <string name="addHoliday">Añadir título de festividad</string>
+    <string name="calendar">Calendario</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="backup">Elimina cualquier archivo de respaldo existente en tu dispositivo primero.</string>
+    <string name="developer">Desarrollador</string>
+    <string name="apache">Beta - Licencia Apache 2.0</string>
+    <string name="apachelicense">Licencia Apache 2.0</string>
+    <string name="general">General</string>
+    <string name="java">Java</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="marvin">Crazy Marvin</string>
+    <string name="codeaquaria">Code Acquaria</string>
+    <string name="translate">Traducir</string>
+    <string name="materialdesignicons">Íconos Material Design</string>
+    <string name="data">Información</string>
+    <string name="restore">Restaurar</string>
+    <string name="noofvacations">Número de vacaciones</string>
+    <string name="enternoofvacations">Ingrese el número de vacaciones</string>
+    <string name="reportaproblem">Reportar un problema</string>
+    <string name="openSourceLicences">Licencias de código abierto</string>
+    <string name="featherIcons">íconos de plumas</string>
+    <string name="mitLicence">Licencia MIT</string>
+    <string name="dateRangePicker">DateRangePicker</string>
+    <string name="appearance">Apariencia</string>
+    <string name="backupheading">Respaldar</string>
+    <string name="save">Guardar</string>
+    <string name="ok">OK</string>
+    <string name="date_range">%s
+\n↓
+\n%s</string>
+    <string name="light">Claro</string>
+    <string name="dark">Oscuro</string>
+</resources>

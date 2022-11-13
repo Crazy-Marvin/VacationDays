@@ -1,0 +1,6 @@
+- ⚙️ Corregido el respaldo (#94)
+- 🎨 Soporte para íconos temáticos introducidos en Android 13+ (#83)
+- 🐛 Corregido el nombre de la versión en la pantalla "Acerca de" (#97)
+- 👍 Actualidas dependencias y traducciones
+
+Muchísimas gracias a @unbiaseduser, @amarradi y a todos los traductores! 😘

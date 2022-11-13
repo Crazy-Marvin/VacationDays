@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             count+=Integer.parseInt(Helper.data.get(i)[4]);
         }
         remaining=Helper.totalHolidays-count;
-        holidayscount.setText("Total Vacations:"+Helper.totalHolidays+"Remaining Vacations:"+remaining);
+        holidayscount.setText("Total Vacations: "+Helper.totalHolidays+"\n"+"Remaining Vacations: "+remaining);
 
         db.getMode();
         switch (rocks.poopjournal.vacationdays.Helper.isnightmodeon) {
@@ -84,34 +84,27 @@ public class MainActivity extends AppCompatActivity {
             ft.commit();
         }
 
-        timeline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Helper.whichTabSelected=0;
-                timeline.setBackgroundColor(getResources().getColor(R.color.tabs));
-                timeline.setTextColor(getResources().getColor(R.color.textcolorblack));
-                calendar.setBackgroundColor(Color.TRANSPARENT);
-                calendar.setTextColor(getResources().getColor(R.color.textcolorwhite));
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction().setCustomAnimations(
-                        R.anim.fade_in,R.anim.fade_out
-                );
-                ft.replace(R.id.container, new FragmentTimeline());
-                ft.commit();
-            }
+        timeline.setOnClickListener(view -> {
+            Helper.whichTabSelected=0;
+            timeline.setBackgroundColor(getResources().getColor(R.color.tabs));
+            timeline.setTextColor(getResources().getColor(R.color.textcolorblack));
+            calendar.setBackgroundColor(Color.TRANSPARENT);
+            calendar.setTextColor(getResources().getColor(R.color.textcolorwhite));
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction().setCustomAnimations(
+                    R.anim.fade_in,R.anim.fade_out
+            );
+            ft.replace(R.id.container, new FragmentTimeline());
+            ft.commit();
         });
-        calendar.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
-            public void onClick(View view) {
-                Helper.whichTabSelected=1;
-                calendar.setBackgroundColor(getResources().getColor(R.color.tabs));
-                calendar.setTextColor(getResources().getColor(R.color.textcolorblack));
-                timeline.setBackgroundColor(Color.TRANSPARENT);
-                timeline.setTextColor(getResources().getColor(R.color.textcolorwhite));
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction().setCustomAnimations(0,0);
-                ft.replace(R.id.container, new FragmentCalendar());
-                ft.commit();
-            }
+        calendar.setOnClickListener(view -> {
+            Helper.whichTabSelected=1;
+            calendar.setBackgroundColor(getResources().getColor(R.color.tabs));
+            calendar.setTextColor(getResources().getColor(R.color.textcolorblack));
+            timeline.setBackgroundColor(Color.TRANSPARENT);
+            timeline.setTextColor(getResources().getColor(R.color.textcolorwhite));
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction().setCustomAnimations(0,0);
+            ft.replace(R.id.container, new FragmentCalendar());
+            ft.commit();
         });
     }
     public void floatingbuttonclicked(View view) {
@@ -125,21 +118,18 @@ public class MainActivity extends AppCompatActivity {
         lp.dimAmount=0.9f;
         d.getWindow().setAttributes(lp);
         d.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
-        btnsave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(editText.getText().toString().equals("")){
-                    editText.setError("Can't be empty");
-                }
-                else{
-                    Helper.holidayTitle=""+editText.getText().toString();
-                    d.dismiss();
-                    Intent i = new Intent(MainActivity.this, DatePicker.class);
-                    finishAffinity();
-                    startActivity(i);
-                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        btnsave.setOnClickListener(view1 -> {
+            if(editText.getText().toString().equals("")){
+                editText.setError("Can't be empty");
+            }
+            else{
+                Helper.holidayTitle=""+editText.getText().toString();
+                d.dismiss();
+                Intent i = new Intent(MainActivity.this, DatePicker.class);
+                finishAffinity();
+                startActivity(i);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
-                }
             }
         });d.show();
 
