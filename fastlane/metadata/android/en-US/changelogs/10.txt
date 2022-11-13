@@ -1,4 +1,5 @@
 - Many Bugs Fixed Thanks To subeep 🐛
+- UI Improvements Thanks To unbiaseduser 🎨
 - Pressing Back Now Does Not Close The App Automatically 🐛
 - Switch To Vector Icons For A Sharper view Thanks To karthikayya 🎨
 - Translation Updates 🗺️
