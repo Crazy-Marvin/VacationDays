@@ -1,0 +1,5 @@
+- Mange feilfikser takket være subeep 🐛
+- Grensesnittsforbedringer takket være unbiaseduser 🎨
+- Å trykke «Tilbake» lukker nå ikke programmet automatisk 🐛
+- Bytte til vektorielle ikoner for skarpere visning takket være karthikayya 🎨
+- Oversettelsesoppdateringer 🗺️
