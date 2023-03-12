@@ -1,2 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Dni Wolne</string>
+    <string name="about">O aplikacji</string>
+    <string name="settings">Ustawienia</string>
+    <string name="timeline">Oś czasu</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="translate">Przetłumacz</string>
+    <string name="reportaproblem">Zgłoś problem</string>
+    <string name="viewSource">Zobacz kod źródłowy</string>
+    <string name="openSourceLicences">Licencje open-source</string>
+    <string name="general">Ogólne</string>
+    <string name="appearance">Wygląd</string>
+    <string name="data">Baza danych</string>
+    <string name="backupheading">Utwórz kopię zapasową</string>
+    <string name="restore">Przywróć z kopii zapasowej</string>
+    <string name="addHoliday">Wpisz nazwę urlopu</string>
+    <string name="save">Zapisz</string>
+    <string name="ok">OK</string>
+    <string name="followsys">Wygląd systemu</string>
+    <string name="light">Jasny</string>
+    <string name="developer">Deweloper</string>
+    <string name="contribute">Zaangażuj się</string>
+    <string name="apache">Beta - licencja Apache 2.0</string>
+    <string name="apachelicense">Licencja Apache 2.0</string>
+    <string name="marvin">Crazy Marvin</string>
+    <string name="apacheLicense">Licencja Apache 2.0</string>
+    <string name="materialdesignicons">Ikony Material Design</string>
+    <string name="dark">Ciemny</string>
+    <string name="noofvacations">Liczba dni wolnych</string>
+    <string name="enternoofvacations">Wpisz liczbę dni wolnych</string>
+    <string name="calendar">Kalendarz</string>
+    <string name="backup">Usuń wcześniejsze kopie zapasowe z urządzenia.</string>
+    <string name="mitLicence">Licencja MIT</string>
+</resources>
