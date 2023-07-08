@@ -1,0 +1,13 @@
+Zjistete kdy máte volno a naplánujte si dovolenou.
+
+<b>Na první pohled</b> Zobrazte si dny dovolené v jednom ze dvou rozložení: časové ose nebo kalendáři. Počítadla v horní liště ukazují dny dovolené v aktuálním roce – a kolik jich zbývá.
+
+<b>Seřazeno v sekundách.</b> Klepnutím na plovoucí tlačítko přidáte nové dny dovolené. Zadejte název, přejetím prstem vyberte časové rozmezí a máte hotovo.
+
+<b>Měníte telefon?</b> Zálohujte všechna svá data na jednom zařízení a obnovte je na jiném. Provádějte pravidelné zálohy, aby byla vaše data v bezpečí.
+
+<b>Noční sovy, radujte se.</b> Krásný tmavý režim pro sledování pozdě v noci. Přepněte jej automaticky nebo jej nechte následovat vzhled systému.
+
+Webová stránka: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
+Přeložte ji na Hosted Weblate: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
+Libre software na GitHubu: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>

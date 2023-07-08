@@ -1,0 +1,1 @@
+"Opraven" linting pro vydané verze
