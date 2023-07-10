@@ -1,0 +1,5 @@
+- Mnoho chyb opraveno díky subeep 🐛
+- Vylepšení uživatelského rozhraní díky unbiaseduser 🎨
+- Stisknutím tlačítka Zpět se aplikace nyní nezavře automaticky 🐛
+- Přepněte na vektorové ikony pro ostřejší pohled díky karthikayya 🎨
+- Aktualizace překladu 🗺️
