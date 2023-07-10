@@ -1,2 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Dny Dovolené</string>
+    <string name="about">O</string>
+    <string name="settings">Nastavení</string>
+    <string name="timeline">Časová osa</string>
+    <string name="calendar">Kalendář</string>
+    <string name="apache">Beta - Apache Licence 2.0</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">GNU General Public License, verze 2, s Classpath Výjímkou</string>
+    <string name="apachelicense">Apache Licence 2.0</string>
+    <string name="nobobutton">NoboTlačítko</string>
+    <string name="circleimg">Kruhové zobrazení obrázku</string>
+    <string name="backup">Nejprve ze zařízení odstraňte všechny již existující záložní soubory.</string>
+    <string name="mitLicence">MIT Licence</string>
+    <string name="materialdesignicons">Material Design Ikony</string>
+    <string name="marvin">Šílený Márvin</string>
+    <string name="developer">Vývojář</string>
+    <string name="codeaquaria">Kód Acquaria</string>
+    <string name="contribute">Přispět</string>
+    <string name="translate">Přeložit</string>
+    <string name="reportaproblem">Nahlásit problém</string>
+    <string name="viewSource">Zobrazit zdroj</string>
+    <string name="openSourceLicences">Licence s otevřeným zdrojem</string>
+    <string name="featherIcons">Feather Ikony</string>
+    <string name="apacheLicense">Apache Licence 2.0</string>
+    <string name="androidJetpack">Android Jetpack</string>
+    <string name="dateRangePicker">Výběr časového rozmezí</string>
+    <string name="general">Všeobecné</string>
+    <string name="appearance">Vzhled</string>
+    <string name="data">Data</string>
+    <string name="backupheading">Záloha</string>
+    <string name="restore">Obnovit</string>
+    <string name="addHoliday">Přidat název Svátku</string>
+    <string name="save">Uložit</string>
+    <string name="ok">OK</string>
+    <string name="date_range">%s
+\n↓
+\n%s</string>
+    <string name="followsys">Následovat Systém</string>
+    <string name="light">Světlé</string>
+    <string name="dark">Tmavé</string>
+    <string name="noofvacations">Počet dovolených</string>
+    <string name="enternoofvacations">Upravit počet dovolených</string>
+</resources>
