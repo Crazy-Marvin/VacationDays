@@ -42,5 +42,5 @@
     <string name="light">Světlé</string>
     <string name="dark">Tmavé</string>
     <string name="noofvacations">Počet dovolených</string>
-    <string name="enternoofvacations">Upravit počet dovolených</string>
+    <string name="enternoofvacations">Zadejte počet dovolených</string>
 </resources>
