@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.jacocoVersion = '0.8.10'
+    ext.jacocoVersion = '0.8.11'
     repositories {
         google()
         jcenter()
