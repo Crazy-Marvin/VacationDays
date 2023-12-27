@@ -23,16 +23,16 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
 }
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
     lintOptions {
         checkReleaseBuilds false
     }
     defaultConfig {
         applicationId "rocks.poopjournal.vacationdays"
         minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 10
-        versionName "10.0"
+        targetSdkVersion 34
+        versionCode 11
+        versionName "11.0"
 
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
