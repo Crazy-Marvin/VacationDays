@@ -1,2 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="materialdesignicons">Icones Material Design</string>
+    <string name="save">Salvar</string>
+    <string name="androidJetpack">Android Jetpack</string>
+    <string name="date_range">%s
+\n↓
+\n%s</string>
+    <string name="apachelicense">Licentia Apache 2.0</string>
+    <string name="developer">Disveloppator</string>
+    <string name="translate">Traducer</string>
+    <string name="followsys">Thema de systema</string>
+    <string name="timeline">Chronologia</string>
+    <string name="restore">Restaurar</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="appearance">Apparentia</string>
+    <string name="addHoliday">Adder titulo de vacantia</string>
+    <string name="apacheLicense">Licentia Apache 2.0</string>
+    <string name="light">Clar</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="data">Datos</string>
+    <string name="ok">OK</string>
+    <string name="about">A proposito de</string>
+    <string name="reportaproblem">Signalar un defecto</string>
+    <string name="java">Java</string>
+    <string name="apache">Beta - Licentia Apache 2.0</string>
+    <string name="dark">Obscur</string>
+    <string name="featherIcons">Icones Feather</string>
+    <string name="enternoofvacations">Insere le numero de vacantias</string>
+    <string name="general">General</string>
+    <string name="marvin">Crazy Marvin</string>
+    <string name="noofvacations">Numero de vacantias</string>
+    <string name="viewSource">Vider le fonte</string>
+    <string name="openSourceLicences">Licentias de codice aperte</string>
+    <string name="codeaquaria">Code Acquaria</string>
+    <string name="mitLicence">Licentia MIT</string>
+    <string name="settings">Parametros</string>
+    <string name="app_name">Dies de vacantias</string>
+    <string name="calendar">Calendario</string>
+    <string name="backupheading">Copia de securitate</string>
+    <string name="contribute">Contribuer</string>
+</resources>
