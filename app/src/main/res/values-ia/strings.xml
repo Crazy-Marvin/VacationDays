@@ -41,4 +41,6 @@
     <string name="contribute">Contribuer</string>
     <string name="dateRangePicker">DateRangePicker</string>
     <string name="circleimg">CircleImageView</string>
+    <string name="gnu">Licentia Public General GNU, version 2, con le exception Classpath</string>
+    <string name="backup">Dele qualcunque files de copia de securitate preexistente ab tu apparato prime.</string>
 </resources>
