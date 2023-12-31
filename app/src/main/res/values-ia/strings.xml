@@ -39,4 +39,6 @@
     <string name="calendar">Calendario</string>
     <string name="backupheading">Copia de securitate</string>
     <string name="contribute">Contribuer</string>
+    <string name="dateRangePicker">DateRangePicker</string>
+    <string name="circleimg">CircleImageView</string>
 </resources>
