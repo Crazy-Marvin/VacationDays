@@ -1,0 +1,5 @@
+- Multe defectos corrigite gratias a subeep 🐛
+- Meliorationes de interfacie de usator gratias a unbiaseduser 🎨
+- Pulsar Retro ora non claude le application automaticamente 🐛
+- Cambio a icones vector pro un vista plus fulgente gratias a karthikayya 🎨
+- Actualisationes de traductiones 🗺️
