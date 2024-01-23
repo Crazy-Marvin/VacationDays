@@ -1,0 +1,13 @@
+Vide quando tu es libere e planifica tu vacantias.
+
+<b>A prime vista.</b> Vide tu dies de vacantia in un de duo dispositiones: un chronologia o un calendar. Le contatores in le barra monstra tu dies de vacantia pro le anno actual — e quanto es remanente.
+
+<b>Ordinate in secundas.</b> Tocca le button emergente pro adder nove dies de vacantia. Insere un nomine, glissa pro seliger un intervallo de date e tu jam es preste.
+
+<b>Cambiante telephonos?</b> Face un copia de securitate de tote tu datos in un apparato e restaura lo in altere. Face copias de securitate periodic pro mantener tu datos.
+
+<b>Night owls, rejoice.</b> Un belle Modo Obscur pro vistas tarde in le nocte. Commuta lo automaticamente o face lo sequer le apparentia del systema.
+
+Sito web: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
+Traduce lo in Hosted Weblate: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
+Software libere in GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>

@@ -1,0 +1,6 @@
+- ⚙️ Corrigite le copia de securitate (#94)
+- 🎨 Supporto de themas de icone introducite in Android 13+ (#83)
+- 🐛 Corrigite le nomine de version monstrate in le schermo A proposito (#97)
+- 👍 Dependentias e traductiones actualisate
+
+Multe gratias a @unbiaseduser, @amarradi e tote le traductores! 😘
