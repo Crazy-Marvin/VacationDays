@@ -24,9 +24,6 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
 
 android {
     compileSdkVersion 34
-    lintOptions {
-        checkReleaseBuilds false
-    }
     defaultConfig {
         applicationId "rocks.poopjournal.vacationdays"
         minSdkVersion 21
@@ -59,6 +56,9 @@ testOptions {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lint {
+        checkReleaseBuilds false
     }
 }
 
