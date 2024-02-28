@@ -6,8 +6,9 @@ plugins {
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
 
     reports {
-        xml.enabled = true
-        html.enabled = true
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
     }
 
     def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
@@ -26,6 +27,7 @@ android {
     compileSdkVersion 34
     defaultConfig {
         applicationId "rocks.poopjournal.vacationdays"
+        namespace "rocks.poopjournal.vacationdays"
         minSdkVersion 21
         targetSdkVersion 34
         versionCode 11
