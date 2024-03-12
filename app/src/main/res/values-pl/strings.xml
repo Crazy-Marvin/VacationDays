@@ -33,4 +33,14 @@
     <string name="calendar">Kalendarz</string>
     <string name="backup">Usuń wcześniejsze kopie zapasowe z urządzenia.</string>
     <string name="mitLicence">Licencja MIT</string>
+    <string name="gnu">Licencja GNU General Public, wersja 2, z wykluczeniem Classpath</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="codeaquaria">Kod Aquaria</string>
+    <string name="featherIcons">Zestaw ikon Feather</string>
+    <string name="androidJetpack">Android Jetpack</string>
+    <string name="dateRangePicker">DateRangePicker</string>
+    <string name="date_range">%s
+\n↓
+\n%s</string>
 </resources>
