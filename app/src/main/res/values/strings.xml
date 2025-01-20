@@ -42,4 +42,5 @@
     <string name="dark">Dark</string>
     <string name="noofvacations">Number of Vacations</string>
     <string name="enternoofvacations">Enter Number of Vacations</string>
+    <string name="title_activity_main2">MainActivity2</string>
 </resources>
