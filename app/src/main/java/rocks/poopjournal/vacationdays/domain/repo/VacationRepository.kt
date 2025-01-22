@@ -15,5 +15,5 @@ class VacationRepository @Inject constructor(
     fun getData(id: Int) : Flow<VacationData> = vacationDao.getData(id).flowOn(Dispatchers.IO).conflate()
     suspend fun insertData(data: VacationData) = vacationDao.insert(data)
     suspend fun updateData(data: VacationData) = vacationDao.update(data)
-    suspend fun deletedata(data: VacationData) = vacationDao.delete(data)
+    suspend fun deleteData(data: VacationData) = vacationDao.delete(data)
 }

@@ -38,6 +38,14 @@ val Typography = Typography(
         letterSpacing = 0.5.sp,
     ),
 
+    titleMedium = TextStyle(
+        fontFamily = DMSansFamily,
+        fontWeight = FontWeight.W700,
+        fontSize = 18.sp,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp,
+    ),
+
     bodySmall = TextStyle(
         fontFamily = DMSansFamily,
         fontWeight = FontWeight.W700,
