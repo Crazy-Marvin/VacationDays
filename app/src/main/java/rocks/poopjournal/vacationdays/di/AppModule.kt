@@ -10,6 +10,7 @@ import dagger.hilt.components.SingletonComponent
 import rocks.poopjournal.vacationdays.domain.service.DatabaseBackupManager
 import rocks.poopjournal.vacationdays.domain.service.VacationDao
 import rocks.poopjournal.vacationdays.domain.service.VacationDatabase
+import rocks.poopjournal.vacationdays.domain.service.VacationNumberDao
 import rocks.poopjournal.vacationdays.presentation.ui.utils.THEDATABASE_DATABASE_NAME
 import javax.inject.Singleton
 
@@ -20,6 +21,11 @@ object AppModule {
     @Provides
     fun provideVacationDao(vacationDatabase: VacationDatabase): VacationDao =
         vacationDatabase.vacationDao()
+
+    @Singleton
+    @Provides
+    fun provideVacationNumberDao(vacationDatabase: VacationDatabase) : VacationNumberDao =
+        vacationDatabase.vacationNumberDao()
 
     @Singleton
     @Provides

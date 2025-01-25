@@ -9,7 +9,7 @@ data class VacationData(
     @PrimaryKey(autoGenerate = true)
     val id : Int = 0,
     val name : String,
-    val startDate : Int,
-    val endDate : Int? = null,
-    val category : String
+    val startDate : String,
+    val endDate : String? = null,
+    val category : String,
 )

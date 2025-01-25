@@ -14,7 +14,7 @@ class AddViewModel @Inject constructor(
 ) : ViewModel() {
 
     fun addVacation(vacationData: VacationData) {
-        if (vacationData.name.isEmpty() || vacationData.startDate == 0) {
+        if (vacationData.name.isEmpty() || vacationData.startDate.isEmpty()) {
             return
         }
         viewModelScope.launch {

@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.presentation.ui.utils.AppTheme
@@ -32,7 +33,14 @@ fun ThemeSelectionDialog(
     val theme = userSetting.themeFlow.collectAsState()
     AlertDialog(
         onDismissRequest = onDismissRequest,
-        title = { Text(text = stringResource(id = R.string.appearance)) },
+        title = {
+            Text(
+                text = stringResource(id = R.string.appearance),
+                color = MaterialTheme.colorScheme.onBackground,
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.W500
+            )
+        },
         text = {
             ThemeContent(selectedTheme = theme.value, onItemSelect = { themes ->
                 userSetting.theme = themes
@@ -40,11 +48,12 @@ fun ThemeSelectionDialog(
         },
         confirmButton = {
             TextButton(onClick = onDismissRequest) {
-                Text(stringResource(id = R.string.done), color = MaterialTheme.colorScheme.primary)
+                Text(stringResource(id = R.string.done), color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.bodyLarge)
             }
         }
     )
 }
+
 @Composable
 fun ThemeContent(
     selectedTheme: AppTheme,
@@ -129,7 +138,8 @@ private fun RadioGroupItems(
         Text(
             text = items.name,
             color = MaterialTheme.colorScheme.onBackground,
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyLarge,
+            fontWeight = FontWeight.W500
         )
     }
 }

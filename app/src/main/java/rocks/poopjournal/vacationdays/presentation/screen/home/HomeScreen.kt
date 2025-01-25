@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -47,27 +48,27 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.kizitonwose.calendar.core.CalendarMonth
 import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.data.VacationData
 import rocks.poopjournal.vacationdays.presentation.component.CalenderView
 import rocks.poopjournal.vacationdays.presentation.component.CustomTab
-import rocks.poopjournal.vacationdays.presentation.component.MonthHeader
 import rocks.poopjournal.vacationdays.presentation.navigation.About_Screen
 import rocks.poopjournal.vacationdays.presentation.navigation.Add_Screen
 import rocks.poopjournal.vacationdays.presentation.navigation.Setting_Screen
 import rocks.poopjournal.vacationdays.presentation.ui.theme.gray
 import rocks.poopjournal.vacationdays.presentation.ui.theme.lightGray
-import rocks.poopjournal.vacationdays.presentation.ui.utils.generateWeekDaysForMonth
 import java.time.LocalDate
 import java.time.YearMonth
+import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: NavHostController) {
     val vacation by viewModel.holidays.collectAsState()
     val (selectedTab, setSelectedTab) = remember { mutableIntStateOf(0) }
-
+    val vacationDays by viewModel.vacationDays.collectAsState()
+    val sickDays by viewModel.sickDays.collectAsState()
+    val totalHolidays by viewModel.totalHolidays.collectAsState()
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
@@ -88,11 +89,14 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
                 TopBar(
                     selectedTab = selectedTab,
                     onTabSelected = setSelectedTab,
-                    navHostController = navHostController
+                    navHostController = navHostController,
+                    total = totalHolidays,
+                    vacationDays = vacationDays,
+                    sickDays = sickDays
                 )
                 when (selectedTab) {
                     0 -> TimelineView(vacationList = vacation)
-                    1 -> Calendar()
+                    1 -> Calendar(holiday = vacation)
                 }
             }
         })
@@ -105,7 +109,10 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
 private fun TopBar(
     selectedTab: Int,
     onTabSelected: (Int) -> Unit,
-    navHostController: NavHostController
+    navHostController: NavHostController,
+    sickDays: Int,
+    vacationDays: Int,
+    total: Int
 ) {
     var expanded by remember { mutableStateOf(false) }
 
@@ -146,7 +153,10 @@ private fun TopBar(
                         tint = MaterialTheme.colorScheme.background
                     )
                     Spacer(modifier = Modifier.width(5.dp))
-                    Text(text = "16 (12 left)", color = MaterialTheme.colorScheme.background)
+                    Text(
+                        text = vacationDays.toString(),
+                        color = MaterialTheme.colorScheme.background
+                    )
 
                     Spacer(modifier = Modifier.width(8.dp))
 
@@ -156,7 +166,7 @@ private fun TopBar(
                         tint = MaterialTheme.colorScheme.background
                     )
                     Spacer(modifier = Modifier.width(5.dp))
-                    Text(text = "349", color = MaterialTheme.colorScheme.background)
+                    Text(text = total.toString(), color = MaterialTheme.colorScheme.background)
 
                     Spacer(modifier = Modifier.width(8.dp))
 
@@ -166,7 +176,7 @@ private fun TopBar(
                         tint = MaterialTheme.colorScheme.background
                     )
                     Spacer(modifier = Modifier.width(5.dp))
-                    Text(text = "7", color = MaterialTheme.colorScheme.background)
+                    Text(text = sickDays.toString(), color = MaterialTheme.colorScheme.background)
                 }
             }
 
@@ -205,7 +215,7 @@ private fun TopBar(
                                     contentDescription = "About",
                                     tint = MaterialTheme.colorScheme.onBackground
                                 )
-                                Spacer(modifier = Modifier.width(5.dp))
+                                Spacer(modifier = Modifier.width(8.dp))
                                 Text(
                                     text = stringResource(id = R.string.about),
                                     style = MaterialTheme.typography.labelSmall,
@@ -231,7 +241,7 @@ private fun TopBar(
                                     contentDescription = "Settings",
                                     tint = MaterialTheme.colorScheme.onBackground
                                 )
-                                Spacer(modifier = Modifier.width(5.dp))
+                                Spacer(modifier = Modifier.width(8.dp))
                                 Text(
                                     text = stringResource(id = R.string.settings),
                                     style = MaterialTheme.typography.labelSmall,
@@ -269,15 +279,9 @@ private fun TopBar(
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun TimelineView(vacationList: List<VacationData>) {
-    val currentMonth = YearMonth.now()
-
-    val weekDays = remember(currentMonth) {
-        generateWeekDaysForMonth(currentMonth)
+    val groupedVacations = vacationList.groupBy { vacation ->
+        YearMonth.parse(vacation.startDate, DateTimeFormatter.ofPattern("d/MM/yyyy"))
     }
-    val calendarMonth = CalendarMonth(
-        yearMonth = currentMonth,
-        weekDays = weekDays
-    )
 
     val today = LocalDate.now()
 
@@ -288,7 +292,7 @@ fun TimelineView(vacationList: List<VacationData>) {
     ) {
         if (vacationList.isEmpty()) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxSize(),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
@@ -300,69 +304,83 @@ fun TimelineView(vacationList: List<VacationData>) {
             }
         } else {
             LazyColumn {
-                item {
-                    MonthHeader(calendarMonth = calendarMonth)
-                }
-                items(vacationList) { item ->
-                    val isStartDateToday = item.startDate == today.toEpochDay().toInt()
-                    val isEndDateToday = item.endDate != null && item.endDate == today.toEpochDay().toInt()
-                    val cardBorderColor =
-                        if (isStartDateToday || isEndDateToday) MaterialTheme.colorScheme.primary else Color.Transparent
+                groupedVacations.forEach { (yearMonth, vacations) ->
+                    item {
+                        Text(
+                            text = yearMonth.format(DateTimeFormatter.ofPattern("MMM yyyy")),
+                            style = MaterialTheme.typography.titleMedium,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 8.dp),
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                    items(vacations) { item ->
+                        val isStartDateToday =
+                            item.startDate == today.format(DateTimeFormatter.ofPattern("d/MM/yyyy"))
+                        val isEndDateToday = item.endDate != null && item.endDate == today.format(
+                            DateTimeFormatter.ofPattern("d/MM/yyyy")
+                        )
+                        val cardBorderColor =
+                            if (isStartDateToday || isEndDateToday) MaterialTheme.colorScheme.primary else Color.Transparent
 
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Column(
-                            modifier = Modifier.padding(start = 10.dp, end = 10.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .wrapContentHeight(),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            Text(
-                                text = item.startDate.toString(),
-                                style = MaterialTheme.typography.labelSmall,
-                                fontWeight = FontWeight.Bold
-                            )
-                            if (item.endDate != null) { // Show the down icon and end date if endDate is present
-                                Spacer(modifier = Modifier.height(5.dp))
-                                Icon(
-                                    painter = painterResource(id = R.drawable.ic_down),
-                                    contentDescription = "down",
-                                    tint = gray
-                                )
-                                Spacer(modifier = Modifier.height(5.dp))
+                            Column(
+                                modifier = Modifier.padding(start = 10.dp, end = 10.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
                                 Text(
-                                    text = item.endDate.toString(),
+                                    text = item.startDate.substringBefore("/"),
                                     style = MaterialTheme.typography.labelSmall,
                                     fontWeight = FontWeight.Bold
                                 )
+                                if (!item.endDate.isNullOrEmpty()) { // Show the down icon and end date if endDate is present
+                                    Spacer(modifier = Modifier.height(5.dp))
+                                    Icon(
+                                        painter = painterResource(id = R.drawable.ic_down),
+                                        contentDescription = "down",
+                                        tint = gray
+                                    )
+                                    Spacer(modifier = Modifier.height(5.dp))
+                                    Text(
+                                        text = item.endDate.substringBefore("/"),
+                                        style = MaterialTheme.typography.labelSmall,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                }
                             }
-                        }
 
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Card(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(if (item.endDate == null) 48.dp else 96.dp)
-                                    .padding(10.dp)
-                                    .border(
-                                        width = 1.dp,
-                                        color = cardBorderColor,
-                                        shape = RoundedCornerShape(10.dp)
-                                    ),
-                                shape = RoundedCornerShape(10.dp),
-                                colors = CardDefaults.cardColors(
-                                    containerColor = lightGray,
-                                    contentColor = MaterialTheme.colorScheme.onBackground
-                                )
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
                             ) {
-                                Text(
-                                    text = "Holiday",
-                                    modifier = Modifier.padding(10.dp),
-                                    style = MaterialTheme.typography.bodyMedium
-                                )
+                                Card(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(if (item.endDate.isNullOrEmpty()) 70.dp else 90.dp) // Conditional height based on endDate
+                                        .padding(10.dp)
+                                        .border(
+                                            width = 1.dp,
+                                            color = cardBorderColor,
+                                            shape = RoundedCornerShape(10.dp)
+                                        ),
+                                    shape = RoundedCornerShape(10.dp),
+                                    colors = CardDefaults.cardColors(
+                                        containerColor = lightGray,
+                                        contentColor = MaterialTheme.colorScheme.onBackground
+                                    )
+                                ) {
+                                    Text(
+                                        text = item.name,
+                                        modifier = Modifier.padding(10.dp),
+                                        style = MaterialTheme.typography.bodyMedium
+                                    )
+                                }
                             }
                         }
                     }
@@ -374,6 +392,9 @@ fun TimelineView(vacationList: List<VacationData>) {
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun Calendar() {
-    CalenderView(isRangeSelection = false)
+fun Calendar(holiday : List<VacationData>) {
+    CalenderView(isRangeSelection = false, holidays = holiday)
 }
+
+
+

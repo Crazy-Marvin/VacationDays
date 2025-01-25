@@ -7,6 +7,8 @@ import androidx.navigation.compose.composable
 import rocks.poopjournal.vacationdays.presentation.screen.about.AboutScreen
 import rocks.poopjournal.vacationdays.presentation.screen.add.AddScreen
 import rocks.poopjournal.vacationdays.presentation.screen.home.HomeScreen
+import rocks.poopjournal.vacationdays.presentation.screen.settings.SettingScreen
+import rocks.poopjournal.vacationdays.presentation.screen.settings.VacationDays
 
 @Composable
 fun NavGraph(navHostController: NavHostController) {
@@ -20,7 +22,7 @@ fun NavGraph(navHostController: NavHostController) {
         }
 
         composable(route = Setting_Screen) {
-
+            SettingScreen(navHostController = navHostController)
         }
 
         composable(route = About_Screen) {
@@ -28,7 +30,7 @@ fun NavGraph(navHostController: NavHostController) {
         }
 
         composable(route = Vacation_Days_Screen) {
-
+            VacationDays(navHostController = navHostController)
         }
     }
 }

@@ -6,7 +6,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -28,14 +27,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import rocks.poopjournal.vacationdays.data.VacationData
 import rocks.poopjournal.vacationdays.presentation.component.CalenderView
 import rocks.poopjournal.vacationdays.presentation.component.CustomTab
-import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -44,12 +42,8 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
     var selectedTab by remember { mutableIntStateOf(0) }
 
     var vacationName by remember { mutableStateOf("") }
-    var startDateInt by remember {
-        mutableStateOf(0)
-    }
-    var endDateInt by remember {
-        mutableStateOf(0)
-    }
+    var startDateString by remember { mutableStateOf("") }
+    var endDateString by remember { mutableStateOf("") }
 
     Column(modifier = Modifier.fillMaxSize()) {
         TopBar(
@@ -60,8 +54,8 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
             onCheckClick = {
                 val vacationData = VacationData(
                     name = vacationName,
-                    startDate = startDateInt,
-                    endDate = if (endDateInt != 0) endDateInt else null,
+                    startDate = startDateString,
+                    endDate = endDateString.ifEmpty { null },
                     category = if (selectedTab == 0) "Sick" else "Vacation"
                 )
                 viewModel.addVacation(vacationData)
@@ -74,8 +68,8 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
 
         Column(modifier = Modifier.fillMaxWidth()) {
             CalenderView(isRangeSelection = true, dateSelected = { startDate, endDate ->
-                startDateInt = startDate.dayOfMonth
-                endDateInt = endDate.dayOfMonth
+                startDateString = startDate.format(DateTimeFormatter.ofPattern("d/MM/yyyy"))
+                endDateString = endDate?.format(DateTimeFormatter.ofPattern("d/MM/yyyy")) ?: ""
             })
         }
     }

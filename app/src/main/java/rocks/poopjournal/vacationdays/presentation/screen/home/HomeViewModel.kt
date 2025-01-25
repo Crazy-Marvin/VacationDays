@@ -17,6 +17,15 @@ class HomeViewModel @Inject constructor(
     private val _holidays = MutableStateFlow<List<VacationData>>(emptyList())
     val holidays: StateFlow<List<VacationData>> = _holidays
 
+    private val _vacationDays = MutableStateFlow(0)
+    val vacationDays: StateFlow<Int> = _vacationDays
+
+    private val _sickDays = MutableStateFlow(0)
+    val sickDays: StateFlow<Int> = _sickDays
+
+    private val _totalHolidays = MutableStateFlow(0)
+    val totalHolidays: StateFlow<Int> = _totalHolidays
+
     init {
         fetchHolidays()
     }
@@ -24,9 +33,15 @@ class HomeViewModel @Inject constructor(
     private fun fetchHolidays() {
         viewModelScope.launch {
             vacationRepository.getAllData().collect { data ->
-                    _holidays.value = data
-                }
+                _holidays.value = data
+                val vacation = data.filter { it.category == "Vacation" }.size
+                _vacationDays.value = vacation
+
+                val sick = data.filter { it.category == "Sick" }.size
+                _sickDays.value = sick
+
+                _totalHolidays.value = vacation + sick
+            }
         }
     }
-
 }
