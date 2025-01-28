@@ -11,5 +11,5 @@ data class VacationData(
     val name : String,
     val startDate : String,
     val endDate : String? = null,
-    val category : String,
+    val category : String = "Vacation",
 )

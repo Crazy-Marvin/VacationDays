@@ -92,7 +92,8 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
                     navHostController = navHostController,
                     total = totalHolidays,
                     vacationDays = vacationDays,
-                    sickDays = sickDays
+                    sickDays = sickDays,
+                    isSickEnabled = viewModel.themeSetting.isFeatureEnabled
                 )
                 when (selectedTab) {
                     0 -> TimelineView(vacationList = vacation)
@@ -112,7 +113,8 @@ private fun TopBar(
     navHostController: NavHostController,
     sickDays: Int,
     vacationDays: Int,
-    total: Int
+    total: Int,
+    isSickEnabled : Boolean
 ) {
     var expanded by remember { mutableStateOf(false) }
 
@@ -120,7 +122,8 @@ private fun TopBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(144.dp)
-            .background(MaterialTheme.colorScheme.primary)
+            .background(MaterialTheme.colorScheme.primary),
+        verticalArrangement = Arrangement.Center,
     ) {
         Row(
             modifier = Modifier
@@ -129,56 +132,58 @@ private fun TopBar(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            // Center Column for text and icons
+            Spacer(modifier = Modifier.weight(0.3f))
             Column(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier.weight(1f).fillMaxWidth(),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(
-                    text = stringResource(id = R.string.app_name),
-                    color = MaterialTheme.colorScheme.background,
-                    style = MaterialTheme.typography.titleLarge
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.umbrella),
-                        contentDescription = "Vacation",
-                        tint = MaterialTheme.colorScheme.background
-                    )
-                    Spacer(modifier = Modifier.width(5.dp))
                     Text(
-                        text = vacationDays.toString(),
-                        color = MaterialTheme.colorScheme.background
+                        text = stringResource(id = R.string.app_name),
+                        color = MaterialTheme.colorScheme.background,
+                        style = MaterialTheme.typography.titleLarge
                     )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.umbrella),
+                            contentDescription = "Vacation",
+                            tint = MaterialTheme.colorScheme.background
+                        )
+                        Spacer(modifier = Modifier.width(5.dp))
+                        Text(
+                            text = vacationDays.toString(),
+                            color = MaterialTheme.colorScheme.background
+                        )
 
-                    Spacer(modifier = Modifier.width(8.dp))
 
-                    Icon(
-                        painter = painterResource(id = R.drawable.briefcase),
-                        contentDescription = "Total Days",
-                        tint = MaterialTheme.colorScheme.background
-                    )
-                    Spacer(modifier = Modifier.width(5.dp))
-                    Text(text = total.toString(), color = MaterialTheme.colorScheme.background)
+                        Spacer(modifier = Modifier.width(8.dp))
 
-                    Spacer(modifier = Modifier.width(8.dp))
+                        Icon(
+                            painter = painterResource(id = R.drawable.briefcase),
+                            contentDescription = "Total Days",
+                            tint = MaterialTheme.colorScheme.background
+                        )
+                        Spacer(modifier = Modifier.width(5.dp))
+                        Text(text = total.toString(), color = MaterialTheme.colorScheme.background)
 
-                    Icon(
-                        painter = painterResource(id = R.drawable.tempreature),
-                        contentDescription = "Sick Days",
-                        tint = MaterialTheme.colorScheme.background
-                    )
-                    Spacer(modifier = Modifier.width(5.dp))
-                    Text(text = sickDays.toString(), color = MaterialTheme.colorScheme.background)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        if (isSickEnabled) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.tempreature),
+                                contentDescription = "Sick Days",
+                                tint = MaterialTheme.colorScheme.background
+                            )
+                            Spacer(modifier = Modifier.width(5.dp))
+                            Text(
+                                text = sickDays.toString(),
+                                color = MaterialTheme.colorScheme.background
+                            )
+                        }
+                    }
                 }
-            }
 
             // MoreVert Icon on the right
             Box(
@@ -378,7 +383,8 @@ fun TimelineView(vacationList: List<VacationData>) {
                                     Text(
                                         text = item.name,
                                         modifier = Modifier.padding(10.dp),
-                                        style = MaterialTheme.typography.bodyMedium
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        fontWeight = FontWeight.Bold
                                     )
                                 }
                             }

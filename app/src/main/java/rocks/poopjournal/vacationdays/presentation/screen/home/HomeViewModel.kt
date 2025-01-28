@@ -8,12 +8,17 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import rocks.poopjournal.vacationdays.data.VacationData
 import rocks.poopjournal.vacationdays.domain.repo.VacationRepository
+import rocks.poopjournal.vacationdays.presentation.ui.utils.ThemeSetting
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val vacationRepository: VacationRepository
 ) : ViewModel() {
+
+    @Inject
+    lateinit var themeSetting: ThemeSetting
+
     private val _holidays = MutableStateFlow<List<VacationData>>(emptyList())
     val holidays: StateFlow<List<VacationData>> = _holidays
 

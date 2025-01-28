@@ -39,7 +39,7 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavHostController) {
 
-    var selectedTab by remember { mutableIntStateOf(0) }
+    var selectedTab by remember { mutableIntStateOf(1) }
 
     var vacationName by remember { mutableStateOf("") }
     var startDateString by remember { mutableStateOf("") }
@@ -63,7 +63,8 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
             },
             onCloseClick = {
                 navHostController.popBackStack()
-            }
+            },
+            isSickEnabled = viewModel.themeSetting.isFeatureEnabled
         )
 
         Column(modifier = Modifier.fillMaxWidth()) {
@@ -85,6 +86,7 @@ private fun TopBar(
     onNameChange: (String) -> Unit,
     onCheckClick: () -> Unit,
     onCloseClick: () -> Unit,
+    isSickEnabled : Boolean
 ) {
     Column(
         modifier = Modifier
@@ -143,21 +145,20 @@ private fun TopBar(
             )
         }
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 10.dp),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            CustomTab(
-                items = listOf("Sick", "Vacation"),
-                selectedItemIndex = selectedTab,
-                onClick = { index -> onTabSelected(index) }, // Update selected tab state
+        if(isSickEnabled) {
+            Row(
                 modifier = Modifier
-                    .fillMaxWidth(0.8f) // Adjust the width of the tabs as needed
-                    .height(48.dp) // Ensure proper height for the custom tab
-            )
+                    .fillMaxWidth()
+                    .padding(vertical = 10.dp),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                CustomTab(
+                    items = listOf("Sick", "Vacation"),
+                    selectedItemIndex = selectedTab,
+                    onClick = { index -> onTabSelected(index) },
+                )
+            }
         }
     }
 }

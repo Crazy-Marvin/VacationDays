@@ -81,8 +81,7 @@ fun AboutScreen(navController: NavHostController) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(50.dp)
-                    .background(MaterialTheme.colorScheme.secondary),
+                    .height(50.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
@@ -99,8 +98,7 @@ fun AboutScreen(navController: NavHostController) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(50.dp)
-                    .background(MaterialTheme.colorScheme.secondary),
+                    .height(50.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
@@ -145,7 +143,7 @@ private fun TopBar(
         ) {
             IconButton(
                 onClick = { onClose() },
-                modifier = Modifier.padding(top = 20.dp, start = 10.dp, end = 10.dp)
+                modifier = Modifier.padding(top = 30.dp, start = 10.dp, end = 10.dp)
             ) {
                 Icon(
                     imageVector = Icons.Rounded.ArrowBack,
@@ -156,7 +154,7 @@ private fun TopBar(
 
             IconButton(
                 onClick = { /*TODO*/ },
-                modifier = Modifier.padding(top = 20.dp, start = 10.dp, end = 10.dp)
+                modifier = Modifier.padding(top = 30.dp, start = 10.dp, end = 10.dp)
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_about),

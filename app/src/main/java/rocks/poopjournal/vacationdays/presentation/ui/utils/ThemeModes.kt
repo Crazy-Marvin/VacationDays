@@ -24,4 +24,5 @@ enum class AppTheme(val nameTheme : String){
 interface ThemeSetting {
     val themeFlow : StateFlow<AppTheme>
     var theme : AppTheme
+    var isFeatureEnabled: Boolean
 }

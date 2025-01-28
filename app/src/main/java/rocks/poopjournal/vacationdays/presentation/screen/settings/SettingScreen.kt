@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -24,6 +25,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -56,6 +58,13 @@ fun SettingScreen(
     val currentYear = LocalDate.now().year.toString()
     val vacationForCurrentYear = vacationList.find { it.name == currentYear }
     val vacationNumber = vacationForCurrentYear?.numberOfVacation ?: 0
+
+    var localFeatureEnabled by remember { mutableStateOf(false) }
+
+    LaunchedEffect(localFeatureEnabled) {
+        localFeatureEnabled = viewModel.themeSetting.isFeatureEnabled
+    }
+
     Column(modifier = Modifier.fillMaxSize()) {
         TopBar(onClose = { navHostController.popBackStack() })
         Column {
@@ -114,7 +123,12 @@ fun SettingScreen(
                     )
 
                 Switch(
-                    checked = true, onCheckedChange = {},
+                    checked = localFeatureEnabled,
+                    onCheckedChange = { newState ->
+                        localFeatureEnabled = newState
+
+                        viewModel.themeSetting.isFeatureEnabled = newState
+                    },
                     colors = SwitchDefaults.colors(
                         checkedIconColor = MaterialTheme.colorScheme.primary,
                         checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f),
@@ -229,15 +243,14 @@ private fun TopBar(onClose: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-
-        Row(
+        Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(10.dp, top = 10.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+                .fillMaxSize().padding(top = 20.dp),
         ) {
-            IconButton(onClick = { onClose() }) {
+            IconButton(
+                onClick = { onClose() },
+                modifier = Modifier.align(Alignment.CenterStart)
+            ) {
                 Icon(
                     imageVector = Icons.Rounded.ArrowBack,
                     contentDescription = "Back",
@@ -245,13 +258,11 @@ private fun TopBar(onClose: () -> Unit) {
                 )
             }
 
-            Spacer(modifier = Modifier.weight(1f))
-
             Text(
                 text = stringResource(id = R.string.settings),
                 color = MaterialTheme.colorScheme.background,
                 style = MaterialTheme.typography.titleLarge,
-                modifier = Modifier.weight(2f)
+                modifier = Modifier.align(Alignment.Center)
             )
         }
     }
