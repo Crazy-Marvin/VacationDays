@@ -290,7 +290,7 @@ fun MarvinRow(context: Context) {
                         .clickable {
                             val intent = Intent(Intent.ACTION_SENDTO).apply {
                                 data =
-                                    Uri.parse("mailto:marvin@poopjournal.rocks?subject=Fucks%20Given")
+                                    Uri.parse("mailto:marvin@poopjournal.rocks")
                             }
                             startActivity(context, intent, null)
                         }
@@ -312,7 +312,7 @@ fun MarvinRow(context: Context) {
                     contentDescription = "mail",
                     modifier = Modifier.clickable {
                         val intent = Intent(Intent.ACTION_VIEW).apply {
-                            data = Uri.parse("https://fosstodon.org/@CrazyMarvinApps")
+                            data = Uri.parse("https://twitter.com/CrazyMarvinApps")
                         }
                         startActivity(context, intent, null)
                     }
@@ -375,7 +375,7 @@ fun CodeAquariaRow(context: Context) {
                         .clickable {
                             val intent = Intent(Intent.ACTION_SENDTO).apply {
                                 data =
-                                    Uri.parse("mailto:mubeen1519@gmail.com?subject=Fucks%20Given")
+                                    Uri.parse("mailto:codeaquaria20@gmail.com")
                             }
                             context.startActivity(intent)
                         }
@@ -387,7 +387,7 @@ fun CodeAquariaRow(context: Context) {
                         .padding(end = 10.dp)
                         .clickable {
                             val intent = Intent(Intent.ACTION_VIEW).apply {
-                                data = Uri.parse("https://github.com/mubeen1519")
+                                data = Uri.parse("https://github.com/arafaatqureshi")
                             }
                             context.startActivity(intent)
                         }
@@ -397,7 +397,7 @@ fun CodeAquariaRow(context: Context) {
                     contentDescription = "x",
                     modifier = Modifier.clickable {
                         val intent = Intent(Intent.ACTION_VIEW).apply {
-                            data = Uri.parse("https://twitter.com/MubeenA74")
+                            data = Uri.parse("https://www.facebook.com/Code-Aquaria-109834144196326")
                         }
                         context.startActivity(intent)
                     }
@@ -461,7 +461,7 @@ fun MubeenRow(context: Context) {
                         .clickable {
                             val intent = Intent(Intent.ACTION_SENDTO).apply {
                                 data =
-                                    Uri.parse("mailto:mubeen1519@gmail.com?subject=Fucks%20Given")
+                                    Uri.parse("mailto:mubeen1519@gmail.com")
                             }
                             context.startActivity(intent)
                         }
@@ -505,7 +505,7 @@ fun ContributionRow(context: Context) {
                 .height(50.dp)
                 .clickable {
                     val intent = Intent(Intent.ACTION_VIEW).apply {
-                        data = Uri.parse("https://hosted.weblate.org/engage/fucks-given/")
+                        data = Uri.parse("https://hosted.weblate.org/engage/vacation-days/")
                     }
                     context.startActivity(intent)
                 }, verticalAlignment = Alignment.CenterVertically
@@ -531,7 +531,7 @@ fun ContributionRow(context: Context) {
                 .height(50.dp)
                 .clickable {
                     val intent = Intent(Intent.ACTION_VIEW).apply {
-                        data = Uri.parse("https://github.com/Crazy-Marvin/FucksGiven/issues")
+                        data = Uri.parse("https://github.com/Crazy-Marvin/VacationDays/issues/")
                     }
                     context.startActivity(intent)
                 }, verticalAlignment = Alignment.CenterVertically
@@ -557,7 +557,7 @@ fun ContributionRow(context: Context) {
                 .height(50.dp)
                 .clickable {
                     val intent = Intent(Intent.ACTION_VIEW).apply {
-                        data = Uri.parse("https://github.com/Crazy-Marvin/FucksGiven")
+                        data = Uri.parse("https://github.com/Crazy-Marvin/VacationDays/")
                     }
                     context.startActivity(intent)
                 }, verticalAlignment = Alignment.CenterVertically
@@ -585,7 +585,7 @@ fun LicenseRow(context: Context) {
         .padding(8.dp)
         .clickable {
             val intent = Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("https://github.com/feathericons/feather/blob/main/LICENSE")
+                data = Uri.parse("https://feathericons.com/")
             }
             context.startActivity(intent)
         }) {
@@ -629,7 +629,7 @@ fun LicenseRow(context: Context) {
         .clickable {
             val intent = Intent(Intent.ACTION_VIEW).apply {
                 data =
-                    Uri.parse("https://github.com/androidx/androidx/blob/androidx-main/LICENSE.txt")
+                    Uri.parse("https://github.com/Crazy-Marvin/VacationDays/blob/development/LICENSE")
             }
             context.startActivity(intent)
         }) {
