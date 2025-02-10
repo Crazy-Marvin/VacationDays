@@ -160,7 +160,7 @@ private fun TopBar(
                 modifier = Modifier.padding(top = 30.dp, start = 10.dp, end = 10.dp)
             ) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_about),
+                    painter = painterResource(id = R.drawable.ic_problem),
                     contentDescription = "about",
                     tint = Color.White
                 )
@@ -212,14 +212,14 @@ private fun TopBar(
             Text(
                 text = stringResource(id = R.string.app_name),
                 style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.onBackground
+                color = MaterialTheme.colorScheme.onSecondaryContainer
             )
             val stylizedPoetry = buildAnnotatedString {
                 withStyle(
                     style = SpanStyle(
                         fontSize = 14.sp,
                         fontWeight = FontWeight.W400,
-                        color = lightGray
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                 ) {
                     append("v${packageInfo.longVersionCode}")
@@ -523,7 +523,7 @@ fun ContributionRow(context: Context) {
                 }, verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_globe),
+                painter = painterResource(id = R.drawable.ic_frame),
                 contentDescription = "translate",
                 modifier = Modifier
                     .size(24.dp)
@@ -550,7 +550,7 @@ fun ContributionRow(context: Context) {
                 }, verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_error),
+                painter = painterResource(id = R.drawable.ic_problem),
                 contentDescription = "report",
                 modifier = Modifier
                     .size(24.dp)

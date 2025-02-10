@@ -216,7 +216,7 @@ private fun TopBar(
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
                                 Icon(
-                                    painter = painterResource(id = R.drawable.ic_error),
+                                    painter = painterResource(id = R.drawable.ic_problem),
                                     contentDescription = "About",
                                     tint = MaterialTheme.colorScheme.onSecondaryContainer
                                 )

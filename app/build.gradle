@@ -29,6 +29,9 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
 
 android {
     compileSdkVersion 35
+    androidResources {
+        generateLocaleConfig true
+    }
     defaultConfig {
         applicationId "rocks.poopjournal.vacationdays"
         namespace "rocks.poopjournal.vacationdays"
