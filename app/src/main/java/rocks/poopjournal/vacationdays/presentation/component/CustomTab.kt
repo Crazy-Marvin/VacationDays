@@ -7,6 +7,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -61,9 +62,9 @@ private fun MyTabItem(
 ) {
     val tabTextColor: Color by animateColorAsState(
         targetValue = if (isSelected) {
-            MaterialTheme.colorScheme.onBackground
+            MaterialTheme.colorScheme.onPrimary
         } else {
-            MaterialTheme.colorScheme.background
+            MaterialTheme.colorScheme.onBackground
         },
         animationSpec = tween(easing = LinearEasing),
     )
@@ -101,12 +102,12 @@ fun CustomTab(
         modifier = modifier
             .clip( RoundedCornerShape(10.dp))
             .background(MaterialTheme.colorScheme.primary)
-            .height(intrinsicSize = IntrinsicSize.Min).border(1.dp, color = darkPrimary, shape = RoundedCornerShape(10.dp)),
+            .height(intrinsicSize = IntrinsicSize.Min).border(1.dp, color = MaterialTheme.colorScheme.outlineVariant, shape = RoundedCornerShape(10.dp)),
     ) {
         MyTabIndicator(
             indicatorWidth = tabWidth,
             indicatorOffset = indicatorOffset,
-            indicatorColor = androidx.compose.material3.MaterialTheme.colorScheme.background,
+            indicatorColor = MaterialTheme.colorScheme.onPrimaryContainer,
         )
         Row(
             horizontalArrangement = Arrangement.Center,

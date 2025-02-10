@@ -31,6 +31,7 @@ import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -39,6 +40,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -86,7 +89,7 @@ fun AboutScreen(navController: NavHostController) {
             ) {
                 Text(
                     text = stringResource(id = R.string.contribute),
-                    color = MaterialTheme.colorScheme.primary,
+                    color = MaterialTheme.colorScheme.surface,
                     style = MaterialTheme.typography.labelSmall,
                     modifier = Modifier.padding(start = 8.dp)
                 )
@@ -103,7 +106,7 @@ fun AboutScreen(navController: NavHostController) {
             ) {
                 Text(
                     text = stringResource(id = R.string.openSourceLicences),
-                    color = MaterialTheme.colorScheme.primary,
+                    color = MaterialTheme.colorScheme.surface,
                     style = MaterialTheme.typography.labelSmall,
                     modifier = Modifier.padding(start = 8.dp)
                 )
@@ -148,7 +151,7 @@ private fun TopBar(
                 Icon(
                     imageVector = Icons.Rounded.ArrowBack,
                     contentDescription = "Back",
-                    tint = MaterialTheme.colorScheme.background
+                    tint = Color.White
                 )
             }
 
@@ -157,9 +160,9 @@ private fun TopBar(
                 modifier = Modifier.padding(top = 30.dp, start = 10.dp, end = 10.dp)
             ) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_about),
+                    painter = painterResource(id = R.drawable.ic_problem),
                     contentDescription = "about",
-                    tint = MaterialTheme.colorScheme.background
+                    tint = Color.White
                 )
             }
         }
@@ -209,19 +212,19 @@ private fun TopBar(
             Text(
                 text = stringResource(id = R.string.app_name),
                 style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.onBackground
+                color = MaterialTheme.colorScheme.onSecondaryContainer
             )
             val stylizedPoetry = buildAnnotatedString {
                 withStyle(
                     style = SpanStyle(
                         fontSize = 14.sp,
                         fontWeight = FontWeight.W400,
-                        color = MaterialTheme.colorScheme.primary
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                 ) {
                     append("v${packageInfo.longVersionCode}")
                     append("—")
-                    withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.primary)) {
+                    withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.surface)) {
                         append("GNU GPL v3.0")
                         addStringAnnotation(
                             tag = "URL",
@@ -244,8 +247,7 @@ fun MarvinRow(context: Context) {
         modifier = Modifier
             .fillMaxWidth()
             .height(64.dp), shape = RoundedCornerShape(10.dp), colors = CardDefaults.cardColors(
-            containerColor = lightGray,
-            contentColor = MaterialTheme.colorScheme.onBackground
+            containerColor =  MaterialTheme.colorScheme.secondary,
         )
     ) {
         Row(
@@ -268,7 +270,7 @@ fun MarvinRow(context: Context) {
                     Text(
                         text = stringResource(id = R.string.marvin),
                         style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onBackground
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                     Text(
                         text = stringResource(id = R.string.developer),
@@ -290,10 +292,11 @@ fun MarvinRow(context: Context) {
                         .clickable {
                             val intent = Intent(Intent.ACTION_SENDTO).apply {
                                 data =
-                                    Uri.parse("mailto:marvin@poopjournal.rocks")
+                                    Uri.parse("mailto:marvin@poopjournal.rocks?subject=Vacation%20Days&body=Hey%20Marvin%2C%0D%0A...")
                             }
                             startActivity(context, intent, null)
-                        }
+                        },
+                    colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSecondaryContainer)
                 )
                 Image(
                     painter = painterResource(id = R.drawable.ic_github),
@@ -305,17 +308,20 @@ fun MarvinRow(context: Context) {
                                 data = Uri.parse("https://github.com/Crazy-Marvin")
                             }
                             startActivity(context, intent, null)
-                        }
+                        },
+                    colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSecondaryContainer)
+
                 )
                 Image(
-                    painter = painterResource(id = R.drawable.ic_x),
+                    painter = painterResource(id = R.drawable.ic_mastodon),
                     contentDescription = "mail",
                     modifier = Modifier.clickable {
                         val intent = Intent(Intent.ACTION_VIEW).apply {
-                            data = Uri.parse("https://twitter.com/CrazyMarvinApps")
+                            data = Uri.parse("https://fosstodon.org/@CrazyMarvinApps")
                         }
                         startActivity(context, intent, null)
-                    }
+                    },
+                    colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSecondaryContainer)
                 )
             }
         }
@@ -328,8 +334,7 @@ fun CodeAquariaRow(context: Context) {
         modifier = Modifier
             .fillMaxWidth()
             .height(64.dp), shape = RoundedCornerShape(10.dp), colors = CardDefaults.cardColors(
-            containerColor = lightGray,
-            contentColor = MaterialTheme.colorScheme.onBackground
+            containerColor = MaterialTheme.colorScheme.secondary,
         )
     ) {
         Row(
@@ -342,7 +347,7 @@ fun CodeAquariaRow(context: Context) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
                     painter = painterResource(id = R.drawable.codeaquaria),
-                    contentDescription = "crazy marvin",
+                    contentDescription = "code quaria",
                     modifier = Modifier
                         .size(32.dp)
                         .clip(CircleShape),
@@ -353,7 +358,7 @@ fun CodeAquariaRow(context: Context) {
                     Text(
                         text = stringResource(id = R.string.codeaquaria),
                         style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onBackground
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                     Text(
                         text = stringResource(id = R.string.developer),
@@ -367,19 +372,19 @@ fun CodeAquariaRow(context: Context) {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.ic_mail),
-                    contentDescription = "message",
-                    modifier = Modifier
-                        .padding(end = 10.dp)
-                        .clickable {
-                            val intent = Intent(Intent.ACTION_SENDTO).apply {
-                                data =
-                                    Uri.parse("mailto:codeaquaria20@gmail.com")
-                            }
-                            context.startActivity(intent)
-                        }
-                )
+//                Image(
+//                    painter = painterResource(id = R.drawable.ic_mail),
+//                    contentDescription = "message",
+//                    modifier = Modifier
+//                        .padding(end = 10.dp)
+//                        .clickable {
+//                            val intent = Intent(Intent.ACTION_SENDTO).apply {
+//                                data =
+//                                    Uri.parse("mailto:codeaquaria20@gmail.com")
+//                            }
+//                            context.startActivity(intent)
+//                        }
+//                )
                 Image(
                     painter = painterResource(id = R.drawable.ic_github),
                     contentDescription = "github",
@@ -390,7 +395,9 @@ fun CodeAquariaRow(context: Context) {
                                 data = Uri.parse("https://github.com/arafaatqureshi")
                             }
                             context.startActivity(intent)
-                        }
+                        },
+                    colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSecondaryContainer)
+
                 )
                 Image(
                     painter = painterResource(id = R.drawable.ic_x),
@@ -400,7 +407,9 @@ fun CodeAquariaRow(context: Context) {
                             data = Uri.parse("https://www.facebook.com/Code-Aquaria-109834144196326")
                         }
                         context.startActivity(intent)
-                    }
+                    },
+                    colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSecondaryContainer)
+
                 )
             }
         }
@@ -414,8 +423,7 @@ fun MubeenRow(context: Context) {
             .fillMaxWidth()
             .height(64.dp), shape = RoundedCornerShape(10.dp),
         colors = CardDefaults.cardColors(
-            containerColor = lightGray,
-            contentColor = MaterialTheme.colorScheme.onBackground
+            containerColor = MaterialTheme.colorScheme.secondary,
         )
     ) {
         Row(
@@ -439,7 +447,7 @@ fun MubeenRow(context: Context) {
                     Text(
                         text = stringResource(id = R.string.mubeen),
                         style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onBackground
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                     Text(
                         text = stringResource(id = R.string.developer),
@@ -453,19 +461,19 @@ fun MubeenRow(context: Context) {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.ic_mail),
-                    contentDescription = "message",
-                    modifier = Modifier
-                        .padding(end = 10.dp)
-                        .clickable {
-                            val intent = Intent(Intent.ACTION_SENDTO).apply {
-                                data =
-                                    Uri.parse("mailto:mubeen1519@gmail.com")
-                            }
-                            context.startActivity(intent)
-                        }
-                )
+//                Image(
+//                    painter = painterResource(id = R.drawable.ic_mail),
+//                    contentDescription = "message",
+//                    modifier = Modifier
+//                        .padding(end = 10.dp)
+//                        .clickable {
+//                            val intent = Intent(Intent.ACTION_SENDTO).apply {
+//                                data =
+//                                    Uri.parse("mailto:mubeen1519@gmail.com")
+//                            }
+//                            context.startActivity(intent)
+//                        }
+//                )
                 Image(
                     painter = painterResource(id = R.drawable.ic_github),
                     contentDescription = "github",
@@ -476,7 +484,9 @@ fun MubeenRow(context: Context) {
                                 data = Uri.parse("https://github.com/mubeen1519")
                             }
                             context.startActivity(intent)
-                        }
+                        },
+                    colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSecondaryContainer)
+
                 )
                 Image(
                     painter = painterResource(id = R.drawable.ic_x),
@@ -486,7 +496,9 @@ fun MubeenRow(context: Context) {
                             data = Uri.parse("https://twitter.com/MubeenA74")
                         }
                         context.startActivity(intent)
-                    }
+                    },
+                    colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSecondaryContainer)
+
                 )
             }
         }
@@ -511,20 +523,21 @@ fun ContributionRow(context: Context) {
                 }, verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_globe),
+                painter = painterResource(id = R.drawable.ic_frame),
                 contentDescription = "translate",
                 modifier = Modifier
                     .size(24.dp)
-                    .clip(CircleShape)
+                    .clip(CircleShape),
+                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSecondaryContainer)
             )
             Spacer(modifier = Modifier.width(10.dp))
             Text(
                 text = stringResource(id = R.string.translate),
                 style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onBackground
+                color = MaterialTheme.colorScheme.onSecondaryContainer
             )
         }
-        Divider(modifier = Modifier.padding(start = 20.dp))
+        HorizontalDivider(modifier = Modifier.padding(start = 20.dp), color = lightGray)
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -537,20 +550,22 @@ fun ContributionRow(context: Context) {
                 }, verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_error),
+                painter = painterResource(id = R.drawable.ic_problem),
                 contentDescription = "report",
                 modifier = Modifier
                     .size(24.dp)
-                    .clip(CircleShape)
+                    .clip(CircleShape),
+                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSecondaryContainer)
+
             )
             Spacer(modifier = Modifier.width(10.dp))
             Text(
                 text = stringResource(id = R.string.reportaproblem),
                 style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onBackground
+                color = MaterialTheme.colorScheme.onSecondaryContainer
             )
         }
-        Divider(modifier = Modifier.padding(start = 20.dp))
+        HorizontalDivider(modifier = Modifier.padding(start = 20.dp), color = lightGray)
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -567,13 +582,14 @@ fun ContributionRow(context: Context) {
                 contentDescription = "source",
                 modifier = Modifier
                     .size(24.dp)
-                    .clip(CircleShape)
+                    .clip(CircleShape),
+                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.onSecondaryContainer)
             )
             Spacer(modifier = Modifier.width(10.dp))
             Text(
                 text = stringResource(id = R.string.viewSource),
                 style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onBackground
+                color = MaterialTheme.colorScheme.onSecondaryContainer
             )
         }
     }
@@ -592,7 +608,7 @@ fun LicenseRow(context: Context) {
         Text(
             text = stringResource(id = R.string.materialdesignicons),
             style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onBackground
+            color = MaterialTheme.colorScheme.onSecondaryContainer
         )
         Text(
             text = stringResource(id = R.string.apachelicense),
@@ -601,7 +617,7 @@ fun LicenseRow(context: Context) {
         )
     }
     Spacer(modifier = Modifier.height(8.dp))
-    Divider(modifier = Modifier.padding(start = 20.dp))
+    HorizontalDivider(modifier = Modifier.padding(start = 20.dp), color = lightGray)
 
     Column(modifier = Modifier
         .padding(8.dp)
@@ -614,7 +630,7 @@ fun LicenseRow(context: Context) {
         Text(
             text = stringResource(id = R.string.featherIcons),
             style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onBackground
+            color = MaterialTheme.colorScheme.onSecondaryContainer
         )
         Text(
             text = stringResource(id = R.string.mitLicence),
@@ -623,7 +639,7 @@ fun LicenseRow(context: Context) {
         )
     }
     Spacer(modifier = Modifier.height(8.dp))
-    Divider(modifier = Modifier.padding(start = 20.dp))
+    HorizontalDivider(modifier = Modifier.padding(start = 20.dp), color = lightGray)
     Column(modifier = Modifier
         .padding(8.dp)
         .clickable {
@@ -636,7 +652,7 @@ fun LicenseRow(context: Context) {
         Text(
             text = stringResource(id = R.string.androidJetpack),
             style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onBackground
+            color = MaterialTheme.colorScheme.onSecondaryContainer
         )
         Text(
             text = stringResource(id = R.string.apacheLicense),

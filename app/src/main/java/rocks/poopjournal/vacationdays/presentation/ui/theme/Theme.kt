@@ -17,19 +17,35 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = primary,
-    secondary = lightGray,
-    background = Color.Black,
+    primary = darkPrimary,
+    secondary = darkPrimary,
+    background = darkBlack,
     onBackground = Color.White,
-    onSurface = Color.Black
+    onSurface = Color.Black,
+    surface = darkOrange,
+    onSecondary = darkPrimary,
+    onSecondaryContainer = Color.White,
+    onTertiaryContainer = darkGray,
+    onTertiary = darkPrimary,
+    onPrimary = Color.White,
+    onPrimaryContainer = darkGray,
+    outlineVariant = darkBorder
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = primary,
     secondary = lightGray,
-    onBackground = Color.Black,
+    onBackground = Color.White,
     background = Color.White,
-    onSurface = Color.White
+    onSurface = Color.White,
+    surface = primary,
+    onSecondary = Color.White,
+    onSecondaryContainer = Color.Black,
+    onTertiaryContainer = primary,
+    onTertiary = lightGray,
+    onPrimary = Color.Black,
+    onPrimaryContainer = Color.White,
+    outlineVariant = lightBorder
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -62,7 +78,7 @@ fun MyVacationDays2Theme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = primary.toArgb() // change color status bar here
+            window.statusBarColor =  if(darkTheme) darkPrimary.toArgb() else primary.toArgb() // change color status bar here
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }

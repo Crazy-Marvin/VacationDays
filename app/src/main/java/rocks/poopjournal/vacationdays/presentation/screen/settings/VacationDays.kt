@@ -4,8 +4,8 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,7 +22,6 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
@@ -43,18 +42,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.data.VacationNumber
+import rocks.poopjournal.vacationdays.presentation.ui.theme.darkPrimary
+import rocks.poopjournal.vacationdays.presentation.ui.theme.lightGray
 
-@OptIn(ExperimentalMaterialApi::class)
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun VacationDays(
@@ -82,7 +82,7 @@ fun VacationDays(
                         Text(
                             text = vacation.name,
                             style = MaterialTheme.typography.bodyLarge,
-                            color = MaterialTheme.colorScheme.onBackground
+                            color = MaterialTheme.colorScheme.onSecondaryContainer
                         )
                         VacationDaysInput(
                             vacation = vacation,
@@ -106,12 +106,12 @@ fun VacationDays(
                 Icon(
                     imageVector = Icons.Rounded.Add,
                     contentDescription = "Add",
-                    tint = MaterialTheme.colorScheme.primary
+                    tint = MaterialTheme.colorScheme.surface
                 )
                 Spacer(modifier = Modifier.width(15.dp))
                 Text(
                     text = "Add ${viewModel.currentYear.value}",
-                    color = MaterialTheme.colorScheme.primary,
+                    color = MaterialTheme.colorScheme.surface,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.W500
                 )
@@ -144,13 +144,13 @@ private fun TopBar(
                 Icon(
                     imageVector = Icons.Rounded.ArrowBack,
                     contentDescription = "Back",
-                    tint = MaterialTheme.colorScheme.background
+                    tint = Color.White
                 )
             }
 
             Text(
                 text = stringResource(id = R.string.vacation_days),
-                color = MaterialTheme.colorScheme.background,
+                color = Color.White,
                 style = MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
@@ -173,6 +173,7 @@ fun VacationDaysInput(vacation: VacationNumber, onVacationUpdated: (Int) -> Unit
             keyboardController?.hide()
         }
     )
+
     BasicTextField(
         value = inputValue,
         onValueChange = { input ->
@@ -185,7 +186,8 @@ fun VacationDaysInput(vacation: VacationNumber, onVacationUpdated: (Int) -> Unit
         keyboardActions = keyboardActions,
         keyboardOptions = KeyboardOptions.Default.copy(
             imeAction = ImeAction.Done
-        )
+        ),
+        textStyle = TextStyle(color = MaterialTheme.colorScheme.onSecondaryContainer)
     ) { innerTextField ->
         TextFieldDefaults.TextFieldDecorationBox(
             value = inputValue,
@@ -198,7 +200,7 @@ fun VacationDaysInput(vacation: VacationNumber, onVacationUpdated: (Int) -> Unit
             contentPadding = TextFieldDefaults.textFieldWithoutLabelPadding(
                 top = 0.dp,
                 bottom = 0.dp
-            )
+            ),
         )
     }
 

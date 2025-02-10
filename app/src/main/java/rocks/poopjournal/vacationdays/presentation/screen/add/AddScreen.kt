@@ -27,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -106,14 +107,14 @@ private fun TopBar(
                 Icon(
                     imageVector = Icons.Rounded.Clear,
                     contentDescription = "Clear",
-                    tint = MaterialTheme.colorScheme.background
+                    tint = Color.White
                 )
             }
             IconButton(onClick = { onCheckClick() }) { // Call onCheckClick when Check button is clicked
                 Icon(
                     imageVector = Icons.Rounded.Check,
                     contentDescription = "Save",
-                    tint = MaterialTheme.colorScheme.background
+                    tint = Color.White
                 )
             }
         }
@@ -127,7 +128,7 @@ private fun TopBar(
                 value = vacationName,
                 onValueChange = { onNameChange(it) },
                 placeholder = {
-                    Text(text = "Holiday", style = MaterialTheme.typography.bodyLarge)
+                    Text(text = "Holiday", style = MaterialTheme.typography.bodyLarge, color = Color.White)
                 },
                 label = {
                     Text(text = "Name", style = MaterialTheme.typography.labelSmall)
@@ -135,9 +136,9 @@ private fun TopBar(
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     focusedBorderColor = MaterialTheme.colorScheme.primary,
                     unfocusedBorderColor = MaterialTheme.colorScheme.primary,
-                    placeholderColor = MaterialTheme.colorScheme.onSurface,
-                    textColor = MaterialTheme.colorScheme.onSurface,
-                    cursorColor = MaterialTheme.colorScheme.onSurface
+                    placeholderColor = Color.White,
+                    textColor = Color.White,
+                    cursorColor = Color.White
                 ),
                 modifier = Modifier
                     .fillMaxWidth()

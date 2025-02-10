@@ -40,7 +40,7 @@ class MainActivity2 : ComponentActivity() {
                 AppTheme.DARK -> true
             }
             MyVacationDays2Theme(darkTheme = useDarkColors) {
-                Surface(modifier = Modifier.fillMaxSize()) {
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     NavGraph(navHostController = rememberNavController())
                 }
             }

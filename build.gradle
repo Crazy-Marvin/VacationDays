@@ -1,8 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.jacocoVersion = '0.8.12'
-    ext.kotlin_version = '1.9.0'
-    ext.hilt_version = '2.48' // Add Hilt version
+    ext.kotlin_version = '1.9.23'
+    ext.hilt_version = '2.49' // Add Hilt version
 
 
     repositories {
