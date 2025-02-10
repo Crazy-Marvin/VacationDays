@@ -44,6 +44,7 @@ import com.kizitonwose.calendar.core.nextMonth
 import com.kizitonwose.calendar.core.previousMonth
 import com.kizitonwose.calendar.core.yearMonth
 import rocks.poopjournal.vacationdays.data.VacationData
+import rocks.poopjournal.vacationdays.presentation.ui.theme.MyVacationDays2Theme
 import rocks.poopjournal.vacationdays.presentation.ui.theme.gray
 import rocks.poopjournal.vacationdays.presentation.ui.theme.primary
 import java.time.DayOfWeek
@@ -147,23 +148,23 @@ private fun Day(
             day.date.isAfter(selection.startDate) && day.date.isBefore(selection.endDate)
 
     val backgroundColor = when {
-        isSelectedStart || isSelectedEnd -> MaterialTheme.colorScheme.primary
-        isInRange -> MaterialTheme.colorScheme.primary.copy(alpha = 0.1f)
+        isSelectedStart || isSelectedEnd -> MaterialTheme.colorScheme.surface
+        isInRange -> MaterialTheme.colorScheme.surface.copy(alpha = 0.1f)
         else -> Color.Transparent
     }
 
     val textColor = when {
         isRangeSelection -> {
-            if (isSelectedStart || isSelectedEnd) Color.White else MaterialTheme.colorScheme.onBackground
+            if (isSelectedStart || isSelectedEnd) Color.White else MaterialTheme.colorScheme.onSecondaryContainer
         }
 
         else -> {
-            if (day.date == today) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground
+            if (day.date == today) MaterialTheme.colorScheme.surface else MaterialTheme.colorScheme.onSecondaryContainer
         }
     }
 
     val dotColor = when {
-        day.date == today -> MaterialTheme.colorScheme.primary // Primary dot for today
+        day.date == today -> MaterialTheme.colorScheme.surface // Primary dot for today
         isHoliday(day.date,holidays) -> Color.Gray
         else -> Color.Transparent
     }
@@ -208,7 +209,7 @@ fun MonthHeader(calendarMonth: CalendarMonth) {
                 textAlign = TextAlign.Center,
                 text = calendarMonth.yearMonth.displayText(short = true),
                 style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.primary,
+                color = MaterialTheme.colorScheme.surface,
             )
             Spacer(modifier = Modifier.height(15.dp))
             Divider()
@@ -266,7 +267,9 @@ object ContinuousSelectionHelper {
 @Preview(heightDp = 800)
 @Composable
 private fun Example2Preview() {
-    CalenderView()
+    MyVacationDays2Theme {
+        CalenderView()
+    }
 }
 
 @RequiresApi(Build.VERSION_CODES.O)

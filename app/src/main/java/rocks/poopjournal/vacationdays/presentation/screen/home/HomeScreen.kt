@@ -74,7 +74,7 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
             FloatingActionButton(
                 onClick = { navHostController.navigate(Add_Screen) },
                 shape = CircleShape,
-                containerColor = MaterialTheme.colorScheme.primary,
+                containerColor = MaterialTheme.colorScheme.surface,
                 contentColor = MaterialTheme.colorScheme.background
             ) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "Add")
@@ -140,7 +140,7 @@ private fun TopBar(
             ) {
                     Text(
                         text = stringResource(id = R.string.app_name),
-                        color = MaterialTheme.colorScheme.background,
+                        color = MaterialTheme.colorScheme.onBackground,
                         style = MaterialTheme.typography.titleLarge
                     )
                     Row(
@@ -150,12 +150,12 @@ private fun TopBar(
                         Icon(
                             painter = painterResource(id = R.drawable.umbrella),
                             contentDescription = "Vacation",
-                            tint = MaterialTheme.colorScheme.background
+                            tint = MaterialTheme.colorScheme.onBackground
                         )
                         Spacer(modifier = Modifier.width(5.dp))
                         Text(
                             text = vacationDays.toString(),
-                            color = MaterialTheme.colorScheme.background
+                            color = MaterialTheme.colorScheme.onBackground
                         )
 
 
@@ -164,22 +164,22 @@ private fun TopBar(
                         Icon(
                             painter = painterResource(id = R.drawable.briefcase),
                             contentDescription = "Total Days",
-                            tint = MaterialTheme.colorScheme.background
+                            tint = MaterialTheme.colorScheme.onBackground
                         )
                         Spacer(modifier = Modifier.width(5.dp))
-                        Text(text = total.toString(), color = MaterialTheme.colorScheme.background)
+                        Text(text = total.toString(), color = MaterialTheme.colorScheme.onBackground)
 
                         Spacer(modifier = Modifier.width(8.dp))
                         if (isSickEnabled) {
                             Icon(
                                 painter = painterResource(id = R.drawable.tempreature),
                                 contentDescription = "Sick Days",
-                                tint = MaterialTheme.colorScheme.background
+                                tint = MaterialTheme.colorScheme.onBackground
                             )
                             Spacer(modifier = Modifier.width(5.dp))
                             Text(
                                 text = sickDays.toString(),
-                                color = MaterialTheme.colorScheme.background
+                                color = MaterialTheme.colorScheme.onBackground
                             )
                         }
                     }
@@ -195,13 +195,13 @@ private fun TopBar(
                     Icon(
                         imageVector = Icons.Filled.MoreVert,
                         contentDescription = "Menu",
-                        tint = MaterialTheme.colorScheme.background
+                        tint = MaterialTheme.colorScheme.onBackground
                     )
                 }
 
                 DropdownMenu(
                     shape = RoundedCornerShape(10.dp),
-                    containerColor = MaterialTheme.colorScheme.background,
+                    containerColor = MaterialTheme.colorScheme.onSecondary,
                     expanded = expanded,
                     onDismissRequest = {
                         expanded = false
@@ -218,13 +218,13 @@ private fun TopBar(
                                 Icon(
                                     painter = painterResource(id = R.drawable.ic_error),
                                     contentDescription = "About",
-                                    tint = MaterialTheme.colorScheme.onBackground
+                                    tint = MaterialTheme.colorScheme.onSecondaryContainer
                                 )
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
                                     text = stringResource(id = R.string.about),
                                     style = MaterialTheme.typography.labelSmall,
-                                    color = MaterialTheme.colorScheme.onBackground
+                                    color = MaterialTheme.colorScheme.onSecondaryContainer
                                 )
                             }
                         },
@@ -244,13 +244,13 @@ private fun TopBar(
                                 Icon(
                                     painter = painterResource(id = R.drawable.ic_settings),
                                     contentDescription = "Settings",
-                                    tint = MaterialTheme.colorScheme.onBackground
+                                    tint = MaterialTheme.colorScheme.onSecondaryContainer
                                 )
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
                                     text = stringResource(id = R.string.settings),
                                     style = MaterialTheme.typography.labelSmall,
-                                    color = MaterialTheme.colorScheme.onBackground
+                                    color = MaterialTheme.colorScheme.onSecondaryContainer
                                 )
                             }
                         },
@@ -304,7 +304,7 @@ fun TimelineView(vacationList: List<VacationData>) {
                 Text(
                     text = stringResource(id = R.string.empty_text),
                     style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.onBackground
+                    color = MaterialTheme.colorScheme.onSecondaryContainer
                 )
             }
         } else {
@@ -317,7 +317,7 @@ fun TimelineView(vacationList: List<VacationData>) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(vertical = 8.dp),
-                            color = MaterialTheme.colorScheme.primary
+                            color = MaterialTheme.colorScheme.surface
                         )
                     }
                     items(vacations) { item ->
@@ -327,7 +327,7 @@ fun TimelineView(vacationList: List<VacationData>) {
                             DateTimeFormatter.ofPattern("d/MM/yyyy")
                         )
                         val cardBorderColor =
-                            if (isStartDateToday || isEndDateToday) MaterialTheme.colorScheme.primary else Color.Transparent
+                            if (isStartDateToday || isEndDateToday) MaterialTheme.colorScheme.surface else Color.Transparent
 
                         Row(
                             modifier = Modifier
@@ -343,7 +343,8 @@ fun TimelineView(vacationList: List<VacationData>) {
                                 Text(
                                     text = item.startDate.substringBefore("/"),
                                     style = MaterialTheme.typography.labelSmall,
-                                    fontWeight = FontWeight.Bold
+                                    fontWeight = FontWeight.Bold,
+                                    color = MaterialTheme.colorScheme.onSecondaryContainer
                                 )
                                 if (!item.endDate.isNullOrEmpty()) { // Show the down icon and end date if endDate is present
                                     Spacer(modifier = Modifier.height(5.dp))
@@ -356,7 +357,8 @@ fun TimelineView(vacationList: List<VacationData>) {
                                     Text(
                                         text = item.endDate.substringBefore("/"),
                                         style = MaterialTheme.typography.labelSmall,
-                                        fontWeight = FontWeight.Bold
+                                        fontWeight = FontWeight.Bold,
+                                        color = MaterialTheme.colorScheme.onSecondaryContainer
                                     )
                                 }
                             }
@@ -376,8 +378,8 @@ fun TimelineView(vacationList: List<VacationData>) {
                                         ),
                                     shape = RoundedCornerShape(10.dp),
                                     colors = CardDefaults.cardColors(
-                                        containerColor = lightGray,
-                                        contentColor = MaterialTheme.colorScheme.onBackground
+                                        containerColor = MaterialTheme.colorScheme.onTertiary,
+                                        contentColor = MaterialTheme.colorScheme.onSecondaryContainer
                                     )
                                 ) {
                                     Text(

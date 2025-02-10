@@ -33,6 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -44,6 +45,7 @@ import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.presentation.component.ThemeSelectionDialog
 import rocks.poopjournal.vacationdays.presentation.navigation.Vacation_Days_Screen
 import rocks.poopjournal.vacationdays.presentation.ui.theme.gray
+import rocks.poopjournal.vacationdays.presentation.ui.theme.lightGray
 import java.time.LocalDate
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -65,7 +67,7 @@ fun SettingScreen(
         localFeatureEnabled = viewModel.themeSetting.isFeatureEnabled
     }
 
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
         TopBar(onClose = { navHostController.popBackStack() })
         Column {
             Row(
@@ -76,13 +78,13 @@ fun SettingScreen(
             ) {
                 Text(
                     text = stringResource(id = R.string.general),
-                    color = MaterialTheme.colorScheme.primary,
+                    color = MaterialTheme.colorScheme.surface,
                     style = MaterialTheme.typography.bodyLarge,
                     modifier = Modifier.padding(start = 16.dp)
                 )
 
             }
-            HorizontalDivider()
+            HorizontalDivider(color = lightGray)
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -94,7 +96,7 @@ fun SettingScreen(
                 Column {
                     Text(
                         text = stringResource(id = R.string.noofvacations),
-                        color = MaterialTheme.colorScheme.onBackground,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
                         style = MaterialTheme.typography.bodyLarge,
                         fontWeight = FontWeight.Bold,
                     )
@@ -116,7 +118,7 @@ fun SettingScreen(
             ) {
                 Text(
                     text = stringResource(id = R.string.track),
-                    color = MaterialTheme.colorScheme.onBackground,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Bold,
 
@@ -130,9 +132,9 @@ fun SettingScreen(
                         viewModel.themeSetting.isFeatureEnabled = newState
                     },
                     colors = SwitchDefaults.colors(
-                        checkedIconColor = MaterialTheme.colorScheme.primary,
-                        checkedTrackColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f),
-                        checkedThumbColor = MaterialTheme.colorScheme.primary
+                        checkedIconColor = MaterialTheme.colorScheme.surface,
+                        checkedTrackColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.3f),
+                        checkedThumbColor = MaterialTheme.colorScheme.surface
                     ),
                 )
             }
@@ -147,7 +149,7 @@ fun SettingScreen(
                 Column {
                     Text(
                         text = stringResource(id = R.string.appearance),
-                        color = MaterialTheme.colorScheme.onBackground,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
                         style = MaterialTheme.typography.bodyLarge,
                         fontWeight = FontWeight.Bold,
                     )
@@ -174,18 +176,18 @@ fun SettingScreen(
             ) {
                 Text(
                     text = stringResource(id = R.string.data),
-                    color = MaterialTheme.colorScheme.primary,
+                    color = MaterialTheme.colorScheme.surface,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(start = 16.dp)
                 )
             }
-            HorizontalDivider()
+            HorizontalDivider(color = lightGray)
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(48.dp)
-                    .padding(16.dp)
+                    .padding(start = 16.dp)
                     .clickable {
                         viewModel.backupDatabase(context.getString(R.string.backupMessage))
                     },
@@ -194,13 +196,13 @@ fun SettingScreen(
                 Icon(
                     painter = painterResource(id = R.drawable.backup),
                     contentDescription = "Backup",
-                    tint = MaterialTheme.colorScheme.onBackground,
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
                     modifier = Modifier.size(24.dp)
                 )
                 Spacer(modifier = Modifier.width(10.dp))
                 Text(
                     text = stringResource(id = R.string.backupheading),
-                    color = MaterialTheme.colorScheme.onBackground,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Bold,
                 )
@@ -217,14 +219,14 @@ fun SettingScreen(
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.restore),
-                    contentDescription = "Backup",
-                    tint = MaterialTheme.colorScheme.onBackground,
+                    contentDescription = "restore",
+                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
                     modifier = Modifier.size(24.dp)
                 )
                 Spacer(modifier = Modifier.width(10.dp))
                 Text(
                     text = stringResource(id = R.string.restore),
-                    color = MaterialTheme.colorScheme.onBackground,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Bold,
                 )
@@ -254,13 +256,13 @@ private fun TopBar(onClose: () -> Unit) {
                 Icon(
                     imageVector = Icons.Rounded.ArrowBack,
                     contentDescription = "Back",
-                    tint = MaterialTheme.colorScheme.background
+                    tint = Color.White
                 )
             }
 
             Text(
                 text = stringResource(id = R.string.settings),
-                color = MaterialTheme.colorScheme.background,
+                color = Color.White,
                 style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.align(Alignment.Center)
             )

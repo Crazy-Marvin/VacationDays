@@ -11,6 +11,7 @@ import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
+import androidx.compose.material3.RadioButtonColors
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -22,6 +23,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import rocks.poopjournal.vacationdays.R
+import rocks.poopjournal.vacationdays.presentation.ui.theme.darkGray
 import rocks.poopjournal.vacationdays.presentation.ui.utils.AppTheme
 import rocks.poopjournal.vacationdays.presentation.ui.utils.ThemeSetting
 
@@ -32,11 +34,12 @@ fun ThemeSelectionDialog(
 ) {
     val theme = userSetting.themeFlow.collectAsState()
     AlertDialog(
+        containerColor = MaterialTheme.colorScheme.onSecondary,
         onDismissRequest = onDismissRequest,
         title = {
             Text(
                 text = stringResource(id = R.string.appearance),
-                color = MaterialTheme.colorScheme.onBackground,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
                 style = MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.W500
             )
@@ -48,7 +51,7 @@ fun ThemeSelectionDialog(
         },
         confirmButton = {
             TextButton(onClick = onDismissRequest) {
-                Text(stringResource(id = R.string.done), color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.bodyLarge)
+                Text(stringResource(id = R.string.done), color = MaterialTheme.colorScheme.surface, style = MaterialTheme.typography.bodyLarge)
             }
         }
     )
@@ -133,11 +136,16 @@ private fun RadioGroupItems(
             .padding(top = 8.dp, bottom = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        RadioButton(selected = selected, onClick = null)
+        RadioButton(selected = selected, onClick = null, colors = RadioButtonColors(
+            selectedColor = MaterialTheme.colorScheme.surface,
+            unselectedColor = darkGray,
+            disabledSelectedColor =  MaterialTheme.colorScheme.surface,
+            disabledUnselectedColor =  MaterialTheme.colorScheme.outlineVariant
+        ))
         Spacer(modifier = modifier.width(5.dp))
         Text(
             text = items.name,
-            color = MaterialTheme.colorScheme.onBackground,
+            color = MaterialTheme.colorScheme.onSecondaryContainer,
             style = MaterialTheme.typography.bodyLarge,
             fontWeight = FontWeight.W500
         )

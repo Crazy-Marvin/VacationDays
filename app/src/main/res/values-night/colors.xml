@@ -17,7 +17,7 @@
     <color name="monthname">#776F6F</color>
     <color name="secondwhiteTogray">#776F6F</color>
     <color name="orangeTowhite">#ffffff</color>
-
+    <color name="status_bar_dark">#26282C</color>
     <color name="calendar_bg">@android:color/black</color>
     <color name="calendar_unavailable_bg">#a6a6a6</color>
     <color name="dateTimeRangePickerStateNonSelectable">@android:color/black</color>
