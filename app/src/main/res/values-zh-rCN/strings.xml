@@ -4,14 +4,13 @@
     <string name="settings">设置</string>
     <string name="calendar">日历</string>
     <string name="apachelicense">Apache License 2.0 开源协议</string>
-    <string name="backup">注意！
-\n原先有备份的话，先把原来的备份文件删掉</string>
+    <string name="backup">请先删除设备上原有的备份文件。</string>
     <string name="apache">公测 | Apache License 2.0 开源协议</string>
-    <string name="app_name">何时放假？</string>
+    <string name="app_name">放假日</string>
     <string name="timeline">假期时间表</string>
     <string name="developer">开发者</string>
     <string name="contribute">帮助软件发展</string>
-    <string name="translate">翻译</string>
+    <string name="translate">翻译 匿名</string>
     <string name="reportaproblem">上报软件问题</string>
     <string name="viewSource">浏览源代码</string>
     <string name="openSourceLicences">开源许可协议</string>
@@ -26,4 +25,22 @@
     <string name="data">数据</string>
     <string name="ok">好的</string>
     <string name="backupheading">备份</string>
+    <string name="noofvacations">假期数</string>
+    <string name="enternoofvacations">输入假期数</string>
+    <string name="java">Java</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="marvin">Crazy Marvin</string>
+    <string name="codeaquaria">Code Acquaria</string>
+    <string name="featherIcons">Feather Icons</string>
+    <string name="mitLicence">MIT License</string>
+    <string name="materialdesignicons">Material Design Icons</string>
+    <string name="apacheLicense">Apache License 2.0</string>
+    <string name="androidJetpack">Android Jetpack</string>
+    <string name="dateRangePicker">DateRangePicker</string>
+    <string name="gnu">GNU General Public License, version 2, with the Classpath Exception</string>
+    <string name="date_range">%s
+\n↓
+\n%s</string>
+    <string name="kotlin">Kotlin</string>
 </resources>

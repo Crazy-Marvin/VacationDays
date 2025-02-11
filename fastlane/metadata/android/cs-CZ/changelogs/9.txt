@@ -1,0 +1,6 @@
+- ⚙️ Opraveno zálohování (#94)
+- 🎨 Podpora pro Téma Ikon, která byla představena pro Android 13+ (#83)
+- 🐛 Opraven název verze zobrazený na obrazovce O aplikaci (#97)
+- 👍 Aktualizovány závislosti a překlady
+
+Děkuji moc @unbiaseduser, @amarradi a všem překladatelům! 😘

@@ -1,0 +1,4 @@
+- 🐛 Corrigite le salvamento del parametros de apparentia
+- 🎵 Le application ora monstra un message indicante que le copia de securitate ancora non es implementate
+- 🤮 Melior gestion de dies de maladia
+- 🆕 Dependentias actualisate

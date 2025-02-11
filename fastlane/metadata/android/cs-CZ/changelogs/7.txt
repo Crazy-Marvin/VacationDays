@@ -1,0 +1,4 @@
+- 🐛 Opraveno ukládání nastavení vzhledu
+- 🎵 Aplikace nyní zobrazuje zprávu, že funkce zálohování ještě není implementována
+- 🤮 Lepší zvládnutí špatných dní
+- 🆕 Závislosti aktualizovány

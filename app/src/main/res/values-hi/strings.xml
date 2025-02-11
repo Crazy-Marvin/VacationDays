@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vacation Days</string>
+    <string name="about">बारे में</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="marvin">क्रेजी मार्विन</string>
+    <string name="translate">अनुवाद</string>
+    <string name="appearance">दिखावट</string>
+    <string name="data">डेटा</string>
+    <string name="backupheading">बैकअप</string>
+    <string name="settings">सेटिंग्स</string>
+    <string name="timeline">समयरेखा</string>
+    <string name="calendar">कैलेंडर</string>
+    <string name="apache">बीटा - अपाचे लाइसेंस 2.0</string>
+    <string name="gnu">GNU जनरल पब्लिक लाइसेंस, संस्करण 2, Classpath अपवाद के साथ</string>
+    <string name="apachelicense">अपाचे लाइसेंस 2.0</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="backup">पहले अपने डिवाइस से पहले से मौजूद किसी भी बैकअप फाइल को हटा दें।</string>
+    <string name="developer">विकासकर्ता</string>
+    <string name="codeaquaria">कोड एक्वेरिया</string>
+    <string name="contribute">योगदान करें</string>
+    <string name="reportaproblem">समस्या की रिपोर्ट करें</string>
+    <string name="viewSource">स्रोत देखें</string>
+    <string name="openSourceLicences">ओपन-सोर्स लाइसेंस</string>
+    <string name="featherIcons">फैदर चिह्न</string>
+    <string name="mitLicence">MIT लाइसेंस</string>
+    <string name="materialdesignicons">Material डिज़ाइन चिह्न</string>
+    <string name="apacheLicense">अपाचे लाइसेंस 2.0</string>
+    <string name="androidJetpack">Android Jetpack</string>
+    <string name="dateRangePicker">तिथि सीमा चयनकर्ता</string>
+    <string name="general">सामान्य</string>
+    <string name="restore">पुनर्स्थापना</string>
+    <string name="addHoliday">छुट्टी का शीर्षक जोड़ें</string>
+    <string name="save">सहेजें</string>
+    <string name="ok">ठीक है</string>
+    <string name="date_range">%s
+\n↓
+\n%s</string>
+    <string name="followsys">सिस्टम का पालन करें</string>
+    <string name="light">हल्की</string>
+    <string name="dark">गहरी</string>
+    <string name="noofvacations">छुट्टियों की संख्या</string>
+    <string name="enternoofvacations">छुट्टियों की संख्या दर्ज करें</string>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Дни отпуска</string>
+    <string name="about">О приложении</string>
+    <string name="settings">Настройки</string>
+    <string name="apache">Бета - Лицензия Apache 2.0</string>
+    <string name="timeline">График</string>
+    <string name="calendar">Календарь</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="java">Java</string>
+    <string name="gnu">GNU General Public License, версия 2, с исключением Classpath</string>
+    <string name="apachelicense">Лицензия Apache 2.0</string>
+    <string name="nobobutton">NoboButton</string>
+    <string name="circleimg">CircleImageView</string>
+    <string name="backup">Сначала удалите все ранее созданные резервные копии с вашего устройства.</string>
+    <string name="marvin">Crazy Marvin</string>
+    <string name="developer">Разработчик</string>
+    <string name="codeaquaria">Код Acquaria</string>
+    <string name="contribute">Вносить вклад</string>
+    <string name="translate">Перевести</string>
+    <string name="reportaproblem">Сообщить о проблеме</string>
+    <string name="viewSource">Глянуть исходный код</string>
+    <string name="featherIcons">Значки Feather</string>
+    <string name="mitLicence">Лицензия MIT</string>
+    <string name="materialdesignicons">Значки Material Design</string>
+    <string name="apacheLicense">Лицензия Apache 2.0</string>
+    <string name="androidJetpack">Android Jetpack</string>
+    <string name="openSourceLicences">Лицензии с открытым исходным кодом</string>
+    <string name="general">В целом</string>
+    <string name="dateRangePicker">DateRangePicker</string>
+    <string name="appearance">Облик</string>
+    <string name="data">Данные</string>
+    <string name="backupheading">Резервирование</string>
+    <string name="restore">Восстановление</string>
+    <string name="addHoliday">Добавить название праздника</string>
+    <string name="save">Сохранить</string>
+    <string name="ok">ОК</string>
+    <string name="date_range">%s\n↓\n%s</string>
+    <string name="followsys">Вслед за системой</string>
+    <string name="light">Светлая</string>
+    <string name="dark">Тёмная</string>
+    <string name="noofvacations">Количество отпусков</string>
+    <string name="enternoofvacations">Введите количество отпусков</string>
+</resources>
