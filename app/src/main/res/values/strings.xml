@@ -38,13 +38,13 @@
     <string name="save">Save</string>
     <string name="ok">OK</string>
     <string name="done">Done</string>
-    <string name="date_range">%s\n↓\n%s</string>
+    <string name="date_range" translatable="false">%s\n↓\n%s</string>
     <string name="followsys">Follow System</string>
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="noofvacations">Number of Vacation Days</string>
     <string name="enternoofvacations">Enter Number of Vacations</string>
-    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_activity_main2" translatable="false">MainActivity2</string>
     <string name="empty_text">No Vacation Added</string>
     <string name="track">Track Sick Days</string>
     <string name="backupMessage">Backup Successful</string>
