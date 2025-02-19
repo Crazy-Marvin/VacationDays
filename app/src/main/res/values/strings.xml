@@ -6,12 +6,12 @@
     <string name="timeline">Timeline</string>
     <string name="calendar">Calendar</string>
     <string name="apache"> Beta - Apache License 2.0</string>
-    <string name="kotlin">Kotlin</string>
-    <string name="java">Java</string>
+    <string name="kotlin" translatable="false">Kotlin</string>
+    <string name="java" translatable="false">Java</string>
     <string name="gnu">GNU General Public License, version 2, with the Classpath Exception</string>
     <string name="apachelicense">Apache License 2.0</string>
-    <string name="nobobutton">NoboButton</string>
-    <string name="circleimg">CircleImageView</string>
+    <string name="nobobutton" translatable="false">NoboButton</string>
+    <string name="circleimg" translatable="false">CircleImageView</string>
     <string name="backup">Delete any pre-existing backup files from your device first.</string>
     <string name="marvin" translatable="false">Crazy Marvin</string>
     <string name="developer">Developer</string>
