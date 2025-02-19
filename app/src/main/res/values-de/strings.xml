@@ -43,4 +43,9 @@
     <string name="date_range">%s
 \n↓
 \n%s</string>
+    <string name="backupMessage">Backup erfolgreich</string>
+    <string name="done">Erledigt</string>
+    <string name="empty_text">Kein Urlaub eingetragen</string>
+    <string name="track">Krankheitstage nachverfolgen</string>
+    <string name="vacation_days">Anzahl der Urlaubstage</string>
 </resources>
