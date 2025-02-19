@@ -32,4 +32,8 @@ class VacationNumberRepository @Inject constructor(private val vacationNumberDao
     suspend fun getLatestVacationNumber(): VacationNumber? {
         return vacationNumberDao.getLatestVacationNumber()
     }
+
+    suspend fun getVacationNumberForYear(year: String): Int {
+        return vacationNumberDao.getVacationNumber(year)?.numberOfVacation ?: 0
+    }
 }

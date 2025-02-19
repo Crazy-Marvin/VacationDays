@@ -24,6 +24,9 @@ interface VacationNumberDao {
     @Query("SELECT * FROM $THEOTHER_TABLENAME")
     fun getAllVacationNumbers(): Flow<List<VacationNumber>>
 
+    @Query("SELECT * FROM $THEOTHER_TABLENAME WHERE name = :year LIMIT 1")
+    suspend fun getVacationNumber(year: String): VacationNumber?
+
     @Query("SELECT * FROM $THEOTHER_TABLENAME ORDER BY id DESC LIMIT 1")
     suspend fun getLatestVacationNumber(): VacationNumber?
 
