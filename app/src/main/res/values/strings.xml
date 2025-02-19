@@ -13,22 +13,22 @@
     <string name="nobobutton">NoboButton</string>
     <string name="circleimg">CircleImageView</string>
     <string name="backup">Delete any pre-existing backup files from your device first.</string>
-    <string name="marvin">Crazy Marvin</string>
+    <string name="marvin" translatable="false">Crazy Marvin</string>
     <string name="developer">Developer</string>
     <string name="version" translatable="false">%1$s</string>
-    <string name="codeaquaria">Code Acquaria</string>
-    <string name="mubeen">Mubeen Ali</string>
+    <string name="codeaquaria" translatable="false">Code Acquaria</string>
+    <string name="mubeen" translatable="false">Mubeen Ali</string>
     <string name="contribute">Contribute</string>
     <string name="translate">Translate</string>
     <string name="reportaproblem">Report a problem</string>
     <string name="viewSource">View source</string>
     <string name="openSourceLicences">Open-source licenses</string>
-    <string name="featherIcons">Feather Icons</string>
+    <string name="featherIcons" translatable="false">Feather Icons</string>
     <string name="mitLicence">MIT License</string>
-    <string name="materialdesignicons">Material Design Icons</string>
+    <string name="materialdesignicons" translatable="false">Material Design Icons</string>
     <string name="apacheLicense">Apache License 2.0</string>
-    <string name="androidJetpack">Android Jetpack</string>
-    <string name="dateRangePicker">DateRangePicker</string>
+    <string name="androidJetpack" translatable="false">Android Jetpack</string>
+    <string name="dateRangePicker" translatable="false">DateRangePicker</string>
     <string name="general">General</string>
     <string name="appearance">Appearance</string>
     <string name="data">Data</string>
