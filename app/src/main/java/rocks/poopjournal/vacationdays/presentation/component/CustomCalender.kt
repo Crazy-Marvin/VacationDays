@@ -4,6 +4,7 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,13 +15,19 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -38,16 +45,10 @@ import com.kizitonwose.calendar.core.CalendarDay
 import com.kizitonwose.calendar.core.CalendarMonth
 import com.kizitonwose.calendar.core.DayPosition
 import com.kizitonwose.calendar.core.OutDateStyle
-import com.kizitonwose.calendar.core.atStartOfMonth
 import com.kizitonwose.calendar.core.firstDayOfWeekFromLocale
-import com.kizitonwose.calendar.core.nextMonth
-import com.kizitonwose.calendar.core.previousMonth
-import com.kizitonwose.calendar.core.yearMonth
 import rocks.poopjournal.vacationdays.data.VacationData
 import rocks.poopjournal.vacationdays.presentation.ui.theme.MyVacationDays2Theme
-import rocks.poopjournal.vacationdays.presentation.ui.theme.gray
 import rocks.poopjournal.vacationdays.presentation.ui.theme.primary
-import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.Month
 import java.time.YearMonth
@@ -58,6 +59,7 @@ import java.time.temporal.ChronoUnit
 import java.util.Locale
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun CalenderView(
@@ -65,12 +67,17 @@ fun CalenderView(
     isRangeSelection: Boolean = false,
     holidays: List<VacationData> = emptyList()
 ) {
-    val currentMonth = YearMonth.now()
-    val startMonth = currentMonth
-    val endMonth = currentMonth.plusMonths(12)
+    val currentYear = YearMonth.now().year
+    var selectedYear by remember { mutableIntStateOf(currentYear) }
+
+    val startMonth = remember(selectedYear) { YearMonth.of(selectedYear, 1) }
+    val endMonth = remember(selectedYear) { YearMonth.of(selectedYear, 12) }
 
     val today = remember { LocalDate.now() }
     var selection by remember { mutableStateOf(DateSelection()) }
+
+    val years = (currentYear - 30..currentYear + 30).toList() // Allow selection within +/- 10 years
+    var expanded by remember { mutableStateOf(false) }
 
     MaterialTheme(colorScheme = MaterialTheme.colorScheme.copy(primary = primary)) {
         Box(
@@ -79,10 +86,66 @@ fun CalenderView(
                 .background(MaterialTheme.colorScheme.background),
         ) {
             Column {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    contentAlignment = Alignment.TopEnd // Aligns the dropdown to the top-end
+                ) {
+                    ExposedDropdownMenuBox(
+                        expanded = expanded,
+                        onExpandedChange = { expanded = !expanded }
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .menuAnchor(MenuAnchorType.PrimaryNotEditable, true)
+                                .width(150.dp)
+                                .clickable { expanded = true }
+                                .background(
+                                    MaterialTheme.colorScheme.background,
+                                    RoundedCornerShape(4.dp)
+                                )
+                                .border(
+                                    1.dp,
+                                    MaterialTheme.colorScheme.primary,
+                                    RoundedCornerShape(4.dp)
+                                )
+                                .padding(10.dp), // Padding for better spacing
+                            contentAlignment = Alignment.Center // Centers text
+                        ) {
+                            Text(
+                                text = selectedYear.toString(),
+                                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                                textAlign = TextAlign.Center
+                            )
+                        }
+
+                        ExposedDropdownMenu(
+                            expanded = expanded,
+                            onDismissRequest = { expanded = false },
+                            containerColor = MaterialTheme.colorScheme.background,
+                        ) {
+                            years.forEach { year ->
+                                DropdownMenuItem(
+                                    text = {
+                                        Text(
+                                            year.toString(),
+                                            color = MaterialTheme.colorScheme.onSecondaryContainer
+                                        )
+                                    },
+                                    onClick = {
+                                        selectedYear = year
+                                        expanded = false
+                                    }
+                                )
+                            }
+                        }
+                    }
+                }
                 val state = rememberCalendarState(
                     startMonth = startMonth,
                     endMonth = endMonth,
-                    firstVisibleMonth = currentMonth,
+                    firstVisibleMonth = startMonth,
                     firstDayOfWeek = firstDayOfWeekFromLocale(),
                     outDateStyle = OutDateStyle.EndOfRow
                 )
@@ -165,7 +228,7 @@ private fun Day(
 
     val dotColor = when {
         day.date == today -> MaterialTheme.colorScheme.surface // Primary dot for today
-        isHoliday(day.date,holidays) -> Color.Gray
+        isHoliday(day.date, holidays) -> Color.Gray
         else -> Color.Transparent
     }
     Box(
@@ -228,7 +291,6 @@ fun Month.displayText(short: Boolean = true): String {
     val style = if (short) TextStyle.SHORT else TextStyle.FULL
     return getDisplayName(style, Locale.ENGLISH)
 }
-
 
 
 @RequiresApi(Build.VERSION_CODES.O)
