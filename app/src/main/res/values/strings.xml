@@ -43,10 +43,11 @@
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="noofvacations">Number of Vacation Days</string>
-    <string name="enternoofvacations">Enter Number of Vacations</string>
     <string name="title_activity_main2" translatable="false">MainActivity2</string>
     <string name="empty_text">No Vacation Added</string>
     <string name="track">Track Sick Days</string>
     <string name="backupMessage">Backup Successful</string>
     <string name="vacation_days">No. of Vacation Days</string>
+    <string name="junit">JUnit</string>
+    <string name="eclipse_license">Eclipse Public License - v 2.0</string>
 </resources>

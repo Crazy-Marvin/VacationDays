@@ -601,24 +601,46 @@ fun LicenseRow(context: Context) {
         .padding(8.dp)
         .clickable {
             val intent = Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("https://feathericons.com/")
+                data =
+                    Uri.parse("https://github.com/Crazy-Marvin/VacationDays/blob/development/LICENSE")
             }
             context.startActivity(intent)
         }) {
         Text(
-            text = stringResource(id = R.string.materialdesignicons),
+            text = stringResource(id = R.string.androidJetpack),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSecondaryContainer
         )
         Text(
-            text = stringResource(id = R.string.apachelicense),
+            text = stringResource(id = R.string.apacheLicense),
+            style = MaterialTheme.typography.bodyLarge,
+            color = gray
+        )
+    }
+
+    Spacer(modifier = Modifier.height(8.dp))
+    HorizontalDivider(modifier = Modifier.padding(start = 20.dp), color = lightGray)
+    Column(modifier = Modifier
+        .padding(8.dp)
+        .clickable {
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://github.com/kizitonwose/Calendar")
+            }
+            context.startActivity(intent)
+        }) {
+        Text(
+            text = stringResource(id = R.string.calendar),
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSecondaryContainer
+        )
+        Text(
+            text = stringResource(id = R.string.mitLicence),
             style = MaterialTheme.typography.bodyLarge,
             color = gray
         )
     }
     Spacer(modifier = Modifier.height(8.dp))
     HorizontalDivider(modifier = Modifier.padding(start = 20.dp), color = lightGray)
-
     Column(modifier = Modifier
         .padding(8.dp)
         .clickable {
@@ -644,18 +666,38 @@ fun LicenseRow(context: Context) {
         .padding(8.dp)
         .clickable {
             val intent = Intent(Intent.ACTION_VIEW).apply {
-                data =
-                    Uri.parse("https://github.com/Crazy-Marvin/VacationDays/blob/development/LICENSE")
+                data = Uri.parse("https://junit.org/")
             }
             context.startActivity(intent)
         }) {
         Text(
-            text = stringResource(id = R.string.androidJetpack),
+            text = stringResource(id = R.string.junit),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSecondaryContainer
         )
         Text(
-            text = stringResource(id = R.string.apacheLicense),
+            text = stringResource(id = R.string.eclipse_license),
+            style = MaterialTheme.typography.bodyLarge,
+            color = gray
+        )
+    }
+    Spacer(modifier = Modifier.height(8.dp))
+    HorizontalDivider(modifier = Modifier.padding(start = 20.dp), color = lightGray)
+    Column(modifier = Modifier
+        .padding(8.dp)
+        .clickable {
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://feathericons.com/")
+            }
+            context.startActivity(intent)
+        }) {
+        Text(
+            text = stringResource(id = R.string.materialdesignicons),
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSecondaryContainer
+        )
+        Text(
+            text = stringResource(id = R.string.apachelicense),
             style = MaterialTheme.typography.bodyLarge,
             color = gray
         )
