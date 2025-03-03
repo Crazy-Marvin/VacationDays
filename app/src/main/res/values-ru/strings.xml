@@ -40,5 +40,4 @@
     <string name="light">Светлая</string>
     <string name="dark">Тёмная</string>
     <string name="noofvacations">Количество отпусков</string>
-    <string name="enternoofvacations">Введите количество отпусков</string>
 </resources>
