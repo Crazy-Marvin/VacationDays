@@ -37,18 +37,14 @@ android {
         namespace "rocks.poopjournal.vacationdays"
         minSdkVersion 21
         targetSdkVersion 35
-        versionCode 13
-        versionName "13.0"
+        versionCode 14
+        versionName "14.0"
 
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
         }
-        
-        aaptOptions {
-        cruncherEnabled = false
-    	}
     }
 
 testOptions {
@@ -68,12 +64,13 @@ testOptions {
     }
 
     buildTypes {
-        debug {
-            testCoverageEnabled true
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            enableUnitTestCoverage true
+            enableAndroidTestCoverage true
         }
     }
     compileOptions {
