@@ -1,0 +1,18 @@
+This update includes many bug fixes and a few helpful new features. 🥳
+As always, let us know if something is not working or missing. 😘
+
+- Try to fix reproducible builds (again) ❤️
+- Further housecleaning 🛀
+- Deletion of entries is possible again 🐛
+- Vacation days in the past can be added again 🐛
+- Highlighting of today's date should look good again 🐛
+- Size of some too small textfields should be dynamically fixed 🐛
+- Notify users when they try to save a vacation without name instead of just exiting without saving ⚠️
+- BETA: Notification for future vacations 🔔
+- Homescreen widget 🏠
+- Dependency updates ⚙️
+- Translation updates 🗺️
+
+A huge thank you to all contributors and translators, especially Mubeen. 😘
+Feel welcome to report issues and submit fixes on https://github.com/Crazy-Marvin/VacationDays/ or translations on https://hosted.weblate.org/engage/vacation-days/. 🚀
+And of course, enjoy your vacations because you are awesome! 🏖️
