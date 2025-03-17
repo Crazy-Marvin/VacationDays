@@ -1,21 +1,10 @@
 version: 2
 updates:
-- package-ecosystem: gradle
+- package-ecosystem: "gradle"
   directory: "/"
   schedule:
-    interval: monthly
-  open-pull-requests-limit: 10
-- package-ecosystem: "devcontainers"
-    directory: "/"
-    schedule:
-      interval: monthly
-    open-pull-requests-limit: 10      
+    interval: "monthly"
 - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: monthly
-    open-pull-requests-limit: 10
-  reviewers:
-  - FahadSaleem
-  assignees:
-  - FahadSaleem
+      interval: "monthly"
