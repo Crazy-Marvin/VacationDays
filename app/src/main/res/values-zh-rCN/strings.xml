@@ -25,7 +25,7 @@
     <string name="data">数据</string>
     <string name="ok">好的</string>
     <string name="backupheading">备份</string>
-    <string name="noofvacations">假期数</string>
+    <string name="noofvacations">假期天数</string>
     <string name="java">Java</string>
     <string name="nobobutton">NoboButton</string>
     <string name="circleimg">CircleImageView</string>
