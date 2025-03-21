@@ -42,4 +42,11 @@
 \n↓
 \n%s</string>
     <string name="kotlin">Kotlin</string>
+    <string name="done">完毕</string>
+    <string name="vacation_days">假期天数</string>
+    <string name="eclipse_license">Eclipse 公共许可证 - v 2.0</string>
+    <string name="junit">JUnit</string>
+    <string name="empty_text">没有添加假期</string>
+    <string name="track">追踪生病日子</string>
+    <string name="backupMessage">备份成功</string>
 </resources>
