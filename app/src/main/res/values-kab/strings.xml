@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="general">Amatu</string>
+    <string name="save">Sekles</string>
+    <string name="about">Ɣef</string>
+    <string name="app_name">Ussan n imuras</string>
+    <string name="settings">Iɣewwaṛen</string>
+    <string name="calendar">Awitay</string>
+    <string name="apache">Biṭa - Turagt Apache 2.0</string>
+    <string name="apachelicense">Turagt Apache 2.0</string>
+    <string name="developer">Aneflay</string>
+    <string name="translate">Suqel</string>
+    <string name="viewSource">Wali aɣbalu</string>
+    <string name="mitLicence">Turagt MIT</string>
+    <string name="apacheLicense">Turagt Apache 2.0</string>
+    <string name="appearance">Agrudem</string>
+    <string name="data">Isefka</string>
+    <string name="backupheading">Aḥraz</string>
+    <string name="ok">Ih</string>
+    <string name="done">Yemmed</string>
+    <string name="followsys">Akken yella unagraw</string>
+    <string name="light">Aceεlal</string>
+    <string name="dark">Ubrik</string>
+    <string name="noofvacations">Amḍan n wussan imuras</string>
+    <string name="contribute">Ttekki</string>
+    <string name="addHoliday">Rnu azwel n wass amras</string>
+</resources>
