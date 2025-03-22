@@ -1,2 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Vacation Days</string>
+    <string name="apachelicense">Apache உரிமம் 2.0</string>
+    <string name="contribute">பங்களிப்பு</string>
+    <string name="reportaproblem">Report a problem</string>
+    <string name="apacheLicense">Apache உரிமம் 2.0</string>
+    <string name="general">பொது</string>
+    <string name="junit">JUnit</string>
+    <string name="eclipse_license">Eclipse Public உரிமம் - v 2.0</string>
+    <string name="about">பற்றி</string>
+    <string name="settings">அமைப்புகள்</string>
+    <string name="timeline">Timeline</string>
+    <string name="calendar">நாட்காட்டி</string>
+    <string name="apache">Beta - Apache உரிமம் 2.0</string>
+    <string name="gnu">GNU பொது Public License, version 2, with the Classpath Exception</string>
+    <string name="backup">நீக்கு any pre-existing backup கோப்புகள் இருந்து your device first.</string>
+    <string name="developer">உருவாக்குநர்</string>
+    <string name="translate">மொழிபெயர்த்திடு</string>
+    <string name="viewSource">பார்வை மூலம்</string>
+    <string name="openSourceLicences">Open-source licenses</string>
+    <string name="mitLicence">MIT உரிமம்</string>
+    <string name="appearance">தோற்றம்</string>
+    <string name="data">தகவல்கள்</string>
+    <string name="backupheading">Backup</string>
+    <string name="restore">Restore</string>
+    <string name="addHoliday">கூட்டு Holiday Title</string>
+    <string name="save">சேமி</string>
+    <string name="ok">சரி</string>
+    <string name="done">முடிந்தது</string>
+    <string name="followsys">Follow மண்டலம்</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+    <string name="noofvacations">எண் of Vacation Days</string>
+    <string name="empty_text">இல்லை Vacation Added</string>
+    <string name="track">மின்தடம் Sick Days</string>
+    <string name="backupMessage">Backup Successful</string>
+    <string name="vacation_days">No. of Vacation Days</string>
+</resources>
