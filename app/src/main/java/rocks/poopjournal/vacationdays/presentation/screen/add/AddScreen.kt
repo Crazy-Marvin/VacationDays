@@ -1,6 +1,7 @@
 package rocks.poopjournal.vacationdays.presentation.screen.add
 
 import android.os.Build
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -28,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -41,6 +43,7 @@ import java.time.format.DateTimeFormatter
 fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavHostController) {
 
     var selectedTab by remember { mutableIntStateOf(1) }
+    val context = LocalContext.current
 
     var vacationName by remember { mutableStateOf("") }
     var startDateString by remember { mutableStateOf("") }
@@ -53,14 +56,20 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
             vacationName = vacationName,
             onNameChange = { vacationName = it },
             onCheckClick = {
-                val vacationData = VacationData(
-                    name = vacationName,
-                    startDate = startDateString,
-                    endDate = endDateString.ifEmpty { null },
-                    category = if (selectedTab == 0) "Sick" else "Vacation"
-                )
-                viewModel.addVacation(vacationData)
-                navHostController.popBackStack()
+                if (vacationName.isEmpty()) {
+                    Toast.makeText(context, "Please Enter Vacation Name!", Toast.LENGTH_SHORT).show()
+                } else if (startDateString.isEmpty()) {
+                    Toast.makeText(context, "Please Select Start Date!", Toast.LENGTH_SHORT).show()
+                } else {
+                    val vacationData = VacationData(
+                        name = vacationName,
+                        startDate = startDateString,
+                        endDate = endDateString.ifEmpty { null },
+                        category = if (selectedTab == 0) "Sick" else "Vacation"
+                    )
+                    viewModel.addVacation(vacationData)
+                    navHostController.popBackStack()
+                }
             },
             onCloseClick = {
                 navHostController.popBackStack()
@@ -142,7 +151,6 @@ private fun TopBar(
                 ),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp) // Ensure proper height for the text field
             )
         }
 

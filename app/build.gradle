@@ -35,10 +35,10 @@ android {
     defaultConfig {
         applicationId "rocks.poopjournal.vacationdays"
         namespace "rocks.poopjournal.vacationdays"
-        minSdkVersion 21
+        minSdkVersion 29
         targetSdkVersion 35
-        versionCode 14
-        versionName "14.0"
+        versionCode 15
+        versionName "15.0"
 
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

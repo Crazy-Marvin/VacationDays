@@ -88,4 +88,16 @@ class HomeViewModel @Inject constructor(
             _totalHolidays.value = maxOf(vacationNumber - _vacationDays.value, 0)
         }
     }
+
+    fun deleteVacation(vacationData: VacationData){
+        viewModelScope.launch {
+            vacationRepository.deleteData(vacationData)
+        }
+    }
+
+    fun restoreVacation(vacation: VacationData) {
+        viewModelScope.launch {
+            vacationRepository.insertData(vacation) // Re-insert deleted vacation
+        }
+    }
 }

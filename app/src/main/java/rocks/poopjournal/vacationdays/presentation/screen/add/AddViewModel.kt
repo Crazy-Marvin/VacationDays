@@ -1,5 +1,7 @@
 package rocks.poopjournal.vacationdays.presentation.screen.add
 
+import android.content.Context
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +20,10 @@ class AddViewModel @Inject constructor(
     lateinit var themeSetting: ThemeSetting
 
     fun addVacation(vacationData: VacationData) {
-        if (vacationData.name.isEmpty() || vacationData.startDate.isEmpty()) {
+        if (vacationData.name.isEmpty()) {
+            return
+        }
+        if(vacationData.startDate.isEmpty()){
             return
         }
         viewModelScope.launch {
