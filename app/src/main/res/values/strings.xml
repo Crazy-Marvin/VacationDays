@@ -50,4 +50,8 @@
     <string name="vacation_days">No. of Vacation Days</string>
     <string name="junit">JUnit</string>
     <string name="eclipse_license">Eclipse Public License - v 2.0</string>
+    <string name="delete_vacation">Vacation deleted</string>
+    <string name="undo">Undo</string>
+    <string name="empty_vacation">Please Enter Vacation Name!</string>
+    <string name="empty_date">Please Select Start Date!</string>
 </resources>

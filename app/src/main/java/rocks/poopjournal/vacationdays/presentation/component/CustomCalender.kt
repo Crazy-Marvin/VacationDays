@@ -76,7 +76,7 @@ fun CalenderView(
     val today = remember { LocalDate.now() }
     var selection by remember { mutableStateOf(DateSelection()) }
 
-    val years = (currentYear - 30..currentYear + 30).toList() // Allow selection within +/- 10 years
+    val years = (currentYear - 30..currentYear + 30).toList()
     var expanded by remember { mutableStateOf(false) }
 
     MaterialTheme(colorScheme = MaterialTheme.colorScheme.copy(primary = primary)) {
@@ -162,10 +162,6 @@ fun CalenderView(
                                 isRangeSelection = isRangeSelection,
                                 holidays = holidays
                             ) { day ->
-                                if (day.position == DayPosition.MonthDate && (day.date == today || day.date.isAfter(
-                                        today
-                                    ))
-                                ) {
                                     selection = if (isRangeSelection) {
                                         ContinuousSelectionHelper.getSelection(
                                             clickedDate = day.date,
@@ -184,7 +180,6 @@ fun CalenderView(
                                     }
                                 }
                             }
-                        }
                     },
                     monthHeader = { month ->
                         MonthHeader(month)
@@ -211,19 +206,15 @@ private fun Day(
             day.date.isAfter(selection.startDate) && day.date.isBefore(selection.endDate)
 
     val backgroundColor = when {
-        isSelectedStart || isSelectedEnd -> MaterialTheme.colorScheme.surface
-        isInRange -> MaterialTheme.colorScheme.surface.copy(alpha = 0.1f)
+        isRangeSelection && (isSelectedStart || isSelectedEnd) -> MaterialTheme.colorScheme.primary // Highlight selection only in range mode
+        isRangeSelection && isInRange -> MaterialTheme.colorScheme.primary.copy(alpha = 0.1f) // Highlight range
         else -> Color.Transparent
     }
 
     val textColor = when {
-        isRangeSelection -> {
-            if (isSelectedStart || isSelectedEnd) Color.White else MaterialTheme.colorScheme.onSecondaryContainer
-        }
-
-        else -> {
-            if (day.date == today) MaterialTheme.colorScheme.surface else MaterialTheme.colorScheme.onSecondaryContainer
-        }
+        isRangeSelection && (isSelectedStart || isSelectedEnd) -> MaterialTheme.colorScheme.onSecondaryContainer // Ensure contrast when selected
+        day.date == today -> MaterialTheme.colorScheme.surface // Highlight today's date with Surface color
+        else -> MaterialTheme.colorScheme.onSecondaryContainer
     }
 
     val dotColor = when {
@@ -239,7 +230,9 @@ private fun Day(
                 shape = if (isSelectedStart || isSelectedEnd) CircleShape else RectangleShape
             )
             .clickable(
-                enabled = day.position == DayPosition.MonthDate && day.date >= today,
+                enabled = day.position == DayPosition.MonthDate &&
+                        day.date.isAfter(today.minusYears(30)) &&  // Allow dates > (today - 1 year)
+                        day.date <= today,
                 onClick = { onClick(day) },
             ),
         contentAlignment = Alignment.Center,
