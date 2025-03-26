@@ -30,9 +30,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.data.VacationData
 import rocks.poopjournal.vacationdays.presentation.component.CalenderView
 import rocks.poopjournal.vacationdays.presentation.component.CustomTab
@@ -48,6 +50,8 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
     var vacationName by remember { mutableStateOf("") }
     var startDateString by remember { mutableStateOf("") }
     var endDateString by remember { mutableStateOf("") }
+    val emptyVacation = stringResource(R.string.empty_vacation)
+    val emptyDate = stringResource(R.string.empty_date)
 
     Column(modifier = Modifier.fillMaxSize()) {
         TopBar(
@@ -57,9 +61,9 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
             onNameChange = { vacationName = it },
             onCheckClick = {
                 if (vacationName.isEmpty()) {
-                    Toast.makeText(context, "Please Enter Vacation Name!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, emptyVacation, Toast.LENGTH_SHORT).show()
                 } else if (startDateString.isEmpty()) {
-                    Toast.makeText(context, "Please Select Start Date!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, emptyDate, Toast.LENGTH_SHORT).show()
                 } else {
                     val vacationData = VacationData(
                         name = vacationName,

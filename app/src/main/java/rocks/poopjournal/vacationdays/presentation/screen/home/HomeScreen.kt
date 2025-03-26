@@ -112,6 +112,8 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
                     sickDays = sickDays,
                     isSickEnabled = viewModel.themeSetting.isFeatureEnabled
                 )
+                val deleteMessage = stringResource(R.string.delete_vacation)
+                val actionLabel = stringResource(R.string.undo)
                 when (selectedTab) {
                     0 -> TimelineView(
                         vacationList = vacation,
@@ -119,8 +121,8 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
                             coroutineScope.launch {
                                 viewModel.deleteVacation(it)
                                 val result = snackbarHostState.showSnackbar(
-                                    message = "Vacation deleted",
-                                    actionLabel = "Undo",
+                                    message = deleteMessage,
+                                    actionLabel = actionLabel,
                                     duration = SnackbarDuration.Short
                                 )
                                 if (result == SnackbarResult.ActionPerformed) {
