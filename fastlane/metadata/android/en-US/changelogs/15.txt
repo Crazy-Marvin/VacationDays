@@ -1,5 +1,6 @@
 This update includes many bug fixes and a few helpful new features. 🥳
 As always, let us know if something is not working or missing. 😘
+The minimum supported Android version has been increased from Android 5 to Android 10. 🆙
 
 - Try to fix reproducible builds (again) ❤️
 - Further housecleaning 🛀
@@ -8,8 +9,6 @@ As always, let us know if something is not working or missing. 😘
 - Highlighting of today's date should look good again 🐛
 - Size of some too small textfields should be dynamically fixed 🐛
 - Notify users when they try to save a vacation without name instead of just exiting without saving ⚠️
-- BETA: Notification for future vacations 🔔
-- Homescreen widget 🏠
 - Dependency updates ⚙️
 - Translation updates 🗺️
 
