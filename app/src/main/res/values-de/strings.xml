@@ -47,4 +47,10 @@
     <string name="empty_text">Kein Urlaub eingetragen</string>
     <string name="track">Krankheitstage nachverfolgen</string>
     <string name="vacation_days">Anzahl der Urlaubstage</string>
+    <string name="junit">JUnit</string>
+    <string name="eclipse_license">Eclipse Public License - v 2.0</string>
+    <string name="empty_date">Bitte Startdatum angeben</string>
+    <string name="undo">Rückgängig</string>
+    <string name="empty_vacation">Bitte Urlaubstitel eintragen</string>
+    <string name="delete_vacation">Urlaub gelöscht</string>
 </resources>
