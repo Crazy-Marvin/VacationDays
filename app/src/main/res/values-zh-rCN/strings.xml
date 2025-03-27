@@ -49,4 +49,8 @@
     <string name="empty_text">没有添加假期</string>
     <string name="track">追踪生病日子</string>
     <string name="backupMessage">备份成功</string>
+    <string name="delete_vacation">已删除假期</string>
+    <string name="undo">撤销</string>
+    <string name="empty_vacation">请输入假期名称！</string>
+    <string name="empty_date">请选择开始日期！</string>
 </resources>
