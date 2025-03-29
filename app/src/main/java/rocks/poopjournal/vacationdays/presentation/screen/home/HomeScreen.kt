@@ -151,7 +151,8 @@ private fun TopBar(
     isSickEnabled: Boolean
 ) {
     var expanded by remember { mutableStateOf(false) }
-
+    val timeline = stringResource(R.string.timeline)
+    val calendar = stringResource(R.string.calendar)
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -308,7 +309,7 @@ private fun TopBar(
             verticalAlignment = Alignment.CenterVertically
         ) {
             CustomTab(
-                items = listOf("Timeline", "Calendar"),
+                items = listOf(timeline, calendar),
                 selectedItemIndex = selectedTab,
                 onClick = { index -> onTabSelected(index) },
             )

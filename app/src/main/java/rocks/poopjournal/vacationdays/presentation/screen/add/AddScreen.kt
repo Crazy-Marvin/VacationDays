@@ -102,6 +102,9 @@ private fun TopBar(
     onCloseClick: () -> Unit,
     isSickEnabled : Boolean
 ) {
+    val sick = stringResource(R.string.sick)
+    val vacation = stringResource(R.string.vacation)
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -141,10 +144,10 @@ private fun TopBar(
                 value = vacationName,
                 onValueChange = { onNameChange(it) },
                 placeholder = {
-                    Text(text = "Holiday", style = MaterialTheme.typography.bodyLarge, color = Color.White)
+                    Text(text = stringResource(R.string.holiday), style = MaterialTheme.typography.bodyLarge, color = Color.White)
                 },
                 label = {
-                    Text(text = "Name", style = MaterialTheme.typography.labelSmall)
+                    Text(text = stringResource(R.string.name), style = MaterialTheme.typography.labelSmall)
                 },
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     focusedBorderColor = MaterialTheme.colorScheme.primary,
@@ -167,7 +170,7 @@ private fun TopBar(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 CustomTab(
-                    items = listOf("Sick", "Vacation"),
+                    items = listOf(sick, vacation),
                     selectedItemIndex = selectedTab,
                     onClick = { index -> onTabSelected(index) },
                 )
