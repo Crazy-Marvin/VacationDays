@@ -54,4 +54,8 @@
     <string name="undo">Undo</string>
     <string name="empty_vacation">Please Enter Vacation Name!</string>
     <string name="empty_date">Please Select Start Date!</string>
+    <string name="sick">Sick</string>
+    <string name="vacation">Vacation</string>
+    <string name="holiday">Holiday</string>
+    <string name="name">Name</string>
 </resources>
