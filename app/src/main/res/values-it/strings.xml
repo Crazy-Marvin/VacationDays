@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vacation Days</string>
+    <string name="app_name">Giorni di Ferie</string>
     <string name="about">Info</string>
     <string name="settings">Impostazioni</string>
     <string name="data">Dati</string>
@@ -16,14 +16,13 @@
     <string name="general">Generali</string>
     <string name="backupheading">Backup</string>
     <string name="restore">Ripristino</string>
-    <string name="addHoliday">Aggiungi titolo della vacanza</string>
+    <string name="addHoliday">Aggiungi Titolo della Vacanza</string>
     <string name="ok">OK</string>
     <string name="gnu">GNU General Public License, versione 2, con Classpath Exception</string>
     <string name="apachelicense">Licenza Apache 2.0</string>
     <string name="nobobutton">NoboButton</string>
     <string name="circleimg">CircleImageView</string>
-    <string name="backup">Nota!
-\nSe il telefono contiene un file di backup preesistente, eliminalo prima</string>
+    <string name="backup">Elimina prima tutti i file di salvataggio preesistenti dal dispositivo.</string>
     <string name="marvin">Crazy Marvin</string>
     <string name="developer">Sviluppatore</string>
     <string name="contribute">Contribuisci</string>
@@ -39,8 +38,23 @@
     <string name="save">Salva</string>
     <string name="light">Chiaro</string>
     <string name="dark">Scuro</string>
-    <string name="noofvacations">Numero di vacanze</string>
+    <string name="noofvacations">Numero dei giorni di ferie</string>
     <string name="date_range">%s
 \n↓
 \n%s</string>
+    <string name="junit">JUnit</string>
+    <string name="eclipse_license">Licenza Pubblica Eclipse - v 2.0</string>
+    <string name="name">Nome</string>
+    <string name="sick">Malattia</string>
+    <string name="done">Fatto</string>
+    <string name="track">Traccia giorni di malattia</string>
+    <string name="empty_text">Niente ferie aggiunte</string>
+    <string name="vacation_days">N° di Giorni di Ferie</string>
+    <string name="backupMessage">Salvataggio Riuscito</string>
+    <string name="delete_vacation">Ferie cancellate</string>
+    <string name="undo">Annulla</string>
+    <string name="empty_vacation">Inserisci un nome per le ferie!</string>
+    <string name="empty_date">Inserisci una data di inizio!</string>
+    <string name="vacation">Ferie</string>
+    <string name="holiday">Vacanza</string>
 </resources>
