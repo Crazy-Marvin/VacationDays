@@ -1,0 +1,5 @@
+- Molti bug risolti grazie a subeep 🐛
+- Miglioramenti all'interfaccia utente Grazie a unbiaseduser 🎨
+- Premendo Indietro ora non si chiude più l'applicazione automaticamente 🐛
+- Passaggio alle icone vettoriali per una visualizzazione più nitida Grazie a karthikayya 🎨
+- Aggiornamenti della traduzione 🗺️

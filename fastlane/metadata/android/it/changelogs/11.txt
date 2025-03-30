@@ -1,0 +1,4 @@
+- Riscrittura di Vacation Days in Kotlin per migliorarne la manutenibilità, le prestazioni, l'efficienza, l'UX e la sicurezza 💣
+
+Un enorme ringraziamento a tutti i collaboratori e traduttori, in particolare a Mubeen. 😘
+Segnalate pure i problemi e inviate le correzioni su https://github.com/Crazy-Marvin/VacationDays/ o le traduzioni su https://hosted.weblate.org/engage/vacation-days/. 🚀
