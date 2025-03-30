@@ -53,4 +53,8 @@
     <string name="undo">撤销</string>
     <string name="empty_vacation">请输入假期名称！</string>
     <string name="empty_date">请选择开始日期！</string>
+    <string name="sick">生病</string>
+    <string name="vacation">假期</string>
+    <string name="name">名称</string>
+    <string name="holiday">节日</string>
 </resources>
