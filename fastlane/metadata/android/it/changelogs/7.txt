@@ -1,0 +1,4 @@
+- 🐛 Corretto il salvataggio delle impostazioni di aspetto
+- 🎵 L'app ora mostra un messaggio che indica che la funzione di backup non è ancora stata implementata
+- 🤮 Migliore gestione dei giorni di malattia
+- 🆕 Aggiornamento delle dipendenze

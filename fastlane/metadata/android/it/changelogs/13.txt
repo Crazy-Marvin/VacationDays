@@ -1,0 +1,4 @@
+- Si spera di consentire build riproducibili con successo ❤️
+
+Un enorme ringraziamento a tutti i collaboratori e traduttori, in particolare a IzzyOnDroid. 😘
+Sentitevi liberi di segnalare i problemi e di inviare le correzioni su https://github.com/Crazy-Marvin/VacationDays/ o le traduzioni su https://hosted.weblate.org/engage/vacation-days/. 🚀
