@@ -53,4 +53,7 @@
     <string name="undo">Rückgängig</string>
     <string name="empty_vacation">Bitte Urlaubstitel eintragen</string>
     <string name="delete_vacation">Urlaub gelöscht</string>
+    <string name="holiday">Urlaub</string>
+    <string name="vacation">Urlaub</string>
+    <string name="sick">Krank</string>
 </resources>
