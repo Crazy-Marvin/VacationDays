@@ -1,0 +1,5 @@
+- Correction de nombreux bugs grâce à subeep🐛
+- Améliorations de l'interface utilisateur grâce à unbiaseduser 🎨
+- Appuyer sur « Précédent » ne ferme plus automatiquement l'application 🐛
+- Passage aux icônes vectorielles pour une meilleure visibilité grâce à karthikayya 🎨
+- Mises à jour de la traduction 🗺️

@@ -1,0 +1,6 @@
+- ⚙️ Correction de la sauvegarde (#94)
+- 🎨 Prise en charge de l'icône thématique introduite pour Android 13+ (#83)
+- 🐛 Correction du nom de version affiché dans l'écran À propos (#97)
+- 👍 Mise à jour des dépendances et des traductions
+
+Un grand merci à @unbiaseduser, @amarradi et à tous les traducteurs! 😘

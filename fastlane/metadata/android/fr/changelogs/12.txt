@@ -1,0 +1,6 @@
+- Compteur corrigé 🐛
+- Mises à jour des dépendances ⚙️
+- Mises à jour des traductions 🗺️
+
+Un grand merci à tous les contributeurs et traducteurs, et en particulier à mubeen. 😘
+N'hésitez pas à signaler les problèmes et à proposer des correctifs sur https://github.com/Crazy-Marvin/VacationDays/ ou des traductions sur https://hosted.weblate.org/engage/vacation-days/. 🚀

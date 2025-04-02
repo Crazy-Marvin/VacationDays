@@ -1,13 +1,15 @@
-Voyez quand vous êtes libre et planifiez vos vacances.
+Consultez vos disponibilités et planifiez vos vacances.
 
-<b>D'un seul coup d'œil</b> Visualisez vos jours de vacances dans l'une des deux présentations suivantes : une chronologie ou un calendrier. Les compteurs dans la barre supérieure indiquent vos jours de vacances pour l'année en cours – et combien il en reste.
+<b>En un coup d'œil.</b> Consultez vos jours de vacances selon deux modes : chronologie ou calendrier. Les compteurs dans la barre supérieure indiquent vos jours de vacances pour l'année en cours et le nombre restant.
 
-<b>Organisez en quelques secondes...</b> Appuyez sur le bouton flottant pour ajouter de nouveaux jours de congés. Saisissez un nom, faites glisser pour sélectionner une plage de dates, et c'est tout.
+<b>Tri en quelques secondes.</b> Appuyez sur le bouton flottant pour ajouter de nouveaux jours de vacances. Saisissez un nom, balayez pour sélectionner une plage de dates, et le tour est joué.
 
-<b>Vous changez de téléphone ?</b> Sauvegardez toutes vos données sur un appareil et restaurez-les sur un autre. Effectuez des sauvegardes périodiques pour préserver la sécurité de vos données.
+<b>Vous changez de téléphone ?</b> Sauvegardez toutes vos données sur un appareil et restaurez-les sur un autre. Effectuez des sauvegardes régulières pour protéger vos données.
 
-<b>Réjouissez-vous, les couche-tards</b> Un magnifique mode sombre pour un affichage nocturne. Vous pouvez le faire basculer automatiquement ou lui faire suivre l'apparence du système.
+<b>Chouettes, réjouissez-vous.</b> Un magnifique mode sombre pour une utilisation nocturne. Activez-le automatiquement ou adaptez-le à l'apparence du système.
 
-Site web : <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
-Traduisez l'appli sur Hosted Weblate : <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
-Logiciel libre sur GitHub : <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
+ Page web : <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
+
+Traduction sur Hosted Weblate : <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
+
+Logiciels libres sur GitHub : <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>

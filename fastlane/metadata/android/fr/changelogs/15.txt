@@ -1,0 +1,17 @@
+Cette mise à jour inclut de nombreuses corrections de bugs et quelques nouvelles fonctionnalités utiles. 🥳
+Comme toujours, n'hésitez pas à nous signaler tout dysfonctionnement ou manque. 😘
+La version minimale d'Android prise en charge est passée d'Android 5 à Android 10. 🆙
+
+- Essai de correction des builds reproductibles (à nouveau) ❤️
+- Nettoyage supplémentaire 🛀
+- La suppression d'entrées est à nouveau possible 🐛
+- Les jours de vacances passés peuvent à nouveau être ajoutés 🐛
+- La mise en surbrillance de la date du jour devrait à nouveau s'afficher correctement 🐛
+- La taille de certains champs de texte trop petits devrait être corrigée dynamiquement 🐛
+- Avertissement des utilisateurs lorsqu'ils tentent d'enregistrer des vacances sans nom au lieu de quitter sans enregistrer ⚠️
+- Mises à jour des dépendances ⚙️
+- Mises à jour des traductions 🗺️
+
+Un grand merci à tous les contributeurs et traducteurs, et en particulier à mubeen. 😘
+N'hésitez pas à signaler les problèmes et à proposer des correctifs sur https://github.com/Crazy-Marvin/VacationDays/ ou à proposer des traductions sur https://hosted.weblate.org/engage/vacation-days/. 🚀
+Et bien sûr, profitez bien de vos vacances, vous êtes géniaux! 🏖️
