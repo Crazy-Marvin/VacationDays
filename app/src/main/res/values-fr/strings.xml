@@ -5,8 +5,7 @@
     <string name="settings">Paramètres</string>
     <string name="timeline">Chronologie</string>
     <string name="calendar">Calendrier</string>
-    <string name="backup">Remarque
-\nSi votre téléphone contient déjà des sauvegardes, commencez par les supprimer</string>
+    <string name="backup">Supprimez d’abord tous les fichiers de sauvegarde préexistants de votre appareil.</string>
     <string name="marvin">Crazy Marvin</string>
     <string name="apache">Bêta - Licence Apache 2.0</string>
     <string name="java">Java</string>
@@ -34,13 +33,28 @@
     <string name="followsys">Thème du système</string>
     <string name="light">Clair</string>
     <string name="dark">Sombre</string>
-    <string name="app_name">Jours de congé</string>
+    <string name="app_name">Jours de vacances</string>
     <string name="gnu">Licence Publique Générale GNU, avec l\'exception Classpath</string>
     <string name="codeaquaria">Code Acquaria</string>
     <string name="androidJetpack">Android Jetpack</string>
     <string name="addHoliday">Ajouter un titre de jour ferié</string>
-    <string name="noofvacations">Nombre de vacances</string>
+    <string name="noofvacations">Nombre de jours de vacances</string>
     <string name="date_range">%s
 \n↓
 \n%s</string>
+    <string name="empty_text">Aucune vacances ajoutée</string>
+    <string name="track">Suivi des jours de maladie</string>
+    <string name="backupMessage">Sauvegarde réussie</string>
+    <string name="vacation_days">Nombre de jours de vacances</string>
+    <string name="junit">JUnit</string>
+    <string name="eclipse_license">Licence publique Eclipse - v 2.0</string>
+    <string name="done">Fait</string>
+    <string name="delete_vacation">Vacances supprimées</string>
+    <string name="undo">Défaire</string>
+    <string name="empty_vacation">Veuillez saisir le nom de la vacances!</string>
+    <string name="empty_date">Veuillez sélectionner la date de début!</string>
+    <string name="sick">Malade</string>
+    <string name="vacation">Vacances</string>
+    <string name="holiday">Vacances</string>
+    <string name="name">Nom</string>
 </resources>

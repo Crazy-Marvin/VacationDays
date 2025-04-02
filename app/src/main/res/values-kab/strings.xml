@@ -24,4 +24,12 @@
     <string name="noofvacations">Amḍan n wussan imuras</string>
     <string name="contribute">Ttekki</string>
     <string name="addHoliday">Rnu azwel n wass amras</string>
+    <string name="junit">JUnit</string>
+    <string name="reportaproblem">Mel ugur</string>
+    <string name="openSourceLicences">Turagin n uɣbalu yeldin</string>
+    <string name="restore">Err-d</string>
+    <string name="undo">Semmet</string>
+    <string name="vacation">Amaras</string>
+    <string name="holiday">Amaras</string>
+    <string name="name">Isem</string>
 </resources>
