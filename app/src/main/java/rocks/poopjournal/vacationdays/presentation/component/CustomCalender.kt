@@ -231,8 +231,7 @@ private fun Day(
             )
             .clickable(
                 enabled = day.position == DayPosition.MonthDate &&
-                        day.date.isAfter(today.minusYears(30)) &&  // Allow dates > (today - 1 year)
-                        day.date <= today,
+                        day.date.isAfter(today.minusYears(30)),
                 onClick = { onClick(day) },
             ),
         contentAlignment = Alignment.Center,
