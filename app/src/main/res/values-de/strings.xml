@@ -56,4 +56,5 @@
     <string name="holiday">Urlaub</string>
     <string name="vacation">Urlaub</string>
     <string name="sick">Krank</string>
+    <string name="name">Name</string>
 </resources>
