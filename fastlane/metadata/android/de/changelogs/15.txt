@@ -1,0 +1,20 @@
+Dieses Update enthält viele Fehlerbehebungen und einige hilfreiche neue Funktionen. 🥳
+
+Wie immer: Sagen Sie uns Bescheid, wenn etwas nicht funktioniert oder fehlt.  😘
+Die minimal unterstützte Android-Version wurde von Android 5 auf Android 10 erhöht. 🆙
+
+- Wir versuchen, reproduzierbare Builds (erneut) zu reparieren. ❤️
+- Weitere Verbesserungen 🛀
+- Das Löschen von Einträgen ist wieder möglich. 🐛
+- Vergangene Urlaubstage können wieder hinzugefügt werden. 🐛
+
+- Die Hervorhebung des aktuellen Datums sollte wieder gut aussehen. 🐛
+- Die Größe einiger zu kleiner Textfelder sollte dynamisch korrigiert werden. 🐛
+- Benutzer werden benachrichtigt, wenn sie versuchen, einen Urlaub ohne Namen zu speichern, anstatt das Programm einfach ohne Speichern zu beenden. ⚠️
+- Aktualisierungen der Abhängigkeiten ⚙️
+- Aktualisierungen der Übersetzungen 🗺️
+
+Ein großes Dankeschön an alle Mitwirkenden und Übersetzer, insbesondere an Mubeen.  😘
+
+Meldet gerne Probleme und reicht Korrekturen unter https://github.com/Crazy-Marvin/VacationDays/ oder Übersetzungen unter https://hosted.weblate.org/engage/vacation-days/ ein. 🚀
+Und natürlich: Genießt euren Urlaub, denn ihr seid großartig! 🏖️

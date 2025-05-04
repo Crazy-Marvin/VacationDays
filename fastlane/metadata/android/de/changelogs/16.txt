@@ -1,0 +1,5 @@
+- Fehler behoben, der das Hinzufügen von Urlaubtagen in Zukunft verhinderte. 🐛
+
+Ein großes Dankeschön an alle Mitwirkenden und Übersetzer, insbesondere an Mubeen. 😘
+Probleme und Fehlerbehebungen könnt ihr gerne unter https://github.com/Crazy-Marvin/VacationDays/ oder Übersetzungen unter https://hosted.weblate.org/engage/vacation-days/ melden. 🚀
+Und natürlich: Genießt euren Urlaub, denn ihr seid großartig! 🏖️

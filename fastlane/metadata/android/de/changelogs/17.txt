@@ -1,0 +1,13 @@
+- Reproduzierbare Builds (erneut) reparieren ❤️
+- Homescreen-Widget 🏠
+- BETA: Benachrichtigung für zukünftige Urlaube 🔔
+- UX-Verbesserungen 🎨
+- UI-Korrekturen 🎨
+- Weitere Verbesserungen 🛀
+- Ziel: Android 16 🤖
+- Abhängigkeits-Updates ⚙️
+- Übersetzungs-Updates 🗺️
+
+Ein großes Dankeschön an alle Mitwirkenden und Übersetzer, insbesondere an Mubeen. 😘
+Probleme und Fehlerbehebungen könnt ihr gerne unter https://github.com/Crazy-Marvin/VacationDays/ oder Übersetzungen unter https://hosted.weblate.org/engage/vacation-days/ melden. 🚀
+Und natürlich: Genießt euren Urlaub, ihr seid klasse! 🏖️

@@ -1,0 +1,15 @@
+Sehen Sie, wann Sie frei haben, und planen Sie Ihren Urlaub.
+
+<b>Auf einen Blick.</b> Sehen Sie Ihre Urlaubstage in zwei Layouts: Zeitleiste oder Kalender. Die Zähler in der oberen Leiste zeigen Ihre Urlaubstage für das laufende Jahr an – und wie viele noch übrig sind.
+
+<b>In Sekunden sortiert.</b> Tippen Sie auf die schwebende Schaltfläche, um neue Urlaubstage hinzuzufügen. Geben Sie einen Namen ein, wischen Sie, um einen Zeitraum auszuwählen – fertig.
+
+<b>Wechseln Sie das Telefon?</b> Sichern Sie alle Ihre Daten auf einem Gerät und stellen Sie sie auf einem anderen wieder her. Erstellen Sie regelmäßige Backups, um Ihre Daten zu schützen.
+
+<b>Nachteulen, freut euch!</b> Ein schöner Dunkelmodus für spätabendliches Fernsehen. Schalten Sie ihn automatisch ein oder lassen Sie ihn sich an die Systemanzeige anpassen.
+
+ Webseite: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
+
+Übersetzung auf Hosted Weblate: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
+
+Freie Software auf GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>

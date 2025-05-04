@@ -1,0 +1,6 @@
+- Zähler behoben 🐛
+- Abhängigkeitsaktualisierungen ⚙️
+- Übersetzungsaktualisierungen 🗺️
+
+Ein großes Dankeschön an alle Mitwirkenden und Übersetzer, insbesondere an Mubeen. 😘
+Probleme und Fehlerbehebungen können Sie gerne unter https://github.com/Crazy-Marvin/VacationDays/ oder Übersetzungen unter https://hosted.weblate.org/engage/vacation-days/ melden. 🚀
