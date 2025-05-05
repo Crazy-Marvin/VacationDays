@@ -39,7 +39,7 @@ android {
         targetSdkVersion 35
         versionCode 16
         versionName "16.0"
-
+        setProperty("archivesBaseName", "VacationDays" + "-v" + versionName)
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -89,6 +89,8 @@ testOptions {
         }
     }
 }
+
+
 
 dependencies {
 
