@@ -1,0 +1,4 @@
+- 🐛 Fehler beim Speichern der Darstellungseinstellungen behoben
+- 🎵 Die App zeigt nun eine Meldung an, dass die Backup-Funktion noch nicht implementiert ist.
+- 🤮 Bessere Handhabung von Krankheitstagen
+- 🆕 Abhängigkeiten aktualisiert

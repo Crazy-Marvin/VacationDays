@@ -1,0 +1,6 @@
+- ⚙️ Backup reparieren (#94)
+- 🎨 Unterstützung des Themensymbols, das ab Android 13 eingeführt wurde (#83)
+- 🐛 Korrektur des Versionsnamens im Info-Bildschirm (#97)
+- 👍 Aktualisierung von Abhängigkeiten und Übersetzungen
+
+Vielen Dank an @unbiaseduser, @amarradi und alle Übersetzer! 😘
