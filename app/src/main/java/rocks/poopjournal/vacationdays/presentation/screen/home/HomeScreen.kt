@@ -44,7 +44,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -60,10 +59,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.launch
 import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.data.VacationData
+import rocks.poopjournal.vacationdays.domain.model.VacData
 import rocks.poopjournal.vacationdays.presentation.component.CalenderView
 import rocks.poopjournal.vacationdays.presentation.component.CustomTab
 import rocks.poopjournal.vacationdays.presentation.navigation.About_Screen
@@ -74,17 +75,35 @@ import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
-@OptIn(ExperimentalMaterialApi::class)
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: NavHostController) {
-    val vacation by viewModel.holidays.collectAsState()
-    val (selectedTab, setSelectedTab) = remember { mutableIntStateOf(0) }
-    val vacationDays by viewModel.vacationDays.collectAsState()
-    val sickDays by viewModel.sickDays.collectAsState()
-    val totalHolidays by viewModel.totalHolidays.collectAsState()
-    val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
+
+    val (selectedTab, setSelectedTab) = remember { mutableIntStateOf(0) }
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    val data by viewModel.dataFlow.collectAsStateWithLifecycle(VacData.Empty)
+
+    val vacation = when (val _data = data) {
+        is VacData.Empty -> emptyList()
+        is VacData.Success -> _data.vacations
+    }
+
+    val vacationDays = when (val _data = data) {
+        is VacData.Empty -> 0
+        is VacData.Success -> _data.vacationDays
+    }
+
+    val sickDays = when (val _data = data) {
+        is VacData.Empty -> 0
+        is VacData.Success -> _data.sickDays
+    }
+
+    val totalHolidays = when (val _data = data) {
+        is VacData.Empty -> 0
+        is VacData.Success -> _data.vacationsNumber
+    }
+
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(

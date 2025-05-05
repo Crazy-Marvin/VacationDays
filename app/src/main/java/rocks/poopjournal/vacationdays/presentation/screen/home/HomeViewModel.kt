@@ -1,95 +1,95 @@
 package rocks.poopjournal.vacationdays.presentation.screen.home
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import rocks.poopjournal.vacationdays.data.VacationData
+import rocks.poopjournal.vacationdays.domain.model.VacData
 import rocks.poopjournal.vacationdays.domain.repo.VacationNumberRepository
 import rocks.poopjournal.vacationdays.domain.repo.VacationRepository
 import rocks.poopjournal.vacationdays.presentation.ui.utils.ThemeSetting
+import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import javax.inject.Inject
 
-@RequiresApi(Build.VERSION_CODES.O)
+
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val vacationRepository: VacationRepository,
-    private val vacationNumberRepository: VacationNumberRepository
+    private val vacationNumberRepository: VacationNumberRepository,
+    val themeSetting: ThemeSetting
 ) : ViewModel() {
 
-    @Inject
-    lateinit var themeSetting: ThemeSetting
+    private val formatter = DateTimeFormatter.ofPattern("d/MM/yyyy") // Match the saved format
 
-    private val _holidays = MutableStateFlow<List<VacationData>>(emptyList())
-    val holidays: StateFlow<List<VacationData>> = _holidays
+    val dataFlow: SharedFlow<VacData> =
+        combine(
+            vacationRepository.getAllData(),
+            themeSetting.isExcludeWeekendsFlow,
+        ) { data, isExcludeHolidays ->
 
-    private val _vacationDays = MutableStateFlow(0)
-    val vacationDays: StateFlow<Int> = _vacationDays
+            val vacationDaysCount = data
+                .filter { it.category == "Vacation" }
+                .sumOf { calculateDaysBetween(it.startDate, it.endDate, isExcludeHolidays) }
 
-    private val _sickDays = MutableStateFlow(0)
-    val sickDays: StateFlow<Int> = _sickDays
+            val sickDaysCount = data
+                .filter { it.category == "Sick" }
+                .sumOf { calculateDaysBetween(it.startDate, it.endDate, isExcludeHolidays) }
 
-    private val _totalHolidays = MutableStateFlow(0)
-    val totalHolidays: StateFlow<Int> = _totalHolidays
+            val currentYear = LocalDate.now().year.toString()
+            val vacationNumber = vacationNumberRepository.getVacationNumberForYear(currentYear)
+            val maxVacationNumber = maxOf(vacationNumber - vacationDaysCount, 0)
 
-    init {
-        fetchHolidays()
-        fetchVacationNumber()
-
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun fetchHolidays() {
-        viewModelScope.launch {
-            vacationRepository.getAllData().collect { data ->
-                _holidays.value = data
-
-                val vacationDaysCount = data
-                    .filter { it.category == "Vacation" }
-                    .sumOf { calculateDaysBetween(it.startDate, it.endDate) }
-
-                val sickDaysCount = data
-                    .filter { it.category == "Sick" }
-                    .sumOf { calculateDaysBetween(it.startDate, it.endDate) }
-
-                _vacationDays.value = vacationDaysCount
-                _sickDays.value = sickDaysCount
-
-                fetchVacationNumber()
-            }
+            VacData.Success(
+                vacations = data.sortedBy { LocalDate.parse(it.startDate, formatter) },
+                vacationDays = vacationDaysCount,
+                sickDays = sickDaysCount,
+                vacationsNumber = maxVacationNumber
+            )
         }
-    }
+            .stateIn(
+                scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed(5000),
+                initialValue = VacData.Empty
+            )
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    private fun calculateDaysBetween(startDate: String, endDate: String?): Int {
-        val formatter = DateTimeFormatter.ofPattern("d/MM/yyyy") // Match the saved format
+
+    private fun calculateDaysBetween(
+        startDate: String,
+        endDate: String?,
+        excludeWeekends: Boolean = false
+    ): Int {
         val start = LocalDate.parse(startDate, formatter)
 
         return if (endDate.isNullOrEmpty()) {
             1 // If no end date, count it as 1 day
         } else {
             val end = LocalDate.parse(endDate, formatter)
-            ChronoUnit.DAYS.between(start, end).toInt() + 1 // Include both start and end
+            val days = ChronoUnit.DAYS.between(start, end).toInt()
+
+            if (excludeWeekends) {
+                val startW = start.dayOfWeek
+                val endW = end.dayOfWeek
+                val daysWithoutWeekends = days - 2 * ((days + startW.value) / 7)
+
+                (daysWithoutWeekends
+                        + (if (startW == DayOfWeek.SUNDAY) 1 else 0)
+                        + (if (endW == DayOfWeek.SUNDAY) 1 else 0)
+                        + 1 // include start and end
+                        )
+            } else
+                days + 1 // Include both start and end
         }
     }
 
-    private fun fetchVacationNumber() {
-        viewModelScope.launch {
-            val currentYear = LocalDate.now().year.toString()
-            val vacationNumber = vacationNumberRepository.getVacationNumberForYear(currentYear)
-
-            _totalHolidays.value = maxOf(vacationNumber - _vacationDays.value, 0)
-        }
-    }
-
-    fun deleteVacation(vacationData: VacationData){
+    fun deleteVacation(vacationData: VacationData) {
         viewModelScope.launch {
             vacationRepository.deleteData(vacationData)
         }
