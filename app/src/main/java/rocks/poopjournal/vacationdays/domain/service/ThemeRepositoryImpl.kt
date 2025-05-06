@@ -3,6 +3,7 @@ package rocks.poopjournal.vacationdays.domain.service
 import android.content.Context
 import android.content.SharedPreferences
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.StateFlow
 import rocks.poopjournal.vacationdays.presentation.ui.utils.AppTheme
 import rocks.poopjournal.vacationdays.presentation.ui.utils.BooleanPreferenceDelegate
 import rocks.poopjournal.vacationdays.presentation.ui.utils.PreferenceConverter
@@ -33,6 +34,13 @@ class ThemeSettingImpl @Inject constructor(
         BooleanPreferenceDelegate(preferences, "is_exclude_weekends", false)
     override var isExcludeWeekendsEnabled: Boolean by isExcludeWeekendsDelegate
     override val isExcludeWeekendsFlow = isExcludeWeekendsDelegate.flow
+
+    // weekdays header
+    private val isShowWeekdaysHeaderDelegate =
+        BooleanPreferenceDelegate(preferences, "is_show_weekdays_header", false)
+    override var isShowWeekDaysHeaderEnabled: Boolean by isShowWeekdaysHeaderDelegate
+    override val isShowWeekDaysHeaderFlow = isShowWeekdaysHeaderDelegate.flow
+
 
     private object AppThemeConverter : PreferenceConverter<AppTheme, Int> {
         override fun serialize(value: AppTheme): Int = value.ordinal

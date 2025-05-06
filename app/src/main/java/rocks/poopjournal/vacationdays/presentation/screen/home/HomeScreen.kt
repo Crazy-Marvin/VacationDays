@@ -83,6 +83,7 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
     val snackbarHostState = remember { SnackbarHostState() }
 
     val data by viewModel.dataFlow.collectAsStateWithLifecycle(VacData.Empty)
+    val showWeekDateHeader by viewModel.themeSetting.isShowWeekDaysHeaderFlow.collectAsStateWithLifecycle()
 
     val vacation = when (val _data = data) {
         is VacData.Empty -> emptyList()
@@ -150,7 +151,7 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
                             }
                         })
 
-                    1 -> Calendar(holiday = vacation)
+                    1 -> CalenderView(holidays = vacation, showWeekDaysHeader = showWeekDateHeader)
                 }
             }
         })
@@ -464,12 +465,6 @@ fun TimelineView(vacationList: List<VacationData>, onDelete: (VacationData) -> U
             }
         }
     }
-}
-
-@RequiresApi(Build.VERSION_CODES.O)
-@Composable
-fun Calendar(holiday: List<VacationData>) {
-    CalenderView(isRangeSelection = false, holidays = holiday)
 }
 
 @Composable

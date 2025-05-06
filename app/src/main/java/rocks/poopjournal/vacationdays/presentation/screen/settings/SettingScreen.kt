@@ -123,6 +123,7 @@ fun SettingScreen(
 
     var localFeatureEnabled by remember { mutableStateOf(false) }
     var localExcludeWeekendsEnabled by remember { mutableStateOf(false) }
+    val localShowWeekdaysHeaderEnabled by viewModel.themeSetting.isShowWeekDaysHeaderFlow.collectAsState()
 
     LaunchedEffect(localFeatureEnabled) {
         localFeatureEnabled = viewModel.themeSetting.isFeatureEnabled
@@ -167,6 +168,22 @@ fun SettingScreen(
                         localExcludeWeekendsEnabled = newState
 
                         viewModel.themeSetting.isExcludeWeekendsEnabled = newState
+                    },
+                    colors = SwitchDefaults.colors(
+                        checkedIconColor = MaterialTheme.colorScheme.surface,
+                        checkedTrackColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.3f),
+                        checkedThumbColor = MaterialTheme.colorScheme.surface
+                    ),
+                )
+            }
+
+            SettingRow(
+                text = stringResource(id = R.string.show_weekdays_header)
+            ) {
+                Switch(
+                    checked = localShowWeekdaysHeaderEnabled,
+                    onCheckedChange = { newState ->
+                        viewModel.themeSetting.isShowWeekDaysHeaderEnabled = newState
                     },
                     colors = SwitchDefaults.colors(
                         checkedIconColor = MaterialTheme.colorScheme.surface,

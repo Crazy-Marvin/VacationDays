@@ -67,7 +67,8 @@ import java.util.Locale
 fun CalenderView(
     dateSelected: (startDate: LocalDate, endDate: LocalDate?) -> Unit = { _, _ -> },
     isRangeSelection: Boolean = false,
-    holidays: List<VacationData> = emptyList()
+    holidays: List<VacationData> = emptyList(),
+    showWeekDaysHeader: Boolean = false,
 ) {
     val currentYear = YearMonth.now().year
     var selectedYear by remember { mutableIntStateOf(currentYear) }
@@ -187,7 +188,7 @@ fun CalenderView(
                     },
                     monthHeader = { month ->
                         MonthHeader(month)
-                        DaysOfWeekTitle(daysOfWeek)
+                        if (showWeekDaysHeader) DaysOfWeekTitle(daysOfWeek)
                     },
                 )
             }
