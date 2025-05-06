@@ -9,6 +9,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -45,10 +46,11 @@ import com.kizitonwose.calendar.core.CalendarDay
 import com.kizitonwose.calendar.core.CalendarMonth
 import com.kizitonwose.calendar.core.DayPosition
 import com.kizitonwose.calendar.core.OutDateStyle
-import com.kizitonwose.calendar.core.firstDayOfWeekFromLocale
+import com.kizitonwose.calendar.core.daysOfWeek
 import rocks.poopjournal.vacationdays.data.VacationData
 import rocks.poopjournal.vacationdays.presentation.ui.theme.MyVacationDays2Theme
 import rocks.poopjournal.vacationdays.presentation.ui.theme.primary
+import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.Month
 import java.time.YearMonth
@@ -142,11 +144,13 @@ fun CalenderView(
                         }
                     }
                 }
+
+                val daysOfWeek = remember { daysOfWeek() }
                 val state = rememberCalendarState(
                     startMonth = startMonth,
                     endMonth = endMonth,
                     firstVisibleMonth = startMonth,
-                    firstDayOfWeek = firstDayOfWeekFromLocale(),
+                    firstDayOfWeek = daysOfWeek.first(),
                     outDateStyle = OutDateStyle.EndOfRow
                 )
 
@@ -183,6 +187,7 @@ fun CalenderView(
                     },
                     monthHeader = { month ->
                         MonthHeader(month)
+                        DaysOfWeekTitle(daysOfWeek)
                     },
                 )
             }
@@ -266,8 +271,30 @@ fun MonthHeader(calendarMonth: CalendarMonth) {
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.surface,
             )
-            Spacer(modifier = Modifier.height(15.dp))
+            Spacer(modifier = Modifier.height(8.dp))
             Divider()
+        }
+    }
+}
+
+@Composable
+fun DaysOfWeekTitle(daysOfWeek: List<DayOfWeek>) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 8.dp)
+    ) {
+        for (dayOfWeek in daysOfWeek) {
+            Text(
+                modifier = Modifier.weight(1f),
+                textAlign = TextAlign.Center,
+                text = dayOfWeek.getDisplayName(TextStyle.SHORT, Locale.getDefault()),
+                style = MaterialTheme.typography.titleSmall,
+                color = when (dayOfWeek) {
+                    DayOfWeek.SATURDAY, DayOfWeek.SUNDAY -> MaterialTheme.colorScheme.surface
+                    else ->  MaterialTheme.colorScheme.onSecondaryContainer
+                },
+            )
         }
     }
 }
