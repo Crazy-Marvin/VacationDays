@@ -62,9 +62,11 @@ fun SettingScreen(
     val vacationNumber = vacationForCurrentYear?.numberOfVacation ?: 0
 
     var localFeatureEnabled by remember { mutableStateOf(false) }
+    var localExcludeWeekendsEnabled by remember { mutableStateOf(false) }
 
     LaunchedEffect(localFeatureEnabled) {
         localFeatureEnabled = viewModel.themeSetting.isFeatureEnabled
+        localExcludeWeekendsEnabled = viewModel.themeSetting.isExcludeWeekendsEnabled
     }
 
     Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
@@ -130,6 +132,34 @@ fun SettingScreen(
                         localFeatureEnabled = newState
 
                         viewModel.themeSetting.isFeatureEnabled = newState
+                    },
+                    colors = SwitchDefaults.colors(
+                        checkedIconColor = MaterialTheme.colorScheme.surface,
+                        checkedTrackColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.3f),
+                        checkedThumbColor = MaterialTheme.colorScheme.surface
+                    ),
+                )
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp)
+                    .height(48.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = stringResource(id = R.string.exclude_weekends),
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    style = MaterialTheme.typography.bodyLarge,
+                    fontWeight = FontWeight.Bold,)
+
+                Switch(
+                    checked = localExcludeWeekendsEnabled,
+                    onCheckedChange = { newState ->
+                        localExcludeWeekendsEnabled = newState
+
+                        viewModel.themeSetting.isExcludeWeekendsEnabled = newState
                     },
                     colors = SwitchDefaults.colors(
                         checkedIconColor = MaterialTheme.colorScheme.surface,

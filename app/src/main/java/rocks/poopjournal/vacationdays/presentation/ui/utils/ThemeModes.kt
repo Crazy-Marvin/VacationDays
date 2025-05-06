@@ -25,4 +25,6 @@ interface ThemeSetting {
     val themeFlow : StateFlow<AppTheme>
     var theme : AppTheme
     var isFeatureEnabled: Boolean
+    var isExcludeWeekendsEnabled: Boolean
+    val isExcludeWeekendsFlow: StateFlow<Boolean>
 }
