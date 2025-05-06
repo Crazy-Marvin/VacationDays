@@ -232,7 +232,12 @@ private fun Day(
             .aspectRatio(1.2f)
             .background(
                 color = backgroundColor,
-                shape = if (isSelectedStart || isSelectedEnd) CircleShape else RectangleShape
+                shape = when {
+                    (isSelectedStart && selection.endDate == null) -> CircleShape
+                    isSelectedStart -> RoundedCornerShape(50, 0, 0, 50)
+                    isSelectedEnd -> RoundedCornerShape(0, 50, 50, 0)
+                    else -> RectangleShape
+                }
             )
             .clickable(
                 enabled = day.position == DayPosition.MonthDate &&
