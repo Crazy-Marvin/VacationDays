@@ -212,7 +212,11 @@ private fun Day(
 
     val backgroundColor = when {
         isRangeSelection && (isSelectedStart || isSelectedEnd) -> MaterialTheme.colorScheme.primary // Highlight selection only in range mode
-        isRangeSelection && isInRange -> MaterialTheme.colorScheme.primary.copy(alpha = 0.1f) // Highlight range
+        else -> Color.Transparent
+    }
+
+    val secondaryBackgroundColor = when {
+        isRangeSelection && (isInRange || (isSelectedStart || isSelectedEnd)) -> MaterialTheme.colorScheme.primary.copy(alpha = 0.1f) // Highlight range
         else -> Color.Transparent
     }
 
@@ -233,9 +237,7 @@ private fun Day(
             .background(
                 color = backgroundColor,
                 shape = when {
-                    (isSelectedStart && selection.endDate == null) -> CircleShape
-                    isSelectedStart -> RoundedCornerShape(50, 0, 0, 50)
-                    isSelectedEnd -> RoundedCornerShape(0, 50, 50, 0)
+                    isSelectedStart || isSelectedEnd -> CircleShape
                     else -> RectangleShape
                 }
             )
@@ -246,15 +248,28 @@ private fun Day(
             ),
         contentAlignment = Alignment.Center,
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(
-                text = day.date.dayOfMonth.toString(),
-                color = textColor,
-                style = MaterialTheme.typography.bodyLarge,
-                fontWeight = FontWeight.Bold,
-            )
-            if (!isRangeSelection) {
-                Text(text = ".", fontWeight = FontWeight.Bold, color = dotColor)
+        Box (
+            modifier = Modifier
+                .background(color = secondaryBackgroundColor,
+                    shape= when {
+                        (isSelectedStart && selection.endDate == null) -> CircleShape
+                        isSelectedStart -> RoundedCornerShape(50, 0, 0, 50)
+                        isSelectedEnd -> RoundedCornerShape(0, 50, 50, 0)
+                        else -> RectangleShape
+                    })
+                .matchParentSize(),
+            contentAlignment = Alignment.Center,
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = day.date.dayOfMonth.toString(),
+                    color = textColor,
+                    style = MaterialTheme.typography.bodyLarge,
+                    fontWeight = FontWeight.Bold,
+                )
+                if (!isRangeSelection) {
+                    Text(text = ".", fontWeight = FontWeight.Bold, color = dotColor)
+                }
             }
         }
     }
