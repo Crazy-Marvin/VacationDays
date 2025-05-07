@@ -227,7 +227,7 @@ fun SettingScreen(
                 onClick = { viewModel.restoreDatabase() },
                 beforeText = {
                     Icon(
-                        painter = painterResource(id = R.drawable.backup),
+                        painter = painterResource(id = R.drawable.restore),
                         contentDescription = "restore",
                         tint = MaterialTheme.colorScheme.onSecondaryContainer,
                         modifier = Modifier.size(24.dp)
