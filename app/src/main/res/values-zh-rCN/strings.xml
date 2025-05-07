@@ -57,4 +57,5 @@
     <string name="vacation">假期</string>
     <string name="name">名称</string>
     <string name="holiday">节日</string>
+    <string name="exclude_weekends">排除周末</string>
 </resources>
