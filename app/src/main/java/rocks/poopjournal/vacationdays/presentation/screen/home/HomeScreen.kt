@@ -151,7 +151,11 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
                             }
                         })
 
-                    1 -> CalenderView(holidays = vacation, showWeekDaysHeader = showWeekDateHeader)
+                    1 -> CalenderView(
+                        holidays = vacation,
+                        showWeekDaysHeader = showWeekDateHeader,
+                        focusOnDate = LocalDate.now()
+                    )
                 }
             }
         })

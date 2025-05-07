@@ -51,6 +51,7 @@ import com.kizitonwose.calendar.core.CalendarMonth
 import com.kizitonwose.calendar.core.DayPosition
 import com.kizitonwose.calendar.core.OutDateStyle
 import com.kizitonwose.calendar.core.daysOfWeek
+import com.kizitonwose.calendar.core.yearMonth
 import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.data.VacationData
 import rocks.poopjournal.vacationdays.presentation.ui.theme.MyVacationDays2Theme
@@ -70,21 +71,26 @@ import java.util.Locale
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun CalenderView(
+    focusOnDate: LocalDate? = null,
     dateSelected: (startDate: LocalDate, endDate: LocalDate?) -> Unit = { _, _ -> },
     isRangeSelection: Boolean = false,
     holidays: List<VacationData> = emptyList(),
     showWeekDaysHeader: Boolean = false,
 ) {
-    val currentYear = YearMonth.now().year
-    var selectedYear by remember { mutableIntStateOf(currentYear) }
+    var selectedYear by remember {
+        mutableIntStateOf(focusOnDate
+            ?.year
+            ?: YearMonth.now().year
+        )
+    }
+    val today = remember { LocalDate.now() }
 
     val startMonth = remember(selectedYear) { YearMonth.of(selectedYear, 1) }
     val endMonth = remember(selectedYear) { YearMonth.of(selectedYear, 12) }
 
-    val today = remember { LocalDate.now() }
     var selection by remember { mutableStateOf(DateSelection()) }
 
-    val years = (currentYear - 30..currentYear + 30).toList()
+    val years = (selectedYear - 30..selectedYear + 30).toList()
     var expanded by remember { mutableStateOf(false) }
 
     MaterialTheme(colorScheme = MaterialTheme.colorScheme.copy(primary = primary)) {
@@ -135,6 +141,7 @@ fun CalenderView(
                         ) {
                             years.forEach { year ->
                                 DropdownMenuItem(
+                                    enabled = year != selectedYear,
                                     text = {
                                         Text(
                                             year.toString(),
@@ -155,7 +162,7 @@ fun CalenderView(
                 val state = rememberCalendarState(
                     startMonth = startMonth,
                     endMonth = endMonth,
-                    firstVisibleMonth = startMonth,
+                    firstVisibleMonth = focusOnDate?.yearMonth ?: startMonth,
                     firstDayOfWeek = daysOfWeek.first(),
                     outDateStyle = OutDateStyle.EndOfRow
                 )

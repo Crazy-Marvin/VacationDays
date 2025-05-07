@@ -39,6 +39,7 @@ import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.data.VacationData
 import rocks.poopjournal.vacationdays.presentation.component.CalenderView
 import rocks.poopjournal.vacationdays.presentation.component.CustomTab
+import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -88,7 +89,7 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
             CalenderView(isRangeSelection = true, dateSelected = { startDate, endDate ->
                 startDateString = startDate.format(DateTimeFormatter.ofPattern("d/MM/yyyy"))
                 endDateString = endDate?.format(DateTimeFormatter.ofPattern("d/MM/yyyy")) ?: ""
-            }, showWeekDaysHeader = isShowWeekDaysHeader)
+            }, showWeekDaysHeader = isShowWeekDaysHeader, focusOnDate = LocalDate.now())
         }
     }
 
