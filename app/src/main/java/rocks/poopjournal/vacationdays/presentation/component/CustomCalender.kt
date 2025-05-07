@@ -15,11 +15,14 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
+import androidx.compose.material.Icon
+import androidx.compose.material.icons.Icons
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -36,6 +39,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -47,6 +51,7 @@ import com.kizitonwose.calendar.core.CalendarMonth
 import com.kizitonwose.calendar.core.DayPosition
 import com.kizitonwose.calendar.core.OutDateStyle
 import com.kizitonwose.calendar.core.daysOfWeek
+import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.data.VacationData
 import rocks.poopjournal.vacationdays.presentation.ui.theme.MyVacationDays2Theme
 import rocks.poopjournal.vacationdays.presentation.ui.theme.primary
@@ -234,14 +239,7 @@ private fun Day(
     }
     Box(
         modifier = Modifier
-            .aspectRatio(1.2f)
-            .background(
-                color = backgroundColor,
-                shape = when {
-                    isSelectedStart || isSelectedEnd -> CircleShape
-                    else -> RectangleShape
-                }
-            )
+            .aspectRatio(1f)
             .clickable(
                 enabled = day.position == DayPosition.MonthDate &&
                         day.date.isAfter(today.minusYears(30)),
@@ -249,29 +247,58 @@ private fun Day(
             ),
         contentAlignment = Alignment.Center,
     ) {
-        Box (
-            modifier = Modifier
-                .background(color = secondaryBackgroundColor,
-                    shape= when {
-                        (isSelectedStart && selection.endDate == null) -> CircleShape
-                        isSelectedStart -> RoundedCornerShape(50, 0, 0, 50)
-                        isSelectedEnd -> RoundedCornerShape(0, 50, 50, 0)
-                        else -> RectangleShape
-                    })
-                .matchParentSize(),
-            contentAlignment = Alignment.Center,
-        ) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    text = day.date.dayOfMonth.toString(),
-                    color = textColor,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold,
-                )
-                if (!isRangeSelection) {
-                    Text(text = ".", fontWeight = FontWeight.Bold, color = dotColor)
+
+        // selection range box
+        Box(modifier = Modifier
+            .matchParentSize()
+            .let {
+                when {
+                    (isSelectedStart && selection.endDate == null) -> it.padding(8.dp)
+                    isSelectedStart -> it.padding(start = 8.dp, top = 8.dp, bottom = 8.dp)
+                    isSelectedEnd -> it.padding(end = 8.dp, top = 8.dp, bottom = 8.dp)
+                    isInRange -> it.padding(vertical = 8.dp)
+                    else -> it
                 }
             }
+            .background(
+                color = secondaryBackgroundColor,
+                shape = when {
+                    (isSelectedStart && selection.endDate == null) -> CircleShape
+                    isSelectedStart -> RoundedCornerShape(50, 0, 0, 50)
+                    isSelectedEnd -> RoundedCornerShape(0, 50, 50, 0)
+                    else -> RectangleShape
+                }
+            )
+        )
+
+        // current select box
+        Box(modifier = Modifier
+            .matchParentSize()
+            .padding(8.dp)
+            .background(
+                color = backgroundColor,
+                shape = when {
+                    isSelectedStart || isSelectedEnd -> CircleShape
+                    else -> RectangleShape
+                }
+            ),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = day.date.dayOfMonth.toString(),
+                color = textColor,
+                style = MaterialTheme.typography.bodyLarge,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+
+        if (!isRangeSelection) {
+            Icon(
+                modifier = Modifier.offset(y = 16.dp),
+                contentDescription = null,
+                painter = painterResource(R.drawable.dot),
+                tint = dotColor
+            )
         }
     }
 }
