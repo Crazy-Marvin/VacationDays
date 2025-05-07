@@ -235,6 +235,7 @@ private fun Day(
 
     val textColor = when {
         isRangeSelection && (isSelectedStart || isSelectedEnd) -> MaterialTheme.colorScheme.onSecondaryContainer // Ensure contrast when selected
+        isRangeSelection && isHoliday(day.date, holidays) ->  MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha=0.4f)
         day.date == today -> MaterialTheme.colorScheme.surface // Highlight today's date with Surface color
         else -> MaterialTheme.colorScheme.onSecondaryContainer
     }
