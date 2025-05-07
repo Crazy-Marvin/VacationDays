@@ -33,6 +33,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.data.VacationData
@@ -52,6 +53,8 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
     var endDateString by remember { mutableStateOf("") }
     val emptyVacation = stringResource(R.string.empty_vacation)
     val emptyDate = stringResource(R.string.empty_date)
+
+    val isShowWeekDaysHeader by viewModel.themeSetting.isShowWeekDaysHeaderFlow.collectAsStateWithLifecycle()
 
     Column(modifier = Modifier.fillMaxSize()) {
         TopBar(
@@ -85,7 +88,7 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
             CalenderView(isRangeSelection = true, dateSelected = { startDate, endDate ->
                 startDateString = startDate.format(DateTimeFormatter.ofPattern("d/MM/yyyy"))
                 endDateString = endDate?.format(DateTimeFormatter.ofPattern("d/MM/yyyy")) ?: ""
-            })
+            }, showWeekDaysHeader = isShowWeekDaysHeader)
         }
     }
 

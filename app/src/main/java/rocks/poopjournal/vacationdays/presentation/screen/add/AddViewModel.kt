@@ -13,11 +13,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AddViewModel @Inject constructor(
-    private val vacationRepository: VacationRepository
+    private val vacationRepository: VacationRepository,
+    val themeSetting: ThemeSetting
 ) : ViewModel() {
 
-    @Inject
-    lateinit var themeSetting: ThemeSetting
 
     fun addVacation(vacationData: VacationData) {
         if (vacationData.name.isEmpty()) {

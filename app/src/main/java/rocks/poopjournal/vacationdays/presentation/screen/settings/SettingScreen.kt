@@ -1,7 +1,5 @@
 package rocks.poopjournal.vacationdays.presentation.screen.settings
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -16,7 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ArrowBack
+import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -48,7 +46,69 @@ import rocks.poopjournal.vacationdays.presentation.ui.theme.gray
 import rocks.poopjournal.vacationdays.presentation.ui.theme.lightGray
 import java.time.LocalDate
 
-@RequiresApi(Build.VERSION_CODES.O)
+
+@Composable
+fun SectionHeader(text: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(48.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = text,
+            color = MaterialTheme.colorScheme.surface,
+            style = MaterialTheme.typography.bodyLarge,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(start = 16.dp)
+        )
+
+    }
+
+    HorizontalDivider(color = lightGray)
+}
+
+@Composable
+fun SettingRow(text: String, subText: String? = null, beforeText: @Composable (() -> Unit)? = null, onClick: (() -> Unit)? = null, block: @Composable (() -> Unit)? = null) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(64.dp)
+            .padding(start = 16.dp, end = 16.dp)
+            .clickable {
+                onClick?.let { it() }
+            },
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween,
+    ) {
+        Column {
+            Row {
+                beforeText?.let {
+                    it()
+                    Spacer(modifier = Modifier.width(16.dp))
+                }
+                Text(
+                    text = text,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+            }
+
+            subText?.also {
+                Text(
+                    text = it,
+                    color = gray,
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
+        }
+
+        block?.also {
+            it()
+        }
+    }
+}
+
 @Composable
 fun SettingScreen(
     viewModel: SettingViewModel = hiltViewModel(),
@@ -63,6 +123,7 @@ fun SettingScreen(
 
     var localFeatureEnabled by remember { mutableStateOf(false) }
     var localExcludeWeekendsEnabled by remember { mutableStateOf(false) }
+    val localShowWeekdaysHeaderEnabled by viewModel.themeSetting.isShowWeekDaysHeaderFlow.collectAsState()
 
     LaunchedEffect(localFeatureEnabled) {
         localFeatureEnabled = viewModel.themeSetting.isFeatureEnabled
@@ -72,60 +133,17 @@ fun SettingScreen(
     Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
         TopBar(onClose = { navHostController.popBackStack() })
         Column {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = stringResource(id = R.string.general),
-                    color = MaterialTheme.colorScheme.surface,
-                    style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.padding(start = 16.dp)
-                )
+            SectionHeader(stringResource(id = R.string.general))
 
-            }
-            HorizontalDivider(color = lightGray)
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(64.dp)
-                    .padding(start = 16.dp)
-                    .clickable { navHostController.navigate(Vacation_Days_Screen) },
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Column {
-                    Text(
-                        text = stringResource(id = R.string.noofvacations),
-                        color = MaterialTheme.colorScheme.onSecondaryContainer,
-                        style = MaterialTheme.typography.bodyLarge,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    Text(
-                        text = vacationNumber.toString(),
-                        color = gray,
-                        style = MaterialTheme.typography.labelSmall,
-                        fontWeight = FontWeight.Light,
-                    )
-                }
-            }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 16.dp)
-                    .height(48.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stringResource(id = R.string.track),
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold,
+            SettingRow(
+                text = stringResource(id = R.string.noofvacations),
+                subText = vacationNumber.toString(),
+                onClick = { navHostController.navigate(Vacation_Days_Screen) }
+            )
 
-                    )
-
+            SettingRow(
+                text = stringResource(id = R.string.track)
+            ) {
                 Switch(
                     checked = localFeatureEnabled,
                     onCheckedChange = { newState ->
@@ -140,20 +158,10 @@ fun SettingScreen(
                     ),
                 )
             }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 16.dp)
-                    .height(48.dp),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stringResource(id = R.string.exclude_weekends),
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold,)
 
+            SettingRow(
+                text = stringResource(id = R.string.exclude_weekends)
+            ) {
                 Switch(
                     checked = localExcludeWeekendsEnabled,
                     onCheckedChange = { newState ->
@@ -168,99 +176,64 @@ fun SettingScreen(
                     ),
                 )
             }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(64.dp)
-                    .padding(start = 16.dp)
-                    .clickable { showDialog = true },
-                verticalAlignment = Alignment.CenterVertically,
-                ) {
-                Column {
-                    Text(
-                        text = stringResource(id = R.string.appearance),
-                        color = MaterialTheme.colorScheme.onSecondaryContainer,
-                        style = MaterialTheme.typography.bodyLarge,
-                        fontWeight = FontWeight.Bold,
+
+            SettingRow(
+                text = stringResource(id = R.string.show_weekdays_header)
+            ) {
+                Switch(
+                    checked = localShowWeekdaysHeaderEnabled,
+                    onCheckedChange = { newState ->
+                        viewModel.themeSetting.isShowWeekDaysHeaderEnabled = newState
+                    },
+                    colors = SwitchDefaults.colors(
+                        checkedIconColor = MaterialTheme.colorScheme.surface,
+                        checkedTrackColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.3f),
+                        checkedThumbColor = MaterialTheme.colorScheme.surface
+                    ),
+                )
+            }
+
+
+            SettingRow(
+                text = stringResource(id = R.string.appearance),
+                subText = stringResource(id = viewModel.themeSetting.theme.getStringResId()),
+                onClick = { showDialog = true }
+            ) {
+                if (showDialog) {
+                    ThemeSelectionDialog(
+                        onDismissRequest = { showDialog = false },
+                        userSetting = viewModel.themeSetting
                     )
-                    Text(
-                        text = stringResource(id = viewModel.themeSetting.theme.getStringResId()),
-                        color = gray,
-                        style = MaterialTheme.typography.labelSmall,
-                        fontWeight = FontWeight.Light,
-                    )
-                    if (showDialog) {
-                        ThemeSelectionDialog(
-                            onDismissRequest = { showDialog = false },
-                            userSetting = viewModel.themeSetting
-                        )
-                    }
                 }
             }
+
             Spacer(modifier = Modifier.height(10.dp))
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp),
-               verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = stringResource(id = R.string.data),
-                    color = MaterialTheme.colorScheme.surface,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(start = 16.dp)
-                )
-            }
-            HorizontalDivider(color = lightGray)
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp)
-                    .padding(start = 16.dp)
-                    .clickable {
-                        viewModel.backupDatabase(context.getString(R.string.backupMessage))
-                    },
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.backup),
-                    contentDescription = "Backup",
-                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                    modifier = Modifier.size(24.dp)
-                )
-                Spacer(modifier = Modifier.width(10.dp))
-                Text(
-                    text = stringResource(id = R.string.backupheading),
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold,
-                )
-            }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(48.dp)
-                    .padding(start = 16.dp)
-                    .clickable {
-                        viewModel.restoreDatabase()
-                    },
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.restore),
-                    contentDescription = "restore",
-                    tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                    modifier = Modifier.size(24.dp)
-                )
-                Spacer(modifier = Modifier.width(10.dp))
-                Text(
-                    text = stringResource(id = R.string.restore),
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
-                    style = MaterialTheme.typography.bodyLarge,
-                    fontWeight = FontWeight.Bold,
-                )
-            }
+
+            SectionHeader(stringResource(R.string.data))
+            SettingRow(
+                text = stringResource(id = R.string.backupheading),
+                onClick = { viewModel.backupDatabase(context.getString(R.string.backupMessage)) },
+                beforeText = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.backup),
+                        contentDescription = "Backup",
+                        tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+            )
+            SettingRow(
+                text = stringResource(id = R.string.restore),
+                onClick = { viewModel.restoreDatabase() },
+                beforeText = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.restore),
+                        contentDescription = "restore",
+                        tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+            )
         }
     }
 }
@@ -284,7 +257,7 @@ private fun TopBar(onClose: () -> Unit) {
                 modifier = Modifier.align(Alignment.CenterStart)
             ) {
                 Icon(
-                    imageVector = Icons.Rounded.ArrowBack,
+                    imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
                     contentDescription = "Back",
                     tint = Color.White
                 )
