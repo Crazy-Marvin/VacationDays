@@ -5,25 +5,31 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import rocks.poopjournal.vacationdays.data.VacationData
 import rocks.poopjournal.vacationdays.domain.model.VacData
+import rocks.poopjournal.vacationdays.domain.model.calculateDaysBetween
 import rocks.poopjournal.vacationdays.domain.repo.VacationNumberRepository
 import rocks.poopjournal.vacationdays.domain.repo.VacationRepository
 import rocks.poopjournal.vacationdays.presentation.ui.utils.ThemeSetting
-import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.time.temporal.ChronoUnit
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class VacationDataUseCase @Inject constructor (
+class VacationDataUseCase @Inject constructor(
     scope: CoroutineScope,
     vacationRepository: VacationRepository,
     vacationNumberRepository: VacationNumberRepository,
     themeSetting: ThemeSetting
 ) {
     private val formatter = DateTimeFormatter.ofPattern("d/MM/yyyy") // Match the saved format
+
+    private fun VacationData.parsedDates(): Pair<LocalDate, LocalDate?> {
+        val start = LocalDate.parse(startDate, formatter)
+        val end = endDate?.let { LocalDate.parse(it, formatter) }
+        return start to end
+    }
 
     val vacationsFlow: SharedFlow<VacData> =
         combine(
@@ -33,11 +39,17 @@ class VacationDataUseCase @Inject constructor (
 
             val vacationDaysCount = data
                 .filter { it.category == "Vacation" }
-                .sumOf { calculateDaysBetween(it.startDate, it.endDate, isExcludeHolidays) }
+                .sumOf {
+                    val (start, end) = it.parsedDates()
+                    calculateDaysBetween(start, end, isExcludeHolidays)
+                }
 
             val sickDaysCount = data
                 .filter { it.category == "Sick" }
-                .sumOf { calculateDaysBetween(it.startDate, it.endDate, isExcludeHolidays) }
+                .sumOf {
+                    val (start, end) = it.parsedDates()
+                    calculateDaysBetween(start, end, isExcludeHolidays)
+                }
 
             val currentYear = LocalDate.now().year.toString()
             val vacationNumber = vacationNumberRepository.getVacationNumberForYear(currentYear)
@@ -55,33 +67,4 @@ class VacationDataUseCase @Inject constructor (
                 started = SharingStarted.WhileSubscribed(5000),
                 initialValue = VacData.Empty
             )
-
-
-    private fun calculateDaysBetween(
-        startDate: String,
-        endDate: String?,
-        excludeWeekends: Boolean = false
-    ): Int {
-        val start = LocalDate.parse(startDate, formatter)
-
-        return if (endDate.isNullOrEmpty()) {
-            1 // If no end date, count it as 1 day
-        } else {
-            val end = LocalDate.parse(endDate, formatter)
-            val days = ChronoUnit.DAYS.between(start, end).toInt()
-
-            if (excludeWeekends) {
-                val startW = start.dayOfWeek
-                val endW = end.dayOfWeek
-                val daysWithoutWeekends = days - 2 * ((days + startW.value) / 7)
-
-                (daysWithoutWeekends
-                        + (if (startW == DayOfWeek.SUNDAY) 1 else 0)
-                        + (if (endW == DayOfWeek.SUNDAY) 1 else 0)
-                        + 1 // include start and end
-                        )
-            } else
-                days + 1 // Include both start and end
-        }
-    }
 }
