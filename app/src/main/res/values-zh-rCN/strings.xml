@@ -58,4 +58,5 @@
     <string name="name">名称</string>
     <string name="holiday">节日</string>
     <string name="exclude_weekends">排除周末</string>
+    <string name="show_weekdays_header">显示工作日标头</string>
 </resources>
