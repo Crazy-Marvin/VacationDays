@@ -11,10 +11,8 @@ import javax.inject.Inject
 class HolidaysRepository @Inject constructor(
     private val holidayDao: HolidayDao
 ) {
-    fun getAllData() : Flow<List<Holiday>> = holidayDao.getAllData().flowOn(Dispatchers.IO).conflate()
-    fun getYearData(year: Int) : Flow<List<Holiday>> = holidayDao.getForYear(year.toString()).flowOn(Dispatchers.IO).conflate()
-    fun getData(id: Int) : Flow<Holiday> = holidayDao.getData(id).flowOn(Dispatchers.IO).conflate()
-    suspend fun insertData(data: Holiday) = holidayDao.insert(data)
-    suspend fun updateData(data: Holiday) = holidayDao.update(data)
-    suspend fun deleteData(data: Holiday) = holidayDao.delete(data)
+    fun getYearsHolidays(year: Int) : Flow<List<Holiday>> = holidayDao.getForYear(year.toString()).flowOn(Dispatchers.IO).conflate()
+    suspend fun insert(data: Holiday) = holidayDao.insert(data)
+    suspend fun insertAll(data: List<Holiday>) = holidayDao.bulkInsert(data)
+    suspend fun delete(data: Holiday) = holidayDao.delete(data)
 }

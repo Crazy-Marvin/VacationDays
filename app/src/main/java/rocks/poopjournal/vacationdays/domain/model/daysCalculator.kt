@@ -4,19 +4,22 @@ import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
-private fun DayOfWeek.isWeekend() = (this == DayOfWeek.SATURDAY) || (this == DayOfWeek.SUNDAY)
+val DayOfWeek.isWeekend get() = (this == DayOfWeek.SATURDAY) || (this == DayOfWeek.SUNDAY)
 
 fun calculateDaysBetween(
     startDate: LocalDate,
     endDate: LocalDate?,
-    excludeWeekends: Boolean = false
+    excludeWeekends: Boolean = false,
+    excludeDates: List<LocalDate>? = null
 ): Int {
     return if (endDate == null) {
-        if (excludeWeekends && startDate.dayOfWeek.isWeekend()) 0 else 1 // If no end date, count it as 1 day
+        val shouldExclude = (excludeWeekends && startDate.dayOfWeek.isWeekend) ||
+                (excludeDates?.contains(startDate) == true)
+        return if (shouldExclude) 0 else 1
     } else {
         val days = ChronoUnit.DAYS.between(startDate, endDate).toInt() + 1
 
-        if (!excludeWeekends) {
+        if (!excludeWeekends && excludeDates.isNullOrEmpty()) {
             return days
         }
 

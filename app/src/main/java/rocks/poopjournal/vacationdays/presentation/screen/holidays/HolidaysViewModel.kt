@@ -8,22 +8,20 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.flattenConcat
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import rocks.poopjournal.vacationdays.data.Holiday
 import rocks.poopjournal.vacationdays.domain.repo.HolidaysRepository
-import rocks.poopjournal.vacationdays.presentation.usecase.HolidaysUseCase
+import rocks.poopjournal.vacationdays.domain.service.holidays.DateNagerAtService
 import java.time.LocalDate
 import javax.inject.Inject
 
 @HiltViewModel
 class HolidaysViewModel @Inject constructor(
     private val repository: HolidaysRepository,
-    private val holidaysUseCase: HolidaysUseCase,
+    private val remoteHolidaysService: DateNagerAtService,
 ) : ViewModel() {
-
     private fun Int.yearsRange() = (this - 30..this + 30).toList()
 
     var selectedYear = MutableStateFlow(LocalDate.now().year.let { it to it.yearsRange() })
@@ -34,8 +32,7 @@ class HolidaysViewModel @Inject constructor(
 
     @OptIn(ExperimentalCoroutinesApi::class)
     val yearsHolidays = selectedYear
-        .map { repository.getYearData(it.first) }
-        .flattenConcat()
+        .flatMapLatest { repository.getYearsHolidays(it.first) }
         .shareIn(
             viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
@@ -44,15 +41,40 @@ class HolidaysViewModel @Inject constructor(
     @SuppressLint("SimpleDateFormat")
     fun addHoliday(dt: Long, name: String) {
         val yearFormat = SimpleDateFormat("yyyy")
-        val format = SimpleDateFormat("yyyy-MM-dd")
-        val dateStr = format.format(dt)
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
 
         viewModelScope.launch {
-            repository.insertData(Holiday(
+            repository.insert(Holiday(
                 year = yearFormat.format(dt),
-                date = format.format(dt),
+                date = dateFormat.format(dt),
                 name = name,
             ))
         }
     }
+
+    fun removeHoliday(holiday: Holiday) {
+        viewModelScope.launch {
+            repository.delete(holiday)
+        }
+    }
+
+    fun loadCountryHolidays(code: String, year: Int) {
+        viewModelScope.launch {
+            val response = remoteHolidaysService.getPublicHolidays(year, code)
+            if (!response.isSuccessful) {
+                return@launch
+            }
+
+            response
+                .body()
+                ?.map {
+                    Holiday(name = it.name, date = it.date, year = it.localDate.year.toString())
+                }?.also {
+                    repository.insertAll(it)
+                }
+        }
+
+        selectYear(selectedYear.value.first)
+    }
+
 }

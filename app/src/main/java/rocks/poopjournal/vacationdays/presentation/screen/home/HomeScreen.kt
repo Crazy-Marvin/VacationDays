@@ -2,7 +2,6 @@ package rocks.poopjournal.vacationdays.presentation.screen.home
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -23,7 +22,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -38,12 +36,8 @@ import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
-import androidx.compose.material3.SwipeToDismissBox
-import androidx.compose.material3.SwipeToDismissBoxValue
 import androidx.compose.material3.Text
-import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -67,6 +61,7 @@ import rocks.poopjournal.vacationdays.data.VacationData
 import rocks.poopjournal.vacationdays.domain.model.VacData
 import rocks.poopjournal.vacationdays.presentation.component.CalenderView
 import rocks.poopjournal.vacationdays.presentation.component.CustomTab
+import rocks.poopjournal.vacationdays.presentation.component.SwipeToDismissListItem
 import rocks.poopjournal.vacationdays.presentation.navigation.About_Screen
 import rocks.poopjournal.vacationdays.presentation.navigation.Add_Screen
 import rocks.poopjournal.vacationdays.presentation.navigation.Setting_Screen
@@ -467,83 +462,6 @@ fun TimelineView(vacationList: List<VacationData>, onDelete: (VacationData) -> U
                     }
                 }
             }
-        }
-    }
-}
-
-@Composable
-fun SwipeToDismissListItem(
-    modifier: Modifier = Modifier,
-    onEndToStart: () -> Unit = {},
-    content: @Composable () -> Unit
-) {
-
-    // 1. State is hoisted here
-    val dismissState = rememberSwipeToDismissBoxState()
-
-    SwipeToDismissBox(
-        modifier = modifier,
-        state = dismissState,
-        enableDismissFromStartToEnd = false,
-        backgroundContent = {
-
-            // 2. Animate the swipe by changing the color
-            val color by animateColorAsState(
-                targetValue = when (dismissState.targetValue) {
-                    SwipeToDismissBoxValue.Settled -> Color.Transparent
-                    SwipeToDismissBoxValue.StartToEnd -> Color.Transparent
-                    SwipeToDismissBoxValue.EndToStart -> Color.Red
-                },
-                label = "swipe"
-            )
-
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(color) // 3. Set the animated color here
-            ) {
-
-                // 4. Show the correct icon
-                when (dismissState.targetValue) {
-                    SwipeToDismissBoxValue.StartToEnd -> {}
-
-                    SwipeToDismissBoxValue.EndToStart -> {
-                        Icon(
-                            modifier = Modifier
-                                .align(androidx.compose.ui.Alignment.CenterEnd)
-                                .padding(end = 16.dp),
-                            imageVector = androidx.compose.material.icons.Icons.Default.Delete,
-                            contentDescription = "delete"
-                        )
-                    }
-
-                    SwipeToDismissBoxValue.Settled -> {
-                        // Nothing to do
-                    }
-                }
-
-            }
-        }
-    ) {
-        content()
-    }
-
-    // 5. Trigger the callbacks
-    when (dismissState.currentValue) {
-        SwipeToDismissBoxValue.EndToStart -> {
-            LaunchedEffect(dismissState.currentValue) {
-                onEndToStart()
-
-                // 6. Don't forget to reset the state value
-                dismissState.snapTo(SwipeToDismissBoxValue.Settled) // or dismissState.reset()
-            }
-
-        }
-
-        SwipeToDismissBoxValue.StartToEnd -> {}
-
-        SwipeToDismissBoxValue.Settled -> {
-            // Nothing to do
         }
     }
 }
