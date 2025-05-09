@@ -37,6 +37,7 @@
     <string name="addHoliday">Add Holiday Title</string>
     <string name="save">Save</string>
     <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
     <string name="done">Done</string>
     <string name="date_range" translatable="false">%s\n↓\n%s</string>
     <string name="followsys">Follow System</string>
@@ -48,6 +49,7 @@
     <string name="track">Track Sick Days</string>
     <string name="exclude_weekends">Exclude weekends</string>
     <string name="show_weekdays_header">Show weekdays header</string>
+    <string name="holidays">Holidays</string>
     <string name="backupMessage">Backup Successful</string>
     <string name="vacation_days">No. of Vacation Days</string>
     <string name="junit">JUnit</string>

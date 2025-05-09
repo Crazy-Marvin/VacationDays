@@ -41,6 +41,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.presentation.component.ThemeSelectionDialog
+import rocks.poopjournal.vacationdays.presentation.navigation.Holidays_Screen
 import rocks.poopjournal.vacationdays.presentation.navigation.Vacation_Days_Screen
 import rocks.poopjournal.vacationdays.presentation.ui.theme.gray
 import rocks.poopjournal.vacationdays.presentation.ui.theme.lightGray
@@ -193,6 +194,10 @@ fun SettingScreen(
                 )
             }
 
+            SettingRow(
+                text = stringResource(id = R.string.holidays),
+                onClick = { navHostController.navigate(Holidays_Screen) }
+            )
 
             SettingRow(
                 text = stringResource(id = R.string.appearance),
