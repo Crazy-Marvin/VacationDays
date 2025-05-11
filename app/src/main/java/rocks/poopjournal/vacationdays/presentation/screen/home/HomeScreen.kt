@@ -82,7 +82,7 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
     val (selectedTab, setSelectedTab) = remember { mutableIntStateOf(0) }
     val snackbarHostState = remember { SnackbarHostState() }
 
-    val data by viewModel.dataFlow.collectAsStateWithLifecycle(VacData.Empty)
+    val data by viewModel.vacationsUseCase.vacationsFlow.collectAsStateWithLifecycle(VacData.Empty)
     val showWeekDateHeader by viewModel.themeSetting.isShowWeekDaysHeaderFlow.collectAsStateWithLifecycle()
 
     val vacation = when (val _data = data) {
@@ -151,7 +151,11 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
                             }
                         })
 
-                    1 -> CalenderView(holidays = vacation, showWeekDaysHeader = showWeekDateHeader)
+                    1 -> CalenderView(
+                        holidays = vacation,
+                        showWeekDaysHeader = showWeekDateHeader,
+                        focusOnDate = LocalDate.now()
+                    )
                 }
             }
         })

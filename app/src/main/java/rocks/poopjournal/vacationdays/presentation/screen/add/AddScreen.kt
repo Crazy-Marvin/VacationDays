@@ -37,8 +37,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.data.VacationData
+import rocks.poopjournal.vacationdays.domain.model.VacData
 import rocks.poopjournal.vacationdays.presentation.component.CalenderView
 import rocks.poopjournal.vacationdays.presentation.component.CustomTab
+import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -47,6 +49,8 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
 
     var selectedTab by remember { mutableIntStateOf(1) }
     val context = LocalContext.current
+
+    val data by viewModel.vacationsUseCase.vacationsFlow.collectAsStateWithLifecycle(VacData.Empty)
 
     var vacationName by remember { mutableStateOf("") }
     var startDateString by remember { mutableStateOf("") }
@@ -85,10 +89,19 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
         )
 
         Column(modifier = Modifier.fillMaxWidth()) {
-            CalenderView(isRangeSelection = true, dateSelected = { startDate, endDate ->
-                startDateString = startDate.format(DateTimeFormatter.ofPattern("d/MM/yyyy"))
-                endDateString = endDate?.format(DateTimeFormatter.ofPattern("d/MM/yyyy")) ?: ""
-            }, showWeekDaysHeader = isShowWeekDaysHeader)
+            CalenderView(
+                holidays = when (val _data = data) {
+                    is VacData.Empty -> emptyList()
+                    is VacData.Success -> _data.vacations
+                },
+                isRangeSelection = true,
+                dateSelected = { startDate, endDate ->
+                    startDateString = startDate.format(DateTimeFormatter.ofPattern("d/MM/yyyy"))
+                    endDateString = endDate?.format(DateTimeFormatter.ofPattern("d/MM/yyyy")) ?: ""
+                },
+                showWeekDaysHeader = isShowWeekDaysHeader,
+                focusOnDate = LocalDate.now()
+            )
         }
     }
 
