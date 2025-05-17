@@ -23,21 +23,28 @@ fun calculateDaysBetween(
             return days
         }
 
-        // Calculate number of complete weeks
-        val fullWeeks = days / 7
-        var weekendDays = fullWeeks * 2
+        var weekendDays = 0
+        if (excludeWeekends) {
+            val fullWeeks = days / 7
+            weekendDays += fullWeeks * 2
 
-        // Handle remaining days after full weeks
-        val remainingDays = days % 7
-        val startDayOfWeek = startDate.dayOfWeek.value
+            val remainingDays = days % 7
+            val startDayOfWeek = startDate.dayOfWeek.value
 
-        for (i in 0 until remainingDays) {
-            val dayOfWeek = (startDayOfWeek + i - 1) % 7 + 1
-            if (dayOfWeek == DayOfWeek.SATURDAY.value || dayOfWeek == DayOfWeek.SUNDAY.value) {
-                weekendDays++
+            for (i in 0 until remainingDays) {
+                val dayOfWeek = (startDayOfWeek + i - 1) % 7 + 1
+                if (dayOfWeek == DayOfWeek.SATURDAY.value || dayOfWeek == DayOfWeek.SUNDAY.value) {
+                    weekendDays++
+                }
             }
         }
 
-        return days - weekendDays
+        // Count how many of the excludeDates fall within range and are not already excluded as weekends
+        val additionalExcluded = excludeDates?.count {
+            !it.isBefore(startDate) && !it.isAfter(endDate) &&
+                    (!excludeWeekends || !it.dayOfWeek.isWeekend)
+        } ?: 0
+
+        return days - weekendDays - additionalExcluded
     }
 }
