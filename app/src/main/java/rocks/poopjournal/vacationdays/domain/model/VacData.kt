@@ -1,5 +1,6 @@
 package rocks.poopjournal.vacationdays.domain.model
 
+import rocks.poopjournal.vacationdays.data.Holiday
 import rocks.poopjournal.vacationdays.data.VacationData
 
 sealed class VacData {
@@ -10,5 +11,6 @@ sealed class VacData {
         val vacationDays: Int,
         val sickDays: Int,
         val vacationsNumber: Int,
+        val holidays: List<Holiday>,
     ) : VacData()
 }

@@ -90,9 +90,13 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
 
         Column(modifier = Modifier.fillMaxWidth()) {
             CalenderView(
-                holidays = when (val _data = data) {
+                vacations = when (val _data = data) {
                     is VacData.Empty -> emptyList()
                     is VacData.Success -> _data.vacations
+                },
+                holidays = when(val _data = data) {
+                    is VacData.Empty -> emptyList()
+                    is VacData.Success -> _data.holidays
                 },
                 isRangeSelection = true,
                 dateSelected = { startDate, endDate ->

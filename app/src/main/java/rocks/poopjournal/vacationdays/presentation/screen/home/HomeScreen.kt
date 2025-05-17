@@ -100,6 +100,11 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
         is VacData.Success -> _data.vacationsNumber
     }
 
+    val holidays = when(val _data = data) {
+        is VacData.Empty -> emptyList()
+        is VacData.Success -> _data.holidays
+    }
+
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
@@ -147,7 +152,8 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
                         })
 
                     1 -> CalenderView(
-                        holidays = vacation,
+                        vacations = vacation,
+                        holidays = holidays,
                         showWeekDaysHeader = showWeekDateHeader,
                         focusOnDate = LocalDate.now()
                     )

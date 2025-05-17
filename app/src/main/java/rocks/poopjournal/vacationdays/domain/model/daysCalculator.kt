@@ -48,3 +48,37 @@ fun calculateDaysBetween(
         return days - weekendDays - additionalExcluded
     }
 }
+
+typealias SoftRange = Pair<LocalDate, LocalDate?>
+typealias HardRange = Pair<LocalDate, LocalDate>
+
+fun HardRange.isDateBetween(date: LocalDate) = !date.isBefore(first) && !date.isAfter(second)
+
+fun mergeRanges(ranges: List<SoftRange>): List<HardRange> {
+    val mergedRanges = mutableListOf<HardRange>()
+    ranges.forEach { range ->
+        val holidayStart = range.first
+        val holidayEnd = range.second ?: range.first
+        val subRange = mutableListOf<HardRange>()
+        var isMerged = false
+        for (range in mergedRanges) {
+            val (existingStart, existingEnd) = range
+            if (holidayStart.isBefore(existingEnd) && holidayEnd.isAfter(existingStart)) {
+                val mergedStart = minOf(holidayStart, existingStart)
+                val mergedEnd = maxOf(holidayEnd, existingEnd)
+                subRange.add(mergedStart to mergedEnd)
+                isMerged = true
+            } else {
+                subRange.add(range)
+            }
+        }
+        if (isMerged) {
+            mergedRanges.clear()
+            mergedRanges.addAll(subRange)
+        } else {
+            mergedRanges.add(holidayStart to holidayEnd)
+        }
+    }
+
+    return mergedRanges.toList()
+}
