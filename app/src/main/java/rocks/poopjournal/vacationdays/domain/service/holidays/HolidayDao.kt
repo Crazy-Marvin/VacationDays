@@ -11,7 +11,7 @@ import rocks.poopjournal.vacationdays.presentation.ui.utils.HOLIDAY_TABLENAME
 
 @Dao
 interface HolidayDao {
-        @Query("SELECT * from $HOLIDAY_TABLENAME WHERE year = :year")
+        @Query("SELECT * from $HOLIDAY_TABLENAME WHERE year = :year ORDER BY date ASC")
         fun getForYear(year: String): Flow<List<Holiday>>
 
         @Insert(onConflict = OnConflictStrategy.REPLACE)
