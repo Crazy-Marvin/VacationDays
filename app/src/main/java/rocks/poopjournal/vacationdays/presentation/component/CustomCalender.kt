@@ -3,7 +3,6 @@ package rocks.poopjournal.vacationdays.presentation.component
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,16 +15,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -53,7 +48,6 @@ import com.kizitonwose.calendar.core.yearMonth
 import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.data.Holiday
 import rocks.poopjournal.vacationdays.data.VacationData
-import rocks.poopjournal.vacationdays.domain.model.HardRange
 import rocks.poopjournal.vacationdays.domain.model.isDateBetween
 import rocks.poopjournal.vacationdays.domain.model.mergeRanges
 import rocks.poopjournal.vacationdays.presentation.ui.theme.MyVacationDays2Theme
@@ -92,8 +86,7 @@ fun CalenderView(
 
     var selection by remember { mutableStateOf(DateSelection()) }
 
-    val years = (selectedYear - 30..selectedYear + 30).toList()
-    var expanded by remember { mutableStateOf(false) }
+    val years = remember(selectedYear) { (selectedYear - 30..selectedYear + 30).toList() }
 
     val vacationRanges = remember(vacations) { mergeRanges(vacations.map { it.parsedDates }) }
     val holidayDays = remember(holidays) { holidays.map { it.localDate} }
@@ -105,63 +98,7 @@ fun CalenderView(
                 .background(MaterialTheme.colorScheme.background),
         ) {
             Column {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    contentAlignment = Alignment.TopEnd // Aligns the dropdown to the top-end
-                ) {
-                    ExposedDropdownMenuBox(
-                        expanded = expanded,
-                        onExpandedChange = { expanded = !expanded }
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .menuAnchor(MenuAnchorType.PrimaryNotEditable, true)
-                                .width(150.dp)
-                                .clickable { expanded = true }
-                                .background(
-                                    MaterialTheme.colorScheme.background,
-                                    RoundedCornerShape(4.dp)
-                                )
-                                .border(
-                                    1.dp,
-                                    MaterialTheme.colorScheme.primary,
-                                    RoundedCornerShape(4.dp)
-                                )
-                                .padding(10.dp), // Padding for better spacing
-                            contentAlignment = Alignment.Center // Centers text
-                        ) {
-                            Text(
-                                text = selectedYear.toString(),
-                                color = MaterialTheme.colorScheme.onSecondaryContainer,
-                                textAlign = TextAlign.Center
-                            )
-                        }
-
-                        ExposedDropdownMenu(
-                            expanded = expanded,
-                            onDismissRequest = { expanded = false },
-                            containerColor = MaterialTheme.colorScheme.background,
-                        ) {
-                            years.forEach { year ->
-                                DropdownMenuItem(
-                                    enabled = year != selectedYear,
-                                    text = {
-                                        Text(
-                                            year.toString(),
-                                            color = MaterialTheme.colorScheme.onSecondaryContainer
-                                        )
-                                    },
-                                    onClick = {
-                                        selectedYear = year
-                                        expanded = false
-                                    }
-                                )
-                            }
-                        }
-                    }
-                }
+                YearDropDown(years, selectedYear) { selectedYear = it }
 
                 val daysOfWeek = remember { daysOfWeek() }
                 val state = rememberCalendarState(
