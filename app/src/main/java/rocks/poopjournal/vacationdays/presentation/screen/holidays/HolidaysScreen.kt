@@ -20,6 +20,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Create
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -87,7 +88,7 @@ fun HolidaysScreen(
                 expandedHeight = 128.dp + 32.dp,
             ) { closeFab ->
 
-                Column {
+                Column(modifier = Modifier.padding(horizontal = 16.dp)) {
                     TextButton(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -167,9 +168,9 @@ fun HolidaysScreen(
                             horizontalArrangement = Arrangement.Center,
                         ) {
                             Text(
-                                "No holidays for given year",
+                                stringResource(R.string.empty_holidays),
                                 textAlign = TextAlign.Center,
-                                color = MaterialTheme.colorScheme.secondary
+                                color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.33f)
                             )
                         }
                     }
@@ -297,7 +298,9 @@ private fun AddHolidayDialog(
                     onAddHoliday(dateValue!!, nameValue!!)
                     onDismissRequest()
                 },
-                modifier = Modifier.padding(8.dp),
+                colors = ButtonDefaults.buttonColors().copy(
+                    disabledContentColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)
+                )
             ) {
                 Text(stringResource(R.string.ok))
             }
@@ -305,35 +308,34 @@ private fun AddHolidayDialog(
         dismissButton = {
             TextButton(
                 onClick = { onDismissRequest() },
-                modifier = Modifier.padding(8.dp),
             ) {
                 Text(stringResource(R.string.cancel))
             }
-        }
+        },
+        title = { Text("New Holiday", color= MaterialTheme.colorScheme.onSecondaryContainer) }
     ) {
-        Text("New Holiday")
-        Spacer(modifier = Modifier.height(8.dp))
-
-        TextField(
-            value = dateValue?.let { displayFormat.format(it) } ?: "",
-            label = { Text("Date") },
-            onValueChange = { },
-            modifier = Modifier.pointerInput(dateValue) {
-                awaitEachGesture {
-                    awaitFirstDown(pass = PointerEventPass.Initial)
-                    val upEvent = waitForUpOrCancellation(pass = PointerEventPass.Initial)
-                    if (upEvent != null) {
-                        showDatePicker = true
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            TextField(
+                value = dateValue?.let { displayFormat.format(it) } ?: "",
+                label = { Text("Date") },
+                onValueChange = { },
+                modifier = Modifier.pointerInput(dateValue) {
+                    awaitEachGesture {
+                        awaitFirstDown(pass = PointerEventPass.Initial)
+                        val upEvent = waitForUpOrCancellation(pass = PointerEventPass.Initial)
+                        if (upEvent != null) {
+                            showDatePicker = true
+                        }
                     }
                 }
-            }
-        )
+            )
 
-        TextField(
-            value = nameValue ?: "",
-            label = { Text("Name") },
-            onValueChange = { nameValue = it }
-        )
+            TextField(
+                value = nameValue ?: "",
+                label = { Text("Name") },
+                onValueChange = { nameValue = it }
+            )
+        }
 
         if (showDatePicker) {
             DatePickerModal({ dateValue = it }, { showDatePicker = false }, onlyYear = year)

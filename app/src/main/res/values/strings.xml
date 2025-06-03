@@ -62,4 +62,8 @@
     <string name="vacation">Vacation</string>
     <string name="holiday">Holiday</string>
     <string name="name">Name</string>
+    <string name="empty_holidays">No holidays for selected year</string>
+    <string name="load_holidays">Load holidays</string>
+    <string name="country_code">Country code</string>
+    <string name="country_code_hint">Two letter code</string>
 </resources>

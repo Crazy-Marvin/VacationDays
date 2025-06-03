@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import rocks.poopjournal.vacationdays.R
+import rocks.poopjournal.vacationdays.presentation.ui.theme.MyVacationDays2Theme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,5 +50,7 @@ fun DatePickerModal(
 @PreviewLightDark
 @Composable
 private fun PreviewDatePickerModal() {
-    DatePickerModal({}, {})
+    MyVacationDays2Theme {
+        DatePickerModal({}, {})
+    }
 }

@@ -50,8 +50,13 @@ fun ExpandableFAB(
         animationSpec = spring(dampingRatio = 3f)
     )
     val expandedFabHeight by animateDpAsState(
-        targetValue = if (isExpanded) 58.dp else fabSize,
+        targetValue = fabSize,
         animationSpec = spring(dampingRatio = 3f)
+    )
+
+    val expandedFabPanel by animateDpAsState(
+        if (isExpanded) expandedHeight else 0.dp,
+        animationSpec = spring(dampingRatio = 4f)
     )
 
     Column {
@@ -59,13 +64,10 @@ fun ExpandableFAB(
         // ExpandedBox over the FAB
         Box(
             modifier = Modifier
-                .offset(y = (25).dp)
+                .offset(y = fabSize / 2)
                 .size(
                     width = expandedFabWidth,
-                    height = (animateDpAsState(
-                        if (isExpanded) expandedHeight else 0.dp,
-                        animationSpec = spring(dampingRatio = 4f)
-                    )).value
+                    height = expandedFabPanel,
                 )
                 .background(
                     color = MaterialTheme.colorScheme.surfaceContainer,

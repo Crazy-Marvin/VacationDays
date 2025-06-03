@@ -1,6 +1,8 @@
 package rocks.poopjournal.vacationdays.presentation.dialog
 
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -29,7 +31,10 @@ fun CountryInputModal(
                 onClick = {
                     onCountrySelected(state!!)
                     onDismiss()
-                }
+                },
+                colors = ButtonDefaults.buttonColors().copy(
+                    disabledContentColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f)
+                )
             ) {
                 Text(stringResource(R.string.ok))
             }
@@ -38,12 +43,13 @@ fun CountryInputModal(
             TextButton(onClick = onDismiss) {
                 Text(stringResource(R.string.cancel))
             }
-        }
+        },
+        title = { Text(stringResource(R.string.load_holidays), color= MaterialTheme.colorScheme.onSecondaryContainer) }
     ) {
         TextField(
             value = state ?: "",
-            label = { Text("Country Code") },
-            placeholder = { Text("AT or BE") },
+            label = { Text(stringResource(R.string.country_code)) },
+            placeholder = { Text(stringResource(R.string.country_code_hint)) },
             onValueChange = { state = it },
         )
     }
