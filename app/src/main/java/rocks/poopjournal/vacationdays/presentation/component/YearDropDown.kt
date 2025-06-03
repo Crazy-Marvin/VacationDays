@@ -5,25 +5,32 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
+import rocks.poopjournal.vacationdays.presentation.ui.theme.MyVacationDays2Theme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -34,6 +41,15 @@ fun YearDropDown(
 ) {
     var expanded by remember { mutableStateOf(false) }
 
+    val scrollState = rememberScrollState()
+    var elementHeight by remember { mutableIntStateOf(0) }
+
+    LaunchedEffect(expanded) {
+        if (expanded) {
+            val selectedIndex = years.indexOf(selectedYear)
+            scrollState.scrollTo(selectedIndex * elementHeight)
+        }
+    }
 
     Box(
         modifier = Modifier
@@ -43,7 +59,7 @@ fun YearDropDown(
     ) {
         ExposedDropdownMenuBox(
             expanded = expanded,
-            onExpandedChange = { expanded = !expanded }
+            onExpandedChange = { expanded = it }
         ) {
             Box(
                 modifier = Modifier
@@ -73,20 +89,27 @@ fun YearDropDown(
                 expanded = expanded,
                 onDismissRequest = { expanded = false },
                 containerColor = MaterialTheme.colorScheme.background,
+                scrollState = scrollState,
             ) {
                 years.forEach { year ->
+                    val isCurrent = year == selectedYear
                     DropdownMenuItem(
-                        enabled = year != selectedYear,
+                        modifier = Modifier.onGloballyPositioned { elementHeight = it.size.height },
+                        enabled = !isCurrent,
                         text = {
                             Text(
                                 year.toString(),
-                                color = MaterialTheme.colorScheme.onSecondaryContainer
+                                color = when(isCurrent) {
+                                    true -> MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha=0.33f)
+                                    false -> MaterialTheme.colorScheme.onSecondaryContainer
+                                }
                             )
                         },
                         onClick = {
                             expanded = false
                             onYearSelected(year)
-                        }
+                        },
+                        contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding,
                     )
                 }
             }
@@ -98,5 +121,7 @@ fun YearDropDown(
 @Composable
 @PreviewLightDark
 fun PreviewYearDropdown() {
-    YearDropDown(years= (1999..2025).toList(), selectedYear = 2025, onYearSelected = {})
+    MyVacationDays2Theme {
+        YearDropDown(years= (1999..2025).toList(), selectedYear = 2025, onYearSelected = {})
+    }
 }
