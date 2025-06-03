@@ -1,10 +1,8 @@
 package rocks.poopjournal.vacationdays.presentation.component
 
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,17 +15,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
-import androidx.compose.material.icons.Icons
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -53,15 +46,16 @@ import com.kizitonwose.calendar.core.OutDateStyle
 import com.kizitonwose.calendar.core.daysOfWeek
 import com.kizitonwose.calendar.core.yearMonth
 import rocks.poopjournal.vacationdays.R
+import rocks.poopjournal.vacationdays.data.Holiday
 import rocks.poopjournal.vacationdays.data.VacationData
+import rocks.poopjournal.vacationdays.domain.model.isDateBetween
+import rocks.poopjournal.vacationdays.domain.model.mergeRanges
 import rocks.poopjournal.vacationdays.presentation.ui.theme.MyVacationDays2Theme
 import rocks.poopjournal.vacationdays.presentation.ui.theme.primary
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.Month
 import java.time.YearMonth
-import java.time.format.DateTimeFormatter
-import java.time.format.DateTimeParseException
 import java.time.format.TextStyle
 import java.time.temporal.ChronoUnit
 import java.util.Locale
@@ -74,13 +68,15 @@ fun CalenderView(
     focusOnDate: LocalDate? = null,
     dateSelected: (startDate: LocalDate, endDate: LocalDate?) -> Unit = { _, _ -> },
     isRangeSelection: Boolean = false,
-    holidays: List<VacationData> = emptyList(),
+    vacations: List<VacationData> = emptyList(),
+    holidays: List<Holiday> = emptyList(),
     showWeekDaysHeader: Boolean = false,
 ) {
     var selectedYear by remember {
-        mutableIntStateOf(focusOnDate
-            ?.year
-            ?: YearMonth.now().year
+        mutableIntStateOf(
+            focusOnDate
+                ?.year
+                ?: YearMonth.now().year
         )
     }
     val today = remember { LocalDate.now() }
@@ -90,8 +86,10 @@ fun CalenderView(
 
     var selection by remember { mutableStateOf(DateSelection()) }
 
-    val years = (selectedYear - 30..selectedYear + 30).toList()
-    var expanded by remember { mutableStateOf(false) }
+    val years = remember(selectedYear) { (selectedYear - 30..selectedYear + 30).toList() }
+
+    val vacationRanges = remember(vacations) { mergeRanges(vacations.map { it.parsedDates }) }
+    val holidayDays = remember(holidays) { holidays.map { it.localDate} }
 
     MaterialTheme(colorScheme = MaterialTheme.colorScheme.copy(primary = primary)) {
         Box(
@@ -100,63 +98,7 @@ fun CalenderView(
                 .background(MaterialTheme.colorScheme.background),
         ) {
             Column {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    contentAlignment = Alignment.TopEnd // Aligns the dropdown to the top-end
-                ) {
-                    ExposedDropdownMenuBox(
-                        expanded = expanded,
-                        onExpandedChange = { expanded = !expanded }
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .menuAnchor(MenuAnchorType.PrimaryNotEditable, true)
-                                .width(150.dp)
-                                .clickable { expanded = true }
-                                .background(
-                                    MaterialTheme.colorScheme.background,
-                                    RoundedCornerShape(4.dp)
-                                )
-                                .border(
-                                    1.dp,
-                                    MaterialTheme.colorScheme.primary,
-                                    RoundedCornerShape(4.dp)
-                                )
-                                .padding(10.dp), // Padding for better spacing
-                            contentAlignment = Alignment.Center // Centers text
-                        ) {
-                            Text(
-                                text = selectedYear.toString(),
-                                color = MaterialTheme.colorScheme.onSecondaryContainer,
-                                textAlign = TextAlign.Center
-                            )
-                        }
-
-                        ExposedDropdownMenu(
-                            expanded = expanded,
-                            onDismissRequest = { expanded = false },
-                            containerColor = MaterialTheme.colorScheme.background,
-                        ) {
-                            years.forEach { year ->
-                                DropdownMenuItem(
-                                    enabled = year != selectedYear,
-                                    text = {
-                                        Text(
-                                            year.toString(),
-                                            color = MaterialTheme.colorScheme.onSecondaryContainer
-                                        )
-                                    },
-                                    onClick = {
-                                        selectedYear = year
-                                        expanded = false
-                                    }
-                                )
-                            }
-                        }
-                    }
-                }
+                YearDropDown(years, selectedYear) { selectedYear = it }
 
                 val daysOfWeek = remember { daysOfWeek() }
                 val state = rememberCalendarState(
@@ -177,26 +119,30 @@ fun CalenderView(
                                 today = today,
                                 selection = selection,
                                 isRangeSelection = isRangeSelection,
-                                holidays = holidays
+                                isHoliday = { day ->
+                                    val isVacation = vacationRanges.find { it.isDateBetween(day) }
+                                    val isHoliday = holidayDays.find { it == day }
+                                    isVacation != null || isHoliday != null
+                                }
                             ) { day ->
-                                    selection = if (isRangeSelection) {
-                                        ContinuousSelectionHelper.getSelection(
-                                            clickedDate = day.date,
-                                            dateSelection = selection,
-                                        )
-                                    } else {
-                                        DateSelection(startDate = day.date, endDate = null)
-                                    }
+                                selection = if (isRangeSelection) {
+                                    ContinuousSelectionHelper.getSelection(
+                                        clickedDate = day.date,
+                                        dateSelection = selection,
+                                    )
+                                } else {
+                                    DateSelection(startDate = day.date, endDate = null)
+                                }
 
-                                    selection.startDate?.let { startDate ->
-                                        if (isRangeSelection) {
-                                            dateSelected(startDate, selection.endDate)
-                                        } else {
-                                            dateSelected(startDate, null)
-                                        }
+                                selection.startDate?.let { startDate ->
+                                    if (isRangeSelection) {
+                                        dateSelected(startDate, selection.endDate)
+                                    } else {
+                                        dateSelected(startDate, null)
                                     }
                                 }
                             }
+                        }
                     },
                     monthHeader = { month ->
                         MonthHeader(month)
@@ -215,7 +161,7 @@ private fun Day(
     today: LocalDate,
     selection: DateSelection,
     isRangeSelection: Boolean,
-    holidays: List<VacationData>,
+    isHoliday: (LocalDate) -> Boolean,
     onClick: (CalendarDay) -> Unit,
 ) {
     val isSelectedStart = day.date == selection.startDate
@@ -229,20 +175,22 @@ private fun Day(
     }
 
     val secondaryBackgroundColor = when {
-        isRangeSelection && (isInRange || (isSelectedStart || isSelectedEnd)) -> MaterialTheme.colorScheme.primary.copy(alpha = 0.1f) // Highlight range
+        isRangeSelection && (isInRange || (isSelectedStart || isSelectedEnd)) -> MaterialTheme.colorScheme.primary.copy(
+            alpha = 0.1f
+        ) // Highlight range
         else -> Color.Transparent
     }
 
     val textColor = when {
         isRangeSelection && (isSelectedStart || isSelectedEnd) -> MaterialTheme.colorScheme.onSecondaryContainer // Ensure contrast when selected
-        isRangeSelection && isHoliday(day.date, holidays) ->  MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha=0.4f)
+        isRangeSelection && isHoliday(day.date) -> MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.4f)
         day.date == today -> MaterialTheme.colorScheme.surface // Highlight today's date with Surface color
         else -> MaterialTheme.colorScheme.onSecondaryContainer
     }
 
     val dotColor = when {
         day.date == today -> MaterialTheme.colorScheme.surface // Primary dot for today
-        isHoliday(day.date, holidays) -> Color.Gray
+        isHoliday(day.date) -> Color.Gray
         else -> Color.Transparent
     }
     Box(
@@ -257,39 +205,41 @@ private fun Day(
     ) {
 
         // selection range box
-        Box(modifier = Modifier
-            .matchParentSize()
-            .let {
-                when {
-                    (isSelectedStart && selection.endDate == null) -> it.padding(8.dp)
-                    isSelectedStart -> it.padding(start = 8.dp, top = 8.dp, bottom = 8.dp)
-                    isSelectedEnd -> it.padding(end = 8.dp, top = 8.dp, bottom = 8.dp)
-                    isInRange -> it.padding(vertical = 8.dp)
-                    else -> it
+        Box(
+            modifier = Modifier
+                .matchParentSize()
+                .let {
+                    when {
+                        (isSelectedStart && selection.endDate == null) -> it.padding(8.dp)
+                        isSelectedStart -> it.padding(start = 8.dp, top = 8.dp, bottom = 8.dp)
+                        isSelectedEnd -> it.padding(end = 8.dp, top = 8.dp, bottom = 8.dp)
+                        isInRange -> it.padding(vertical = 8.dp)
+                        else -> it
+                    }
                 }
-            }
-            .background(
-                color = secondaryBackgroundColor,
-                shape = when {
-                    (isSelectedStart && selection.endDate == null) -> CircleShape
-                    isSelectedStart -> RoundedCornerShape(50, 0, 0, 50)
-                    isSelectedEnd -> RoundedCornerShape(0, 50, 50, 0)
-                    else -> RectangleShape
-                }
-            )
+                .background(
+                    color = secondaryBackgroundColor,
+                    shape = when {
+                        (isSelectedStart && selection.endDate == null) -> CircleShape
+                        isSelectedStart -> RoundedCornerShape(50, 0, 0, 50)
+                        isSelectedEnd -> RoundedCornerShape(0, 50, 50, 0)
+                        else -> RectangleShape
+                    }
+                )
         )
 
         // current select box
-        Box(modifier = Modifier
-            .matchParentSize()
-            .padding(8.dp)
-            .background(
-                color = backgroundColor,
-                shape = when {
-                    isSelectedStart || isSelectedEnd -> CircleShape
-                    else -> RectangleShape
-                }
-            ),
+        Box(
+            modifier = Modifier
+                .matchParentSize()
+                .padding(8.dp)
+                .background(
+                    color = backgroundColor,
+                    shape = when {
+                        isSelectedStart || isSelectedEnd -> CircleShape
+                        else -> RectangleShape
+                    }
+                ),
             contentAlignment = Alignment.Center
         ) {
             Text(
@@ -348,7 +298,7 @@ fun DaysOfWeekTitle(daysOfWeek: List<DayOfWeek>) {
                 style = MaterialTheme.typography.titleSmall,
                 color = when (dayOfWeek) {
                     DayOfWeek.SATURDAY, DayOfWeek.SUNDAY -> MaterialTheme.colorScheme.surface
-                    else ->  MaterialTheme.colorScheme.onSecondaryContainer
+                    else -> MaterialTheme.colorScheme.onSecondaryContainer
                 },
             )
         }
@@ -407,47 +357,4 @@ private fun Example2Preview() {
     MyVacationDays2Theme {
         CalenderView()
     }
-}
-
-@RequiresApi(Build.VERSION_CODES.O)
-fun isHoliday(date: LocalDate, holidays: List<VacationData>): Boolean {
-    val holidayRanges = mutableListOf<Pair<LocalDate, LocalDate>>()
-    holidays.forEach { holiday ->
-        try {
-            val formatter = DateTimeFormatter.ofPattern("d/MM/yyyy")
-            val holidayStart = LocalDate.parse(holiday.startDate, formatter)
-            val holidayEnd = holiday.endDate?.let { LocalDate.parse(it, formatter) } ?: holidayStart
-            val mergedHolidayRange = mutableListOf<Pair<LocalDate, LocalDate>>()
-            var isMerged = false
-            for (range in holidayRanges) {
-                val (existingStart, existingEnd) = range
-                if (holidayStart.isBefore(existingEnd) && holidayEnd.isAfter(existingStart)) {
-                    val mergedStart = minOf(holidayStart, existingStart)
-                    val mergedEnd = maxOf(holidayEnd, existingEnd)
-                    mergedHolidayRange.add(mergedStart to mergedEnd)
-                    isMerged = true
-                } else {
-                    mergedHolidayRange.add(range)
-                }
-            }
-            if (isMerged) {
-                holidayRanges.clear()
-                holidayRanges.addAll(mergedHolidayRange)
-            } else {
-                holidayRanges.add(holidayStart to holidayEnd)
-            }
-
-        } catch (e: DateTimeParseException) {
-            Log.e("Day", "Invalid date format: ${holiday.startDate}")
-        }
-    }
-
-    for (range in holidayRanges) {
-        val (start, end) = range
-        if (!date.isBefore(start) && !date.isAfter(end)) {
-            return true
-        }
-    }
-
-    return false
 }

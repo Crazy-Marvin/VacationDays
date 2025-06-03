@@ -3,7 +3,6 @@ package rocks.poopjournal.vacationdays.presentation.screen.settings
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,11 +12,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
@@ -31,7 +27,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -41,6 +36,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import rocks.poopjournal.vacationdays.R
 import rocks.poopjournal.vacationdays.presentation.component.ThemeSelectionDialog
+import rocks.poopjournal.vacationdays.presentation.component.TopBarWithBackButton
+import rocks.poopjournal.vacationdays.presentation.navigation.Holidays_Screen
 import rocks.poopjournal.vacationdays.presentation.navigation.Vacation_Days_Screen
 import rocks.poopjournal.vacationdays.presentation.ui.theme.gray
 import rocks.poopjournal.vacationdays.presentation.ui.theme.lightGray
@@ -131,7 +128,10 @@ fun SettingScreen(
     }
 
     Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
-        TopBar(onClose = { navHostController.popBackStack() })
+        TopBarWithBackButton(
+            text = stringResource(R.string.settings),
+            onClose = { navHostController.popBackStack() }
+        )
         Column {
             SectionHeader(stringResource(id = R.string.general))
 
@@ -193,6 +193,10 @@ fun SettingScreen(
                 )
             }
 
+            SettingRow(
+                text = stringResource(id = R.string.holidays),
+                onClick = { navHostController.navigate(Holidays_Screen) }
+            )
 
             SettingRow(
                 text = stringResource(id = R.string.appearance),
@@ -238,37 +242,3 @@ fun SettingScreen(
     }
 }
 
-@Composable
-private fun TopBar(onClose: () -> Unit) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(84.dp)
-            .background(MaterialTheme.colorScheme.primary),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize().padding(top = 20.dp),
-        ) {
-            IconButton(
-                onClick = { onClose() },
-                modifier = Modifier.align(Alignment.CenterStart)
-            ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
-                    contentDescription = "Back",
-                    tint = Color.White
-                )
-            }
-
-            Text(
-                text = stringResource(id = R.string.settings),
-                color = Color.White,
-                style = MaterialTheme.typography.titleLarge,
-                modifier = Modifier.align(Alignment.Center)
-            )
-        }
-    }
-}

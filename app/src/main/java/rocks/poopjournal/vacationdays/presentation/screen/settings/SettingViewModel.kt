@@ -20,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SettingViewModel @Inject constructor(
     private val databaseBackupManager: DatabaseBackupManager,
-    private val vacationNumberRepository: VacationNumberRepository
+    private val vacationNumberRepository: VacationNumberRepository,
 ) : ViewModel() {
 
     @Inject

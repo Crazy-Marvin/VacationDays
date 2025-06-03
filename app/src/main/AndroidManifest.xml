@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="rocks.poopjournal.vacationdays">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".VacationApplication"
         android:allowBackup="true"
