@@ -46,6 +46,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -253,6 +255,9 @@ fun MarvinRow(context: Context) {
         Row(
             modifier = Modifier
                 .fillMaxSize()
+                .semantics(mergeDescendants = true){
+                    contentDescription = "Crazy Marvin's Row"
+                }
                 .padding(10.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
@@ -260,7 +265,7 @@ fun MarvinRow(context: Context) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
                     painter = painterResource(id = R.drawable.crazymarvin),
-                    contentDescription = "crazy marvin",
+                    contentDescription = "crazy marvin logo",
                     modifier = Modifier
                         .size(32.dp)
                         .clip(CircleShape)
@@ -286,7 +291,7 @@ fun MarvinRow(context: Context) {
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.ic_mail),
-                    contentDescription = "message",
+                    contentDescription = "Crazy Marvin Email Button",
                     modifier = Modifier
                         .padding(end = 10.dp)
                         .clickable {
@@ -300,7 +305,7 @@ fun MarvinRow(context: Context) {
                 )
                 Image(
                     painter = painterResource(id = R.drawable.ic_github),
-                    contentDescription = "github",
+                    contentDescription = "Crazy Marvin github button",
                     modifier = Modifier
                         .padding(end = 10.dp)
                         .clickable {
@@ -314,7 +319,7 @@ fun MarvinRow(context: Context) {
                 )
                 Image(
                     painter = painterResource(id = R.drawable.ic_mastodon),
-                    contentDescription = "mail",
+                    contentDescription = "Carzy Marvin Website",
                     modifier = Modifier.clickable {
                         val intent = Intent(Intent.ACTION_VIEW).apply {
                             data = Uri.parse("https://fosstodon.org/@CrazyMarvinApps")
@@ -340,6 +345,9 @@ fun CodeAquariaRow(context: Context) {
         Row(
             modifier = Modifier
                 .fillMaxSize()
+                .semantics(mergeDescendants = true){
+                    contentDescription = "Code Aquaria Row"
+                }
                 .padding(10.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
@@ -347,7 +355,7 @@ fun CodeAquariaRow(context: Context) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
                     painter = painterResource(id = R.drawable.codeaquaria),
-                    contentDescription = "code quaria",
+                    contentDescription = "code quaria logo",
                     modifier = Modifier
                         .size(32.dp)
                         .clip(CircleShape),
@@ -387,7 +395,7 @@ fun CodeAquariaRow(context: Context) {
 //                )
                 Image(
                     painter = painterResource(id = R.drawable.ic_github),
-                    contentDescription = "github",
+                    contentDescription = "Code Aquaria Github Button",
                     modifier = Modifier
                         .padding(end = 10.dp)
                         .clickable {
@@ -401,7 +409,7 @@ fun CodeAquariaRow(context: Context) {
                 )
                 Image(
                     painter = painterResource(id = R.drawable.ic_x),
-                    contentDescription = "x",
+                    contentDescription = "Code Aquaria Twitter Button",
                     modifier = Modifier.clickable {
                         val intent = Intent(Intent.ACTION_VIEW).apply {
                             data = Uri.parse("https://www.facebook.com/Code-Aquaria-109834144196326")
@@ -429,6 +437,9 @@ fun MubeenRow(context: Context) {
         Row(
             modifier = Modifier
                 .fillMaxSize()
+                .semantics(mergeDescendants = true){
+                    contentDescription = "Developer Mubeen's Row"
+                }
                 .padding(10.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
@@ -436,7 +447,7 @@ fun MubeenRow(context: Context) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
                     painter = painterResource(id = R.drawable.mubeen),
-                    contentDescription = "mubeen",
+                    contentDescription = "Mubeen's logo",
                     modifier = Modifier
                         .size(32.dp)
                         .clip(CircleShape),
@@ -476,7 +487,7 @@ fun MubeenRow(context: Context) {
 //                )
                 Image(
                     painter = painterResource(id = R.drawable.ic_github),
-                    contentDescription = "github",
+                    contentDescription = "Mubeen's Github Button",
                     modifier = Modifier
                         .padding(end = 10.dp)
                         .clickable {
@@ -490,7 +501,7 @@ fun MubeenRow(context: Context) {
                 )
                 Image(
                     painter = painterResource(id = R.drawable.ic_x),
-                    contentDescription = "x",
+                    contentDescription = "Mubeen's Twitter Button",
                     modifier = Modifier.clickable {
                         val intent = Intent(Intent.ACTION_VIEW).apply {
                             data = Uri.parse("https://twitter.com/MubeenA74")
