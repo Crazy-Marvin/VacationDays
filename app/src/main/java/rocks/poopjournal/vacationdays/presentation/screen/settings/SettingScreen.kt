@@ -1,5 +1,10 @@
 package rocks.poopjournal.vacationdays.presentation.screen.settings
 
+import android.Manifest
+import android.os.Build
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -69,7 +74,13 @@ fun SectionHeader(text: String) {
 }
 
 @Composable
-fun SettingRow(text: String, subText: String? = null, beforeText: @Composable (() -> Unit)? = null, onClick: (() -> Unit)? = null, block: @Composable (() -> Unit)? = null) {
+fun SettingRow(
+    text: String,
+    subText: String? = null,
+    beforeText: @Composable (() -> Unit)? = null,
+    onClick: (() -> Unit)? = null,
+    block: @Composable (() -> Unit)? = null
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -120,17 +131,34 @@ fun SettingScreen(
     val currentYear = LocalDate.now().year.toString()
     val vacationForCurrentYear = vacationList.find { it.name == currentYear }
     val vacationNumber = vacationForCurrentYear?.numberOfVacation ?: 0
+    var pendingEnableNotification by remember { mutableStateOf(false) }
 
     var localFeatureEnabled by remember { mutableStateOf(false) }
     var localExcludeWeekendsEnabled by remember { mutableStateOf(false) }
     val localShowWeekdaysHeaderEnabled by viewModel.themeSetting.isShowWeekDaysHeaderFlow.collectAsState()
+    val isNotificationEnabled by viewModel.themeSetting.isVacationNotificationEnabledFlow.collectAsState()
+
+    val notificationPermissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) { isGranted ->
+        if (isGranted && pendingEnableNotification) {
+            viewModel.themeSetting.isVacationNotificationEnabled = true
+            viewModel.startVacationNotificationService(context)
+            viewModel.scheduleRepeatingAlarm(context)
+        } else {
+            Toast.makeText(context, "Notification permission denied!", Toast.LENGTH_SHORT).show()
+        }
+        pendingEnableNotification = false
+    }
 
     LaunchedEffect(localFeatureEnabled) {
         localFeatureEnabled = viewModel.themeSetting.isFeatureEnabled
         localExcludeWeekendsEnabled = viewModel.themeSetting.isExcludeWeekendsEnabled
     }
 
-    Column(modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background)) {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .background(MaterialTheme.colorScheme.background)) {
         TopBar(onClose = { navHostController.popBackStack() })
         Column {
             SectionHeader(stringResource(id = R.string.general))
@@ -184,6 +212,38 @@ fun SettingScreen(
                     checked = localShowWeekdaysHeaderEnabled,
                     onCheckedChange = { newState ->
                         viewModel.themeSetting.isShowWeekDaysHeaderEnabled = newState
+                    },
+                    colors = SwitchDefaults.colors(
+                        checkedIconColor = MaterialTheme.colorScheme.surface,
+                        checkedTrackColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.3f),
+                        checkedThumbColor = MaterialTheme.colorScheme.surface
+                    ),
+                )
+            }
+
+            SettingRow(
+                text = stringResource(id = R.string.enable_notification),
+                subText = stringResource(id = R.string.get_notified)
+            ) {
+                Switch(
+                    checked = isNotificationEnabled,
+                    onCheckedChange = { newState ->
+                        if (newState) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                // Ask for notification permission
+                                pendingEnableNotification = true
+                                notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                            } else {
+                                // No permission required on older Android versions
+                                viewModel.themeSetting.isVacationNotificationEnabled = true
+                                viewModel.startVacationNotificationService(context)
+                                viewModel.scheduleRepeatingAlarm(context)
+                            }
+                        } else {
+                            viewModel.themeSetting.isVacationNotificationEnabled = false
+                            viewModel.stopVacationNotificationService(context)
+                            viewModel.cancelRepeatingAlarm(context)
+                        }
                     },
                     colors = SwitchDefaults.colors(
                         checkedIconColor = MaterialTheme.colorScheme.surface,
@@ -250,7 +310,8 @@ private fun TopBar(onClose: () -> Unit) {
     ) {
         Box(
             modifier = Modifier
-                .fillMaxSize().padding(top = 20.dp),
+                .fillMaxSize()
+                .padding(top = 20.dp),
         ) {
             IconButton(
                 onClick = { onClose() },

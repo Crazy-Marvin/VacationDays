@@ -10,18 +10,18 @@
         android:pathData="M2.975,9.495C1.428,7.677 1.513,4.947 3.23,3.23C4.947,1.513 7.677,1.428 9.495,2.975L2.975,9.495Z"
         android:strokeWidth="0.75"
         android:fillColor="#00000000"
-        android:strokeColor="#ffffff"/>
+        android:strokeColor="#FF3B14"/>
     <path
         android:pathData="M4.737,7.732C3.934,6.864 3.376,5.94 3.106,5.131C2.8,4.214 2.896,3.563 3.23,3.23C3.563,2.896 4.214,2.8 5.131,3.106C5.941,3.375 6.864,3.934 7.732,4.737L4.737,7.732Z"
         android:strokeWidth="0.75"
         android:fillColor="#00000000"
-        android:strokeColor="#ffffff"/>
+        android:strokeColor="#FF3B14"/>
     <path
         android:pathData="M7.25,7.25L9.75,9.75"
         android:strokeLineJoin="round"
         android:strokeWidth="0.75"
         android:fillColor="#00000000"
-        android:strokeColor="#ffffff"
+        android:strokeColor="#FF3B14"
         android:strokeLineCap="round"/>
   </group>
 </vector>

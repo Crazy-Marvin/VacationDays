@@ -41,6 +41,11 @@ class ThemeSettingImpl @Inject constructor(
     override var isShowWeekDaysHeaderEnabled: Boolean by isShowWeekdaysHeaderDelegate
     override val isShowWeekDaysHeaderFlow = isShowWeekdaysHeaderDelegate.flow
 
+    private val isVacationNotificationEnabledDelegate =
+        BooleanPreferenceDelegate(preferences, "is_vacation_notification_enabled", false)
+
+    override var isVacationNotificationEnabled: Boolean by isVacationNotificationEnabledDelegate
+    override val isVacationNotificationEnabledFlow: StateFlow<Boolean> = isVacationNotificationEnabledDelegate.flow
 
     private object AppThemeConverter : PreferenceConverter<AppTheme, Int> {
         override fun serialize(value: AppTheme): Int = value.ordinal

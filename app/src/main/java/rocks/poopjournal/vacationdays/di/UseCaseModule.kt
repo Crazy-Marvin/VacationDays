@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import rocks.poopjournal.vacationdays.domain.repo.VacationNumberRepository
 import rocks.poopjournal.vacationdays.domain.repo.VacationRepository
 import rocks.poopjournal.vacationdays.presentation.ui.utils.ThemeSetting
-import rocks.poopjournal.vacationdays.presentation.usecase.VacationDataUseCase
+import rocks.poopjournal.vacationdays.domain.usecase.VacationDataUseCase
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)

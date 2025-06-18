@@ -29,4 +29,6 @@ interface ThemeSetting {
     val isExcludeWeekendsFlow: StateFlow<Boolean>
     var isShowWeekDaysHeaderEnabled: Boolean
     val isShowWeekDaysHeaderFlow: StateFlow<Boolean>
+    val isVacationNotificationEnabledFlow: StateFlow<Boolean>
+    var isVacationNotificationEnabled: Boolean
 }
