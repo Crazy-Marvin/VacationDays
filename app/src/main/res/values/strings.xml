@@ -48,6 +48,8 @@
     <string name="track">Track Sick Days</string>
     <string name="exclude_weekends">Exclude weekends</string>
     <string name="show_weekdays_header">Show weekdays header</string>
+    <string name="enable_notification">Notifications</string>
+    <string name="get_notified">Get notified of upcoming vacations</string>
     <string name="backupMessage">Backup Successful</string>
     <string name="vacation_days">No. of Vacation Days</string>
     <string name="junit">JUnit</string>
@@ -60,4 +62,20 @@
     <string name="vacation">Vacation</string>
     <string name="holiday">Holiday</string>
     <string name="name">Name</string>
+    <string name="daysUntilVacation">Days Until Vacation</string>
+    <string name="daysSinceVacation">Days Since Vacation</string>
+    <string name="daysSinceSick">Days Since Sick</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="vacation_days_taken">Vacation Days Taken</string>
+    <string name="vacation_days_planned">Vacation Days Planned</string>
+    <string name="vacation_days_available">Vacation Days Available</string>
+    <string name="sick_days_taken">Sick Days Taken</string>
+    <string name="work_days">Work Days</string>
+    <string name="no_upcoming_vacation">No upcoming vacation</string>
+    <string name="days_since_vacation_and_sick_description">Days Since Vacation and Sick Leave</string>
+    <string name="taken_and_available_description">Taken and Available Vacation Days</string>
+    <string name="taken_planned_until_description">Taken Vacation Days, Planned Vacation Days, Days Until vacation</string>
+    <string name="taken_planned_vacation_sick_description">Taken Vacation Days, Planned Vacation Days, Taken Sick Days</string>
+    <string name="vacation_info_description">Taken Vacation Days, Planned Vacation Days, Taken Sick Days, Days Until Vacation</string>
+    <string name="vacation_info_with_work_description">Taken Vacation Days, Planned Vacation Days, Taken Sick Days, Work Days</string>
 </resources>

@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="rocks.poopjournal.vacationdays">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+
     <application
         android:name=".VacationApplication"
         android:allowBackup="true"
@@ -23,9 +28,124 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="androidx.appcompat.app.AppLocalesMetadataHolderService" android:enabled="false" android:exported="false">
-            <meta-data android:name="autoStoreLocales" android:value="true"/>
+        <service
+            android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+            android:enabled="false"
+            android:exported="false">
+            <meta-data
+                android:name="autoStoreLocales"
+                android:value="true" />
         </service>
-    </application>
 
+        <receiver
+            android:name=".presentation.widgets.sickDaysTaken.SickDaysTakenReceiver"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_sick_days_taken" />
+        </receiver>
+
+        <receiver
+            android:name=".presentation.widgets.daysUntilVacation.DaysUntilVacationReceiver"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_days_until_vacation" />
+        </receiver>
+
+        <receiver
+            android:name=".presentation.widgets.takenAndAvailable.TakenAndAvailableReciever"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_taken_and_available" />
+        </receiver>
+
+        <receiver
+            android:name=".presentation.widgets.daysSinceVacationAndSick.DaysSinceVacationAndSickReceiver"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_days_since_vacation_and_sick" />
+        </receiver>
+
+        <receiver
+            android:name=".presentation.widgets.vacationInfo.VacationInfoReceiver"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_vacation_info" />
+        </receiver>
+
+        <receiver
+            android:name=".presentation.widgets.takenPlannedUntilVacation.TakenPlannedUntilVacationReceiver"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_taken_planned_until" />
+        </receiver>
+
+        <receiver
+            android:name=".presentation.widgets.takenPlannedVacationSick.TakenPlannedVacationSickReceiver"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_taken_planned_vacation_sick" />
+        </receiver>
+        <receiver
+            android:name=".presentation.widgets.vacationDaysInfoWithWork.VacationDaysInfoWithWorkReceiver"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_vacation_info_with_work" />
+        </receiver>
+        <receiver
+            android:name=".domain.service.VacationNotificationReceiver"
+            android:exported="false" />
+
+        <service
+            android:name=".domain.service.VacationNotificationService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+        <receiver android:name=".domain.service.BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
 </manifest>
