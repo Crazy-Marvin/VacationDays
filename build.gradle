@@ -2,7 +2,7 @@
 buildscript {
     ext.jacocoVersion = '0.8.12'
     ext.kotlin_version = '2.1.0'
-    ext.hilt_version = '2.55' // Add Hilt version
+    ext.hilt_version = '2.56.2' // Add Hilt version
 
 
     repositories {
