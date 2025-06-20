@@ -59,4 +59,22 @@
     <string name="holiday">名称</string>
     <string name="exclude_weekends">不包括周末</string>
     <string name="show_weekdays_header">显示工作日标题</string>
+    <string name="daysSinceSick">已生病几天</string>
+    <string name="vacation_days_planned">计划的假期天数</string>
+    <string name="vacation_days_taken">已用假期天数</string>
+    <string name="sick_days_taken">已用病假天数</string>
+    <string name="days_since_vacation_and_sick_description">假期和病假已过去几天</string>
+    <string name="taken_planned_until_description">已用假期天数、计划的假期天数、离假期还有几天</string>
+    <string name="taken_planned_vacation_sick_description">已用假期天数、计划的假期天数、已用病假天数</string>
+    <string name="vacation_info_description">已用假期天数、计划的假期天数、已用病假天数、距离假期还有几天</string>
+    <string name="enable_notification">通知</string>
+    <string name="daysSinceVacation">已休假天数</string>
+    <string name="app_widget_description">这是应用部件描述</string>
+    <string name="taken_and_available_description">已用的和可用的假期天数</string>
+    <string name="work_days">工作日</string>
+    <string name="get_notified">获取即将到来假期的通知</string>
+    <string name="no_upcoming_vacation">没有即将到来的假期</string>
+    <string name="daysUntilVacation">离假期还有几天</string>
+    <string name="vacation_days_available">可用的假期天数</string>
+    <string name="vacation_info_with_work_description">已用假期天数、计划的假期天数、已用病假天数、工作日</string>
 </resources>
