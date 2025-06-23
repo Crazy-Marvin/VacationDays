@@ -1,4 +1,4 @@
-- Contatore fisso 🐛
+- Sistemato il Contatore 🐛
 - Aggiornamenti delle dipendenze ⚙️
 - Aggiornamenti delle traduzioni 🗺️
 

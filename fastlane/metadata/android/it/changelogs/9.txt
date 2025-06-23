@@ -1,4 +1,4 @@
-- ⚙️ Correggere il backup (#94)
+- ⚙️ Corretto il backup (#94)
 - 🎨 Supporta l'icona a tema introdotta per Android 13+ (#83)
 - 🐛 Correggere il nome della versione mostrato nella schermata Informazioni (#97)
 - 👍 Aggiornare le dipendenze e le traduzioni
