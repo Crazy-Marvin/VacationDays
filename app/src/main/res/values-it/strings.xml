@@ -13,8 +13,8 @@
     <string name="viewSource">Vedi sorgente</string>
     <string name="openSourceLicences">Licenze open-source</string>
     <string name="java">Java</string>
-    <string name="general">Generali</string>
-    <string name="backupheading">Backup</string>
+    <string name="general">Generale</string>
+    <string name="backupheading">Salvataggio</string>
     <string name="restore">Ripristino</string>
     <string name="addHoliday">Aggiungi Titolo della Vacanza</string>
     <string name="ok">OK</string>
@@ -38,7 +38,7 @@
     <string name="save">Salva</string>
     <string name="light">Chiaro</string>
     <string name="dark">Scuro</string>
-    <string name="noofvacations">Numero dei giorni di ferie</string>
+    <string name="noofvacations">Numero dei Giorni di Ferie</string>
     <string name="date_range">%s
 \n↓
 \n%s</string>
@@ -48,7 +48,7 @@
     <string name="sick">Malattia</string>
     <string name="done">Fatto</string>
     <string name="track">Traccia giorni di malattia</string>
-    <string name="empty_text">Niente ferie aggiunte</string>
+    <string name="empty_text">Non sono state aggiunte ferie</string>
     <string name="vacation_days">N° di Giorni di Ferie</string>
     <string name="backupMessage">Salvataggio Riuscito</string>
     <string name="delete_vacation">Ferie cancellate</string>
@@ -57,4 +57,24 @@
     <string name="empty_date">Inserisci una data di inizio!</string>
     <string name="vacation">Ferie</string>
     <string name="holiday">Vacanza</string>
+    <string name="exclude_weekends">Escludi i fine settimana</string>
+    <string name="show_weekdays_header">Mostra l\'intestazione dei giorni feriali</string>
+    <string name="get_notified">Ricevi una notifica delle prossime vacanze</string>
+    <string name="daysSinceVacation">Giorni Dalle Vacanze</string>
+    <string name="daysSinceSick">Giorni Dalla Malattia</string>
+    <string name="vacation_days_planned">Giorni Di Ferie Pianificati</string>
+    <string name="vacation_days_taken">Giorni Di Ferie Goduti</string>
+    <string name="vacation_days_available">Giorni Di Ferie Disponibili</string>
+    <string name="sick_days_taken">Giorni Di Malattia Presi</string>
+    <string name="work_days">Giorni Lavorativi</string>
+    <string name="no_upcoming_vacation">Nessuna vacanza in programma</string>
+    <string name="days_since_vacation_and_sick_description">Giorni da ferie e congedo malattia</string>
+    <string name="taken_planned_until_description">Giorni di ferie presi, giorni di ferie pianificati, giorni fino alle ferie</string>
+    <string name="vacation_info_description">Giorni di ferie goduti, giorni di ferie programmati, giorni di malattia presi, giorni fino alle ferie</string>
+    <string name="vacation_info_with_work_description">Giorni di Ferie Presi, Giorni di Ferie Programmati, Giorni di Malattia Presi, Giorni Lavorativi</string>
+    <string name="daysUntilVacation">Giorni Prima delle Vacanze</string>
+    <string name="app_widget_description">Questa è la descrizione di un widget dell\'app</string>
+    <string name="taken_and_available_description">Giorni di Ferie Goduti e Disponibili</string>
+    <string name="enable_notification">Notifiche</string>
+    <string name="taken_planned_vacation_sick_description">Giorni di ferie goduti, giorni di ferie programmati, giorni di malattia presi</string>
 </resources>
