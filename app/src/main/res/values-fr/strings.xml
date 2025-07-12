@@ -57,4 +57,24 @@
     <string name="vacation">Vacances</string>
     <string name="holiday">Vacances</string>
     <string name="name">Nom</string>
+    <string name="exclude_weekends">Exclure les week-ends</string>
+    <string name="show_weekdays_header">Afficher l\'en-tête des jours de la semaine</string>
+    <string name="enable_notification">Notifications</string>
+    <string name="get_notified">Soyez informé des vacances à venir</string>
+    <string name="daysUntilVacation">Jours avant les vacances</string>
+    <string name="daysSinceVacation">Jours depuis les vacances</string>
+    <string name="daysSinceSick">Jours depuis que je suis malade</string>
+    <string name="app_widget_description">Ceci est une description du widget d\'application</string>
+    <string name="vacation_days_taken">Jours de vacances pris</string>
+    <string name="vacation_days_planned">Jours de vacances prévus</string>
+    <string name="vacation_days_available">Jours de vacances disponibles</string>
+    <string name="sick_days_taken">Jours de maladie pris</string>
+    <string name="work_days">Jours de travail</string>
+    <string name="no_upcoming_vacation">Pas de vacances à venir</string>
+    <string name="days_since_vacation_and_sick_description">Jours depuis les vacances et les congés maladie</string>
+    <string name="taken_and_available_description">Jours de vacances pris et disponibles</string>
+    <string name="taken_planned_until_description">Jours de vacances pris, jours de vacances prévus, jours avant les vacances</string>
+    <string name="taken_planned_vacation_sick_description">Jours de vacances pris, jours de vacances prévus, jours de maladie pris</string>
+    <string name="vacation_info_description">Jours de vacances pris, jours de vacances prévus, jours de maladie pris, jours avant les vacances</string>
+    <string name="vacation_info_with_work_description">Jours de vacances pris, jours de vacances prévus, jours de maladie pris, jours de travail</string>
 </resources>
