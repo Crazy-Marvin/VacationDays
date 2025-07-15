@@ -1,0 +1,10 @@
+- Nouveau : Afficher l'en-tête des jours de la semaine 📅
+- Nouveau : Widgets de l'écran d'accueil 🏠
+- Nouveau : Afficher une notification sur les vacances à venir 🥳
+- Nettoyage supplémentaire 🛀
+- Mises à jour des dépendances ⚙️
+- Mises à jour des traductions 🗺️
+
+Un grand merci à tous les contributeurs et traducteurs, en particulier Mikalai &amp; Mubeen. 😘
+N'hésitez pas à signaler des problèmes et à soumettre des correctifs sur https://github.com/Crazy-Marvin/VacationDays/ ou des traductions sur https://hosted.weblate.org/engage/vacation-days/. 🚀
+Et bien sûr, profitez de vos vacances parce que vous êtes géniaux ! 🏖️
