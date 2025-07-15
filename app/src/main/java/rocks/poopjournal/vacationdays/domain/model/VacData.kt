@@ -10,5 +10,8 @@ sealed class VacData {
         val vacationDays: Int,
         val sickDays: Int,
         val vacationsNumber: Int,
+        val excludeHolidays: Boolean, // ⬅ Add this
+        val hasExceededVacationLimit: Boolean // ← Add this
+
     ) : VacData()
 }

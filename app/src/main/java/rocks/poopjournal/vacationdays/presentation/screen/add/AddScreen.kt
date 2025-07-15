@@ -7,15 +7,19 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Clear
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -30,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -57,10 +62,12 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
     var endDateString by remember { mutableStateOf("") }
     val emptyVacation = stringResource(R.string.empty_vacation)
     val emptyDate = stringResource(R.string.empty_date)
+    val isExceeded = (data as? VacData.Success)?.hasExceededVacationLimit == true
 
     val isShowWeekDaysHeader by viewModel.themeSetting.isShowWeekDaysHeaderFlow.collectAsStateWithLifecycle()
 
     Column(modifier = Modifier.fillMaxSize()) {
+
         TopBar(
             selectedTab = selectedTab,
             onTabSelected = { index -> selectedTab = index },
@@ -85,7 +92,8 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
             onCloseClick = {
                 navHostController.popBackStack()
             },
-            isSickEnabled = viewModel.themeSetting.isFeatureEnabled
+            isSickEnabled = viewModel.themeSetting.isFeatureEnabled,
+            isExceedLimit = isExceeded
         )
 
         Column(modifier = Modifier.fillMaxWidth()) {
@@ -104,8 +112,6 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
             )
         }
     }
-
-
 }
 
 @Composable
@@ -116,7 +122,8 @@ private fun TopBar(
     onNameChange: (String) -> Unit,
     onCheckClick: () -> Unit,
     onCloseClick: () -> Unit,
-    isSickEnabled : Boolean
+    isExceedLimit: Boolean,
+    isSickEnabled: Boolean
 ) {
     val sick = stringResource(R.string.sick)
     val vacation = stringResource(R.string.vacation)
@@ -124,7 +131,7 @@ private fun TopBar(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .height(196.dp)
+            .padding(bottom = 16.dp)
             .background(MaterialTheme.colorScheme.primary)
     ) {
         // Top row with Close and Check buttons
@@ -153,17 +160,24 @@ private fun TopBar(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = 16.dp, vertical = 16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             OutlinedTextField(
                 value = vacationName,
                 onValueChange = { onNameChange(it) },
                 placeholder = {
-                    Text(text = stringResource(R.string.holiday), style = MaterialTheme.typography.bodyLarge, color = Color.White)
+                    Text(
+                        text = stringResource(R.string.holiday),
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = Color.White
+                    )
                 },
                 label = {
-                    Text(text = stringResource(R.string.name), style = MaterialTheme.typography.labelSmall)
+                    Text(
+                        text = stringResource(R.string.name),
+                        style = MaterialTheme.typography.labelSmall
+                    )
                 },
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     focusedBorderColor = MaterialTheme.colorScheme.primary,
@@ -177,7 +191,7 @@ private fun TopBar(
             )
         }
 
-        if(isSickEnabled) {
+        if (isSickEnabled) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -192,6 +206,49 @@ private fun TopBar(
                 )
             }
         }
+        if (isExceedLimit) {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 16.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.outlineVariant,
+                    contentColor = MaterialTheme.colorScheme.onBackground
+                ),
+                shape = RoundedCornerShape(10.dp)
+            ) {
+                Column(modifier = Modifier.padding(10.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(16.dp)
+                    ) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_problem),
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onBackground
+                        )
+                        Text(
+                            stringResource(R.string.exceed_vacation_title),
+                            color = MaterialTheme.colorScheme.onBackground,
+                            style = MaterialTheme.typography.titleMedium
+                        )
+                    }
+                    Spacer(Modifier.height(10.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth().padding(start = 40.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            stringResource(R.string.exceed_vacation_description),
+                            color = MaterialTheme.colorScheme.onBackground,
+                            style = MaterialTheme.typography.bodyLarge
+                        )
+                    }
+                }
+            }
+        }
     }
 }
+
 

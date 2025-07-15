@@ -19,3 +19,4 @@ val darkGray = Color(0xFF383C42)
 val darkBlack = Color(0xFF111418)
 val darkBorder = Color(0xFF4A525A)
 val lightBorder = Color(0xFFB81E00)
+

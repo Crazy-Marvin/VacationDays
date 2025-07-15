@@ -57,12 +57,15 @@ class VacationDataUseCase @Inject constructor(
             val currentYear = LocalDate.now().year.toString()
             val vacationNumber = vacationNumberRepository.getVacationNumberForYear(currentYear)
             val maxVacationNumber = maxOf(vacationNumber - vacationDaysCount, 0)
+            val hasExceeded = vacationDaysCount > vacationNumber
 
             VacData.Success(
                 vacations = data.sortedBy { LocalDate.parse(it.startDate, formatter) },
                 vacationDays = vacationDaysCount,
                 sickDays = sickDaysCount,
-                vacationsNumber = maxVacationNumber
+                vacationsNumber = maxVacationNumber,
+                excludeHolidays = isExcludeHolidays,
+                hasExceededVacationLimit = hasExceeded
             )
         }
             .stateIn(

@@ -78,4 +78,6 @@
     <string name="taken_planned_vacation_sick_description">Taken Vacation Days, Planned Vacation Days, Taken Sick Days</string>
     <string name="vacation_info_description">Taken Vacation Days, Planned Vacation Days, Taken Sick Days, Days Until Vacation</string>
     <string name="vacation_info_with_work_description">Taken Vacation Days, Planned Vacation Days, Taken Sick Days, Work Days</string>
+    <string name="exceed_vacation_title">Too Few Vacation Days</string>
+    <string name="exceed_vacation_description">The selected vacation days exceed the available number.</string>
 </resources>
