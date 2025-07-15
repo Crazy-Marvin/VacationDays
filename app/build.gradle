@@ -39,8 +39,8 @@ android {
         namespace "rocks.poopjournal.vacationdays"
         minSdkVersion 29
         targetSdkVersion 35
-        versionCode 17
-        versionName "17.0"
+        versionCode 18
+        versionName "17.1"
         setProperty("archivesBaseName", "VacationDays" + "-v" + versionName)
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
