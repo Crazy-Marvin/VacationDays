@@ -77,4 +77,6 @@
     <string name="taken_planned_vacation_sick_description">Jours de vacances pris, jours de vacances prévus, jours de maladie pris</string>
     <string name="vacation_info_description">Jours de vacances pris, jours de vacances prévus, jours de maladie pris, jours avant les vacances</string>
     <string name="vacation_info_with_work_description">Jours de vacances pris, jours de vacances prévus, jours de maladie pris, jours de travail</string>
+    <string name="exceed_vacation_title">Trop peu de jours de vacances</string>
+    <string name="exceed_vacation_description">Les jours de vacances sélectionnés dépassent le nombre de jours disponibles.</string>
 </resources>
