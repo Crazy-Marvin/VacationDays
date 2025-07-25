@@ -8,8 +8,6 @@ Consultez vos disponibilités et planifiez vos vacances.
 
 <b>Chouettes, réjouissez-vous.</b> Un magnifique mode sombre pour une utilisation nocturne. Activez-le automatiquement ou adaptez-le à l'apparence du système.
 
- Page web : <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
-
+Page web : <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
 Traduction sur Hosted Weblate : <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
-
 Logiciels libres sur GitHub : <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
