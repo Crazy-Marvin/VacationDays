@@ -51,8 +51,8 @@
     <string name="done">Fait</string>
     <string name="delete_vacation">Vacances supprimées</string>
     <string name="undo">Défaire</string>
-    <string name="empty_vacation">Veuillez saisir le nom de la vacances!</string>
-    <string name="empty_date">Veuillez sélectionner la date de début!</string>
+    <string name="empty_vacation">Veuillez saisir le nom de la vacances !</string>
+    <string name="empty_date">Veuillez sélectionner la date de début !</string>
     <string name="sick">Malade</string>
     <string name="vacation">Vacances</string>
     <string name="holiday">Vacances</string>
