@@ -3,4 +3,4 @@
 - 🐛 Correction du nom de version affiché dans l'écran À propos (#97)
 - 👍 Mise à jour des dépendances et des traductions
 
-Un grand merci à @unbiaseduser, @amarradi et à tous les traducteurs! 😘
+Un grand merci à @unbiaseduser, @amarradi et à tous les traducteurs ! 😘

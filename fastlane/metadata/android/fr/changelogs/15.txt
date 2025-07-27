@@ -14,4 +14,4 @@ La version minimale d'Android prise en charge est passée d'Android 5 à Android
 
 Un grand merci à tous les contributeurs et traducteurs, et en particulier à mubeen. 😘
 N'hésitez pas à signaler les problèmes et à proposer des correctifs sur https://github.com/Crazy-Marvin/VacationDays/ ou à proposer des traductions sur https://hosted.weblate.org/engage/vacation-days/. 🚀
-Et bien sûr, profitez bien de vos vacances, vous êtes géniaux! 🏖️
+Et bien sûr, profitez bien de vos vacances, vous êtes géniaux ! 🏖️
