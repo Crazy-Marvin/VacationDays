@@ -1,17 +1,17 @@
-Questo aggiornamento include molte correzioni di bug e alcune utili nuove funzioni. 🥳
-Come sempre, fateci sapere se qualcosa non funziona o manca. 😘
-La versione minima supportata di Android è stata aumentata da Android 5 ad Android 10. 🆙
+Tante novità. 🥳
+Segnalate problemi vari. 😘
+Versione minima di Android da 5 a 10. 🆙
 
-- Cercare di correggere le build riproducibili (di nuovo) ❤️
-- Ulteriori pulizie di casa 🛀
-- La cancellazione delle voci è di nuovo possibile 🐛
-- I giorni di vacanza passati possono essere aggiunti di nuovo 🐛
-- L'evidenziazione della data odierna dovrebbe tornare ad avere un bell'aspetto 🐛
-- Le dimensioni di alcuni campi di testo troppo piccoli dovrebbero essere corrette dinamicamente 🐛
-- Avvisare gli utenti quando cercano di salvare una vacanza senza nome, invece di uscire senza salvare ⚠️
-- Aggiornamenti delle dipendenze ⚙️
-- Aggiornamenti delle traduzioni 🗺️
+- Fix build riproducibili (ancora) ❤️
+- Pulizie 🛀
+- Fix rimozione voci 🐛
+- Fix ferie passate 🐛
+- Fix data odierna 🐛
+- Campi adattivi 🐛
+- Avviso vacanze senza nome ⚠️
+- Bump dipendenze ⚙️
+- Nuove traduzioni 🗺️
 
-Un enorme ringraziamento a tutti i collaboratori e traduttori, in particolare a Mubeen. 😘
-Segnalate pure i problemi e inviate le correzioni su https://github.com/Crazy-Marvin/VacationDays/ o le traduzioni su https://hosted.weblate.org/engage/vacation-days/. 🚀
-E naturalmente, godetevi le vacanze perché siete fantastici! 🏖️
+Grazie in particolare a Mubeen. 😘
+Segnalate su https://github.com/Crazy-Marvin/VacationDays/ traduzioni su https://hosted.weblate.org/engage/vacation-days/. 🚀
+Buone ferie, siete fantastici! 🏖️
