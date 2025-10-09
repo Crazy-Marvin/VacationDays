@@ -77,4 +77,6 @@
     <string name="taken_and_available_description">Giorni di Ferie Goduti e Disponibili</string>
     <string name="enable_notification">Notifiche</string>
     <string name="taken_planned_vacation_sick_description">Giorni di ferie goduti, giorni di ferie programmati, giorni di malattia presi</string>
+    <string name="exceed_vacation_title">Troppo pochi giorni di ferie</string>
+    <string name="exceed_vacation_description">I giorni di ferie selezionati superano il numero disponibile.</string>
 </resources>
