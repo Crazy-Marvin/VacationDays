@@ -1,10 +1,10 @@
-- Nuovo: Mostra l'intestazione dei giorni della settimana 📅
-- Novità: widget della schermata iniziale 🏠
-- Nuovo: Mostrare notifiche sulle prossime vacanze 🥳
+- Nuovo: Mostra intestazione dei giorni della settimana 📅
+- Nuovo: widget schermata iniziale 🏠
+- Nuovo: Mostra notifiche sulle prossime vacanze 🥳
 - Ulteriori pulizie di casa 🛀
-- Aggiornamenti sulle dipendenze ⚙️
-- Aggiornamenti delle traduzioni 🗺️
+- Aggiornate dipendenze ⚙️
+- Aggiornate traduzioni 🗺️
 
-Un enorme ringraziamento a tutti i collaboratori e traduttori, in particolare a Mikalai e Mubeen. 😘
-Siete invitati a segnalare problemi e a inviare correzioni su https://github.com/Crazy-Marvin/VacationDays/ o traduzioni su https://hosted.weblate.org/engage/vacation-days/. 🚀
+Un grazie in particolare a Mikalai e Mubeen. 😘
+Segnalare problemi e correzioni su https://github.com/Crazy-Marvin/VacationDays/ o traduzioni su https://hosted.weblate.org/engage/vacation-days/. 🚀
 E naturalmente godetevi le vacanze perché siete fantastici! 🏖️
