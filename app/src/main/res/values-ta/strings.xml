@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vacation Days</string>
+    <string name="app_name">விடுமுறை நாட்கள்</string>
     <string name="apachelicense">Apache உரிமம் 2.0</string>
     <string name="contribute">பங்களிப்பு</string>
     <string name="reportaproblem">ஒரு சிக்கலைப் புகாரளி</string>
@@ -22,7 +22,7 @@
     <string name="mitLicence">MIT உரிமம்</string>
     <string name="appearance">தோற்றம்</string>
     <string name="data">தகவல்கள்</string>
-    <string name="backupheading">Backup</string>
+    <string name="backupheading">காப்புப்பிரதி</string>
     <string name="restore">மீட்டெடு</string>
     <string name="addHoliday">கூட்டு Holiday Title</string>
     <string name="save">சேமி</string>
@@ -35,7 +35,7 @@
     <string name="empty_text">இல்லை Vacation Added</string>
     <string name="track">மின்தடம் Sick Days</string>
     <string name="backupMessage">காப்பு வெற்றி</string>
-    <string name="vacation_days">No. of Vacation Days</string>
+    <string name="vacation_days">விடுமுறை நாட்களின் எண்ணிக்கை</string>
     <string name="undo">செயல்தவிர்</string>
     <string name="empty_vacation">விடுமுறை பெயரை உள்ளிடவும்!</string>
     <string name="empty_date">தயவுசெய்து தொடக்கத் தேதியைத் தேர்ந்தெடுக்கவும்!</string>
@@ -64,4 +64,6 @@
     <string name="taken_planned_vacation_sick_description">எடுக்கப்பட்ட விடுமுறை நாட்கள், திட்டமிடப்பட்ட விடுமுறை நாட்கள், நோய்வாய்ப்பட்ட நாட்கள்</string>
     <string name="vacation_info_description">எடுக்கப்பட்ட விடுமுறை நாட்கள், திட்டமிடப்பட்ட விடுமுறை நாட்கள், நோய்வாய்ப்பட்ட நாட்கள், விடுமுறை வரை நாட்கள்</string>
     <string name="vacation_info_with_work_description">எடுக்கப்பட்ட விடுமுறை நாட்கள், திட்டமிடப்பட்ட விடுமுறை நாட்கள், நோய்வாய்ப்பட்ட நாட்கள், வேலை நாட்கள்</string>
+    <string name="exceed_vacation_title">மிகக் குறைவான விடுமுறை நாட்கள்</string>
+    <string name="exceed_vacation_description">தேர்ந்தெடுக்கப்பட்ட விடுமுறை நாட்கள், கிடைக்கும் எண்ணிக்கையை விட அதிகமாகும்.</string>
 </resources>
