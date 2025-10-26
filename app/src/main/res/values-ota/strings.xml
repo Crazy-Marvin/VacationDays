@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="about">حقندە</string>
+    <string name="settings">عیارلر</string>
+    <string name="timeline">زمان چیزلگەسی</string>
+    <string name="calendar">تقویم</string>
+    <string name="developer">گلیشدریجی</string>
+    <string name="contribute">قاتقیدە بولون</string>
+    <string name="translate">چویر</string>
+    <string name="general">گنل</string>
+    <string name="appearance">گورونم</string>
+    <string name="data">وری</string>
 </resources>
