@@ -76,8 +76,10 @@ fun CalenderView(
     isRangeSelection: Boolean = false,
     holidays: List<VacationData> = emptyList(),
     showWeekDaysHeader: Boolean = false,
+    initialStartDate: LocalDate? = null,
+    initialEndDate: LocalDate? = null,
 ) {
-    var selectedYear by remember {
+    var selectedYear by remember(focusOnDate) {
         mutableIntStateOf(focusOnDate
             ?.year
             ?: YearMonth.now().year
@@ -88,7 +90,9 @@ fun CalenderView(
     val startMonth = remember(selectedYear) { YearMonth.of(selectedYear, 1) }
     val endMonth = remember(selectedYear) { YearMonth.of(selectedYear, 12) }
 
-    var selection by remember { mutableStateOf(DateSelection()) }
+    var selection by remember(initialStartDate, initialEndDate) {
+        mutableStateOf(DateSelection(initialStartDate, initialEndDate))
+    }
 
     val years = (selectedYear - 30..selectedYear + 30).toList()
     var expanded by remember { mutableStateOf(false) }

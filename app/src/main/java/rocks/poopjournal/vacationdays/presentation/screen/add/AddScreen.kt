@@ -25,6 +25,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -50,12 +51,18 @@ import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavHostController) {
+fun AddScreen(
+    viewModel: AddViewModel = hiltViewModel(),
+    navHostController: NavHostController,
+    vacationId: Int,
+) {
 
     var selectedTab by remember { mutableIntStateOf(1) }
     val context = LocalContext.current
+    val formatter = remember { DateTimeFormatter.ofPattern("d/MM/yyyy") }
 
     val data by viewModel.vacationsUseCase.vacationsFlow.collectAsStateWithLifecycle(VacData.Empty)
+    val editableVacation by viewModel.editableVacation.collectAsStateWithLifecycle(null)
 
     var vacationName by remember { mutableStateOf("") }
     var startDateString by remember { mutableStateOf("") }
@@ -63,8 +70,37 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
     val emptyVacation = stringResource(R.string.empty_vacation)
     val emptyDate = stringResource(R.string.empty_date)
     val isExceeded = (data as? VacData.Success)?.hasExceededVacationLimit == true
+    val isEditMode = vacationId > 0
 
     val isShowWeekDaysHeader by viewModel.themeSetting.isShowWeekDaysHeaderFlow.collectAsStateWithLifecycle()
+
+    LaunchedEffect(vacationId) {
+        if (isEditMode) {
+            viewModel.loadVacationForEdit(vacationId)
+        } else {
+            viewModel.clearEditableVacation()
+        }
+    }
+
+    LaunchedEffect(editableVacation?.id) {
+        editableVacation?.let { vacation ->
+            vacationName = vacation.name
+            startDateString = vacation.startDate
+            endDateString = vacation.endDate ?: ""
+            selectedTab = if (vacation.category == "Sick") 0 else 1
+        }
+    }
+
+    val initialStartDate = remember(editableVacation?.startDate) {
+        editableVacation?.startDate
+            ?.takeIf { it.isNotEmpty() }
+            ?.let { LocalDate.parse(it, formatter) }
+    }
+    val initialEndDate = remember(editableVacation?.endDate) {
+        editableVacation?.endDate
+            ?.takeIf { !it.isNullOrEmpty() }
+            ?.let { LocalDate.parse(it, formatter) }
+    }
 
     Column(modifier = Modifier.fillMaxSize()) {
 
@@ -73,19 +109,31 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
             onTabSelected = { index -> selectedTab = index },
             vacationName = vacationName,
             onNameChange = { vacationName = it },
-            onCheckClick = {
+            onCheckClick = onCheckClick@{
                 if (vacationName.isEmpty()) {
                     Toast.makeText(context, emptyVacation, Toast.LENGTH_SHORT).show()
                 } else if (startDateString.isEmpty()) {
                     Toast.makeText(context, emptyDate, Toast.LENGTH_SHORT).show()
                 } else {
-                    val vacationData = VacationData(
-                        name = vacationName,
-                        startDate = startDateString,
-                        endDate = endDateString.ifEmpty { null },
-                        category = if (selectedTab == 0) "Sick" else "Vacation"
-                    )
-                    viewModel.addVacation(vacationData)
+                    val category = if (selectedTab == 0) "Sick" else "Vacation"
+                    if (isEditMode) {
+                        val baseData = editableVacation ?: return@onCheckClick
+                        val updatedVacation = baseData.copy(
+                            name = vacationName,
+                            startDate = startDateString,
+                            endDate = endDateString.ifEmpty { null },
+                            category = category
+                        )
+                        viewModel.updateVacation(updatedVacation)
+                    } else {
+                        val vacationData = VacationData(
+                            name = vacationName,
+                            startDate = startDateString,
+                            endDate = endDateString.ifEmpty { null },
+                            category = category
+                        )
+                        viewModel.addVacation(vacationData)
+                    }
                     navHostController.popBackStack()
                 }
             },
@@ -104,11 +152,13 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
                 },
                 isRangeSelection = true,
                 dateSelected = { startDate, endDate ->
-                    startDateString = startDate.format(DateTimeFormatter.ofPattern("d/MM/yyyy"))
-                    endDateString = endDate?.format(DateTimeFormatter.ofPattern("d/MM/yyyy")) ?: ""
+                    startDateString = startDate.format(formatter)
+                    endDateString = endDate?.format(formatter) ?: ""
                 },
                 showWeekDaysHeader = isShowWeekDaysHeader,
-                focusOnDate = LocalDate.now()
+                focusOnDate = initialStartDate ?: LocalDate.now(),
+                initialStartDate = initialStartDate,
+                initialEndDate = initialEndDate
             )
         }
     }
@@ -250,5 +300,3 @@ private fun TopBar(
         }
     }
 }
-
-

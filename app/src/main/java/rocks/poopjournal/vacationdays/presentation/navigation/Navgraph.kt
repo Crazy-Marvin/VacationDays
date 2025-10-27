@@ -2,8 +2,10 @@ package rocks.poopjournal.vacationdays.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import rocks.poopjournal.vacationdays.presentation.screen.about.AboutScreen
 import rocks.poopjournal.vacationdays.presentation.screen.add.AddScreen
 import rocks.poopjournal.vacationdays.presentation.screen.home.HomeScreen
@@ -18,7 +20,20 @@ fun NavGraph(navHostController: NavHostController) {
         }
 
         composable(route = Add_Screen) {
-            AddScreen(navHostController = navHostController)
+            AddScreen(navHostController = navHostController, vacationId = -1)
+        }
+
+        composable(
+            route = "$Add_Screen?$Add_Screen_VacationId={$Add_Screen_VacationId}",
+            arguments = listOf(
+                navArgument(Add_Screen_VacationId) {
+                    type = NavType.IntType
+                    defaultValue = -1
+                }
+            )
+        ) { backStackEntry ->
+            val vacationId = backStackEntry.arguments?.getInt(Add_Screen_VacationId) ?: -1
+            AddScreen(navHostController = navHostController, vacationId = vacationId)
         }
 
         composable(route = Setting_Screen) {

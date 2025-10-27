@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -68,7 +69,7 @@ import rocks.poopjournal.vacationdays.domain.model.VacData
 import rocks.poopjournal.vacationdays.presentation.component.CalenderView
 import rocks.poopjournal.vacationdays.presentation.component.CustomTab
 import rocks.poopjournal.vacationdays.presentation.navigation.About_Screen
-import rocks.poopjournal.vacationdays.presentation.navigation.Add_Screen
+import rocks.poopjournal.vacationdays.presentation.navigation.addScreenRoute
 import rocks.poopjournal.vacationdays.presentation.navigation.Setting_Screen
 import rocks.poopjournal.vacationdays.presentation.ui.theme.gray
 import java.time.LocalDate
@@ -108,7 +109,7 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { navHostController.navigate(Add_Screen) },
+                onClick = { navHostController.navigate(addScreenRoute()) },
                 shape = CircleShape,
                 containerColor = MaterialTheme.colorScheme.surface,
                 contentColor = MaterialTheme.colorScheme.background
@@ -149,7 +150,8 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
                                     viewModel.restoreVacation(it)
                                 }
                             }
-                        })
+                        },
+                        onEdit = { navHostController.navigate(addScreenRoute(it.id)) })
 
                     1 -> CalenderView(
                         holidays = vacation,
@@ -345,7 +347,11 @@ private fun TopBar(
 @OptIn(ExperimentalMaterialApi::class)
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun TimelineView(vacationList: List<VacationData>, onDelete: (VacationData) -> Unit) {
+fun TimelineView(
+    vacationList: List<VacationData>,
+    onDelete: (VacationData) -> Unit,
+    onEdit: (VacationData) -> Unit,
+) {
     val groupedVacations = vacationList.groupBy { vacation ->
         YearMonth.parse(vacation.startDate, DateTimeFormatter.ofPattern("d/MM/yyyy"))
     }
@@ -437,6 +443,7 @@ fun TimelineView(vacationList: List<VacationData>, onDelete: (VacationData) -> U
                                                 .fillMaxWidth()
                                                 .height(if (item.endDate.isNullOrEmpty()) 70.dp else 90.dp)
                                                 .padding(10.dp)
+                                                .clickable { onEdit(item) }
                                                 .border(
                                                     width = 1.dp,
                                                     color = cardBorderColor,
@@ -547,6 +554,4 @@ fun SwipeToDismissListItem(
         }
     }
 }
-
-
 
