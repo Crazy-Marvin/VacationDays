@@ -23,7 +23,7 @@ jobs:
       - name: "🧪 Code coverage"
         run: ./gradlew clean jacocoTestReport
       - name:  "🧪 Generate report"
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: report 
           path: ${{ github.workspace }}/app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
