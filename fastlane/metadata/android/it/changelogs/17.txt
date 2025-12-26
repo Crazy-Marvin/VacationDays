@@ -4,7 +4,3 @@
 - Ulteriori pulizie di casa 🛀
 - Aggiornate dipendenze ⚙️
 - Aggiornate traduzioni 🗺️
-
-Un grazie in particolare a Mikalai e Mubeen. 😘
-Segnalare problemi e correzioni su https://github.com/Crazy-Marvin/VacationDays/ o traduzioni su https://hosted.weblate.org/engage/vacation-days/. 🚀
-E naturalmente godetevi le vacanze perché siete fantastici! 🏖️
