@@ -28,7 +28,7 @@ jobs:
           name: report 
           path: ${{ github.workspace }}/app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
       - name: "🧪 Download Test Reports Folder"
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: report
           path: ${{ github.workspace }}/app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
