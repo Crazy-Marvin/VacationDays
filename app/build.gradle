@@ -30,7 +30,7 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
 }
 
 android {
-    compileSdkVersion 35
+    compileSdkVersion 36
     androidResources {
         generateLocaleConfig true
     }
@@ -38,7 +38,7 @@ android {
         applicationId "rocks.poopjournal.vacationdays"
         namespace "rocks.poopjournal.vacationdays"
         minSdkVersion 29
-        targetSdkVersion 35
+        targetSdkVersion 36
         versionCode 18
         versionName "17.1"
         setProperty("archivesBaseName", "VacationDays-$versionName")
@@ -138,4 +138,5 @@ dependencies {
 kapt{
     correctErrorTypes = true
 }
+
 
