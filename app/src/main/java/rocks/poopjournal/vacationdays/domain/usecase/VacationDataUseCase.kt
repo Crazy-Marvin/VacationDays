@@ -181,4 +181,7 @@ class VacationDataUseCase @Inject constructor(
             initialValue = WidgetDisplayData.Empty
         )
 
+
+
 }
+
