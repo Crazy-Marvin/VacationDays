@@ -69,6 +69,7 @@ import rocks.poopjournal.vacationdays.presentation.component.CalenderView
 import rocks.poopjournal.vacationdays.presentation.component.CustomTab
 import rocks.poopjournal.vacationdays.presentation.navigation.About_Screen
 import rocks.poopjournal.vacationdays.presentation.navigation.Add_Screen
+import rocks.poopjournal.vacationdays.presentation.navigation.Edit_Screen
 import rocks.poopjournal.vacationdays.presentation.navigation.Setting_Screen
 import rocks.poopjournal.vacationdays.presentation.ui.theme.gray
 import java.time.LocalDate
@@ -149,6 +150,9 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navHostController: Na
                                     viewModel.restoreVacation(it)
                                 }
                             }
+                        },
+                        onClick = { id ->
+                            navHostController.navigate("$Edit_Screen/$id")
                         })
 
                     1 -> CalenderView(
@@ -345,7 +349,11 @@ private fun TopBar(
 @OptIn(ExperimentalMaterialApi::class)
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun TimelineView(vacationList: List<VacationData>, onDelete: (VacationData) -> Unit) {
+fun TimelineView(
+    vacationList: List<VacationData>,
+    onDelete: (VacationData) -> Unit,
+    onClick: (id: Int) -> Unit
+) {
     val groupedVacations = vacationList.groupBy { vacation ->
         YearMonth.parse(vacation.startDate, DateTimeFormatter.ofPattern("d/MM/yyyy"))
     }
@@ -433,6 +441,7 @@ fun TimelineView(vacationList: List<VacationData>, onDelete: (VacationData) -> U
                                     ) {
 
                                         Card(
+                                            onClick = { onClick(item.id) },
                                             modifier = Modifier
                                                 .fillMaxWidth()
                                                 .height(if (item.endDate.isNullOrEmpty()) 70.dp else 90.dp)

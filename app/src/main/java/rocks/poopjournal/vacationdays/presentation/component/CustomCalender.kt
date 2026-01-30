@@ -72,6 +72,8 @@ import java.util.Locale
 @Composable
 fun CalenderView(
     focusOnDate: LocalDate? = null,
+    startDate: LocalDate? = null,
+    endDate: LocalDate? = null,
     dateSelected: (startDate: LocalDate, endDate: LocalDate?) -> Unit = { _, _ -> },
     isRangeSelection: Boolean = false,
     holidays: List<VacationData> = emptyList(),
@@ -88,8 +90,14 @@ fun CalenderView(
     val startMonth = remember(selectedYear) { YearMonth.of(selectedYear, 1) }
     val endMonth = remember(selectedYear) { YearMonth.of(selectedYear, 12) }
 
-    var selection by remember { mutableStateOf(DateSelection()) }
-
+    var selection by remember(startDate, endDate) {
+        mutableStateOf(
+            DateSelection(
+                startDate = startDate,
+                endDate = endDate
+            )
+        )
+    }
     val years = (selectedYear - 30..selectedYear + 30).toList()
     var expanded by remember { mutableStateOf(false) }
 

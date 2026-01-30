@@ -68,7 +68,7 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
 
     Column(modifier = Modifier.fillMaxSize()) {
 
-        TopBar(
+        VacationTopBar(
             selectedTab = selectedTab,
             onTabSelected = { index -> selectedTab = index },
             vacationName = vacationName,
@@ -115,7 +115,7 @@ fun AddScreen(viewModel: AddViewModel = hiltViewModel(), navHostController: NavH
 }
 
 @Composable
-private fun TopBar(
+fun VacationTopBar(
     selectedTab: Int,
     onTabSelected: (Int) -> Unit,
     vacationName: String,
