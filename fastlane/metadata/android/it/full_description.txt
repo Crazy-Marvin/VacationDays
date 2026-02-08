@@ -1,10 +1,10 @@
 Scopri quando sei libero e pianifica le vacanze.
 
-<b>A colo d'occhio.</b> Visualizza i tuoi giorni di vacanza in uno dei due layout: una sequenza temporale o un calendario. I contatori nella barra in alto mostrano i giorni di ferie per l'anno in corso — e quanti ne restano.
+<b>A colpo d'occhio.</b> Visualizza i tuoi giorni di vacanza in uno dei due layout: una sequenza temporale o un calendario. I contatori nella barra in alto mostrano i giorni di ferie per l'anno in corso — e quanti ne restano.
 
-<b>Ordinato in pochi secondi.</b> Tocca il pulsante flottante per aggiungere nuovi giorni di vacanza. Inserisci un nome, scorri per selezionare un intervallo di date e il gioco è fatto.
+<b>Ordinato in pochi secondi.</b> Tocca il pulsante fluttuante per aggiungere nuovi giorni di vacanza. Inserisci un nome, scorri per selezionare un intervallo di date e il gioco è fatto.
 
-<b>Cambi telefono?</b> Esegui un backup di tutti i dati su un dispositivo e ripristinalo sull'altro.
+<b>Cambi telefono?</b> Esegui un backup di tutti i dati su un dispositivo e ripristinalo sull'altro. Esegui backup periodici per mantenere i tuoi dati al sicuro.
 
 <b>Nottambuli, gioite.</b> Una bellissima Modalità Scura per la visione a tarda notte. Attivala automaticamente o segui l'aspetto del sistema.
 
