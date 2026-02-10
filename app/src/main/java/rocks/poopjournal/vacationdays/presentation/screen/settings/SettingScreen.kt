@@ -143,8 +143,7 @@ fun SettingScreen(
     ) { isGranted ->
         if (isGranted && pendingEnableNotification) {
             viewModel.themeSetting.isVacationNotificationEnabled = true
-            viewModel.startVacationNotificationService(context)
-            viewModel.scheduleRepeatingAlarm(context)
+            viewModel.scheduleVacationNotifications(context)
         } else {
             Toast.makeText(context, "Notification permission denied!", Toast.LENGTH_SHORT).show()
         }
@@ -236,13 +235,11 @@ fun SettingScreen(
                             } else {
                                 // No permission required on older Android versions
                                 viewModel.themeSetting.isVacationNotificationEnabled = true
-                                viewModel.startVacationNotificationService(context)
-                                viewModel.scheduleRepeatingAlarm(context)
+                                viewModel.scheduleVacationNotifications(context)
                             }
                         } else {
                             viewModel.themeSetting.isVacationNotificationEnabled = false
-                            viewModel.stopVacationNotificationService(context)
-                            viewModel.cancelRepeatingAlarm(context)
+                            viewModel.cancelVacationNotifications(context)
                         }
                     },
                     colors = SwitchDefaults.colors(

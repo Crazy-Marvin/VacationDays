@@ -11,6 +11,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,10 +21,10 @@ import kotlinx.coroutines.launch
 import rocks.poopjournal.vacationdays.data.VacationNumber
 import rocks.poopjournal.vacationdays.domain.repo.VacationNumberRepository
 import rocks.poopjournal.vacationdays.domain.service.DatabaseBackupManager
-import rocks.poopjournal.vacationdays.domain.service.VacationNotificationReceiver
-import rocks.poopjournal.vacationdays.domain.service.VacationNotificationService
+import rocks.poopjournal.vacationdays.domain.service.VacationNotificationWorker
 import rocks.poopjournal.vacationdays.presentation.ui.utils.ThemeSetting
 import java.time.LocalDate
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @HiltViewModel
@@ -86,49 +89,20 @@ class SettingViewModel @Inject constructor(
         }
     }
 
-    fun startVacationNotificationService(context: Context) {
-        val intent = Intent(context, VacationNotificationService::class.java)
-        ContextCompat.startForegroundService(context, intent)
-    }
+    fun scheduleVacationNotifications(context: Context) {
+        val workRequest = PeriodicWorkRequestBuilder<VacationNotificationWorker>(1, TimeUnit.DAYS)
+            .setInitialDelay(5, TimeUnit.SECONDS) // Optional: start after 1 second
+            .build()
 
-    fun stopVacationNotificationService(context: Context) {
-        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        manager.cancel(1001) // Clear the ongoing notification if needed
-
-        val intent = Intent(context, VacationNotificationService::class.java)
-        context.stopService(intent)
-    }
-
-    fun scheduleRepeatingAlarm(context: Context) {
-        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val intent = Intent(context, VacationNotificationReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(
-            context,
-            0,
-            intent,
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
-        )
-
-        alarmManager.setRepeating(
-            AlarmManager.RTC_WAKEUP,
-            System.currentTimeMillis() + 1000,
-            AlarmManager.INTERVAL_DAY,
-            pendingIntent
+        WorkManager.getInstance(context).enqueueUniquePeriodicWork(
+            "vacation_notifications",
+            ExistingPeriodicWorkPolicy.REPLACE,
+            workRequest
         )
     }
 
-    fun cancelRepeatingAlarm(context: Context) {
-        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val intent = Intent(context, VacationNotificationReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(
-            context,
-            0,
-            intent,
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_NO_CREATE
-        )
-        if (pendingIntent != null) {
-            alarmManager.cancel(pendingIntent)
-        }
+    fun cancelVacationNotifications(context: Context) {
+        WorkManager.getInstance(context).cancelUniqueWork("vacation_notifications")
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
