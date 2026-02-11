@@ -1,0 +1,3 @@
+Switch from Foreground Service to Work Manager for better efficiency 🔋
+Dependency updates ⚙️
+Translation updates 🗺️
