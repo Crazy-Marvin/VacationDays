@@ -1,7 +1,5 @@
 - Viele Bugs behoben Danke an subeep 🐛
-
 - UI-Verbesserungen Dank an unbiaseduser 🎨
-
 - Zurückdrücken schließt die App jetzt nicht mehr automatisch 🐛
 - Wechsel zu Vektorsymbolen für eine schärfere Ansicht Dank an karthikayya 🎨
 - Übersetzungs-Updates 🗺️

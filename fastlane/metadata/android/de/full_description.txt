@@ -9,7 +9,5 @@ Sehen Sie, wann Sie frei haben, und planen Sie Ihren Urlaub.
 <b>Nachteulen, freut euch!</b> Ein schöner Dunkelmodus für spätabendliches Fernsehen. Schalten Sie ihn automatisch ein oder lassen Sie ihn sich an die Systemanzeige anpassen.
 
  Webseite: <a href="https://www.crazymarvin.com/vacation-days">https://www.crazymarvin.com/vacation-days</a>
-
 Übersetzung auf Hosted Weblate: <a href="https://hosted.weblate.org/engage/vacationdays/">https://hosted.weblate.org/engage/vacationdays/</a>
-
 Freie Software auf GitHub: <a href="https://github.com/Crazy-Marvin/VacationDays">https://github.com/Crazy-Marvin/VacationDays</a>
