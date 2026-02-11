@@ -5,8 +5,6 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
 
     <application
         android:name=".VacationApplication"
@@ -131,14 +129,6 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_vacation_info_with_work" />
         </receiver>
-        <receiver
-            android:name=".domain.service.VacationNotificationReceiver"
-            android:exported="false" />
-
-        <service
-            android:name=".domain.service.VacationNotificationService"
-            android:exported="false"
-            android:foregroundServiceType="dataSync" />
 
         <receiver android:name=".domain.service.BootReceiver"
             android:enabled="true"
@@ -147,5 +137,10 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove">
+        </provider>
     </application>
 </manifest>
