@@ -39,8 +39,8 @@ android {
         namespace "rocks.poopjournal.vacationdays"
         minSdkVersion 29
         targetSdkVersion 36
-        versionCode 18
-        versionName "17.1"
+        versionCode 19
+        versionName "17.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
@@ -144,5 +144,6 @@ dependencies {
 kapt{
     correctErrorTypes = true
 }
+
 
 
