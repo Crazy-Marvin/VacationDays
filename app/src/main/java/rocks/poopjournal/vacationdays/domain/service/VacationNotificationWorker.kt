@@ -44,35 +44,34 @@ class VacationNotificationWorker @AssistedInject constructor(
         val futureVacations = vacationDates.filter { !it.isBefore(now) }
 
         val message = when {
-            vacationDates.isEmpty() -> "You have no planned vacations! 😱"
-            futureVacations.minOrNull() != null && pastVacations.maxOrNull() == null ->
-                "Your first vacation will be in ${
-                    ChronoUnit.DAYS.between(
-                        now,
-                        futureVacations.minOrNull()
-                    )
-                } days. Enjoy! 🏖️"
+            vacationDates.isEmpty() ->
+                applicationContext.getString(R.string.vacation_none)
 
-            futureVacations.minOrNull() == null && pastVacations.maxOrNull() != null ->
-                "Your last vacation ended ${
-                    ChronoUnit.DAYS.between(
-                        pastVacations.maxOrNull(),
-                        now
-                    )
-                } days ago and you did not plan a new one yet! 🙈"
+            futureVacations.minOrNull() != null && pastVacations.maxOrNull() == null -> {
+                val days = ChronoUnit.DAYS.between(now, futureVacations.minOrNull())
+                applicationContext.getString(
+                    R.string.vacation_first_upcoming,
+                    days
+                )
+            }
 
-            else ->
-                "Your last vacation ended ${
-                    ChronoUnit.DAYS.between(
-                        pastVacations.maxOrNull(),
-                        now
-                    )
-                } days ago and your next vacation will be in ${
-                    ChronoUnit.DAYS.between(
-                        now,
-                        futureVacations.minOrNull()
-                    )
-                } days. Enjoy! 🏖️"
+            futureVacations.minOrNull() == null && pastVacations.maxOrNull() != null -> {
+                val days = ChronoUnit.DAYS.between(pastVacations.maxOrNull(), now)
+                applicationContext.getString(
+                    R.string.vacation_last_ended,
+                    days
+                )
+            }
+
+            else -> {
+                val pastDays = ChronoUnit.DAYS.between(pastVacations.maxOrNull(), now)
+                val futureDays = ChronoUnit.DAYS.between(now, futureVacations.minOrNull())
+                applicationContext.getString(
+                    R.string.vacation_last_and_next,
+                    pastDays,
+                    futureDays
+                )
+            }
         }
 
         showNotification(message)
@@ -92,7 +91,9 @@ class VacationNotificationWorker @AssistedInject constructor(
         manager.createNotificationChannel(channel)
 
         val notification = NotificationCompat.Builder(applicationContext, channelId)
-                .setContentTitle("Upcoming Vacation")
+            .setContentTitle(
+                applicationContext.getString(R.string.vacation_notification_title)
+            )
                 .setContentText(message)
                 .setSmallIcon(R.drawable.umbrella)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)

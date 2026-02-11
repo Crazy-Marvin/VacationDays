@@ -80,4 +80,17 @@
     <string name="vacation_info_with_work_description">Taken Vacation Days, Planned Vacation Days, Taken Sick Days, Work Days</string>
     <string name="exceed_vacation_title">Too Few Vacation Days</string>
     <string name="exceed_vacation_description">The selected vacation days exceed the available number.</string>
+    <string name="vacation_none">You have no planned vacations! 😱</string>
+    <string name="vacation_first_upcoming">
+        Your first vacation will be in %1$d days. Enjoy! 🏖️
+    </string>
+    <string name="vacation_last_ended">
+        Your last vacation ended %1$d days ago and you did not plan a new one yet! 🙈
+    </string>
+    <string name="vacation_last_and_next">
+        Your last vacation ended %1$d days ago and your next vacation will be in %2$d days. Enjoy! 🏖️
+    </string>
+    <string name="vacation_notification_title">Upcoming Vacation</string>
+    <string name="vacation_channel_name">Vacation Notifications</string>
+    <string name="notification_permission_denied">Notification permission denied!</string>
 </resources>

@@ -145,7 +145,7 @@ fun SettingScreen(
             viewModel.themeSetting.isVacationNotificationEnabled = true
             viewModel.scheduleVacationNotifications(context)
         } else {
-            Toast.makeText(context, "Notification permission denied!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, R.string.notification_permission_denied, Toast.LENGTH_SHORT).show()
         }
         pendingEnableNotification = false
     }
