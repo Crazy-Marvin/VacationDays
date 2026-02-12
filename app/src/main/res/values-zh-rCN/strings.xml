@@ -79,4 +79,11 @@
     <string name="vacation_info_with_work_description">已用假期天数、计划的假期天数、已用病假天数、工作日</string>
     <string name="exceed_vacation_title">休假太少</string>
     <string name="exceed_vacation_description">所选休假天数超出可用数。</string>
+    <string name="vacation_none">没有计划的假期！ 😱</string>
+    <string name="vacation_first_upcoming">第一个假期将在 %1$d 天内到来。好好享受吧！🏖️</string>
+    <string name="vacation_last_ended">上一个假期在 %1$d 天前结束，你还没有计划新的假期！🙈</string>
+    <string name="vacation_last_and_next">上一个假期在 %1$d 天前结束，下一个假期将在 %2$d 天内到来。好好享受吧！🏖️</string>
+    <string name="vacation_notification_title">即将到来的假期</string>
+    <string name="vacation_channel_name">假期通知</string>
+    <string name="notification_permission_denied">通知权限被拒！</string>
 </resources>
