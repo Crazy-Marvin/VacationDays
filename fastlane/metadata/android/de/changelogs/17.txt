@@ -1,9 +1,6 @@
-- Reproduzierbare Builds (erneut) reparieren ❤️
-- Homescreen-Widget 🏠
-- BETA: Benachrichtigung für zukünftige Urlaube 🔔
-- UX-Verbesserungen 🎨
-- UI-Korrekturen 🎨
-- Weitere Verbesserungen 🛀
-- Ziel: Android 16 🤖
-- Abhängigkeits-Updates ⚙️
-- Übersetzungs-Updates 🗺️
+- Neu: Anzeige der Wochentagsüberschrift 📅
+- Neu: Widgets für den Startbildschirm 🏠
+- Neu: Anzeige einer Benachrichtigung über bevorstehende Urlaube 🥳
+- Weitere Bereinigungen 🛀
+- Aktualisierung von Abhängigkeiten ⚙️
+- Aktualisierung von Übersetzungen 🗺️

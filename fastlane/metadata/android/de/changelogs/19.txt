@@ -1,0 +1,3 @@
+Wechsel von Foreground Service zu Work Manager, um die Effizienz zu steigern 🔋
+Aktualisierungen der Abhängigkeiten ⚙️
+Aktualisierungen der Übersetzungen 🗺️
