@@ -79,4 +79,11 @@
     <string name="vacation_info_with_work_description">Jours de vacances pris, jours de vacances prévus, jours de maladie pris, jours de travail</string>
     <string name="exceed_vacation_title">Trop peu de jours de vacances</string>
     <string name="exceed_vacation_description">Les jours de vacances sélectionnés dépassent le nombre de jours disponibles.</string>
+    <string name="vacation_none">Vous n’avez aucune vacance prévue ! 😱</string>
+    <string name="vacation_first_upcoming">Vos premières vacances auront lieu dans %1$d jours. Profitez-en ! 🏖️</string>
+    <string name="vacation_last_ended">Vos dernières vacances se sont terminées il y a %1$d jours et vous n’en avez pas encore planifié de nouvelles ! 🙈</string>
+    <string name="vacation_last_and_next">Vos dernières vacances se sont terminées il y a %1$d jours et vos prochaines vacances auront lieu dans %2$d jours. Profitez-en ! 🏖️</string>
+    <string name="vacation_notification_title">Vacances à venir</string>
+    <string name="vacation_channel_name">Notifications de vacances</string>
+    <string name="notification_permission_denied">Autorisation de notifications refusée !</string>
 </resources>
