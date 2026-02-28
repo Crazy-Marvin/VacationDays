@@ -1,0 +1,3 @@
+Passage d’un service en premier plan à WorkManager pour une meilleure efficacité 🔋
+Mise à jour des dépendances ⚙️
+Mise à jour des traductions 🗺️
