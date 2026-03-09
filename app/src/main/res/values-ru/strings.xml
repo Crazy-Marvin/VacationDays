@@ -77,4 +77,11 @@
     <string name="vacation_info_with_work_description">Использовано дней отпуска, запланировано дней отпуска, использовано больничных дней, рабочих дней</string>
     <string name="exceed_vacation_title">Слишком мало дней отпуска</string>
     <string name="exceed_vacation_description">Выбранные дни отпуска превышают доступное количество.</string>
+    <string name="vacation_none">У вас нет запланированных отпусков! 😱</string>
+    <string name="vacation_first_upcoming">Ваш первый отпуск будет через %1$d дней. Отдыхайте! 🏖️</string>
+    <string name="vacation_last_ended">Ваш последний отпуск закончился %1$d дней назад, и вы ещё не запланировали новый! 🙈</string>
+    <string name="vacation_last_and_next">Ваш последний отпуск закончился %1$d дней назад, а следующий отпуск будет через %2$d дней. Отдыхайте! 🏖️</string>
+    <string name="vacation_notification_title">Предстоящий отпуск</string>
+    <string name="vacation_channel_name">Уведомления об отпуске</string>
+    <string name="notification_permission_denied">Разрешение на уведомления отклонено!</string>
 </resources>
