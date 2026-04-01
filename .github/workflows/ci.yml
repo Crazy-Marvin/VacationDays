@@ -34,7 +34,7 @@ jobs:
           path: ${{ github.workspace }}/app/build/reports/jacoco/jacocoTestReport/jacocoTestReport.xml
       - name: Submit Coverage
         # This can fail on timeouts etc, wrap with retry
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@v4
         with:
           timeout_minutes: 10
           retry_wait_seconds: 60
