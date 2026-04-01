@@ -138,7 +138,7 @@ dependencies {
     // For interop APIs with Material 3
     implementation "androidx.glance:glance-material3:1.1.1"
 
-    implementation "androidx.work:work-runtime-ktx:2.11.1"
+    implementation "androidx.work:work-runtime-ktx:2.11.2"
 
 }
 kapt{
