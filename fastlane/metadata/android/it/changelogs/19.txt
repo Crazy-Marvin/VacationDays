@@ -1,0 +1,3 @@
+Passa da Foreground Service a Work Manager per una maggiore efficienza 🔋
+Aggiornamenti delle dipendenze ⚙️
+Aggiornamenti delle traduzioni 🗺️
