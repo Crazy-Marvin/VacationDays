@@ -79,4 +79,11 @@
     <string name="taken_planned_vacation_sick_description">Giorni di ferie goduti, giorni di ferie programmati, giorni di malattia presi</string>
     <string name="exceed_vacation_title">Troppo pochi giorni di ferie</string>
     <string name="exceed_vacation_description">I giorni di ferie selezionati superano il numero disponibile.</string>
+    <string name="vacation_none">Non hai nessuna vacanza in programma! 😱</string>
+    <string name="vacation_first_upcoming">La tua prima vacanza è tra %1$d giorni. Buon divertimento! 🏖️</string>
+    <string name="vacation_last_ended">La tua ultima vacanza è finita %1$d giorni fa e non ne hai ancora programmata una nuova! 🙈</string>
+    <string name="vacation_last_and_next">La tua ultima vacanza è terminata %1$d giorni fa e la tua prossima vacanza sarà tra %2$d giorni. Buon divertimento! 🏖️</string>
+    <string name="vacation_notification_title">Prossima vacanza</string>
+    <string name="vacation_channel_name">Notifiche delle ferie</string>
+    <string name="notification_permission_denied">Autorizzazione alla notifica negata!</string>
 </resources>
